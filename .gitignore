@@ -49,6 +49,10 @@ DerivedData
 /fastlane/scripts
 /fastlane/templates
 
+# CocoaPods
+
+Pods/
+
 # content blocking lists
 Client/ContentBlocker/Lists/*
 

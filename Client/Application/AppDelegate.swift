@@ -8,6 +8,7 @@ import CoreSpotlight
 import UIKit
 import Common
 import Glean
+import CocoaDebug
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = DefaultLogger.shared
@@ -168,7 +169,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.log("didFinishLaunchingWithOptions end",
                    level: .info,
                    category: .lifecycle)
-
+        
+        customCocoaDebug();
         return true
     }
 
@@ -211,6 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.log("applicationDidBecomeActive end",
                    level: .info,
                    category: .lifecycle)
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -262,6 +265,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Since we only need the topSites data in the archiver, let's write it
         widgetManager?.writeWidgetKitTopSites()
     }
+    
+    func customCocoaDebug() {
+        CocoaDebugSettings.shared.enableLogMonitoring = true
+     }
 }
 
 extension AppDelegate: Notifiable {

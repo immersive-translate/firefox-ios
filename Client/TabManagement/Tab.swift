@@ -452,6 +452,11 @@ class Tab: NSObject, ThemeApplicable {
             configuration.allowsInlineMediaPlayback = true
             let webView = TabWebView(frame: .zero, configuration: configuration)
             webView.configure(delegate: self, navigationDelegate: navigationDelegate)
+            
+            webView.disableJavascriptDialogBlock(true);
+            webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
+            webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
+            webView.setDebugMode(false)
 
             webView.accessibilityLabel = .WebViewAccessibilityLabel
             webView.allowsBackForwardNavigationGestures = true
@@ -926,7 +931,7 @@ protocol TabWebViewDelegate: AnyObject {
     func tabWebViewSearchWithFirefox(_ tabWebViewSearchWithFirefox: TabWebView, didSelectSearchWithFirefoxForSelection selection: String)
 }
 
-class TabWebView: WKWebView, MenuHelperInterface, ThemeApplicable {
+class TabWebView: DWKWebView, MenuHelperInterface, ThemeApplicable {
     var accessoryView = AccessoryViewProvider()
     private var logger: Logger = DefaultLogger.shared
     private weak var delegate: TabWebViewDelegate?
