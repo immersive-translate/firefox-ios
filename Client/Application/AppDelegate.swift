@@ -8,7 +8,7 @@ import CoreSpotlight
 import UIKit
 import Common
 import Glean
-import CocoaDebug
+//import CocoaDebug
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = DefaultLogger.shared
@@ -170,7 +170,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    level: .info,
                    category: .lifecycle)
         
-        customCocoaDebug();
+//        customCocoaDebug();
         return true
     }
 
@@ -266,9 +266,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         widgetManager?.writeWidgetKitTopSites()
     }
     
-    func customCocoaDebug() {
-        CocoaDebugSettings.shared.enableLogMonitoring = true
-     }
+//    func customCocoaDebug() {
+//        CocoaDebugSettings.shared.enableLogMonitoring = true
+//     }
 }
 
 extension AppDelegate: Notifiable {

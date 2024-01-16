@@ -18541,8 +18541,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4VNS3D8JRA;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4VNS3D8JRA;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BB5D3W365Y;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = BB5D3W365Y;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = Sync/Info.plist;
 				SWIFT_OBJC_BRIDGING_HEADER = "$SRCROOT/Sync/Sync-Bridging-Header.h";
@@ -18570,8 +18570,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 43AQ936H96;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4VNS3D8JRA;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = 4VNS3D8JRA;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BB5D3W365Y;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = BB5D3W365Y;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "Shared/Supporting Files/Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -18669,11 +18669,11 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4VNS3D8JRA;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				INFOPLIST_FILE = Extensions/NotificationService/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_NOTIFICATIONSERVICE";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).$(PRODUCT_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = zzer.web.ios.Fennec.NotificationService;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.immersivetranslate.Immersive-Translate.browser.NotificationService";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
@@ -18787,12 +18787,12 @@
 				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/Fennec.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4VNS3D8JRA;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				INFOPLIST_FILE = WidgetKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).WidgetKit";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = zzer.web.ios.Fennec.WidgetKit;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.immersivetranslate.Immersive-Translate.browser.WidgetKit";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
@@ -18865,8 +18865,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 43AQ936H96;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4VNS3D8JRA;
-				"DEVELOPMENT_TEAM[sdk=macosx*]" = VNF7UTGW24;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = BB5D3W365Y;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = BB5D3W365Y;
 				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
 				INFOPLIST_FILE = "RustMozillaAppServices-Info.plist";
 				LOCALIZED_STRING_MACRO_NAMES = (
@@ -19726,7 +19726,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 4VNS3D8JRA;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -19754,7 +19754,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CREDENTIAL_PROVIDER";
-				PRODUCT_BUNDLE_IDENTIFIER = zzer.web.ios.Fennec.CredentialProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.CredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -19989,7 +19989,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
-				MOZ_BUNDLE_ID = com.web.ios.Fennec;
+				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -20008,7 +20008,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 4VNS3D8JRA;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Client/Utils",
@@ -20018,7 +20018,8 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MOZ_BUNDLE_ID = zzer.web.ios.Fennec;
+				MOZ_BUNDLE_DISPLAY_NAME = "沉浸式翻译";
+				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -20050,11 +20051,11 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4VNS3D8JRA;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_SHARETO";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(MOZ_BUNDLE_ID).$(PRODUCT_NAME)";
-				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = zzer.web.ios.Fennec.ShareTo;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.immersivetranslate.Immersive-Translate.browser.ShareTo";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 			};
