@@ -308,6 +308,7 @@ class OnboardingCardViewController: UIViewController, Themeable {
         )
         primaryButton.configure(viewModel: buttonViewModel)
         primaryButton.applyTheme(theme: themeManager.currentTheme)
+        primaryButton.backgroundColor = UIColor(colorString: "EA4C89")
 
         setupSecondaryButton()
     }

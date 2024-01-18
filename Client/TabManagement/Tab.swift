@@ -495,6 +495,10 @@ class Tab: NSObject, ThemeApplicable {
             UserScriptManager.shared.injectUserScriptsIntoWebView(webView, nightMode: nightMode, noImageMode: noImageMode)
 
             tabDelegate?.tab(self, didCreateWebView: webView)
+            
+            NotificationCenter.default.addObserver(forName: .NeedRefreshImmersiveTranslateJsInject, object: nil, queue: .main) { _ in
+                UserScriptManager.shared.injectUserScriptsIntoWebView(self.webView, nightMode: self.nightMode, noImageMode: self.noImageMode)
+            }
         }
     }
 
