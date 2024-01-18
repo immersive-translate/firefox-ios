@@ -81,16 +81,6 @@ class UserScriptManager: FeatureFlaggable {
             compiledUserScripts[mockGmName] = userScript
         }
         
-        let immersiveName = "immersive-translate.user"
-        if let immersiveScriptCompatPath = Bundle.main.path(
-            forResource: immersiveName, ofType: "js"),
-            let source = try? NSString(
-                contentsOfFile: immersiveScriptCompatPath,
-                encoding: String.Encoding.utf8.rawValue) as String {
-            let userScript = WKUserScript.createInPageContentWorld(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
-            compiledUserScripts[immersiveName] = userScript
-        }
-        
         let dsBridgeScript = WKUserScript.createInPageContentWorld(source: "window._dswk=true;", injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: true)
         compiledUserScripts["dsbridge"] = dsBridgeScript
         
@@ -148,12 +138,14 @@ class UserScriptManager: FeatureFlaggable {
         if let mockGmUserScript = compiledUserScripts[mockGmName] {
             webView?.configuration.userContentController.addUserScript(mockGmUserScript)
         }
-  
-        let immersiveName = "immersive-translate.user"
-        if let immersiveUserScript = compiledUserScripts[immersiveName] {
+        
+        if let immersiveSource = try? NSString(
+                contentsOfFile: PlugInUpdateManager.shared.currentResourceLocation,
+                encoding: String.Encoding.utf8.rawValue) as String {
+            let immersiveUserScript = WKUserScript.createInPageContentWorld(source: immersiveSource, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
             webView?.configuration.userContentController.addUserScript(immersiveUserScript)
         }
-    
+  
         // Inject the Print Helper. This needs to be in the `page` content world in order to hook `window.print()`.
         webView?.configuration.userContentController.addUserScript(printHelperUserScript)
         // If Night Mode is enabled, inject a small user script to ensure

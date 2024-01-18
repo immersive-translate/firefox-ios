@@ -214,6 +214,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    level: .info,
                    category: .lifecycle)
         
+        PlugInUpdateManager.shared.checkUpdate();
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
