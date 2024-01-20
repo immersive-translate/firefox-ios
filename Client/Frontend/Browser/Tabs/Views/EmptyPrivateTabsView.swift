@@ -51,12 +51,12 @@ class EmptyPrivateTabsView: UIView {
         label.text = .TabTrayPrivateBrowsingDescription
     }
 
-    let learnMoreButton: UIButton = .build { button in
-        button.setTitle( .PrivateBrowsingLearnMore, for: [])
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-        button.titleLabel?.font = DefaultDynamicFontHelper.preferredFont(withTextStyle: .subheadline,
-                                                                         size: UX.buttonSizeFont)
-    }
+//    let learnMoreButton: UIButton = .build { button in
+//        button.setTitle( .PrivateBrowsingLearnMore, for: [])
+//        button.titleLabel?.adjustsFontForContentSizeCategory = true
+//        button.titleLabel?.font = DefaultDynamicFontHelper.preferredFont(withTextStyle: .subheadline,
+//                                                                         size: UX.buttonSizeFont)
+//    }
 
     private let iconImageView: UIImageView = .build { imageView in
         imageView.image = UIImage.templateImageNamed(ImageIdentifiers.largePrivateTabsMask)
@@ -75,10 +75,10 @@ class EmptyPrivateTabsView: UIView {
     }
 
     private func setupLayout() {
-        learnMoreButton.addTarget(self,
-                                  action: #selector(didTapLearnMore),
-                                  for: .touchUpInside)
-        containerView.addSubviews(iconImageView, titleLabel, descriptionLabel, learnMoreButton)
+//        learnMoreButton.addTarget(self,
+//                                  action: #selector(didTapLearnMore),
+//                                  for: .touchUpInside)
+        containerView.addSubviews(iconImageView, titleLabel, descriptionLabel)
         scrollView.addSubview(containerView)
         addSubview(scrollView)
 
@@ -115,19 +115,19 @@ class EmptyPrivateTabsView: UIView {
             descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 
-            learnMoreButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,
-                                                 constant: UX.paddingInBetweenItems),
-            learnMoreButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            learnMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            learnMoreButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
-                                                    constant: -UX.paddingInBetweenItems),
+//            learnMoreButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,
+//                                                 constant: UX.paddingInBetweenItems),
+//            learnMoreButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+//            learnMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+//            learnMoreButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
+//                                                    constant: -UX.paddingInBetweenItems),
         ])
     }
 
     func applyTheme(_ theme: Theme) {
         titleLabel.textColor = theme.colors.textPrimary
         descriptionLabel.textColor = theme.colors.textPrimary
-        learnMoreButton.setTitleColor(theme.colors.borderAccentPrivate, for: [])
+//        learnMoreButton.setTitleColor(theme.colors.borderAccentPrivate, for: [])
         iconImageView.tintColor = theme.colors.indicatorActive
     }
 

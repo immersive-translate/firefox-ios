@@ -510,7 +510,8 @@ extension LegacyTabDisplayManager: UICollectionViewDataSource {
     @objc
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if tabDisplayType == .TopTabTray { return 1 }
-        return TabDisplaySection.allCases.count
+        let count = TabDisplaySection.allCases.count;
+        return count
     }
 }
 

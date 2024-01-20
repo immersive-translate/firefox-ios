@@ -145,17 +145,19 @@ class LegacyTabTrayViewController: UIViewController, Themeable, TabTrayControlle
     }()
 
     private lazy var segmentedControlIpad: UISegmentedControl = {
-        let items = TabTrayPanelType.allCases.map { $0.label }
+        var items = TabTrayPanelType.allCases.map { $0.label }
+        items.removeLast();
         return createSegmentedControl(items: items,
                                       action: #selector(segmentIpadChanged),
                                       a11yId: AccessibilityIdentifiers.TabTray.navBarSegmentedControl)
     }()
 
     private lazy var segmentedControlIphone: UISegmentedControl = {
-        let items = [
+        var items = [
             TabTrayPanelType.tabs.image!.overlayWith(image: countLabel),
             TabTrayPanelType.privateTabs.image!,
             TabTrayPanelType.syncedTabs.image!]
+        items.removeLast();
         return createSegmentedControl(items: items,
                                       action: #selector(segmentIphoneChanged),
                                       a11yId: AccessibilityIdentifiers.TabTray.navBarSegmentedControl)
