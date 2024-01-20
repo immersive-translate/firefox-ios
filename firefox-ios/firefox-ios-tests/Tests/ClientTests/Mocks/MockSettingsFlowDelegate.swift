@@ -93,11 +93,12 @@ class MockSettingsFlowDelegate: SettingsFlowDelegate,
 
     // MARK: AboutSettingsDelegate
 
-    func pressedRateApp() {}
+    func pressedYourRights(url: URL, title: NSAttributedString) {}
 
     func pressedLicense(url: URL, title: NSAttributedString) {}
 
     func pressedYourRights(url: URL, title: NSAttributedString) {}
+
 
     // MARK: SupportSettingsDelegate
 

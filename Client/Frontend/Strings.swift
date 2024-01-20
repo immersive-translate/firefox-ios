@@ -2419,6 +2419,11 @@ extension String {
         tableName: nil,
         value: "New Tab",
         comment: "Label used as an item in Settings. When touched it will open a dialog to configure the new tab behavior.")
+    public static let SettingsAbountAppSectionName = MZLocalizedString(
+        key: "Settings.Abount.App.SectionName",
+        tableName: nil,
+        value: "Abount Immersive Translate",
+        comment: "Label used as an item in Settings. When touched it will open a dialog to see the app info.")
     public static let NewTabSectionName =
     MZLocalizedString(
         key: "Settings.NewTab.TopSectionName",
@@ -5254,6 +5259,11 @@ extension String {
         tableName: nil,
         value: nil,
         comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/")
+    public static let ImmersiveTranslateTutorials = MZLocalizedString(
+        key: "Immersive Translate Tutorials",
+        tableName: nil,
+        value: nil,
+        comment: "Show Immersive Translate Tutorials page from the Tutorials section in the settings. See https://immersivetranslate.com/docs/usage")
     public static let AppSettingsTitle = MZLocalizedString(
         key: "Settings",
         tableName: nil,

@@ -195,6 +195,9 @@
 		2262A8172B4BFB70006D6A9C /* HttpClientJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262A8162B4BFB70006D6A9C /* HttpClientJSObject.swift */; };
 		227993F12B53D5E000F815E4 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227993F02B53D5E000F815E4 /* LocalStorageManager.swift */; };
 		22823F2D2B58266A009BE82B /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22823F2C2B58266A009BE82B /* PlugInUpdateManager.swift */; };
+		2287E2772B5BCEE6007DAEE1 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */; };
+		2287E2792B5BD1BE007DAEE1 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */; };
+		2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */; };
 		22D106892B55710B00A9A2DC /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 22D106882B55710B00A9A2DC /* immersive-translate.user.js */; };
 		2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */; };
 		23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23BEA766251A99E300A014BF /* NewYorkMedium-Bold.otf */; };
@@ -2328,6 +2331,9 @@
 		226C41DDB41C94B6146982CC /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		227993F02B53D5E000F815E4 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		22823F2C2B58266A009BE82B /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
+		2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
+		2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppSetting.swift; sourceTree = "<group>"; };
+		2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
 		2297434FB8417334BEFDCE56 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Storage.strings"; sourceTree = "<group>"; };
 		22A0463AA064A7ADBA9B137E /* oc */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = oc; path = oc.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		22D106882B55710B00A9A2DC /* immersive-translate.user.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
@@ -8835,6 +8841,7 @@
 				8A5D1CC02A30DCA4005AD35C /* SettingDisclosureUtility.swift */,
 				8ADAE41C2A33A0D3007BF926 /* Support */,
 				8A720C5F2A4C8B700003018A /* SharedSettingsDelegate.swift */,
+				2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -9207,6 +9214,8 @@
 				8ADC2A1C2A33999800543DAA /* VersionSetting.swift */,
 				8ADC2A202A3399DC00543DAA /* YourRightsSetting.swift */,
 				5AE371862A4E11750092A760 /* AboutSettingsDelegate.swift */,
+				2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */,
+				2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -13056,6 +13065,7 @@
 				E1877A832875DEDE00F5BDF2 /* SyncedTabCell.swift in Sources */,
 				21E77E522AA8BE5C00FABA10 /* TabTrayFlagManager.swift in Sources */,
 				CA8226F324C11DB7008A6F38 /* PasswordManagerTableViewCell.swift in Sources */,
+				2287E2792B5BD1BE007DAEE1 /* AbountAppSetting.swift in Sources */,
 				E4A960061ABB9C450069AD6F /* ReaderModeUtils.swift in Sources */,
 				8AD40FCB27BADC4B00672675 /* StatefulButton.swift in Sources */,
 				C84655E62887398700861B4A /* WallpaperCollection.swift in Sources */,
@@ -13333,6 +13343,7 @@
 				E698FFDA1B4AADF40001F623 /* TabScrollController.swift in Sources */,
 				8A359EF32A1FD449004A5BB7 /* AdjustWrapper.swift in Sources */,
 				D34510881ACF415700EC27F0 /* SearchLoader.swift in Sources */,
+				2287E2772B5BCEE6007DAEE1 /* AbountAppViewController.swift in Sources */,
 				E17496402994302D0096900A /* PreferredFont.swift in Sources */,
 				E1442FD4294782D9003680B0 /* URL+Mail.swift in Sources */,
 				9636D92827F5D72D00771F5E /* GleanPlumbMessageManager.swift in Sources */,
@@ -13650,6 +13661,7 @@
 				21112968289480630082C08B /* HomepageMessageCardViewModel.swift in Sources */,
 				E1CD81BE290C5C7500124B27 /* DevicePickerTableViewHeaderCell.swift in Sources */,
 				E12BD0AC28AC37F00029AAF0 /* UIColor+Extension.swift in Sources */,
+				2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */,
 				E4A961181AC041C40069AD6F /* ReadabilityService.swift in Sources */,
 				AB42CC752A1F5240003C9594 /* CreditCardBottomSheetHeaderView.swift in Sources */,
 				21371FA428AA7A8D00BC3F37 /* OnboardingViewModelProtocol.swift in Sources */,

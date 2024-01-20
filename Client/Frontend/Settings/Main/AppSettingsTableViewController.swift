@@ -147,7 +147,7 @@ class AppSettingsTableViewController: SettingsTableViewController,
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
         settings += getDefaultBrowserSetting()
-        settings += getAccountSetting()
+//        settings += getAccountSetting()
         settings += getGeneralSettings()
         settings += getPrivacySettings()
         settings += getSupportSettings()
@@ -266,10 +266,6 @@ class AppSettingsTableViewController: SettingsTableViewController,
                                                     profile: profile,
                                                     settingsDelegate: parentCoordinator))
 
-        privacySettings += [
-            PrivacyPolicySetting(theme: themeManager.currentTheme, settingsDelegate: parentCoordinator)
-        ]
-
         return [SettingSection(title: NSAttributedString(string: .AppSettingsPrivacyTitle),
                                children: privacySettings)]
     }
@@ -278,17 +274,6 @@ class AppSettingsTableViewController: SettingsTableViewController,
         let supportSettings = [
             ShowIntroductionSetting(settings: self, settingsDelegate: self),
             SendFeedbackSetting(settingsDelegate: parentCoordinator),
-            SendAnonymousUsageDataSetting(prefs: profile.prefs,
-                                          delegate: settingsDelegate,
-                                          theme: themeManager.currentTheme,
-                                          settingsDelegate: parentCoordinator),
-            StudiesToggleSetting(prefs: profile.prefs,
-                                 delegate: settingsDelegate,
-                                 theme: themeManager.currentTheme,
-                                 settingsDelegate: parentCoordinator),
-            OpenSupportPageSetting(delegate: settingsDelegate,
-                                   theme: themeManager.currentTheme,
-                                   settingsDelegate: parentCoordinator),
         ]
 
         return [SettingSection(title: NSAttributedString(string: .AppSettingsSupport),
@@ -297,10 +282,7 @@ class AppSettingsTableViewController: SettingsTableViewController,
 
     private func getAboutSettings() -> [SettingSection] {
         let aboutSettings = [
-            AppStoreReviewSetting(settingsDelegate: parentCoordinator),
-            VersionSetting(settingsDelegate: self),
-            LicenseAndAcknowledgementsSetting(settingsDelegate: parentCoordinator),
-            YourRightsSetting(settingsDelegate: parentCoordinator)
+            AbountAppSetting(settingsDelegate: parentCoordinator),
         ]
 
         return [SettingSection(title: NSAttributedString(string: .AppSettingsAbout),
