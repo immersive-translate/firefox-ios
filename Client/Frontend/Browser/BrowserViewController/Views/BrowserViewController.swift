@@ -1050,7 +1050,7 @@ class BrowserViewController: UIViewController,
     func updateInContentHomePanel(_ url: URL?, focusUrlBar: Bool = false) {
         let isAboutHomeURL = url.flatMap { InternalURL($0)?.isAboutHomeURL } ?? false
         guard let url = url else {
-            showEmbeddedWebview()
+            showEmbeddedHomepage(inline: true)
             urlBar.locationView.reloadButton.reloadButtonState = .disabled
             return
         }
@@ -1062,7 +1062,11 @@ class BrowserViewController: UIViewController,
                 userHasPressedHomeButton = false
             }
         } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
-            showEmbeddedWebview()
+            if url.absoluteString == PrefsDefaults.ChineseHomePageURL {
+                showEmbeddedHomepage(inline: true)
+            } else {
+                showEmbeddedWebview();
+            }
             urlBar.shouldHideReloadButton(shouldUseiPadSetup())
         }
 
