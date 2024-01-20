@@ -205,10 +205,13 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
 
             let readingListSection = getReadingListSection()
             append(to: &section, action: readingListSection)
+            
+            let imtSettingAction = getImtSettingAction()
+            append(to: &section, action: imtSettingAction)
         }
 
-        let syncAction = syncMenuButton()
-        append(to: &section, action: syncAction)
+//        let syncAction = syncMenuButton()
+//        append(to: &section, action: syncAction)
 
         return section
     }
@@ -421,7 +424,7 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
     private func getHelpAction() -> PhotonRowActions {
         return SingleActionViewModel(title: .AppMenu.Help,
                                      iconString: StandardImageIdentifiers.Large.helpCircle) { _ in
-            if let url = URL(string: "https://support.mozilla.org/products/ios") {
+            if let url = URL(string: "https://immersivetranslate.com/docs/usage/") {
                 self.delegate?.openURLInNewTab(url, isPrivate: false)
             }
             TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .help)
@@ -669,6 +672,19 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
                                          value: .pageActionMenu)
         }
     }
+    
+    // MARK: Bookmark
+    
+    private func getImtSettingAction() -> PhotonRowActions {
+        return SingleActionViewModel(title: .AppMenu.IMTSetting,
+                                     iconString: ImageIdentifiers.settings) { _ in
+            if let url = URL(string: "https://dash.immersivetranslate.com/") {
+                self.delegate?.openURLInNewTab(url, isPrivate: false)
+            }
+            TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .imtSettings)
+        }.items
+    }
+
 
     // MARK: Bookmark
 

@@ -10,7 +10,7 @@ import UIKit
 public struct SupportUtils {
     public static var URLForWhatsNew: URL? {
         // Returns the predefined URL associated to what's new button action.
-        return URL(string: "https://www.mozilla.org/en-US/firefox/ios/notes/")
+        return URL(string: "https://immersivetranslate.com/docs/CHANGELOG/")
     }
 
     public static var URLForPocketLearnMore: URL? {
