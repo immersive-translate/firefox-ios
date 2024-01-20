@@ -1062,7 +1062,7 @@ class BrowserViewController: UIViewController,
                 userHasPressedHomeButton = false
             }
         } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
-            if url.absoluteString == PrefsDefaults.ChineseHomePageURL {
+            if url.absoluteString == "https://mobile.firefoxchina.cn/?ios" {
                 showEmbeddedHomepage(inline: true)
             } else {
                 showEmbeddedWebview();
