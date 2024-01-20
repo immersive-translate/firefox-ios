@@ -35,8 +35,9 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
         imageView.contentMode = .scaleAspectFit
     }
 
-    private lazy var logoTextImage: UIImageView = .build { imageView in
-        imageView.contentMode = .scaleAspectFit
+    private lazy var logoText: UILabel = .build { label in
+        label.font = UIFont.systemFont(ofSize: 14);
+        label.text = AppInfo.displayName;
     }
 
     private lazy var containerView: UIView = .build { view in
@@ -61,14 +62,14 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
     func setupView() {
         contentView.backgroundColor = .clear
         containerView.addSubview(logoImage)
-        containerView.addSubview(logoTextImage)
+        containerView.addSubview(logoText)
         contentView.addSubview(containerView)
 
         // TODO: Felt Privacy - Private mode in Redux to follow
         let isiPadAndPrivate = UIDevice.current.userInterfaceIdiom == .pad && false
         let logoSizeConstant = isiPadAndPrivate ? UX.Logo.iPadImageSize : UX.Logo.iPhoneImageSize
         let topAnchorConstant = isiPadAndPrivate ? UX.Logo.iPadTopConstant : UX.Logo.iPhoneTopConstant
-        let textImageWidthConstant = isiPadAndPrivate ? UX.TextImage.iPadWidth : UX.TextImage.iPhoneWidth
+//        let textImageWidthConstant = isiPadAndPrivate ? UX.TextImage.iPadWidth : UX.TextImage.iPhoneWidth
         let textImageLeadingAnchorConstant = isiPadAndPrivate ? UX.TextImage.iPadLeadingConstant : UX.TextImage.iPhoneLeadingConstant
 
         NSLayoutConstraint.activate([
@@ -84,12 +85,12 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
             logoImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
                                               constant: UX.Logo.bottomConstant),
 
-            logoTextImage.widthAnchor.constraint(equalToConstant: textImageWidthConstant),
-            logoTextImage.heightAnchor.constraint(equalTo: logoImage.heightAnchor),
-            logoTextImage.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor,
+//            logoText.widthAnchor.constraint(equalToConstant: textImageWidthConstant),
+//            logoText.heightAnchor.constraint(equalTo: logoImage.heightAnchor),
+            logoText.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor,
                                                    constant: textImageLeadingAnchorConstant),
-            logoTextImage.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            logoTextImage.centerYAnchor.constraint(equalTo: logoImage.centerYAnchor)
+            logoText.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            logoText.centerYAnchor.constraint(equalTo: logoImage.centerYAnchor)
         ])
 
         if isiPadAndPrivate {
@@ -115,13 +116,9 @@ extension HomeLogoHeaderCell: ThemeApplicable {
     func applyTheme(theme: Theme) {
         let wallpaperManager = WallpaperManager()
         if let logoTextColor = wallpaperManager.currentWallpaper.logoTextColor {
-            logoTextImage.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoText)
-                .withRenderingMode(.alwaysTemplate)
-            logoTextImage.tintColor = logoTextColor
+            logoText.textColor = logoTextColor
         } else {
-            logoTextImage.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoText)
-                .withRenderingMode(.alwaysTemplate)
-            logoTextImage.tintColor = theme.colors.textPrimary
+            logoText.textColor = theme.colors.textPrimary
         }
     }
 }

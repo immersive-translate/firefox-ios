@@ -136,6 +136,12 @@ class HomepageViewController:
 
         listenForThemeChange(view)
         applyTheme()
+        guard UserDefaults.standard.string(forKey: "first-install-key") != nil else {
+            self.libraryPanelDelegate?.libraryPanel(didSelectURL: URL(string: "https://onboarding.immersivetranslate.com/mobile/")!, visitType: .link)
+            UserDefaults.standard.setValue("1", forKey: "first-install-key");
+            UserDefaults.standard.synchronize();
+            return
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
