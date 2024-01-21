@@ -41,6 +41,7 @@ public struct ImageIdentifiers {
     public static let newPrivateTab = "quick_action_new_private_tab"
     public static let nightMode = "menu-NightMode"
     public static let onboardingWelcomev106 = "onboardingWelcome"
+    public static let onboardingWelcomev106En = "onboardingWelcome-en"
     public static let onboardingSyncv106 = "onboardingSync"
     public static let onboardingNotification = "onboardingNotification"
     public static let onboardingNotificationsCTD = "onboardingNotificationsCTD"

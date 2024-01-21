@@ -4,6 +4,7 @@
 
 import Shared
 import MozillaAppServices
+import Common
 
 /// A translation layer for the `onboardingFrameworkFeature.fml`
 ///
@@ -184,7 +185,7 @@ class NimbusOnboardingFeatureLayer: NimbusOnboardingFeatureLayerProtocol {
 
     private func getOnboardingImageID(from identifier: NimbusOnboardingImages) -> String {
         switch identifier {
-        case .welcomeGlobe: return ImageIdentifiers.onboardingWelcomev106
+        case .welcomeGlobe: return AppInfo.isChinaEdition ? ImageIdentifiers.onboardingWelcomev106 : ImageIdentifiers.onboardingWelcomev106En
         case .syncDevices: return ImageIdentifiers.onboardingSyncv106
         case .notifications: return ImageIdentifiers.onboardingNotification
         case .notificationsCtd: return ImageIdentifiers.onboardingNotificationsCTD
