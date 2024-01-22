@@ -52,7 +52,8 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableHeaderView = headerView();
+        let headerView = headerView();
+        tableView.tableHeaderView = headerView;
     }
     
     // MARK: Handle Route decisions
@@ -63,7 +64,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
     
     func headerView() -> UIView {
         let containerView = UIView()
-        containerView.frame = CGRectMake(0, 0, tableView.frame.size.width, 200)
+        containerView.translatesAutoresizingMaskIntoConstraints = false;
         let appView = UIView()
         containerView.addSubview(appView)
         
@@ -71,7 +72,6 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         
         let logoImageView = UIImageView()
         logoImageView.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoBall)
-//        logoImageView.layer.cornerRadius = logoImageViewHeight / 2;
         logoImageView.layer.masksToBounds = true;
         appView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false;
@@ -99,10 +99,26 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         containerView.addSubview(descLabel)
         
         
+        let plugLabel = UILabel()
+        plugLabel.text = "Immersive Translate version: \(PlugInUpdateManager.shared.currentVersion)";
+        plugLabel.font = UIFont.systemFont(ofSize: 16)
+        plugLabel.textColor = UIColor.black
+        plugLabel.translatesAutoresizingMaskIntoConstraints = false
+        plugLabel.textAlignment = .center;
+        containerView.addSubview(plugLabel)
+        
+        let appLabel = UILabel()
+        appLabel.text = "APP Version: \(AppInfo.appVersion)";
+        appLabel.font = UIFont.systemFont(ofSize: 16)
+        appLabel.textColor = UIColor.black
+        appLabel.translatesAutoresizingMaskIntoConstraints = false
+        appLabel.textAlignment = .center;
+        containerView.addSubview(appLabel)
+        
+        
         let fireFoxLabel = UILabel()
-//        fireFoxLabel.text = "\n";
-        fireFoxLabel.numberOfLines = 0
-        fireFoxLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        fireFoxLabel.text = "Firefox Version: 122.0";
+        fireFoxLabel.font = UIFont.systemFont(ofSize: 16)
         fireFoxLabel.textColor = UIColor.black
         fireFoxLabel.translatesAutoresizingMaskIntoConstraints = false
         fireFoxLabel.textAlignment = .center;
@@ -125,13 +141,23 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
             descLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             descLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 45),
 
-            fireFoxLabel.topAnchor.constraint(equalTo: descLabel.bottomAnchor, constant: 10),
+            plugLabel.topAnchor.constraint(equalTo: descLabel.bottomAnchor, constant: 6),
+            plugLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            plugLabel.leftAnchor.constraint(equalTo: descLabel.leftAnchor),
+            
+            appLabel.topAnchor.constraint(equalTo: plugLabel.bottomAnchor, constant: 6),
+            appLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            appLabel.leftAnchor.constraint(equalTo: descLabel.leftAnchor),
+            
+            fireFoxLabel.topAnchor.constraint(equalTo: appLabel.bottomAnchor, constant: 10),
             fireFoxLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            fireFoxLabel.leftAnchor.constraint(equalTo: descLabel.leftAnchor),
-//            fireFoxLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
-
+            fireFoxLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+            fireFoxLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            fireFoxLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width)
         ])
         
+        let size = containerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        containerView.frame = CGRectMake(0, 0, UIScreen.main.bounds.size.width, size.height)
         return containerView
     }
 }

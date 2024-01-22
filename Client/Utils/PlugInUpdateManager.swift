@@ -19,6 +19,8 @@ class PlugInUpdateManager {
         forResource: "immersive-translate.user", ofType: "js")!
     private let jsBundleEtag = ##"W/"82bc73bea505b38a7d592bd53ee97572""##;
     
+    private var isFetching = false;
+    
     var currentResourceLocation: String {
         if let currentResourceName = UserDefaults.standard.string(forKey: PlugInUpdateManager.resouceNameCacheKey)  {
             let currentResourceLocation = self.cacheDirectory.appendingPathComponent(currentResourceName).path;
@@ -36,18 +38,48 @@ class PlugInUpdateManager {
         return jsBundleEtag;
     }
     
+    var currentSource: String? {
+        if let str = try? NSString(
+            contentsOfFile: PlugInUpdateManager.shared.currentResourceLocation,
+            encoding: String.Encoding.utf8.rawValue) as String {
+            return str;
+        }
+        return nil;
+    }
+    
+    var currentVersion: String {
+        if let source = currentSource {
+           let regexPattern = "\\b\\d+(\\.\\d+)+"
+            do {
+                let regex = try NSRegularExpression(pattern: regexPattern)
+                if let match = regex.firstMatch(in: source as String, options: [], range: NSRange(location: 0, length: source.utf16.count)) {
+                    let version = (source as NSString).substring(with: match.range)
+                    return version
+                }
+            } catch let error {
+                return "";
+            }
+        }
+        return "";
+    }
+    
     func checkUpdate() {
-        AF.request(PlugInUpdateManager.url, method: .head, parameters: nil).validate().responseString(encoding: .utf8) { response in
+        if isFetching {
+            return
+        }
+        isFetching = true;
+        AF.request(PlugInUpdateManager.url, method: .head, parameters: nil).validate().responseString(encoding: .utf8) { [self] response in
             if let headers = response.response?.headers.dictionary {
                 if response.error == nil, let etag = headers["Etag"], etag != self.currentEtag {
                     self.download();
+                    return
                 }
             }
+            isFetching = false;
         }
     }
     
     func download()  {
-        let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0];
         var currentResourceLocationUrl:URL?
         let firstCacheName = "immersive-translate-first.js";
         let secondCacheName = "immersive-translate-second.js";
@@ -59,7 +91,7 @@ class PlugInUpdateManager {
         let destination: DownloadRequest.Destination = { _, _ in
             return (currentResourceLocationUrl!, [.removePreviousFile, .createIntermediateDirectories])
         }
-        AF.download(PlugInUpdateManager.url, to: destination).validate().response { response in
+        AF.download(PlugInUpdateManager.url, to: destination).validate().response { [self] response in
             if response.error == nil, let path = response.fileURL?.path, FileManager.default.fileExists(atPath: path), let etag = response.response?.headers.dictionary["Etag"] {
                 let name = path.split(separator: "/").last;
                 UserDefaults.standard.setValue(name, forKey: PlugInUpdateManager.resouceNameCacheKey);
@@ -67,6 +99,7 @@ class PlugInUpdateManager {
                 UserDefaults.standard.synchronize();
                 NotificationCenter.default.post(name: .NeedRefreshImmersiveTranslateJsInject, object: nil);
             }
+            isFetching = false;
         }
     }
 }
