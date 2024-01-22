@@ -326,6 +326,7 @@ class BrowserViewController: UIViewController,
             toolbar.applyUIMode(isPrivate: tabManager.selectedTab?.isPrivate ?? false, theme: themeManager.currentTheme)
             toolbar.applyTheme(theme: themeManager.currentTheme)
             toolbar.updateMiddleButtonState(currentMiddleButtonState ?? .search)
+            updateBackStatus();
             updateTabCountUsingTabManager(self.tabManager)
         } else {
             toolbar.tabToolbarDelegate = nil
@@ -1044,13 +1045,18 @@ class BrowserViewController: UIViewController,
 
         browserDelegate?.show(webView: webview)
     }
+    
+    func updateBackStatus(canGoBack:Bool = false) {
+        let isSearch = navigationToolbar.multiStateButton.largeContentTitle == .TabToolbarSearchAccessibilityLabel
+        navigationToolbar.updateBackStatus((canGoBack && tabManager.selectedTab?.webView?.canGoBack ?? false) || !isSearch)
+    }
 
     // MARK: - Update content
-
+    
     func updateInContentHomePanel(_ url: URL?, focusUrlBar: Bool = false) {
         let isAboutHomeURL = url.flatMap { InternalURL($0)?.isAboutHomeURL } ?? false
         guard let url = url else {
-            showEmbeddedHomepage(inline: true)
+            showEmbeddedWebview()
             urlBar.locationView.reloadButton.reloadButtonState = .disabled
             return
         }
@@ -1062,11 +1068,7 @@ class BrowserViewController: UIViewController,
                 userHasPressedHomeButton = false
             }
         } else if !url.absoluteString.hasPrefix("\(InternalURL.baseUrl)/\(SessionRestoreHandler.path)") {
-            if url.absoluteString == "https://mobile.firefoxchina.cn/?ios" {
-                showEmbeddedHomepage(inline: true)
-            } else {
-                showEmbeddedWebview();
-            }
+            showEmbeddedWebview()
             urlBar.shouldHideReloadButton(shouldUseiPadSetup())
         }
 
@@ -1249,6 +1251,7 @@ class BrowserViewController: UIViewController,
         guard let tab = tabManager.selectedTab else {
             urlBar.locationView.reloadButton.reloadButtonState = .disabled
             navigationToolbar.updateMiddleButtonState(state)
+            updateBackStatus();
             currentMiddleButtonState = state
             return
         }
@@ -1257,6 +1260,7 @@ class BrowserViewController: UIViewController,
         if tab.isURLStartingPage {
             urlBar.locationView.reloadButton.reloadButtonState = .disabled
             navigationToolbar.updateMiddleButtonState(state)
+            updateBackStatus();
             currentMiddleButtonState = state
             return
         }
@@ -1268,6 +1272,7 @@ class BrowserViewController: UIViewController,
         }
 
         navigationToolbar.updateMiddleButtonState(state)
+        updateBackStatus();
         if !toolbar.isHidden {
             urlBar.locationView.reloadButton.reloadButtonState = isLoading ? .stop : .reload
         }
@@ -1336,7 +1341,7 @@ class BrowserViewController: UIViewController,
             guard tab === tabManager.selectedTab,
                   let canGoBack = change?[.newKey] as? Bool
             else { break }
-            navigationToolbar.updateBackStatus(canGoBack)
+            updateBackStatus(canGoBack: canGoBack)
         case .canGoForward:
             guard tab === tabManager.selectedTab,
                   let canGoForward = change?[.newKey] as? Bool
@@ -2226,7 +2231,7 @@ extension BrowserViewController: TabManagerDelegate {
 
         updateFindInPageVisibility(visible: false, tab: previous)
         setupMiddleButtonStatus(isLoading: selected?.loading ?? false)
-        navigationToolbar.updateBackStatus(selected?.canGoBack ?? false)
+        updateBackStatus(canGoBack: selected?.canGoBack ?? false)
         navigationToolbar.updateForwardStatus(selected?.canGoForward ?? false)
         if let url = selected?.webView?.url, !InternalURL.isValid(url: url) {
             self.urlBar.updateProgressBar(Float(selected?.estimatedProgress ?? 0))

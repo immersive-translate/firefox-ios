@@ -332,7 +332,7 @@
 "Facebook" = "Facebook";
 
 /* Title for firefox about:home page in tab history list */
-"Firefox.HomePage.Title" = "Firefox Home Page";
+"Firefox.HomePage.Title" = "Immersive Translate Home Page";
 
 /* A button at bottom of the Firefox homepage that, when clicked, takes users straight to the settings options, where they can customize the Firefox Home page */
 "FirefoxHome.CustomizeHomeButton.Title" = "Customize Homepage";
@@ -1408,7 +1408,7 @@
 "Settings.NewTab.Option.Custom" = "Custom";
 
 /* Option in settings to show Firefox Home when you open a new tab */
-"Settings.NewTab.Option.FirefoxHome" = "Firefox Home";
+"Settings.NewTab.Option.FirefoxHome" = "Home";
 
 /* Option in settings to show your homepage when you open a new tab */
 "Settings.NewTab.Option.HomePage" = "Homepage";
@@ -1431,10 +1431,10 @@
 "Settings.NoImageModeBlockImages.Label.v99" = "Block Images";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Status" = "When Opening Firefox";
+"Settings.OfferClipboardBar.Status" = "When Opening Immersive Translation";
 
 /* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Title" = "When you turn on immersive translation";
+"Settings.OfferClipboardBar.Title" = "Offer to Open Copied Links";
 
 /* Title for Open With Settings */
 "Settings.OpenWith.PageTitle" = "Open mail links with";

@@ -168,7 +168,7 @@ public struct PrefsKeys {
 
 public struct PrefsDefaults {
     public static let ChineseHomePageURL = "https://bing.com"
-    public static let ChineseNewTabDefault = "HomePage"
+    public static let ChineseNewTabDefault = "TopSites"
 }
 
 public protocol Prefs {
