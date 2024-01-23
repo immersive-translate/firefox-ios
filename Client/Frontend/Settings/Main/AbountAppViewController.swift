@@ -68,6 +68,8 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         let appView = UIView()
         containerView.addSubview(appView)
         
+        let textColor = themeManager.currentTheme.colors.textPrimary;
+        
         let logoImageViewHeight = 60.0;
         
         let logoImageView = UIImageView()
@@ -79,7 +81,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         let nameLabel = UILabel()
         nameLabel.text = AppInfo.displayName;
         nameLabel.font = UIFont.systemFont(ofSize: 16)
-        nameLabel.textColor = UIColor.black
+        nameLabel.textColor = textColor
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         appView.addSubview(nameLabel)
         
@@ -93,7 +95,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         }
         descLabel.numberOfLines = 0
         descLabel.font = UIFont.systemFont(ofSize: 16)
-        descLabel.textColor = UIColor.black
+        descLabel.textColor = textColor
         descLabel.translatesAutoresizingMaskIntoConstraints = false
         descLabel.textAlignment = .center
         containerView.addSubview(descLabel)
@@ -102,7 +104,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         let plugLabel = UILabel()
         plugLabel.text = "Immersive Translate version: \(PlugInUpdateManager.shared.currentVersion)";
         plugLabel.font = UIFont.systemFont(ofSize: 16)
-        plugLabel.textColor = UIColor.black
+        plugLabel.textColor = textColor
         plugLabel.translatesAutoresizingMaskIntoConstraints = false
         plugLabel.textAlignment = .center;
         containerView.addSubview(plugLabel)
@@ -110,7 +112,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         let appLabel = UILabel()
         appLabel.text = "APP Version: \(AppInfo.appVersion)";
         appLabel.font = UIFont.systemFont(ofSize: 16)
-        appLabel.textColor = UIColor.black
+        appLabel.textColor = textColor
         appLabel.translatesAutoresizingMaskIntoConstraints = false
         appLabel.textAlignment = .center;
         containerView.addSubview(appLabel)
@@ -119,7 +121,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         let fireFoxLabel = UILabel()
         fireFoxLabel.text = "Firefox Version: 122.0";
         fireFoxLabel.font = UIFont.systemFont(ofSize: 16)
-        fireFoxLabel.textColor = UIColor.black
+        fireFoxLabel.textColor = textColor
         fireFoxLabel.translatesAutoresizingMaskIntoConstraints = false
         fireFoxLabel.textAlignment = .center;
         containerView.addSubview(fireFoxLabel)

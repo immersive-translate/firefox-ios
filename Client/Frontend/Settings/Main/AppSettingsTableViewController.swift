@@ -151,7 +151,6 @@ class AppSettingsTableViewController: SettingsTableViewController,
         settings += getGeneralSettings()
         settings += getPrivacySettings()
         settings += getSupportSettings()
-        settings += getAboutSettings()
 
         if showDebugSettings {
             settings += getDebugSettings()
@@ -274,20 +273,13 @@ class AppSettingsTableViewController: SettingsTableViewController,
         let supportSettings = [
             ShowIntroductionSetting(settings: self, settingsDelegate: self),
             SendFeedbackSetting(settingsDelegate: parentCoordinator),
+            AbountAppSetting(settingsDelegate: parentCoordinator),
         ]
 
         return [SettingSection(title: NSAttributedString(string: .AppSettingsSupport),
                                children: supportSettings)]
     }
 
-    private func getAboutSettings() -> [SettingSection] {
-        let aboutSettings = [
-            AbountAppSetting(settingsDelegate: parentCoordinator),
-        ]
-
-        return [SettingSection(title: NSAttributedString(string: .AppSettingsAbout),
-                               children: aboutSettings)]
-    }
 
     private func getDebugSettings() -> [SettingSection] {
         var hiddenDebugOptions = [

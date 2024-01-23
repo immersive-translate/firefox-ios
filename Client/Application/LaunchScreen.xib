@@ -21,17 +21,18 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.91764705882352937" green="0.29803921568627451" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.92549019607843142" green="0.29803921568627451" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" red="0.92549019607843142" green="0.29803921568627451" blue="0.5490196078431373" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="8jg-1f-0sB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ITK-hU-DwR"/>
                 <constraint firstItem="8jg-1f-0sB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="grm-jt-xY2"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="404" y="445"/>
+            <point key="canvasLocation" x="162" y="402"/>
         </view>
     </objects>
     <resources>
-        <image name="splash" width="900" height="900"/>
+        <image name="splash" width="819" height="819"/>
     </resources>
 </document>

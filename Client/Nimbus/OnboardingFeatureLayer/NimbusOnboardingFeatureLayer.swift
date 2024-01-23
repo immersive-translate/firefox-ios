@@ -31,7 +31,7 @@ class NimbusOnboardingFeatureLayer: NimbusOnboardingFeatureLayerProtocol {
             withConditions: framework.conditions)
 
         return OnboardingViewModel(
-            cards: cards,
+            cards: cards.count > 0 ? [cards[0]] : [],
             isDismissable: framework.dismissable)
     }
 

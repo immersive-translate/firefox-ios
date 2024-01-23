@@ -193,12 +193,12 @@
 		2262A8032B4BBFBE006D6A9C /* DWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A7FF2B4BBFBE006D6A9C /* DWKWebView.m */; };
 		2262A80D2B4BC702006D6A9C /* LocalStorageJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262A80C2B4BC702006D6A9C /* LocalStorageJSObject.swift */; };
 		2262A8172B4BFB70006D6A9C /* HttpClientJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2262A8162B4BFB70006D6A9C /* HttpClientJSObject.swift */; };
+		226A2C312B5FEA120070A446 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 226A2C302B5FEA120070A446 /* immersive-translate.user.js */; };
 		227993F12B53D5E000F815E4 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227993F02B53D5E000F815E4 /* LocalStorageManager.swift */; };
 		22823F2D2B58266A009BE82B /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22823F2C2B58266A009BE82B /* PlugInUpdateManager.swift */; };
 		2287E2772B5BCEE6007DAEE1 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */; };
 		2287E2792B5BD1BE007DAEE1 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */; };
 		2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */; };
-		22D106892B55710B00A9A2DC /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 22D106882B55710B00A9A2DC /* immersive-translate.user.js */; };
 		2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */; };
 		23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23BEA766251A99E300A014BF /* NewYorkMedium-Bold.otf */; };
 		23BEA768251A99ED00A014BF /* NewYorkMedium-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23BEA765251A99E200A014BF /* NewYorkMedium-BoldItalic.otf */; };
@@ -2105,6 +2105,7 @@
 		2262A7FF2B4BBFBE006D6A9C /* DWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWKWebView.m; sourceTree = "<group>"; };
 		2262A80C2B4BC702006D6A9C /* LocalStorageJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageJSObject.swift; sourceTree = "<group>"; };
 		2262A8162B4BFB70006D6A9C /* HttpClientJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientJSObject.swift; sourceTree = "<group>"; };
+		226A2C302B5FEA120070A446 /* immersive-translate.user.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
 		227993F02B53D5E000F815E4 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		22823F2C2B58266A009BE82B /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
@@ -2143,7 +2144,6 @@
 		2287E29C2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ErrorState.strings; sourceTree = "<group>"; };
 		2287E29D2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Footer.strings; sourceTree = "<group>"; };
 		2287E29E2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alerts.strings; sourceTree = "<group>"; };
-		22D106882B55710B00A9A2DC /* immersive-translate.user.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
 		2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageMessageCard.swift; sourceTree = "<group>"; };
 		23BEA763251A99E200A014BF /* NewYorkMedium-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewYorkMedium-Regular.otf"; sourceTree = "<group>"; };
 		23BEA764251A99E200A014BF /* NewYorkMedium-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewYorkMedium-RegularItalic.otf"; sourceTree = "<group>"; };
@@ -7419,8 +7419,8 @@
 			isa = PBXGroup;
 			children = (
 				223463662B4D0CAC0088EAA1 /* dsbridge.js */,
-				22D106882B55710B00A9A2DC /* immersive-translate.user.js */,
 				2262A7F32B4BAEE0006D6A9C /* mock_gm.js */,
+				226A2C302B5FEA120070A446 /* immersive-translate.user.js */,
 				D03F8F22200EAC1E003C2224 /* AllFramesAtDocumentStart.js */,
 				D0FCF8031FE4772C004A7995 /* AllFramesAtDocumentEnd.js */,
 				D0FCF8041FE4772D004A7995 /* MainFrameAtDocumentEnd.js */,
@@ -8371,7 +8371,7 @@
 				C8B0F5F8283B7D38007AE65D /* pocketsponsoredfeed.json in Resources */,
 				D38A1EE01CB458EC0080C842 /* CertError.html in Resources */,
 				8AEE62CB2756BA34003207D1 /* DownloadHelper.js in Resources */,
-				22D106892B55710B00A9A2DC /* immersive-translate.user.js in Resources */,
+				226A2C312B5FEA120070A446 /* immersive-translate.user.js in Resources */,
 				8AEE62CA2756BA34003207D1 /* TrackingProtectionStats.js in Resources */,
 				0BA1E0301B051A07007675AF /* NetError.css in Resources */,
 				3BC659491E5BA4AE006D560F /* TopSites in Resources */,
