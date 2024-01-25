@@ -17,6 +17,8 @@ class LaunchScreenViewModel {
 
     weak var delegate: LaunchFinishedLoadingDelegate?
 
+    var needShowProtocolPopup = false
+
     init(profile: Profile = AppContainer.shared.resolve(),
          messageManager: GleanPlumbMessageManagerProtocol = GleanPlumbMessageManager.shared,
          onboardingModel: OnboardingViewModel = NimbusOnboardingFeatureLayer().getOnboardingModel(for: .upgrade)) {
@@ -34,15 +36,16 @@ class LaunchScreenViewModel {
 
     private func loadLaunchType(appVersion: String) async {
         var launchType: LaunchType?
-        if introScreenManager.shouldShowIntroScreen {
-            launchType = .intro(manager: introScreenManager)
-        } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
-                  await updateViewModel.hasSyncableAccount() {
-            launchType = .update(viewModel: updateViewModel)
-        } else if surveySurfaceManager.shouldShowSurveySurface {
-            launchType = .survey(manager: surveySurfaceManager)
+        if !needShowProtocolPopup {
+            if introScreenManager.shouldShowIntroScreen {
+                launchType = .intro(manager: introScreenManager)
+            } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
+                      await updateViewModel.hasSyncableAccount() {
+                launchType = .update(viewModel: updateViewModel)
+            } else if surveySurfaceManager.shouldShowSurveySurface {
+                launchType = .survey(manager: surveySurfaceManager)
+            }
         }
-
         if let launchType = launchType {
             self.delegate?.launchWith(launchType: launchType)
         } else {
