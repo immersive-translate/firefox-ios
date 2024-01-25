@@ -299,10 +299,12 @@ class BrowserCoordinator: BaseCoordinator,
         settingsCoordinator.parentCoordinator = self
         add(child: settingsCoordinator)
         settingsCoordinator.start(with: section)
-
-        router.present(navigationController) { [weak self] in
+        
+        navigationController.onViewDismissed = { [weak self] in
             self?.didFinishSettings(from: settingsCoordinator)
         }
+        
+        router.present(navigationController)
     }
 
     private func showLibrary(with homepanelSection: Route.HomepanelSection) {
