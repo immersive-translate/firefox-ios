@@ -4,6 +4,7 @@
 
 import Foundation
 import WCDBSwift
+import Common
 
 final class LocalStorage: TableCodable {
     var key: String? = nil
@@ -21,22 +22,25 @@ final class LocalStorage: TableCodable {
 
 class LocalStorageManager {
     var tableName = "LocalStorageTable"
-    let database = Database(at: (NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("cache.db"))
-    private var cacheDic = [String: String]();
-
+    lazy var database: Database = {
+        var cachePath = "";
+        if let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppInfo.sharedContainerIdentifier) {
+            cachePath = containerURL.path;
+        } else {
+            cachePath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
+        }
+        return Database(at: (cachePath as NSString).appendingPathComponent("cache.db"))
+    }()
     
     func set(_ value: String?, forKey key: String) {
         let item = LocalStorage()
         item.key = key;
         item.value = value;
         try? database.insertOrReplace(item, intoTable: tableName)
-        
-//        cacheDic.updateValue(value ?? "", forKey: defaultName);
     }
     
     func removeObject(forKey key: String) {
         try? database.delete(fromTable:  tableName, where: LocalStorage.Properties.key == key)
-//        cacheDic.removeValue(forKey: defaultName);
     }
 
     func string(forKey key: String) -> String? {
@@ -44,7 +48,6 @@ class LocalStorageManager {
             return value.stringValue;
         }
         return nil;
-//        return cacheDic[defaultName];
     }
     
     func key(forIndex index: Int) -> String? {
@@ -52,7 +55,6 @@ class LocalStorageManager {
             return key.stringValue;
         }
         return nil;
-//       return Array(cacheDic.keys)[defaultName]
     }
     
     func length() -> Int {
@@ -60,14 +62,11 @@ class LocalStorageManager {
             return objects.count;
         }
         return 0;
-//        return cacheDic.count
     }
     
     func clear() -> Void {
         try? database.delete(fromTable: tableName);
-//        cacheDic.removeAll();
     }
-
 }
 
 class WebLocalStorageManager: LocalStorageManager {
