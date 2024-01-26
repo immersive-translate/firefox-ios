@@ -311,7 +311,7 @@
 "ErrorPages.AdvancedWarning2.Text" = "It may be a misconfiguration or tampering by an attacker. Proceed if you accept the potential risk.";
 
 /* Warning text on the certificate error page */
-"ErrorPages.CertWarning.Description" = "The owner of %@ has configured their website improperly. To protect your information from being stolen, Firefox has not connected to this website.";
+"ErrorPages.CertWarning.Description" = "The owner of %@ has configured their website improperly. To protect your information from being stolen, Immersive Translate has not connected to this website.";
 
 /* Title on the certificate error page */
 "ErrorPages.CertWarning.Title" = "This Connection is Untrusted";
@@ -422,7 +422,7 @@
 "FxAPush_DeviceDisconnected_UnknownDevice_body" = "A device has disconnected from Firefox Sync";
 
 /* On the firefox homepage, the string read by the voice over prompt for accessibility, for the button which changes the wallpaper */
-"FxHomepage.Wallpaper.ButtonLabel.v99" = "Firefox logo, change the wallpaper.";
+"FxHomepage.Wallpaper.ButtonLabel.v99" = "Immersive Translate logo, change the wallpaper.";
 
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
 "Help" = "Help";
@@ -656,7 +656,7 @@
 "Logins.Onboarding.LearnMoreButtonTitle" = "Learn More";
 
 /* Warning message shown when you try to enable or use native AutoFill without a device passcode setup */
-"Logins.PasscodeRequirement.Warning" = "To use the AutoFill feature for Firefox, you must have a device passcode enabled.";
+"Logins.PasscodeRequirement.Warning" = "To use the AutoFill feature for Immersive Translate, you must have a device passcode enabled.";
 
 /* Label displaying welcome view tagline under the title */
 "Logins.WelcomeView.Tagline" = "Take your passwords everywhere";
@@ -722,7 +722,7 @@
 "LoginsList.Title" = "SAVED LOGINS";
 
 /* Restore Tabs Prompt Description */
-"Looks like Firefox crashed previously. Would you like to restore your tabs?" = "Looks like Firefox crashed previously. Would you like to restore your tabs?";
+"Looks like Immersive Translate crashed previously. Would you like to restore your tabs?" = "Looks like Immersive Translate crashed previously. Would you like to restore your tabs?";
 
 /* Title for the button that marks a reading list item as read */
 "Mark as Read" = "Mark as Read";
@@ -908,7 +908,7 @@
 "Onboarding.WhatsNew.Button.Title" = "Start Browsing";
 
 /* Title for prompt displayed to user after the app crashes */
-"Oops! Firefox crashed" = "Oops! Firefox crashed";
+"Oops! Firefox crashed" = "Oops! Immersive Translate crashed";
 
 /* See http://mzl.la/1LXbDOL */
 "Open articles in Reader View by tapping the book icon when it appears in the title bar." = "Open articles in Reader View by tapping the book icon when it appears in the title bar.";
@@ -920,7 +920,7 @@
 "Open Tabs" = "Open Tabs";
 
 /* The message displayed to a user when they try to open a URL that cannot be handled by Firefox, or any external app. */
-"OpenURL.Error.Message" = "Firefox cannot open the page because it has an invalid address.";
+"OpenURL.Error.Message" = "Immersive Translate cannot open the page because it has an invalid address.";
 
 /* Title of the message shown when the user attempts to navigate to an invalid link. */
 "OpenURL.Error.Title" = "Cannot Open Page";
@@ -932,7 +932,7 @@
 "PhotoLibrary.FirefoxWouldLikeAccessMessage" = "This allows you to save the image to your Camera Roll.";
 
 /* See http://mzl.la/1G7uHo7 */
-"PhotoLibrary.FirefoxWouldLikeAccessTitle" = "Firefox would like to access your Photos";
+"PhotoLibrary.FirefoxWouldLikeAccessTitle" = "Immersive Translate would like to access your Photos";
 
 /* Button for closing the menu action sheet */
 "PhotonMenu.close" = "Close";
@@ -941,7 +941,7 @@
 "Privacy" = "Privacy";
 
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
-"Privacy Policy" = "Privacy Policy";
+"Privacy Policy" = "Firefox Privacy Policy";
 
 "Immersive Translate Tutorials" = "Immersive Translate Tutorials";
 
@@ -1021,7 +1021,7 @@
 "ScanQRCode.InvalidDataError.Message" = "The data is invalid";
 
 /* Text of the prompt to setup the camera authorization for the Scan QR Code feature. */
-"ScanQRCode.PermissionError.Message.v100" = "Go to device ‘Settings’ > ‘Firefox’. Allow Firefox to access camera.";
+"ScanQRCode.PermissionError.Message.v100" = "Go to device ‘Settings’ > ‘Immersive Translate’. Allow Immersive Translate to access camera.";
 
 /* Title for the QR code scanner view. */
 "ScanQRCode.View.Title" = "Scan QR Code";
@@ -1276,7 +1276,7 @@
 "Settings.Home.Current.Description.v101" = "Choose what displays as the homepage.";
 
 /* In the settings menu, on the Firefox homepage customization section, this is the description below the section, describing what the options in the section are for. */
-"Settings.Home.Option.Description.v101" = "Choose what’s included on the Firefox homepage.";
+"Settings.Home.Option.Description.v101" = "Choose what’s included on the Immersive Translate homepage.";
 
 /* In the settings menu, in the Firefox homepage customization section, this is the title for the option that allows users to toggle the Jump Back In section on homepage on or off */
 "Settings.Home.Option.JumpBackIn" = "Jump Back In";
@@ -1300,7 +1300,7 @@
 "Settings.Home.Option.StartAtHome.Always" = "Homepage";
 
 /* In the settings menu, in the Start at Home customization options, this is text that appears below the section, describing what the section settings do. */
-"Settings.Home.Option.StartAtHome.Description" = "Choose what you see when you return to Firefox.";
+"Settings.Home.Option.StartAtHome.Description" = "Choose what you see when you return to Immersive Translate.";
 
 /* In the settings menu, on the Start at Home homepage customization option, this allows users to set this setting to return to the last tab they were on, every time they open up Firefox */
 "Settings.Home.Option.StartAtHome.Never" = "Last tab";
@@ -1485,7 +1485,7 @@
 "Settings.Siri.OpenTabShortcut" = "Open New Tab";
 
 /* The description that describes what siri shortcuts are */
-"Settings.Siri.SectionDescription" = "Use Siri shortcuts to quickly open Firefox via Siri";
+"Settings.Siri.SectionDescription" = "Use Siri shortcuts to quickly open Immersive Translate via Siri";
 
 /* The option that takes you to the siri shortcuts settings page */
 "Settings.Siri.SectionName" = "Siri Shortcuts";
@@ -1614,10 +1614,10 @@
 "ShareExtension.LoadInBackgroundActionDone.Title" = "Loading in Firefox";
 
 /* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "Open in Firefox";
+"ShareExtension.OpenInFirefoxAction.Title" = "Open in Immersive Translate";
 
 /* Action label on share extension to search for the selected text in Firefox. */
-"ShareExtension.SeachInFirefoxAction.Title" = "Search in Firefox";
+"ShareExtension.SeachInFirefoxAction.Title" = "Search in Immersive Translate";
 
 /* Button in share sheet to copy the url of the current tab. */
 "ShareSheet.Copy.Title.v108" = "Copy";
@@ -1764,7 +1764,7 @@
 "UIMenuItem.PasteGo" = "Paste & Go";
 
 /* Search in New Tab Text selection menu item */
-"UIMenuItem.SearchWithFirefox" = "Search with Firefox";
+"UIMenuItem.SearchWithFirefox" = "Search with Immersive Translate";
 
 /* Accessibility label for unread article in reading list. It's a past participle - functions as an adjective. */
 "unread" = "unread";
