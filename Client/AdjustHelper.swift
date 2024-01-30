@@ -63,7 +63,7 @@ final class AdjustHelper: NSObject, FeatureFlaggable {
         let isProd = featureFlags.isCoreFeatureEnabled(.adjustEnvironmentProd)
         let environment = isProd ? ADJEnvironmentProduction : ADJEnvironmentSandbox
         let config = ADJConfig(appToken: appToken, environment: environment)
-        config?.logLevel = isProd ? ADJLogLevelSuppress : ADJLogLevelDebug
+        config?.logLevel = isProd ? ADJLogLevelSuppress : ADJLogLevelVerbose
 
         // Record attribution changes
         // https://help.adjust.com/en/article/ios-sdk-adjconfig-class#set-up-delegate
