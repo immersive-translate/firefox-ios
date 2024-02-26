@@ -12339,6 +12339,7 @@
 					"-Xlinker",
 					"-no_application_extension",
 				);
+				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_RELEASE";
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Fennec;
