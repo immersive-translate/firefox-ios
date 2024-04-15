@@ -1970,8 +1970,13 @@ extension BrowserViewController: LegacyTabDelegate {
         // Observers that live as long as the tab. Make sure these are all cleared in willDeleteWebView below!
         KVOs.forEach { webView.addObserver(self, forKeyPath: $0.rawValue, options: .new, context: nil) }
         webView.scrollView.addObserver(self.scrollController, forKeyPath: KVOConstants.contentSize.rawValue, options: .new, context: nil)
-//        webView.uiDelegate = self
-
+        
+        if let dwkwebView = webView as? DWKWebView {
+            dwkwebView.dsuiDelegate = self
+        } else {
+            webView.uiDelegate = self
+        }
+        
         let formPostHelper = FormPostHelper(tab: tab)
         tab.addContentScript(formPostHelper, name: FormPostHelper.name())
 
@@ -2038,7 +2043,11 @@ extension BrowserViewController: LegacyTabDelegate {
         DispatchQueue.main.async { [unowned self] in
             KVOs.forEach { webView.removeObserver(self, forKeyPath: $0.rawValue) }
             webView.scrollView.removeObserver(self.scrollController, forKeyPath: KVOConstants.contentSize.rawValue)
-            webView.uiDelegate = nil
+            if let dwkwebView = webView as? DWKWebView {
+                dwkwebView.dsuiDelegate = nil
+            } else {
+                webView.uiDelegate = nil
+            }
             webView.scrollView.delegate = nil
             webView.removeFromSuperview()
         }

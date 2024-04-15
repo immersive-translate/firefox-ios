@@ -65,7 +65,11 @@ class FxAWebViewController: UIViewController {
         let scriptMessageHandler = WKScriptMessageHandleDelegate(self)
         contentController.add(scriptMessageHandler, name: "accountsCommandHandler")
         webView.navigationDelegate = self
-        webView.uiDelegate = self
+        if let dwkwebView = webView as? DWKWebView {
+            dwkwebView.dsuiDelegate = self
+        } else {
+            webView.uiDelegate = self
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
