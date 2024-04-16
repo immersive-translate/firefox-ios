@@ -63,6 +63,8 @@ enum TabUrlType: String {
 }
 
 class Tab: NSObject, ThemeApplicable {
+    
+    weak var browserVC : BrowserViewController?
     static let privateModeKey = "PrivateModeKey"
     private var _isPrivate = false
     private(set) var isPrivate: Bool {
@@ -456,6 +458,10 @@ class Tab: NSObject, ThemeApplicable {
             webView.disableJavascriptDialogBlock(true);
             webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
             webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
+            let windowJSObejct = WindowJSObject { [self] url in
+                browserVC?.openURLInNewTab(URL(string: url))
+            };
+            webView.addJavascriptObject(windowJSObejct, namespace: "window");
             webView.setDebugMode(false)
 
             webView.accessibilityLabel = .WebViewAccessibilityLabel

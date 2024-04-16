@@ -168,10 +168,10 @@ initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completi
 }
 
 - (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures{
-    if(navigationAction.targetFrame == nil || !navigationAction.targetFrame.isMainFrame)
-       {
-           [webView loadRequest:navigationAction.request];
-       }
+//    if(navigationAction.targetFrame == nil || !navigationAction.targetFrame.isMainFrame)
+//       {
+//           [webView loadRequest:navigationAction.request];
+//       }
     if( self.DSUIDelegate && [self.DSUIDelegate respondsToSelector:
                               @selector(webView:createWebViewWithConfiguration:forNavigationAction:windowFeatures:)]){
         return [self.DSUIDelegate webView:webView createWebViewWithConfiguration:configuration forNavigationAction:navigationAction windowFeatures:windowFeatures];
