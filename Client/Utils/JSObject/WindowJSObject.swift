@@ -13,7 +13,8 @@ class WindowJSObject {
         self.openBlock = openBlock
     }
 
-    @objc func open( _ params: [String: String] ) {
+    @objc func open( _ params: [String: String] ) -> String {
         openBlock(params["url"] ?? "")
+        return "1"
     }
 }
