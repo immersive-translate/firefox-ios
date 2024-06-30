@@ -9,6 +9,7 @@ import Shared
 import Storage
 import Redux
 import UIKit
+import Adjust
 
 class HomepageViewController:
     UIViewController,
@@ -137,7 +138,23 @@ class HomepageViewController:
         listenForThemeChange(view)
         applyTheme()
         guard UserDefaults.standard.string(forKey: "first-install-key") != nil else {
-            self.libraryPanelDelegate?.libraryPanel(didSelectURL: URL(string: "https://onboarding.immersivetranslate.com/mobile/")!, visitType: .link)
+            let attribution = Adjust.attribution();
+            var urlComponents = URLComponents(url: URL(string: "https://onboarding.immersivetranslate.com/mobile/")!, resolvingAgainstBaseURL: false)
+            var queryItems = [URLQueryItem]();
+            if let utm_campaign = attribution?.campaign  {
+                queryItems.append(URLQueryItem(name: "utm_campaign", value: utm_campaign))
+            }
+            if let utm_source = attribution?.adgroup {
+                queryItems.append(URLQueryItem(name: "utm_source", value: utm_source))
+            }
+            if let utm_medium = attribution?.creative  {
+                queryItems.append(URLQueryItem(name: "utm_medium", value: utm_medium))
+            }
+            queryItems.append(URLQueryItem(name: "v", value: PlugInUpdateManager.shared.currentVersion))
+            queryItems.append(URLQueryItem(name: "app_v", value: AppInfo.appVersion))
+            urlComponents?.queryItems = queryItems;
+            
+            self.libraryPanelDelegate?.libraryPanel(didSelectURL: urlComponents!.url!, visitType: .link)
             UserDefaults.standard.setValue("1", forKey: "first-install-key");
             UserDefaults.standard.synchronize();
             return
