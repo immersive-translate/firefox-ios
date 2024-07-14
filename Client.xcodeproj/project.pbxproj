@@ -1299,6 +1299,11 @@
 		D8BA1790206D47830023AC00 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA1783206D3FB70023AC00 /* DeferredTestUtils.swift */; };
 		D8BA1791206D47A80023AC00 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA1783206D3FB70023AC00 /* DeferredTestUtils.swift */; };
 		D8FDEB57220CFE970069A582 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FDEB55220CFE970069A582 /* UIImage+ImageEffects.m */; };
+		D970E3C32C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */; };
+		D970E3C42C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */; };
+		D970E3C52C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */; };
+		D970E3C62C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */; };
+		D970E3C72C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */; };
 		D980063D26D8308700321BC1 /* RustPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980063C26D8308700321BC1 /* RustPlacesTests.swift */; };
 		DA27EEDB28BADF4700DD6F5D /* MenuBuilderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27EEDA28BADF4700DD6F5D /* MenuBuilderHelper.swift */; };
 		DA4F826729AD221600189590 /* ZoomPageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F826629AD221600189590 /* ZoomPageBar.swift */; };
@@ -3212,6 +3217,7 @@
 		D8BA1783206D3FB70023AC00 /* DeferredTestUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeferredTestUtils.swift; path = ../SharedTests/DeferredTestUtils.swift; sourceTree = "<group>"; };
 		D8FDEB54220CFE970069A582 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "ThirdParty/Apple/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		D8FDEB55220CFE970069A582 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "ThirdParty/Apple/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		D980063C26D8308700321BC1 /* RustPlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustPlacesTests.swift; sourceTree = "<group>"; };
 		DA27EEDA28BADF4700DD6F5D /* MenuBuilderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuBuilderHelper.swift; path = Helpers/MenuBuilderHelper.swift; sourceTree = "<group>"; };
 		DA4F826629AD221600189590 /* ZoomPageBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPageBar.swift; sourceTree = "<group>"; };
@@ -7218,6 +7224,7 @@
 		F84B21B51A090F8100AAB793 = {
 			isa = PBXGroup;
 			children = (
+				D970E3C22C3BD663006DF558 /* PrivacyInfo.xcprivacy */,
 				7B3632E71C29879300D12AF9 /* Snapshot */,
 				D4AFA84B2AFA4FC6000BFEAA /* firefox-ios-tests */,
 				962C6C39297054A700354BE8 /* Package.swift */,
@@ -8238,6 +8245,7 @@
 			files = (
 				047F9B2E24E1FE1F00CD7DF7 /* Assets.xcassets in Resources */,
 				D58A202C25C9D96400105D25 /* Localizable.strings in Resources */,
+				D970E3C62C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 				1D9E1FE524FEF56C006E561D /* TopSites in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8321,6 +8329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D970E3C42C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8349,6 +8358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D970E3C72C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 				C874FC652661367900EBE86E /* MainInterface.storyboard in Resources */,
 				C893075D265501EE00A1DB2F /* CredentialAssets.xcassets in Resources */,
 			);
@@ -8400,6 +8410,7 @@
 				2262A7F52B4BAEE1006D6A9C /* mock_gm.js in Resources */,
 				E1AF3562286DE5F800960045 /* Smoketest2.xctestplan in Resources */,
 				2F44FB2C1A9D5D8500FD20CC /* Library.xcassets in Resources */,
+				D970E3C32C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 				43175DB626B8774D00C41C31 /* Ads.js in Resources */,
 				D0FCF8081FE4772D004A7995 /* MainFrameAtDocumentStart.js in Resources */,
 				D30684F11C84F12A002D8D82 /* SearchPlugins in Resources */,
@@ -8453,6 +8464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D970E3C52C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 				EBE7635920ADCB7600E27F2D /* SendTo.xcassets in Resources */,
 				F8708D2E1A0970B70051AB07 /* Images.xcassets in Resources */,
 			);
@@ -11334,7 +11346,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -11347,7 +11358,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
 				MOZ_BUNDLE_ID = zzer.web.ios.Firefox;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -11591,7 +11601,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9G8J6YA743;
 				EXCLUDED_ARCHS = "";
@@ -11609,7 +11618,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
 				MOZ_BUNDLE_ID = zzer.web.ios.FennecEnterprise;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -11855,7 +11863,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Beta;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -11868,7 +11875,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
 				MOZ_BUNDLE_ID = zzer.web.ios.FirefoxBeta;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -12357,7 +12363,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = BB5D3W365Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -12368,7 +12373,6 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 1.0.1;
 				MOZ_BUNDLE_DISPLAY_NAME = "Immersive Translate";
 				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
 				OTHER_LDFLAGS = (
