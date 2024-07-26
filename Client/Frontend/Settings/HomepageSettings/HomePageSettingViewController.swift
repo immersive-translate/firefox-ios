@@ -184,7 +184,7 @@ class HomePageSettingViewController: SettingsTableViewController, FeatureFlaggab
     }
 
     private func setupStartAtHomeSection() -> SettingSection {
-        let prefs = prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.always.rawValue
+        let prefs = prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.disabled.rawValue
         currentStartAtHomeSetting = StartAtHomeSetting(rawValue: prefs) ?? .afterFourHours
 
         typealias a11y = AccessibilityIdentifiers.Settings.Homepage.StartAtHome

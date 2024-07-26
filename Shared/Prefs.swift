@@ -86,7 +86,7 @@ public struct PrefsKeys {
         public static let ASPocketStories = "ASPocketStoriesUserPrefsKey"
         public static let RecentlySavedSection = "RecentlySavedSectionUserPrefsKey"
         public static let SponsoredShortcuts = "SponsoredShortcutsUserPrefsKey"
-        public static let StartAtHome = "StartAtHomeUserPrefsKey"
+        public static let StartAtHome = "StartAtHomeUserPrefsNewKey"
         public static let TopSiteSection = "TopSitesUserPrefsKey"
     }
 
