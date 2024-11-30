@@ -11359,6 +11359,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MOZ_BUNDLE_ID = zzer.web.ios.Firefox;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -11619,6 +11620,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MOZ_BUNDLE_ID = zzer.web.ios.FennecEnterprise;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -11876,6 +11878,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MOZ_BUNDLE_ID = zzer.web.ios.FirefoxBeta;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -12375,6 +12378,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MOZ_BUNDLE_DISPLAY_NAME = "Immersive Translate";
 				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
