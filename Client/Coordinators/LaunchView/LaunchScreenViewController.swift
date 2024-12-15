@@ -128,7 +128,7 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
                 await startLoading()
             }
         } else {
-            viewModel.needShowProtocolPopup = true;
+//            viewModel.needShowProtocolPopup = true;
             showProtocol();
         }
     }

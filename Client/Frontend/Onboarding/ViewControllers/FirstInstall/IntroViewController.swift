@@ -15,7 +15,7 @@ class IntroViewController: UIViewController,
         static let closeButtonSize: CGFloat = 30
         static let closeHorizontalMargin: CGFloat = 24
         static let closeVerticalMargin: CGFloat = 20
-        static let pageControlHeight: CGFloat = 40
+        static let pageControlHeight: CGFloat = 4
     }
 
     // MARK: - Properties
@@ -49,6 +49,9 @@ class IntroViewController: UIViewController,
         pageControl.numberOfPages = self.viewModel.availableCards.count
         pageControl.isUserInteractionEnabled = false
         pageControl.accessibilityIdentifier = AccessibilityIdentifiers.Onboarding.pageControl
+        pageControl.preferredIndicatorImage = UIImage(named: "indicator-page")
+        pageControl.pageIndicatorTintColor = UIColor(colorString: "E6E6E6")
+        pageControl.currentPageIndicatorTintColor = UIColor(colorString: "222222")
     }
 
     // MARK: Initializers
@@ -106,27 +109,26 @@ class IntroViewController: UIViewController,
         view.addSubview(pageControl)
 
         NSLayoutConstraint.activate([
-            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            pageControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -8),
+            pageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 26),
         ])
         pageControl.hidesForSinglePage = true;
     }
 
     private func setupCloseButton() {
-        guard viewModel.isDismissable else { return }
-        view.addSubview(closeButton)
-        view.bringSubviewToFront(closeButton)
-        view.accessibilityElements = [closeButton, pageController.view as Any, pageControl]
-
-        NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
-                                             constant: UX.closeVerticalMargin),
-            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
-                                                  constant: -UX.closeHorizontalMargin),
-            closeButton.widthAnchor.constraint(equalToConstant: UX.closeButtonSize),
-            closeButton.heightAnchor.constraint(equalToConstant: UX.closeButtonSize),
-        ])
+//        guard viewModel.isDismissable else { return }
+//        view.addSubview(closeButton)
+//        view.bringSubviewToFront(closeButton)
+//        view.accessibilityElements = [closeButton, pageController.view as Any, pageControl]
+//
+//        NSLayoutConstraint.activate([
+//            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+//                                             constant: UX.closeVerticalMargin),
+//            closeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+//                                                  constant: -UX.closeHorizontalMargin),
+//            closeButton.widthAnchor.constraint(equalToConstant: UX.closeButtonSize),
+//            closeButton.heightAnchor.constraint(equalToConstant: UX.closeButtonSize),
+//        ])
     }
 
     // MARK: - Button actions
@@ -186,8 +188,8 @@ class IntroViewController: UIViewController,
         let theme = themeManager.currentTheme
         view.backgroundColor = theme.colors.layer2
 
-        pageControl.currentPageIndicatorTintColor = theme.colors.actionPrimary
-        pageControl.pageIndicatorTintColor = theme.colors.actionSecondary
+//        pageControl.currentPageIndicatorTintColor = theme.colors.actionPrimary
+//        pageControl.pageIndicatorTintColor = theme.colors.actionSecondary
 
         viewModel.availableCards.forEach { $0.applyTheme() }
     }
@@ -234,28 +236,10 @@ extension IntroViewController: OnboardingCardDelegate {
 
         guard let introViewModel = viewModel as? IntroViewModel else { return }
         switch action {
-        case .requestNotifications:
-            introViewModel.chosenOptions.insert(.askForNotificationPermission)
-            introViewModel.updateOnboardingUserActivationEvent()
-            askForNotificationPermission(from: cardName)
         case .nextCard:
             showNextPage(from: cardName) {
                 self.showNextPageCompletionForLastCard()
             }
-        case .syncSignIn:
-            introViewModel.chosenOptions.insert(.syncSignIn)
-            introViewModel.updateOnboardingUserActivationEvent()
-            let fxaPrams = FxALaunchParams(entrypoint: .introOnboarding, query: [:])
-            presentSignToSync(
-                with: fxaPrams,
-                selector: #selector(dismissSignInViewController),
-                completion: {
-                    self.showNextPage(from: cardName) {
-                        self.showNextPageCompletionForLastCard()
-                    }
-                },
-                qrCodeNavigationHandler: qrCodeNavigationHandler
-            )
         case .setDefaultBrowser:
             introViewModel.chosenOptions.insert(.setAsDefaultBrowser)
             introViewModel.updateOnboardingUserActivationEvent()
@@ -265,11 +249,12 @@ extension IntroViewController: OnboardingCardDelegate {
             presentDefaultBrowserPopup(
                 from: cardName,
                 completionIfLastCard: { self.showNextPageCompletionForLastCard() })
-        case .readPrivacyPolicy:
-            presentPrivacyPolicy(
-                from: cardName,
-                selector: #selector(dismissPrivacyPolicyViewController))
+        default :
+            showNextPage(from: cardName) {
+                self.showNextPageCompletionForLastCard()
+            }
         }
+        
     }
 
     func sendCardViewTelemetry(from cardName: String) {

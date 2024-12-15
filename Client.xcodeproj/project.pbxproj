@@ -184,6 +184,11 @@
 		21FA8FAE2AE856460013B815 /* TabsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA8FAD2AE856460013B815 /* TabsCoordinatorTests.swift */; };
 		21FA8FB02AE856590013B815 /* RemoteTabsCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA8FAF2AE856590013B815 /* RemoteTabsCoordinatorTests.swift */; };
 		21FA8FB22AE856EB0013B815 /* MockTabTrayCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FA8FB12AE856EB0013B815 /* MockTabTrayCoordinatorDelegate.swift */; };
+		222C75982D0EDDD700677789 /* SelectLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C75972D0EDDD600677789 /* SelectLanguageView.swift */; };
+		222C759C2D0EEF9100677789 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 222C75992D0EEF9000677789 /* en.json */; };
+		222C759D2D0EEF9100677789 /* zh-CN.json in Resources */ = {isa = PBXBuildFile; fileRef = 222C759A2D0EEF9000677789 /* zh-CN.json */; };
+		222C759E2D0EEF9100677789 /* zh-TW.json in Resources */ = {isa = PBXBuildFile; fileRef = 222C759B2D0EEF9100677789 /* zh-TW.json */; };
+		222C75A02D0EFDCA00677789 /* BusinessJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */; };
 		223463652B4C293B0088EAA1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 223463642B4C293B0088EAA1 /* Alamofire */; };
 		223463672B4D0CAC0088EAA1 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 223463662B4D0CAC0088EAA1 /* dsbridge.js */; };
 		2262A7F52B4BAEE1006D6A9C /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 2262A7F32B4BAEE0006D6A9C /* mock_gm.js */; };
@@ -2098,6 +2103,11 @@
 		21FA8FAD2AE856460013B815 /* TabsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsCoordinatorTests.swift; sourceTree = "<group>"; };
 		21FA8FAF2AE856590013B815 /* RemoteTabsCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTabsCoordinatorTests.swift; sourceTree = "<group>"; };
 		21FA8FB12AE856EB0013B815 /* MockTabTrayCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabTrayCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		222C75972D0EDDD600677789 /* SelectLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageView.swift; sourceTree = "<group>"; };
+		222C75992D0EEF9000677789 /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
+		222C759A2D0EEF9000677789 /* zh-CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "zh-CN.json"; sourceTree = "<group>"; };
+		222C759B2D0EEF9100677789 /* zh-TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "zh-TW.json"; sourceTree = "<group>"; };
+		222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessJSObject.swift; sourceTree = "<group>"; };
 		223463662B4D0CAC0088EAA1 /* dsbridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
 		2262A7F32B4BAEE0006D6A9C /* mock_gm.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mock_gm.js; sourceTree = "<group>"; };
 		2262A7F72B4BBFBE006D6A9C /* dsbridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsbridge.h; sourceTree = "<group>"; };
@@ -4085,6 +4095,7 @@
 				2262A80C2B4BC702006D6A9C /* LocalStorageJSObject.swift */,
 				2262A8162B4BFB70006D6A9C /* HttpClientJSObject.swift */,
 				2293ACE32BCE24E400927377 /* WindowJSObject.swift */,
+				222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */,
 			);
 			path = JSObject;
 			sourceTree = "<group>";
@@ -6198,6 +6209,7 @@
 				74F80D332A0A52D700013C3D /* PrivacyPolicyViewController.swift */,
 				742BD99D2A13AC9000BA6B15 /* OnboardingInstructionPopupViewController.swift */,
 				43A5643423CD1E1B00B6857D /* Update */,
+				222C75972D0EDDD600677789 /* SelectLanguageView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -7428,6 +7440,9 @@
 		F84B21EB1A0910F600AAB793 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				222C759A2D0EEF9000677789 /* zh-CN.json */,
+				222C75992D0EEF9000677789 /* en.json */,
+				222C759B2D0EEF9100677789 /* zh-TW.json */,
 				223463662B4D0CAC0088EAA1 /* dsbridge.js */,
 				2262A7F32B4BAEE0006D6A9C /* mock_gm.js */,
 				226A2C302B5FEA120070A446 /* immersive-translate.user.js */,
@@ -8386,6 +8401,7 @@
 				8AEE62CB2756BA34003207D1 /* DownloadHelper.js in Resources */,
 				226A2C312B5FEA120070A446 /* immersive-translate.user.js in Resources */,
 				8AEE62CA2756BA34003207D1 /* TrackingProtectionStats.js in Resources */,
+				222C759C2D0EEF9100677789 /* en.json in Resources */,
 				0BA1E0301B051A07007675AF /* NetError.css in Resources */,
 				3BC659491E5BA4AE006D560F /* TopSites in Resources */,
 				F84B220B1A0910F600AAB793 /* Images.xcassets in Resources */,
@@ -8395,12 +8411,14 @@
 				23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */,
 				3BC659591E5BA505006D560F /* bundle_sites.json in Resources */,
 				E4CD9F541A71506400318571 /* Reader.html in Resources */,
+				222C759D2D0EEF9100677789 /* zh-CN.json in Resources */,
 				E1AF3563286DE5F800960045 /* FullFunctionalTestPlan.xctestplan in Resources */,
 				E1AF3567286DE5F800960045 /* PerformanceTestPlan.xctestplan in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
+				222C759E2D0EEF9100677789 /* zh-TW.json in Resources */,
 				E1AF3560286DE5F800960045 /* Smoketest3.xctestplan in Resources */,
 				E4CD9F5B1A71506C00318571 /* Reader.css in Resources */,
 				D0FCF8061FE4772D004A7995 /* AllFramesAtDocumentEnd.js in Resources */,
@@ -9228,6 +9246,7 @@
 				E19B38B528A42EBC00D8C541 /* WallpaperCellViewModel.swift in Sources */,
 				5A3A7DCE2886F7880065F81A /* RecentlySavedDataAdaptor.swift in Sources */,
 				C80E1A102A0943640025B9E1 /* UIFont+Extension.swift in Sources */,
+				222C75A02D0EFDCA00677789 /* BusinessJSObject.swift in Sources */,
 				C8680C5728BFDF7F00BC902A /* WallpaperThumbnailUtility.swift in Sources */,
 				C23889DF2A4EFCE500429673 /* ShareExtensionCoordinator.swift in Sources */,
 				8AE80BBE2891C21A00BC12EA /* JumpBackInSyncedTab.swift in Sources */,
@@ -9797,6 +9816,7 @@
 				8CCCB08B2AE26B5C0073ADB9 /* ReportResponse.swift in Sources */,
 				21A43CDD291461C700B1206D /* ReaderModeFontTypeButton.swift in Sources */,
 				D3BE7B261B054D4400641031 /* main.swift in Sources */,
+				222C75982D0EDDD700677789 /* SelectLanguageView.swift in Sources */,
 				C2D71B992A384F6A003DEC7A /* ThemedLeftAlignedTableViewCell.swift in Sources */,
 				21A7C44E283539170071D996 /* IntroViewModel.swift in Sources */,
 				E1FF93E228A2E55700E6360E /* WallpaperSelectorViewController.swift in Sources */,

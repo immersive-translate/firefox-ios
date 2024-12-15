@@ -75,6 +75,19 @@ function GM_openInTab(url, openInBackground) {
    dsBridge.call("window.open", { url});
 }
 
+function GM_openInTab(url, openInBackground) {
+   dsBridge.call("window.open", { url});
+}
+
+function GM_getSelectedLanguage() {
+  let value = dsBridge.call("business.getSelectedLanguage", {});
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+    return value;
+  }
+}
+
 window.GM = {
   getValue: GM_getValue,
   setValue: GM_setValue,
@@ -84,4 +97,5 @@ window.GM = {
   registerMenuCommand: GM_registerMenuCommand,
   addStyle: GM_addStyle,
   openInTab: GM_openInTab,
+  getSelectedLanguage: GM_getSelectedLanguage
 };
