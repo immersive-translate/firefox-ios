@@ -84,7 +84,7 @@ function GM_getSelectedLanguage() {
   try {
     return JSON.parse(value);
   } catch (error) {
-    return value;
+      return {};
   }
 }
 
@@ -99,3 +99,5 @@ window.GM = {
   openInTab: GM_openInTab,
   getSelectedLanguage: GM_getSelectedLanguage
 };
+
+

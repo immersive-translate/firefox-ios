@@ -204,6 +204,7 @@
 		2287E2772B5BCEE6007DAEE1 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2762B5BCEE6007DAEE1 /* AbountAppViewController.swift */; };
 		2287E2792B5BD1BE007DAEE1 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */; };
 		2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */; };
+		228F84FD2D10565F0055DCBE /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 228F84FC2D10565F0055DCBE /* set-language.js */; };
 		2293ACE42BCE24E400927377 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293ACE32BCE24E400927377 /* WindowJSObject.swift */; };
 		2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */; };
 		23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23BEA766251A99E300A014BF /* NewYorkMedium-Bold.otf */; };
@@ -2160,6 +2161,7 @@
 		2287E29C2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ErrorState.strings; sourceTree = "<group>"; };
 		2287E29D2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Footer.strings; sourceTree = "<group>"; };
 		2287E29E2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alerts.strings; sourceTree = "<group>"; };
+		228F84FC2D10565F0055DCBE /* set-language.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
 		2293ACE32BCE24E400927377 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageMessageCard.swift; sourceTree = "<group>"; };
 		23BEA763251A99E200A014BF /* NewYorkMedium-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewYorkMedium-Regular.otf"; sourceTree = "<group>"; };
@@ -7440,6 +7442,7 @@
 		F84B21EB1A0910F600AAB793 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				228F84FC2D10565F0055DCBE /* set-language.js */,
 				222C759A2D0EEF9000677789 /* zh-CN.json */,
 				222C75992D0EEF9000677789 /* en.json */,
 				222C759B2D0EEF9100677789 /* zh-TW.json */,
@@ -8414,6 +8417,7 @@
 				222C759D2D0EEF9100677789 /* zh-CN.json in Resources */,
 				E1AF3563286DE5F800960045 /* FullFunctionalTestPlan.xctestplan in Resources */,
 				E1AF3567286DE5F800960045 /* PerformanceTestPlan.xctestplan in Resources */,
+				228F84FD2D10565F0055DCBE /* set-language.js in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
