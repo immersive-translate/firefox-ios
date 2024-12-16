@@ -526,6 +526,10 @@ private extension HomepageViewController {
             guard let url = site.url.asURL else { return }
             self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
         }
+        
+        viewModel.imtSitesViewModel.itemHandler = { [weak self] url in
+            self?.showSiteWithURLHandler(url, isGoogleTopSite: false)
+        }
 
         viewModel.topSiteViewModel.tileLongPressedHandler = { [weak self] (site, sourceView) in
             self?.contextMenuHelper.presentContextMenu(for: site, with: sourceView, sectionType: .topSites)

@@ -89,6 +89,7 @@ class HomepageViewModel: FeatureFlaggable {
     private var childViewModels: [HomepageViewModelProtocol]
     var headerViewModel: HomeLogoHeaderViewModel
     var messageCardViewModel: HomepageMessageCardViewModel
+    var imtSitesViewModel: ImtSitesViewModel
     var topSiteViewModel: TopSitesViewModel
     var recentlySavedViewModel: RecentlySavedViewModel
     var jumpBackInViewModel: JumpBackInViewModel
@@ -118,6 +119,7 @@ class HomepageViewModel: FeatureFlaggable {
         let messageCardAdaptor = MessageCardDataAdaptorImplementation()
         self.messageCardViewModel = HomepageMessageCardViewModel(dataAdaptor: messageCardAdaptor, theme: theme)
         messageCardAdaptor.delegate = messageCardViewModel
+        self.imtSitesViewModel = ImtSitesViewModel(profile: profile, theme: theme)
         self.topSiteViewModel = TopSitesViewModel(profile: profile,
                                                   theme: theme,
                                                   wallpaperManager: wallpaperManager)
@@ -158,6 +160,7 @@ class HomepageViewModel: FeatureFlaggable {
         self.customizeButtonViewModel = CustomizeHomepageSectionViewModel(theme: theme)
         self.childViewModels = [headerViewModel,
                                 messageCardViewModel,
+                                imtSitesViewModel,
                                 topSiteViewModel,
                                 jumpBackInViewModel,
                                 recentlySavedViewModel,

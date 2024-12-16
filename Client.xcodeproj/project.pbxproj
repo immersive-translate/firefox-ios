@@ -205,6 +205,8 @@
 		2287E2792B5BD1BE007DAEE1 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E2782B5BD1BE007DAEE1 /* AbountAppSetting.swift */; };
 		2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2287E27C2B5C03BE007DAEE1 /* TutorialsSetting.swift */; };
 		228F84FD2D10565F0055DCBE /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 228F84FC2D10565F0055DCBE /* set-language.js */; };
+		228F85002D105FE20055DCBE /* ImtSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F84FF2D105FE20055DCBE /* ImtSitesCell.swift */; };
+		228F85022D1060050055DCBE /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228F85012D1060050055DCBE /* ImtSitesViewModel.swift */; };
 		2293ACE42BCE24E400927377 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2293ACE32BCE24E400927377 /* WindowJSObject.swift */; };
 		2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */; };
 		23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 23BEA766251A99E300A014BF /* NewYorkMedium-Bold.otf */; };
@@ -2162,6 +2164,8 @@
 		2287E29D2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Footer.strings; sourceTree = "<group>"; };
 		2287E29E2B5CCB47007DAEE1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Alerts.strings; sourceTree = "<group>"; };
 		228F84FC2D10565F0055DCBE /* set-language.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
+		228F84FF2D105FE20055DCBE /* ImtSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesCell.swift; sourceTree = "<group>"; };
+		228F85012D1060050055DCBE /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
 		2293ACE32BCE24E400927377 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		2386E4E524F8358E0072EF17 /* HomepageMessageCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageMessageCard.swift; sourceTree = "<group>"; };
 		23BEA763251A99E200A014BF /* NewYorkMedium-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NewYorkMedium-Regular.otf"; sourceTree = "<group>"; };
@@ -4100,6 +4104,15 @@
 				222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */,
 			);
 			path = JSObject;
+			sourceTree = "<group>";
+		};
+		228F84FE2D105EF50055DCBE /* imt-sites */ = {
+			isa = PBXGroup;
+			children = (
+				228F84FF2D105FE20055DCBE /* ImtSitesCell.swift */,
+				228F85012D1060050055DCBE /* ImtSitesViewModel.swift */,
+			);
+			path = "imt-sites";
 			sourceTree = "<group>";
 		};
 		23ED80FD25C899D700D0E9D5 /* DefaultBrowserOnboarding */ = {
@@ -7527,6 +7540,7 @@
 		F84B22211A09122500AAB793 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				228F84FE2D105EF50055DCBE /* imt-sites */,
 				C834ACD028D3ACA900203AD1 /* Blurrable.swift */,
 				8AB5958628412B620090F4AE /* CustomizeHome */,
 				DF036E41274FD3FC002E834E /* HistoryHighlights */,
@@ -9748,6 +9762,7 @@
 				EBB89508219398E500EB91A0 /* ContentBlocker+Safelist.swift in Sources */,
 				437A9B6A2681257F00FB41C1 /* LegacyInactiveTabViewModel.swift in Sources */,
 				C838FD5E289981240068F60B /* WallpaperURLProvider.swift in Sources */,
+				228F85022D1060050055DCBE /* ImtSitesViewModel.swift in Sources */,
 				E18259DB29AEB34900E6BE76 /* OnboardingNotificationCardHelper.swift in Sources */,
 				D0B9483422A03468002F4AA1 /* BookmarkDetailPanel.swift in Sources */,
 				968BD7EB27DFF0F8003148B3 /* ASGroup.swift in Sources */,
@@ -9812,6 +9827,7 @@
 				E1CD81BE290C5C7500124B27 /* DevicePickerTableViewHeaderCell.swift in Sources */,
 				E12BD0AC28AC37F00029AAF0 /* UIColor+Extension.swift in Sources */,
 				2287E27D2B5C03BE007DAEE1 /* TutorialsSetting.swift in Sources */,
+				228F85002D105FE20055DCBE /* ImtSitesCell.swift in Sources */,
 				E4A961181AC041C40069AD6F /* ReadabilityService.swift in Sources */,
 				AB42CC752A1F5240003C9594 /* CreditCardBottomSheetHeaderView.swift in Sources */,
 				21371FA428AA7A8D00BC3F37 /* OnboardingViewModelProtocol.swift in Sources */,

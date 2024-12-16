@@ -13,6 +13,7 @@ enum HomepageSectionType: Int, CaseIterable {
     case historyHighlights
     case pocket
     case customizeHome
+    case imtSites
 
     var title: String? {
         switch self {
@@ -35,6 +36,7 @@ enum HomepageSectionType: Int, CaseIterable {
         case .recentlySaved: return RecentlySavedCell.cellIdentifier
         case .historyHighlights: return HistoryHighlightsCell.cellIdentifier
         case .customizeHome: return CustomizeHomepageSectionCell.cellIdentifier
+        case .imtSites: return ImtSitesCell.cellIdentifier
         }
     }
 
@@ -49,7 +51,8 @@ enum HomepageSectionType: Int, CaseIterable {
                 RecentlySavedCell.self,
                 HistoryHighlightsCell.self,
                 CustomizeHomepageSectionCell.self,
-                SyncedTabCell.self
+                SyncedTabCell.self,
+                ImtSitesCell.self
         ]
     }
 
