@@ -60,7 +60,7 @@ extension ImtSitesViewModel: HomepageViewModelProtocol, FeatureFlaggable {
     var isEnabled: Bool {
         return true
     }
-
+    
     func setTheme(theme: Theme) {
         self.theme = theme
     }

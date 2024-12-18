@@ -9,7 +9,7 @@ import UIKit
 
 class ImtSitesCell: UICollectionViewCell, ReusableCell {
     private struct UX {
-        static let itemImageViewSize: CGSize = CGSizeMake(45, 45)
+        static let itemImageViewSize: CGSize = CGSizeMake(60, 60)
         static let itemLabelTopMargin: CGFloat = 5
         static let itemLabelFontSize: CGFloat = 12
         static let cellVerticalPadding: CGFloat = 20
@@ -17,6 +17,8 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     }
 
     private var viewModel: ImtSitesViewModel?
+    
+    private var validLabels: [UILabel] = []
 
     
     // MARK: - Initializers
@@ -32,31 +34,31 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     // MARK: - UI Setup
     func setupView() {
         contentView.backgroundColor = .clear
-        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: "网页")
+        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: "网页", invalid: false)
         let webTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(webClick))
         webItemView.isUserInteractionEnabled = true;
         webItemView.addGestureRecognizer(webTapRecognizer)
         contentView.addSubview(webItemView);
         
-        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: "视频")
+        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: "视频", invalid: false)
         let videoTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoClick))
         videoItemView.isUserInteractionEnabled = true;
         videoItemView.addGestureRecognizer(videoTapRecognizer)
         contentView.addSubview(videoItemView);
 
-        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: "文档")
+        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: "文档", invalid: false)
         let documentTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(documentClick))
         documentItemView.isUserInteractionEnabled = true;
         documentItemView.addGestureRecognizer(documentTapRecognizer)
         contentView.addSubview(documentItemView);
         
-        let cartoonItemView = createLogoAndDescView(imageName: "cartoon-intro", desc: "文档")
+        let cartoonItemView = createLogoAndDescView(imageName: "cartoon-intro", desc: "漫画", invalid: false)
         let cartoonTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(cartoonClick))
         cartoonItemView.isUserInteractionEnabled = true;
         cartoonItemView.addGestureRecognizer(cartoonTapRecognizer)
         contentView.addSubview(cartoonItemView);
         
-        let moreItemView = createMoreView()
+        let moreItemView = createLogoAndDescView(imageName: "expect-intro", desc: "更多工具", invalid: true)
         let moreTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(moreClick))
         moreItemView.isUserInteractionEnabled = true;
         moreItemView.addGestureRecognizer(moreTapRecognizer)
@@ -79,7 +81,7 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
         ])
     }
     
-    func createLogoAndDescView(imageName: String, desc: String) -> UIView {
+    func createLogoAndDescView(imageName: String, desc: String, invalid: Bool) -> UIView {
         let itemView = UIView();
         itemView.translatesAutoresizingMaskIntoConstraints = false;
         
@@ -94,8 +96,11 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: UX.itemLabelFontSize);
         label.text = desc
-        label.textColor = UIColor(colorString: "222222")
+        label.textColor = UIColor(colorString: invalid ? "999999" : "222222")
         itemView.addSubview(label)
+        if (!invalid) {
+            validLabels.append(label)
+        }
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: UX.itemImageViewSize.width),
             imageView.heightAnchor.constraint(equalToConstant: UX.itemImageViewSize.height),
@@ -104,39 +109,6 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
             imageView.centerXAnchor.constraint(equalTo: itemView.centerXAnchor),
             label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
             label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: UX.itemLabelTopMargin),
-            label.bottomAnchor.constraint(equalTo: itemView.bottomAnchor),
-        ])
-        return itemView
-    }
-    
-    func createMoreView() -> UIView {
-        let itemView = UIView();
-        itemView.translatesAutoresizingMaskIntoConstraints = false;
-        
-        let titleLabel = UILabel();
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false;
-        titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 10);
-        titleLabel.text = "敬请\n期待"
-        titleLabel.numberOfLines = 0
-        titleLabel.textColor = UIColor(colorString: "999999")
-        itemView.addSubview(titleLabel)
-        
-        let label = UILabel();
-        label.translatesAutoresizingMaskIntoConstraints = false;
-        label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: UX.itemLabelFontSize);
-        label.text = "更多工具"
-        label.textColor = UIColor(colorString: "999999")
-        itemView.addSubview(label)
-        NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalToConstant: UX.itemImageViewSize.width),
-            titleLabel.heightAnchor.constraint(equalToConstant: UX.itemImageViewSize.height),
-            titleLabel.leftAnchor.constraint(equalTo: itemView.leftAnchor),
-            titleLabel.topAnchor.constraint(equalTo: itemView.topAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: itemView.centerXAnchor),
-            label.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            label.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UX.itemLabelTopMargin),
             label.bottomAnchor.constraint(equalTo: itemView.bottomAnchor),
         ])
         return itemView
@@ -181,11 +153,15 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
 // MARK: - ThemeApplicable
 extension ImtSitesCell: ThemeApplicable {
     func applyTheme(theme: Theme) {
-//        let wallpaperManager = WallpaperManager()
-//        if let logoTextColor = wallpaperManager.currentWallpaper.logoTextColor {
-//            logoText.textColor = logoTextColor
-//        } else {
-//            logoText.textColor = theme.colors.textPrimary
-//        }
+        let wallpaperManager = WallpaperManager()
+        var textColor: UIColor!;
+        if let logoTextColor = wallpaperManager.currentWallpaper.logoTextColor {
+            textColor = logoTextColor
+        } else {
+            textColor = theme.colors.textPrimary
+        }
+        validLabels.forEach { label in
+            label.textColor = textColor
+        }
     }
 }

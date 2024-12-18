@@ -7,13 +7,13 @@ import Foundation
 enum HomepageSectionType: Int, CaseIterable {
     case logoHeader
     case messageCard
+    case imtSites
     case topSites
     case jumpBackIn
     case recentlySaved
     case historyHighlights
     case pocket
     case customizeHome
-    case imtSites
 
     var title: String? {
         switch self {
@@ -30,13 +30,13 @@ enum HomepageSectionType: Int, CaseIterable {
         switch self {
         case .logoHeader: return HomeLogoHeaderCell.cellIdentifier
         case .messageCard: return HomepageMessageCardCell.cellIdentifier
+        case .imtSites: return ImtSitesCell.cellIdentifier
         case .topSites: return "" // Top sites has more than 1 cell type, dequeuing is done through FxHomeSectionHandler protocol
         case .pocket: return "" // Pocket has more than 1 cell type, dequeuing is done through FxHomeSectionHandler protocol
         case .jumpBackIn: return "" // JumpBackIn has more than 1 cell type, dequeuing is done through FxHomeSectionHandler protocol
         case .recentlySaved: return RecentlySavedCell.cellIdentifier
         case .historyHighlights: return HistoryHighlightsCell.cellIdentifier
         case .customizeHome: return CustomizeHomepageSectionCell.cellIdentifier
-        case .imtSites: return ImtSitesCell.cellIdentifier
         }
     }
 
