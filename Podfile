@@ -4,6 +4,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Client' do
   use_frameworks!
-  pod 'CocoaDebug'
   pod 'WCDB.swift'
 end
