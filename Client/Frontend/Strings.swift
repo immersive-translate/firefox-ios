@@ -1175,7 +1175,7 @@ extension String {
             public static let ThirdInstruction = MZLocalizedString(
                 key: "DefaultBrowserPopup.ThirdLabel.v114",
                 tableName: "Onboarding",
-                value: "3. Select *%@*",
+                value: "",
                 comment: "The third label on the Default Browser Popup, which is a card with instructions telling the user how to set Firefox as their default browser. Placeholder is the app name. The *text inside asterisks* denotes part of the string to bold, please leave the text inside the '*' so that it is bolded correctly.")
             public static let ButtonTitle = MZLocalizedString(
                 key: "DefaultBrowserPopup.ButtonTitle.v114",
