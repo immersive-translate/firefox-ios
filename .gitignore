@@ -122,3 +122,5 @@ nimbus-fml/
 # Nimbus build artifacts.
 bin/nimbus-fml-configuration.local.sh
 bin/nimbus-fml.sh
+
+dist/
