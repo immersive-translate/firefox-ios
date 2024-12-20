@@ -58,11 +58,11 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
         cartoonItemView.addGestureRecognizer(cartoonTapRecognizer)
         contentView.addSubview(cartoonItemView);
         
-        let moreItemView = createLogoAndDescView(imageName: "expect-intro", desc: "更多工具", invalid: true)
-        let moreTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(moreClick))
-        moreItemView.isUserInteractionEnabled = true;
-        moreItemView.addGestureRecognizer(moreTapRecognizer)
-        contentView.addSubview(moreItemView);
+//        let moreItemView = createLogoAndDescView(imageName: "expect-intro", desc: "更多工具", invalid: true)
+//        let moreTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(moreClick))
+//        moreItemView.isUserInteractionEnabled = true;
+//        moreItemView.addGestureRecognizer(moreTapRecognizer)
+//        contentView.addSubview(moreItemView);
         
         let itemMargin = (self.frame.size.width - 4 * UX.itemImageViewSize.width) / 3
 
@@ -75,9 +75,9 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
             documentItemView.topAnchor.constraint(equalTo: webItemView.topAnchor),
             cartoonItemView.leftAnchor.constraint(equalTo: documentItemView.rightAnchor, constant: itemMargin),
             cartoonItemView.topAnchor.constraint(equalTo: webItemView.topAnchor),
-            moreItemView.topAnchor.constraint(equalTo: webItemView.bottomAnchor, constant: UX.cellVerticalPadding),
-            moreItemView.leftAnchor.constraint(equalTo: webItemView.leftAnchor),
-            moreItemView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UX.cellVerticalPadding),
+//            moreItemView.topAnchor.constraint(equalTo: webItemView.bottomAnchor, constant: UX.cellVerticalPadding),
+//            moreItemView.leftAnchor.constraint(equalTo: webItemView.leftAnchor),
+            webItemView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UX.cellVerticalPadding),
         ])
     }
     
@@ -120,19 +120,19 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     }
     
     @objc func webClick() {
-        seeWeb(url: "https://www.baidu.com")
+        seeWeb(url: "https://test-browser.immersivetranslate.com/web")
     }
     
     @objc func videoClick() {
-        seeWeb(url: "https://www.youtube.com")
+        seeWeb(url: "https://test-browser.immersivetranslate.com/video")
     }
     
     @objc func documentClick() {
-        seeWeb(url: "https://www.baidu.com")
+        seeWeb(url: "https://app.immersivetranslate.com")
     }
     
     @objc func cartoonClick() {
-        seeWeb(url: "https://www.baidu.com")
+        seeWeb(url: "https://test-browser.immersivetranslate.com/manga")
     }
     
     @objc func moreClick() {
