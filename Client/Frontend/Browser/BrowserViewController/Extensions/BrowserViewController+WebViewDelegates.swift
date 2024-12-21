@@ -284,7 +284,8 @@ extension BrowserViewController: WKUIDelegate {
                                                                sourceView: self.view,
                                                                sourceRect: CGRect(origin: point, size: CGSize(width: 10.0, height: 10.0)),
                                                                toastContainer: self.contentContainer,
-                                                               popoverArrowDirection: .unknown)
+                                                               popoverArrowDirection: .unknown, 
+                                                               shareTitle: nil)
                 })
 
                 if let url = elements.image {

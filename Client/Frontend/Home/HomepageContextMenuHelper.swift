@@ -184,7 +184,8 @@ class HomepageContextMenuHelper: HomepageContextMenuProtocol {
                 url: url,
                 sourceView: sourceView ?? UIView(),
                 toastContainer: self.toastContainer,
-                popoverArrowDirection: [.up, .down, .left])
+                popoverArrowDirection: [.up, .down, .left],
+                shareTitle: nil)
         }).items
     }
 

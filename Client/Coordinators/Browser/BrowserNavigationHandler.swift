@@ -30,7 +30,8 @@ protocol BrowserNavigationHandler: AnyObject {
                             sourceView: UIView,
                             sourceRect: CGRect?,
                             toastContainer: UIView,
-                            popoverArrowDirection: UIPopoverArrowDirection)
+                            popoverArrowDirection: UIPopoverArrowDirection, 
+                            shareTitle: String?)
 
     /// Initiates the modal presentation of the Fakespot flow for analyzing the authenticity of a product's reviews.
     /// - Parameter productURL: The URL of the product for which the reviews will be analyzed.
@@ -79,7 +80,7 @@ protocol BrowserNavigationHandler: AnyObject {
 }
 
 extension BrowserNavigationHandler {
-    func showShareExtension(url: URL, sourceView: UIView, sourceRect: CGRect? = nil, toastContainer: UIView, popoverArrowDirection: UIPopoverArrowDirection = .up) {
-        showShareExtension(url: url, sourceView: sourceView, sourceRect: sourceRect, toastContainer: toastContainer, popoverArrowDirection: popoverArrowDirection)
+    func showShareExtension(url: URL, sourceView: UIView, sourceRect: CGRect? = nil, toastContainer: UIView, popoverArrowDirection: UIPopoverArrowDirection = .up, shareTitle: String?) {
+        showShareExtension(url: url, sourceView: sourceView, sourceRect: sourceRect, toastContainer: toastContainer, popoverArrowDirection: popoverArrowDirection, shareTitle:shareTitle)
     }
 }

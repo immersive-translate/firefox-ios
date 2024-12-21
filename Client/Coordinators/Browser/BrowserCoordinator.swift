@@ -466,7 +466,7 @@ class BrowserCoordinator: BaseCoordinator,
         return coordinator
     }
 
-    func showShareExtension(url: URL, sourceView: UIView, sourceRect: CGRect?, toastContainer: UIView, popoverArrowDirection: UIPopoverArrowDirection) {
+    func showShareExtension(url: URL, sourceView: UIView, sourceRect: CGRect?, toastContainer: UIView, popoverArrowDirection: UIPopoverArrowDirection, shareTitle: String?) {
         guard childCoordinators.first(where: { $0 is ShareExtensionCoordinator }) as? ShareExtensionCoordinator == nil
         else {
             // If this case is hitted it means the share extension coordinator wasn't removed correctly in the previous session.
@@ -474,7 +474,7 @@ class BrowserCoordinator: BaseCoordinator,
         }
         let shareExtensionCoordinator = ShareExtensionCoordinator(alertContainer: toastContainer, router: router, profile: profile, parentCoordinator: self, tabManager: tabManager)
         add(child: shareExtensionCoordinator)
-        shareExtensionCoordinator.start(url: url, sourceView: sourceView, sourceRect: sourceRect, popoverArrowDirection: popoverArrowDirection)
+        shareExtensionCoordinator.start(url: url, sourceView: sourceView, sourceRect: sourceRect, popoverArrowDirection: popoverArrowDirection, shareTitle: shareTitle)
     }
 
     func showCreditCardAutofill(creditCard: CreditCard?,

@@ -109,7 +109,8 @@ extension BrowserViewController: URLBarDelegate {
                 url: tabUrl,
                 sourceView: shareView,
                 toastContainer: contentContainer,
-                popoverArrowDirection: isBottomSearchBar ? .down : .up)
+                popoverArrowDirection: isBottomSearchBar ? .down : .up,
+                shareTitle: nil)
         }
     }
 

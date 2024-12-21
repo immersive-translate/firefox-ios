@@ -136,7 +136,7 @@ class DownloadsPanel: UIViewController,
     }
 
     private func shareDownloadedFile(_ downloadedFile: DownloadedFile, indexPath: IndexPath) {
-        let helper = ShareExtensionHelper(url: downloadedFile.path, tab: nil)
+        let helper = ShareExtensionHelper(url: downloadedFile.path, tab: nil, title: nil)
         let controller = helper.createActivityViewController { _, _ in }
 
         if let popoverPresentationController = controller.popoverPresentationController {

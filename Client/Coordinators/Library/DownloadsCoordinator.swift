@@ -39,16 +39,16 @@ class DownloadsCoordinator: BaseCoordinator, ParentCoordinatorDelegate, Download
     func handleFile(_ file: DownloadedFile, sourceView: UIView) {
         guard file.canShowInWebView
         else {
-            startShare(file: file, sourceView: sourceView)
+            startShare(file: file, sourceView: sourceView, shareTitle: nil)
             return
         }
         parentCoordinator?.libraryPanel(didSelectURL: file.path, visitType: .typed)
     }
 
-    private func startShare(file: DownloadedFile, sourceView: UIView) {
+    private func startShare(file: DownloadedFile, sourceView: UIView, shareTitle: String?) {
         guard !childCoordinators.contains(where: { $0 is ShareExtensionCoordinator }) else { return }
         let coordinator = makeShareExtensionCoordinator()
-        coordinator.start(url: file.path, sourceView: sourceView)
+        coordinator.start(url: file.path, sourceView: sourceView, shareTitle: shareTitle)
     }
 
     private func makeShareExtensionCoordinator() -> ShareExtensionCoordinator {

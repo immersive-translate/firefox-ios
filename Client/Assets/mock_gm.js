@@ -88,6 +88,31 @@ function GM_getSelectedLanguage() {
   }
 }
 
+function WJ_doSend(obj, cb) {
+    const { type } = obj;
+    if (type === 'setDefaultBrowser') {
+        dsBridge.call("business.setDefaultBrowser", {});
+        if (cb) {
+            cb()
+        }
+    } else if (type === "isDefaultBrowser") {
+        const value = dsBridge.call("business.isDefaultBrowser", {});
+        if (cb) {
+            cb({"isDefaultBrowser" : (value ? true : false)})
+        }
+    } else if (type === "shareContent") {
+       dsBridge.call("business.shareContent", obj);
+       if (cb) {
+           cb()
+       }
+    }
+}
+
+window.WebViewJavascriptBridge = {
+    doSend: WJ_doSend
+};
+
+
 window.GM = {
   getValue: GM_getValue,
   setValue: GM_setValue,
@@ -99,5 +124,4 @@ window.GM = {
   openInTab: GM_openInTab,
   getSelectedLanguage: GM_getSelectedLanguage
 };
-
 

@@ -583,7 +583,8 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
                     url: url,
                     sourceView: self.buttonView,
                     toastContainer: self.toastContainer,
-                    popoverArrowDirection: .any)
+                    popoverArrowDirection: .any,
+                    shareTitle: nil)
                 return
             }
 
@@ -599,7 +600,8 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
                             url: url,
                             sourceView: self.buttonView,
                             toastContainer: self.toastContainer,
-                            popoverArrowDirection: .any)
+                            popoverArrowDirection: .any,
+                            shareTitle: nil)
                     }
                 }
             }
@@ -613,7 +615,8 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
             url: fileURL,
             sourceView: buttonView,
             toastContainer: toastContainer,
-            popoverArrowDirection: .any)
+            popoverArrowDirection: .any,
+            shareTitle: nil)
     }
 
     // MARK: Reading list
