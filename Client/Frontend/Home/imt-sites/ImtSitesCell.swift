@@ -120,11 +120,11 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     }
     
     @objc func webClick() {
-        seeWeb(url: "https://test-browser.immersivetranslate.com/web")
+        seeWeb(url: "https://browser.immersivetranslate.com/web")
     }
     
     @objc func videoClick() {
-        seeWeb(url: "https://test-browser.immersivetranslate.com/video")
+        seeWeb(url: "https://browser.immersivetranslate.com/video")
     }
     
     @objc func documentClick() {
@@ -132,7 +132,7 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     }
     
     @objc func cartoonClick() {
-        seeWeb(url: "https://test-browser.immersivetranslate.com/manga")
+        seeWeb(url: "https://browser.immersivetranslate.com/manga")
     }
     
     @objc func moreClick() {

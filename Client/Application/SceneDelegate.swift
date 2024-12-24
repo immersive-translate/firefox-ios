@@ -11,6 +11,7 @@ import UserNotifications
 import Account
 import MozillaAppServices
 import Common
+import FacebookCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -89,6 +90,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         sceneCoordinator?.findAndHandle(route: route)
 
         sessionManager.launchSessionProvider.openedFromExternalSource = true
+        
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 
     // MARK: - Continuing User Activities

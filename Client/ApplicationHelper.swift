@@ -16,6 +16,6 @@ struct DefaultApplicationHelper: ApplicationHelper {
     }
 
     func open(_ url: URL) {
-        UIApplication.shared.open(url)
+        UIApplication.shared.open(url, options: [:])
     }
 }
