@@ -41,7 +41,7 @@ class SelectLanguageCell: UITableViewCell {
     }
 }
 
-class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
+class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     init() {
        super.init(frame: CGRectZero);
         setupViews();
@@ -53,17 +53,22 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
     }
     
     private var dataArray: [Dictionary<String, String>] = []
-    
+    private var allDataArray: [Dictionary<String, String>] = []
+
     private var isShowAll: Bool = false
 
     private var selectItem: Dictionary<String, String>?
     
-    private lazy var selectTitleLabel: UILabel = {
-        let selectTitleLabel = UILabel()
-        selectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        selectTitleLabel.font = UIFont .systemFont(ofSize: 14)
-        selectTitleLabel.textColor =  UIColor(colorString: "222222")
-        return selectTitleLabel
+    private lazy var selectTextField: UITextField = {
+        let selectTextField = UITextField()
+        selectTextField.translatesAutoresizingMaskIntoConstraints = false
+        selectTextField.font = UIFont .systemFont(ofSize: 14)
+        selectTextField.textColor =  UIColor(colorString: "222222")
+        selectTextField.delegate = self
+        selectTextField.returnKeyType = .done
+        selectTextField.addTarget(self, action:  #selector(editingChanged), for: .editingChanged)
+        selectTextField.addTarget(self, action: #selector(endEdit), for: .editingDidEndOnExit)
+        return selectTextField
     }()
     
     private lazy var arrowImageView: UIImageView = {
@@ -107,7 +112,7 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showAll))
         selectView.isUserInteractionEnabled = true;
         selectView.addGestureRecognizer(tapRecognizer)
-        selectView.addSubview(selectTitleLabel)
+        selectView.addSubview(selectTextField)
         selectView.addSubview(arrowImageView)
         addSubviews(selectView)
         
@@ -125,8 +130,10 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
             tableView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                         
-            selectTitleLabel.leftAnchor.constraint(equalTo: selectView.leftAnchor, constant: 20),
-            selectTitleLabel.centerYAnchor.constraint(equalTo: selectView.centerYAnchor),
+            selectTextField.leftAnchor.constraint(equalTo: selectView.leftAnchor, constant: 20),
+            selectTextField.centerYAnchor.constraint(equalTo: selectView.centerYAnchor),
+            selectTextField.topAnchor.constraint(equalTo: selectView.topAnchor),
+            selectTextField.rightAnchor.constraint(equalTo: arrowImageView.leftAnchor, constant: -20),
             arrowImageView.centerYAnchor.constraint(equalTo: selectView.centerYAnchor),
             arrowImageView.widthAnchor.constraint(equalToConstant: 16.0),
             arrowImageView.heightAnchor.constraint(equalToConstant: 16.0),
@@ -149,9 +156,10 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
             encoding: String.Encoding.utf8.rawValue) as String {
             do {
                 let data = text.data(using: String.Encoding.utf8)!
-                dataArray = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.mutableContainers) as! [Dictionary<String, String>]
+                allDataArray = try JSONSerialization.jsonObject(with: data, options:JSONSerialization.ReadingOptions.mutableContainers) as! [Dictionary<String, String>]
+                dataArray = allDataArray
                 
-                dataArray.forEach { item in
+                allDataArray.forEach { item in
                     if item["code"] == jsonName  {
                         updateSelectItem(item: item)
                     }
@@ -190,19 +198,70 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource {
         let item = dataArray[indexPath.row]
         updateSelectItem(item: item)
     }
+    
+    
+    @objc func editingChanged() {
+        updateDataArray()
+    }
+    
+    @objc func endEdit() {
+        isShowAll = false;
+        tableView.reloadData()
+        updateTextField()
+    }
 
     @objc func showAll() {
         isShowAll = !isShowAll
         tableView.reloadData()
+        updateTextField()
+        if isShowAll {
+            updateDataArray()
+        }
     }
     
     func updateSelectItem(item: Dictionary<String, String>) {
-        selectTitleLabel.text = item["language"] ?? ""
         selectItem = item
         let value = item.asString;
         UserDefaults.standard.setValue(value, forKey: BusinessJSObject.SelectLanguageKey);
         UserDefaults.standard.synchronize();
         isShowAll = false
         tableView.reloadData()
+        updateTextField()
+    }
+    
+    func updateDataArray() {
+        var array: [Dictionary<String, String>] = []
+        if let text = selectTextField.text, !text.isEmpty {
+            allDataArray.forEach { item in
+                if let language = item["language"], language.contains(text) {
+                    array.append(item)
+                }
+            }
+            dataArray = array;
+        } else {
+            dataArray = allDataArray;
+        }
+        tableView.reloadData()
+    }
+    
+    func updateTextField() -> Void {
+        if let language = selectItem?["language"] {
+            if isShowAll {
+                selectTextField.isUserInteractionEnabled = true
+                selectTextField.becomeFirstResponder()
+                let normalAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
+                                        NSAttributedString.Key.foregroundColor: UIColor(colorString: "999999")]
+                selectTextField.text = nil;
+                selectTextField.attributedPlaceholder = NSAttributedString(string: language, attributes: normalAttributes)
+            } else {
+                selectTextField.resignFirstResponder()
+                selectTextField.isUserInteractionEnabled = false
+                selectTextField.text = language;
+                selectTextField.attributedPlaceholder = nil
+            }
+        } else {
+            selectTextField.text = nil;
+            selectTextField.attributedPlaceholder = nil
+        }
     }
 }
