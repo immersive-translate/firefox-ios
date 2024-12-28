@@ -88,11 +88,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         appView.translatesAutoresizingMaskIntoConstraints = false
         
         let descLabel = UILabel()
-        if AppInfo.isChinaEdition {
-            descLabel.text = "沉浸式翻译浏览器是⼀款基于⽕狐浏览器技术的定制产品，由沉浸式翻译团队独⽴开发。⽕狐浏览器是Mozilla的⼀个开源项⽬"
-        } else {
-            descLabel.text = "Immersive Translate Browser is a customized product developed independently by Immersive Translate team, based on the technology of the Firefox browser, an open-source project by Mozilla."
-        }
+        descLabel.text = .ImtLocalizableAppInfo
         descLabel.numberOfLines = 0
         descLabel.font = UIFont.systemFont(ofSize: 16)
         descLabel.textColor = textColor
@@ -101,8 +97,11 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         containerView.addSubview(descLabel)
         
         
+        let versionText:String = .ImtLocalizableVersion
+        let appText:String = .ImtLocalizableApp
+
         let plugLabel = UILabel()
-        plugLabel.text = "Immersive Translate version: \(PlugInUpdateManager.shared.currentVersion)";
+        plugLabel.text = "\(AppInfo.displayName) \(versionText): \(PlugInUpdateManager.shared.currentVersion)";
         plugLabel.font = UIFont.systemFont(ofSize: 16)
         plugLabel.textColor = textColor
         plugLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -110,7 +109,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         containerView.addSubview(plugLabel)
         
         let appLabel = UILabel()
-        appLabel.text = "APP Version: \(AppInfo.appVersion)";
+        appLabel.text = "\(appText) \(versionText): \(AppInfo.appVersion)";
         appLabel.font = UIFont.systemFont(ofSize: 16)
         appLabel.textColor = textColor
         appLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -119,7 +118,7 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
         
         
         let fireFoxLabel = UILabel()
-        fireFoxLabel.text = "Firefox Version: 122.0";
+        fireFoxLabel.text = "Firefox \(versionText): 122.0";
         fireFoxLabel.font = UIFont.systemFont(ofSize: 16)
         fireFoxLabel.textColor = textColor
         fireFoxLabel.translatesAutoresizingMaskIntoConstraints = false

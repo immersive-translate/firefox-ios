@@ -34,25 +34,25 @@ class ImtSitesCell: UICollectionViewCell, ReusableCell {
     // MARK: - UI Setup
     func setupView() {
         contentView.backgroundColor = .clear
-        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: "网页", invalid: false)
+        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: .ImtLocalizableWebTranslation, invalid: false)
         let webTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(webClick))
         webItemView.isUserInteractionEnabled = true;
         webItemView.addGestureRecognizer(webTapRecognizer)
         contentView.addSubview(webItemView);
         
-        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: "视频", invalid: false)
+        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: .ImtLocalizableVideoTranslation, invalid: false)
         let videoTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(videoClick))
         videoItemView.isUserInteractionEnabled = true;
         videoItemView.addGestureRecognizer(videoTapRecognizer)
         contentView.addSubview(videoItemView);
 
-        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: "文档", invalid: false)
+        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: .ImtLocalizableDocTranslation, invalid: false)
         let documentTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(documentClick))
         documentItemView.isUserInteractionEnabled = true;
         documentItemView.addGestureRecognizer(documentTapRecognizer)
         contentView.addSubview(documentItemView);
         
-        let cartoonItemView = createLogoAndDescView(imageName: "cartoon-intro", desc: "漫画", invalid: false)
+        let cartoonItemView = createLogoAndDescView(imageName: "cartoon-intro", desc: .ImtLocalizableComicTranslation, invalid: false)
         let cartoonTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(cartoonClick))
         cartoonItemView.isUserInteractionEnabled = true;
         cartoonItemView.addGestureRecognizer(cartoonTapRecognizer)

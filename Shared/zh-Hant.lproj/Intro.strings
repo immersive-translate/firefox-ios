@@ -1,9 +1,9 @@
 /* Sign in to Firefox account button on second intro screen. */
-"Intro.Slides.Button.SignIn" = "Sign In";
+"Intro.Slides.Button.SignIn" = "登入";
 
 /* Title for the first panel 'Welcome' in the First Run tour. */
-"Intro.Slides.Welcome.Title.v2" = "Welcome to Immersive Translate";
+"Intro.Slides.Welcome.Title.v2" = "歡迎使用 沉浸式翻譯";
 
 /* See http://mzl.la/1T8gxwo */
-"Start Browsing" = "Start Browsing";
+"Start Browsing" = "開始瀏覽";
 

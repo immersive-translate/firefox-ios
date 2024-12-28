@@ -115,21 +115,21 @@ class OnboardingCardViewController: UIViewController, Themeable {
 
     // MARK: - View setup
     func setupFirstIntroView() {
-        titleLabel.text = "将沉浸式翻译设置为默认浏览器"
+        titleLabel.text = .ImtLocalizableIntroDefaultBrowser
         view.addSubview(titleLabel)
         
-        descriptionLabel.text = "任何外文网页默认用沉浸式翻译浏览器打开并自动翻译； \n搜索结果自动翻译为母语。"
+        descriptionLabel.text = .ImtLocalizableIntroAutoTranslated
         view.addSubview(descriptionLabel)
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.white]
-        let primaryAttributeTitle = NSAttributedString(string: "设为默认浏览器", attributes: primaryAttribute)
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetDefaultBrowser, attributes: primaryAttribute)
         primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(primaryButton);
         
         let secondaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 12),
                                   NSAttributedString.Key.foregroundColor:  UIColor(colorString: "999999")]
-        let secondaryAttributeTitle = NSAttributedString(string: "稍后设置", attributes: secondaryAttribute)
+        let secondaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetLater, attributes: secondaryAttribute)
         secondaryButton.setAttributedTitle(secondaryAttributeTitle, for: .normal)
         view.addSubview(secondaryButton);
         
@@ -161,12 +161,12 @@ class OnboardingCardViewController: UIViewController, Themeable {
     
     
     func setupSecondaryIntroView() {
-        titleLabel.text = "无障碍阅读外语内容："
+        titleLabel.text = .ImtLocalizableIntroAccessibleReading
         view.addSubview(titleLabel)
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.white]
-        let primaryAttributeTitle = NSAttributedString(string: "我知道了🫡", attributes: primaryAttribute)
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableReminderISee, attributes: primaryAttribute)
         primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(primaryButton);
         
@@ -182,18 +182,18 @@ class OnboardingCardViewController: UIViewController, Themeable {
         paragraphStyle.lineHeightMultiple = 1.2
         paragraphStyle.alignment = .center;
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let labelAttributeTitle = NSAttributedString(string: "全部一键翻译，\n阅读再无障碍！🎉", attributes: labelAttribute)
+        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated, attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
         label.textColor = UIColor(colorString: "222222")
         contentView.addSubview(label);
 
-        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: "网页")
+        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: .ImtLocalizableIntroWebPage)
         contentView.addSubview(webItemView);
         
-        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: "视频")
+        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: .ImtLocalizableIntroVideo)
         contentView.addSubview(videoItemView);
 
-        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: "文档")
+        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: .ImtLocalizableIntroDocument)
         contentView.addSubview(documentItemView);
         
         let itemMargin = (view.frame.size.width - 3 * UX.itemImageViewSize.width) / 4
@@ -237,20 +237,21 @@ class OnboardingCardViewController: UIViewController, Themeable {
         paragraphStyle.lineHeightMultiple = 1.4
         paragraphStyle.alignment = .center;
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let labelAttributeTitle = NSAttributedString(string: "消除语言障碍\n看见更大的世界", attributes: labelAttribute)
+        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBiggerWorld, attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
         label.textColor = UIColor(colorString: "222222")
         view.addSubview(label);
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.white]
-        let primaryAttributeTitle = NSAttributedString(string: "开启无语言障碍的世界！", attributes: primaryAttribute)
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBreakBarriers, attributes: primaryAttribute)
         primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(primaryButton)
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 3),
             logoImageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -26),
             logoImageView.widthAnchor.constraint(equalToConstant: 70.0),
             logoImageView.heightAnchor.constraint(equalToConstant: 70.0),
