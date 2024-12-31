@@ -197,27 +197,6 @@
 		222C75A02D0EFDCA00677789 /* BusinessJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */; };
 		223463652B4C293B0088EAA1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 223463642B4C293B0088EAA1 /* Alamofire */; };
 		223463672B4D0CAC0088EAA1 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 223463662B4D0CAC0088EAA1 /* dsbridge.js */; };
-		223714232D09C54200666A01 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223714222D09C54200666A01 /* SafariWebExtensionHandler.swift */; };
-		223714382D09C54300666A01 /* Safari.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 223714202D09C54200666A01 /* Safari.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		223714512D09C59900666A01 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2237143E2D09C59300666A01 /* manifest.json */; };
-		223714522D09C59900666A01 /* content_script.js in Resources */ = {isa = PBXBuildFile; fileRef = 2237143F2D09C59300666A01 /* content_script.js */; };
-		223714532D09C59900666A01 /* _locales in Resources */ = {isa = PBXBuildFile; fileRef = 223714402D09C59300666A01 /* _locales */; };
-		223714542D09C59900666A01 /* pdf in Resources */ = {isa = PBXBuildFile; fileRef = 223714412D09C59300666A01 /* pdf */; };
-		223714552D09C59900666A01 /* image in Resources */ = {isa = PBXBuildFile; fileRef = 223714422D09C59300666A01 /* image */; };
-		223714562D09C59900666A01 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 223714432D09C59300666A01 /* popup.html */; };
-		223714572D09C59900666A01 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 223714442D09C59400666A01 /* icons */; };
-		223714582D09C59900666A01 /* video-subtitle in Resources */ = {isa = PBXBuildFile; fileRef = 223714452D09C59400666A01 /* video-subtitle */; };
-		223714592D09C59900666A01 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 223714462D09C59400666A01 /* options.html */; };
-		2237145A2D09C59900666A01 /* content_start.js in Resources */ = {isa = PBXBuildFile; fileRef = 223714472D09C59400666A01 /* content_start.js */; };
-		2237145B2D09C59900666A01 /* badge-icons in Resources */ = {isa = PBXBuildFile; fileRef = 223714482D09C59500666A01 /* badge-icons */; };
-		2237145C2D09C59900666A01 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 223714492D09C59600666A01 /* background.js */; };
-		2237145D2D09C59900666A01 /* rules in Resources */ = {isa = PBXBuildFile; fileRef = 2237144A2D09C59700666A01 /* rules */; };
-		2237145E2D09C59900666A01 /* static in Resources */ = {isa = PBXBuildFile; fileRef = 2237144B2D09C59700666A01 /* static */; };
-		2237145F2D09C59900666A01 /* locales.json in Resources */ = {isa = PBXBuildFile; fileRef = 2237144C2D09C59800666A01 /* locales.json */; };
-		223714602D09C59900666A01 /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 2237144D2D09C59800666A01 /* options.js */; };
-		223714612D09C59900666A01 /* build in Resources */ = {isa = PBXBuildFile; fileRef = 2237144E2D09C59800666A01 /* build */; };
-		223714622D09C59900666A01 /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 2237144F2D09C59900666A01 /* styles */; };
-		223714632D09C59900666A01 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 223714502D09C59900666A01 /* popup.js */; };
 		2262A7F52B4BAEE1006D6A9C /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 2262A7F32B4BAEE0006D6A9C /* mock_gm.js */; };
 		2262A8002B4BBFBE006D6A9C /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A7F92B4BBFBE006D6A9C /* DSCallInfo.m */; };
 		2262A8012B4BBFBE006D6A9C /* InternalApis.m in Sources */ = {isa = PBXBuildFile; fileRef = 2262A7FD2B4BBFBE006D6A9C /* InternalApis.m */; };
@@ -1668,13 +1647,6 @@
 			remoteGlobalIDString = 047F9B2624E1FE1C00CD7DF7;
 			remoteInfo = WidgetKitExtension;
 		};
-		223714362D09C54300666A01 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2237141F2D09C54200666A01;
-			remoteInfo = Safari;
-		};
 		2827316A1ABC9BE700AA1954 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F84B21B61A090F8100AAB793 /* Project object */;
@@ -1967,7 +1939,6 @@
 			files = (
 				047F9B3224E1FE1F00CD7DF7 /* WidgetKitExtension.appex in Embed App Extensions */,
 				397848E21ED86605004C0C0B /* NotificationService.appex in Embed App Extensions */,
-				223714382D09C54300666A01 /* Safari.appex in Embed App Extensions */,
 				F8324A122649A188007E4BFA /* CredentialProvider.appex in Embed App Extensions */,
 				F84B22541A0920C600AAB793 /* ShareTo.appex in Embed App Extensions */,
 			);
@@ -2147,28 +2118,6 @@
 		222C759B2D0EEF9100677789 /* zh-TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "zh-TW.json"; sourceTree = "<group>"; };
 		222C759F2D0EFDCA00677789 /* BusinessJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessJSObject.swift; sourceTree = "<group>"; };
 		223463662B4D0CAC0088EAA1 /* dsbridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
-		223714202D09C54200666A01 /* Safari.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Safari.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		223714222D09C54200666A01 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		223714352D09C54300666A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2237143E2D09C59300666A01 /* manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = manifest.json; path = dist/safari/manifest.json; sourceTree = SOURCE_ROOT; };
-		2237143F2D09C59300666A01 /* content_script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = content_script.js; path = dist/safari/content_script.js; sourceTree = SOURCE_ROOT; };
-		223714402D09C59300666A01 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _locales; path = dist/safari/_locales; sourceTree = SOURCE_ROOT; };
-		223714412D09C59300666A01 /* pdf */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pdf; path = dist/safari/pdf; sourceTree = SOURCE_ROOT; };
-		223714422D09C59300666A01 /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; name = image; path = dist/safari/image; sourceTree = SOURCE_ROOT; };
-		223714432D09C59300666A01 /* popup.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = popup.html; path = dist/safari/popup.html; sourceTree = SOURCE_ROOT; };
-		223714442D09C59400666A01 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = dist/safari/icons; sourceTree = SOURCE_ROOT; };
-		223714452D09C59400666A01 /* video-subtitle */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "video-subtitle"; path = "dist/safari/video-subtitle"; sourceTree = SOURCE_ROOT; };
-		223714462D09C59400666A01 /* options.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = options.html; path = dist/safari/options.html; sourceTree = SOURCE_ROOT; };
-		223714472D09C59400666A01 /* content_start.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = content_start.js; path = dist/safari/content_start.js; sourceTree = SOURCE_ROOT; };
-		223714482D09C59500666A01 /* badge-icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "badge-icons"; path = "dist/safari/badge-icons"; sourceTree = SOURCE_ROOT; };
-		223714492D09C59600666A01 /* background.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = background.js; path = dist/safari/background.js; sourceTree = SOURCE_ROOT; };
-		2237144A2D09C59700666A01 /* rules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = rules; path = dist/safari/rules; sourceTree = SOURCE_ROOT; };
-		2237144B2D09C59700666A01 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; name = static; path = dist/safari/static; sourceTree = SOURCE_ROOT; };
-		2237144C2D09C59800666A01 /* locales.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = locales.json; path = dist/safari/locales.json; sourceTree = SOURCE_ROOT; };
-		2237144D2D09C59800666A01 /* options.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = options.js; path = dist/safari/options.js; sourceTree = SOURCE_ROOT; };
-		2237144E2D09C59800666A01 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; name = build; path = dist/safari/build; sourceTree = SOURCE_ROOT; };
-		2237144F2D09C59900666A01 /* styles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = styles; path = dist/safari/styles; sourceTree = SOURCE_ROOT; };
-		223714502D09C59900666A01 /* popup.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = popup.js; path = dist/safari/popup.js; sourceTree = SOURCE_ROOT; };
 		22447D2A2D1F8B700003B27F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/WidgetIntents.strings"; sourceTree = "<group>"; };
 		22447D2B2D1F8B700003B27F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		22447D2C2D1F8B700003B27F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -3689,13 +3638,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2237141D2D09C54200666A01 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2827315A1ABC9BE600AA1954 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -4199,42 +4141,6 @@
 				21AFCFEF2AE80D370027E9CE /* RemoteTabsCoordinator.swift */,
 			);
 			path = TabTray;
-			sourceTree = "<group>";
-		};
-		223714212D09C54200666A01 /* Safari */ = {
-			isa = PBXGroup;
-			children = (
-				223714222D09C54200666A01 /* SafariWebExtensionHandler.swift */,
-				223714352D09C54300666A01 /* Info.plist */,
-				223714242D09C54200666A01 /* Resources */,
-			);
-			path = Safari;
-			sourceTree = "<group>";
-		};
-		223714242D09C54200666A01 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				223714402D09C59300666A01 /* _locales */,
-				223714492D09C59600666A01 /* background.js */,
-				223714482D09C59500666A01 /* badge-icons */,
-				2237144E2D09C59800666A01 /* build */,
-				2237143F2D09C59300666A01 /* content_script.js */,
-				223714472D09C59400666A01 /* content_start.js */,
-				223714442D09C59400666A01 /* icons */,
-				223714422D09C59300666A01 /* image */,
-				2237144C2D09C59800666A01 /* locales.json */,
-				2237143E2D09C59300666A01 /* manifest.json */,
-				223714462D09C59400666A01 /* options.html */,
-				2237144D2D09C59800666A01 /* options.js */,
-				223714412D09C59300666A01 /* pdf */,
-				223714432D09C59300666A01 /* popup.html */,
-				223714502D09C59900666A01 /* popup.js */,
-				2237144A2D09C59700666A01 /* rules */,
-				2237144B2D09C59700666A01 /* static */,
-				2237144F2D09C59900666A01 /* styles */,
-				223714452D09C59400666A01 /* video-subtitle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		2262A7F62B4BBFBE006D6A9C /* dsbridge */ = {
@@ -7423,7 +7329,6 @@
 				F8708D1E1A0970990051AB07 /* Extensions */,
 				047F9B2A24E1FE1C00CD7DF7 /* WidgetKit */,
 				F8324A082649A188007E4BFA /* CredentialProvider */,
-				223714212D09C54200666A01 /* Safari */,
 				7B604FC11C496005006EEEC3 /* Frameworks */,
 				F84B21BF1A090F8100AAB793 /* Products */,
 				D34DC84C1A16C40C00D49B7B /* Providers */,
@@ -7460,7 +7365,6 @@
 				047F9B2724E1FE1C00CD7DF7 /* WidgetKitExtension.appex */,
 				F8324A052649A188007E4BFA /* CredentialProvider.appex */,
 				43BE578A278BA4D900491291 /* RustMozillaAppServices.framework */,
-				223714202D09C54200666A01 /* Safari.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7798,23 +7702,6 @@
 			);
 			productName = WidgetKitExtension;
 			productReference = 047F9B2724E1FE1C00CD7DF7 /* WidgetKitExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		2237141F2D09C54200666A01 /* Safari */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 223714392D09C54300666A01 /* Build configuration list for PBXNativeTarget "Safari" */;
-			buildPhases = (
-				2237141C2D09C54200666A01 /* Sources */,
-				2237141D2D09C54200666A01 /* Frameworks */,
-				2237141E2D09C54200666A01 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Safari;
-			productName = Safari;
-			productReference = 223714202D09C54200666A01 /* Safari.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2827315D1ABC9BE600AA1954 /* Sync */ = {
@@ -8177,7 +8064,6 @@
 				397848E11ED86605004C0C0B /* PBXTargetDependency */,
 				F84B22521A0920C600AAB793 /* PBXTargetDependency */,
 				047F9B3124E1FE1F00CD7DF7 /* PBXTargetDependency */,
-				223714372D09C54300666A01 /* PBXTargetDependency */,
 			);
 			name = Client;
 			packageProductDependencies = (
@@ -8266,9 +8152,6 @@
 				TargetAttributes = {
 					047F9B2624E1FE1C00CD7DF7 = {
 						CreatedOnToolsVersion = 12.0;
-					};
-					2237141F2D09C54200666A01 = {
-						CreatedOnToolsVersion = 15.4;
 					};
 					2827315D1ABC9BE600AA1954 = {
 						CreatedOnToolsVersion = 6.2;
@@ -8455,7 +8338,6 @@
 				43BE5774278BA4D900491291 /* RustMozillaAppServices */,
 				288A2D851AB8B3260023ABC3 /* Shared */,
 				2827315D1ABC9BE600AA1954 /* Sync */,
-				2237141F2D09C54200666A01 /* Safari */,
 			);
 		};
 /* End PBXProject section */
@@ -8469,32 +8351,6 @@
 				D58A202C25C9D96400105D25 /* Localizable.strings in Resources */,
 				D970E3C62C3BD663006DF558 /* PrivacyInfo.xcprivacy in Resources */,
 				1D9E1FE524FEF56C006E561D /* TopSites in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2237141E2D09C54200666A01 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				223714532D09C59900666A01 /* _locales in Resources */,
-				223714632D09C59900666A01 /* popup.js in Resources */,
-				223714602D09C59900666A01 /* options.js in Resources */,
-				223714562D09C59900666A01 /* popup.html in Resources */,
-				2237145E2D09C59900666A01 /* static in Resources */,
-				223714552D09C59900666A01 /* image in Resources */,
-				223714542D09C59900666A01 /* pdf in Resources */,
-				2237145C2D09C59900666A01 /* background.js in Resources */,
-				2237145F2D09C59900666A01 /* locales.json in Resources */,
-				223714512D09C59900666A01 /* manifest.json in Resources */,
-				2237145A2D09C59900666A01 /* content_start.js in Resources */,
-				223714622D09C59900666A01 /* styles in Resources */,
-				223714612D09C59900666A01 /* build in Resources */,
-				223714572D09C59900666A01 /* icons in Resources */,
-				223714582D09C59900666A01 /* video-subtitle in Resources */,
-				2237145B2D09C59900666A01 /* badge-icons in Resources */,
-				2237145D2D09C59900666A01 /* rules in Resources */,
-				223714522D09C59900666A01 /* content_script.js in Resources */,
-				223714592D09C59900666A01 /* options.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9003,14 +8859,6 @@
 				4392FB34252EC4CE00AD3D23 /* SessionRestoreHandler.swift in Sources */,
 				DA9FD88824E213DD00168D1E /* QuickLink.swift in Sources */,
 				1DA3CE5D24EEE73100422BB2 /* OpenTabsWidget.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2237141C2D09C54200666A01 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				223714232D09C54200666A01 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10495,11 +10343,6 @@
 			target = 047F9B2624E1FE1C00CD7DF7 /* WidgetKitExtension */;
 			targetProxy = 047F9B3024E1FE1F00CD7DF7 /* PBXContainerItemProxy */;
 		};
-		223714372D09C54300666A01 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2237141F2D09C54200666A01 /* Safari */;
-			targetProxy = 223714362D09C54300666A01 /* PBXContainerItemProxy */;
-		};
 		2827316B1ABC9BE700AA1954 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2827315D1ABC9BE600AA1954 /* Sync */;
@@ -11202,336 +11045,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2237143A2D09C54300666A01 /* Fennec */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = Client/Entitlements/Safari.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = BB5D3W365Y;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Safari/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Safari;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Mozilla. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.safari";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Fennec;
-		};
-		2237143B2D09C54300666A01 /* Fennec_Enterprise */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Safari/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Safari;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Mozilla. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.Safari";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Fennec_Enterprise;
-		};
-		2237143C2D09C54300666A01 /* Firefox */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 43AQ936H96;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Safari/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Safari;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Mozilla. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.Safari";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Firefox;
-		};
-		2237143D2D09C54300666A01 /* FirefoxBeta */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 43AQ936H96;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Safari/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Safari;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Mozilla. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.Safari";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = FirefoxBeta;
-		};
 		282731771ABC9BE800AA1954 /* Fennec */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -13083,17 +12596,6 @@
 				4354D3E224EEEEC5001184F6 /* Fennec_Enterprise */,
 				4354D3E324EEEEC5001184F6 /* Firefox */,
 				4354D3E424EEEEC5001184F6 /* FirefoxBeta */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Fennec;
-		};
-		223714392D09C54300666A01 /* Build configuration list for PBXNativeTarget "Safari" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2237143A2D09C54300666A01 /* Fennec */,
-				2237143B2D09C54300666A01 /* Fennec_Enterprise */,
-				2237143C2D09C54300666A01 /* Firefox */,
-				2237143D2D09C54300666A01 /* FirefoxBeta */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Fennec;
