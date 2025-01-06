@@ -265,6 +265,7 @@
 		28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282915E51AF1A7920006EEB5 /* BrowserSchema.swift */; };
 		28E91E751B443AD5009DF274 /* SyncConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E91E741B443AD5009DF274 /* SyncConstants.swift */; };
 		28ECD9BF1BA1F19900D829DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
+		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
 		295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166202D2C109000CAD566 /* immersive-translate.user.js */; };
 		295166242D2C109000CAD566 /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166212D2C109000CAD566 /* mock_gm.js */; };
@@ -2749,6 +2750,7 @@
 		28C4AB711AD42D4300D9ACE3 /* Clients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clients.swift; sourceTree = "<group>"; };
 		28E91E741B443AD5009DF274 /* SyncConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncConstants.swift; sourceTree = "<group>"; };
 		28ECD9A21BA1EBA800D829DA /* SyncTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SyncTests-Bridging-Header.h"; path = "firefox-ios-tests/Tests/SyncTests/SyncTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		2944457497A26D75C7B5940E /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/FindInPage.strings; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
 		295166202D2C109000CAD566 /* immersive-translate.user.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
@@ -13952,6 +13954,7 @@
 		E65075551E37F714006961AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
 				2951662E2D2C10A300CAD566 /* dsbridge */,
 				295166312D2C10A300CAD566 /* JSObject */,
@@ -16676,6 +16679,7 @@
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,
 				C83432FE26BAD30D00ABAAA6 /* EnhancedTrackingProtectionDetailsVC.swift in Sources */,
 				E698FFDA1B4AADF40001F623 /* TabScrollController.swift in Sources */,
+				292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */,
 				1DD4B26E2CA4D09100B51945 /* TabErrorTelemetryHelper.swift in Sources */,
 				8A359EF32A1FD449004A5BB7 /* AdjustWrapper.swift in Sources */,
 				8AAEBA022BF5110A000C02B5 /* MicrosurveyAction.swift in Sources */,
