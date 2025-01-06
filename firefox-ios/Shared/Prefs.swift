@@ -199,6 +199,11 @@ public struct PrefsKeys {
     public static let PhotonMainMenuShown = "PhotonMainMenuShown"
 }
 
+public struct PrefsDefaults {
+    public static let ChineseHomePageURL = "https://bing.com"
+    public static let ChineseNewTabDefault = "HomePage"
+}
+
 public protocol Prefs {
     func getBranchPrefix() -> String
     func branch(_ branch: String) -> Prefs

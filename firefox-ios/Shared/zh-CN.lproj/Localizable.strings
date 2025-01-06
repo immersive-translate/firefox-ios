@@ -1381,7 +1381,7 @@
 "Settings.NewTab.Option.Custom" = "自定义";
 
 /* Option in settings to show Firefox Home when you open a new tab */
-"Settings.NewTab.Option.FirefoxHome" = "Firefox 主页";
+"Settings.NewTab.Option.FirefoxHome" = "主页";
 
 /* Option in settings to show your homepage when you open a new tab */
 "Settings.NewTab.Option.HomePage" = "主页";
