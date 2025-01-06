@@ -426,6 +426,20 @@ class SettingsCoordinator: BaseCoordinator,
         viewController.url = url
         router.push(viewController)
     }
+    
+    func pressedAboutApp() {
+        let viewController = AbountAppViewController(prefs: profile.prefs, windowUUID: windowUUID)
+        viewController.profile = profile
+        viewController.parentCoordinator = self;
+        router.push(viewController)
+    }
+    
+    func pressedTutorials(url: URL, title: NSAttributedString) {
+        let viewController = SettingsContentViewController(windowUUID: windowUUID)
+        viewController.settingsTitle = title
+        viewController.url = url
+        router.push(viewController)
+    }
 
     // MARK: - ParentCoordinatorDelegate
 

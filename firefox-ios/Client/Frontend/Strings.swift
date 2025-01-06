@@ -3265,6 +3265,11 @@ extension String {
         tableName: nil,
         value: "New Tab",
         comment: "Label used as an item in Settings. When touched it will open a dialog to configure the new tab behavior.")
+    public static let SettingsAbountAppSectionName = MZLocalizedString(
+        key: "Settings.Abount.App.SectionName",
+        tableName: nil,
+        value: "Abount Immersive Translate",
+        comment: "Label used as an item in Settings. When touched it will open a dialog to see the app info.")
     public static let NewTabSectionName =
     MZLocalizedString(
         key: "Settings.NewTab.TopSectionName",
@@ -7037,6 +7042,11 @@ extension String {
         tableName: nil,
         value: nil,
         comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/")
+    public static let ImmersiveTranslateTutorials = MZLocalizedString(
+        key: "Immersive Translate Tutorials",
+        tableName: nil,
+        value: nil,
+        comment: "Show Immersive Translate Tutorials page from the Tutorials section in the settings. See https://immersivetranslate.com/docs/usage")
     public static let AppSettingsTitle = MZLocalizedString(
         key: "Settings",
         tableName: nil,
@@ -7645,3 +7655,200 @@ extension String {
 }
 
 // swiftlint:enable line_length
+
+
+// MARK: - Imt Strings
+extension String {
+    public static let ImtLocalizableAppInfo = MZLocalizedString(
+        key: "Imt.Localizable.App.Info",
+        tableName: nil,
+        value: "Immersive Translate Browser is a customized product developed independently by Immersive Translate team, based on the technology of the Firefox browser, an open-source project by Mozilla.",
+        comment: "")
+    
+    public static let ImtLocalizableVersion = MZLocalizedString(
+        key: "Imt.Localizable.Version",
+        tableName: nil,
+        value: "Version",
+        comment: "")
+    
+    public static let ImtLocalizableApp = MZLocalizedString(
+        key: "Imt.Localizable.App",
+        tableName: nil,
+        value: "App",
+        comment: "")
+    
+    public static let ImtLocalizableReminder = MZLocalizedString(
+        key: "Imt.Localizable.Reminder",
+        tableName: nil,
+        value: "Reminder",
+        comment: "")
+    
+    public static let ImtLocalizableUserAgreement = MZLocalizedString(
+        key: "Imt.Localizable.User.Agreement",
+        tableName: nil,
+        value: "\"User Agreement\"",
+        comment: "")
+    
+    public static let ImtLocalizableUserAgreementTitle = MZLocalizedString(
+        key: "Imt.Localizable.User.Agreement.Title",
+        tableName: nil,
+        value: "User Agreement",
+        comment: "")
+    
+    public static let ImtLocalizablePrivacyPolicy = MZLocalizedString(
+        key: "Imt.Localizable.App.Privacy.Policy",
+        tableName: nil,
+        value: "\"Immersive Translation Browser Privacy Policy\"",
+        comment: "")
+    
+    public static let ImtLocalizablePrivacyPolicyTitle = MZLocalizedString(
+        key: "Imt.Localizable.App.Privacy.Policy.Title",
+        tableName: nil,
+        value: "Privacy Policy",
+        comment: "")
+    
+    public static let ImtLocalizableReminderPre = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Pre",
+        tableName: nil,
+        value: "Welcome to Immersive Translation. Before using Immersive Translation, please carefully read the",
+        comment: "")
+    
+    public static let ImtLocalizableReminderMiddle = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Middle",
+        tableName: nil,
+        value: "and",
+        comment: "")
+    
+    public static let ImtLocalizableReminderPost = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Post",
+        tableName: nil,
+        value: ". According to the \"Regulations on the Scope of Necessary Personal Information for Common Types of Mobile Internet Applications\", the main functions of Immersive Translation are website browsing, search, file processing, file management, etc. The extended functions include Immersive Translation account, etc. Agreeing to the basic functions privacy policy only means agreeing to the collection and processing of relevant necessary information when using main functions such as website browsing, search, file processing, and file management. The collection of personal information by extended functions such as immersive translation accounts will be separately solicited from you when you use specific functions.",
+        comment: "")
+    
+    public static let ImtLocalizableReminderDisagree = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Disagree",
+        tableName: nil,
+        value: "Disagree",
+        comment: "")
+    
+    public static let ImtLocalizableReminderAgree = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Agree",
+        tableName: nil,
+        value: "Agree",
+        comment: "")
+    
+    public static let ImtLocalizableReminderNeedAgree = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Need.Agree",
+        tableName: nil,
+        value: "This product needs to agree to the relevant agreement before it can be used.",
+        comment: "")
+    
+    public static let ImtLocalizableReminderQuitApp = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.Quit.App",
+        tableName: nil,
+        value: "Quit APP",
+        comment: "")
+    
+    public static let ImtLocalizableReminderISee = MZLocalizedString(
+        key: "Imt.Localizable.Reminder.I.See",
+        tableName: nil,
+        value: "I see",
+        comment: "")
+    
+    
+    public static let ImtLocalizableIntroDefaultBrowser = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Default.Browser",
+        tableName: nil,
+        value: "Set Immersive Translate as your default browser",
+        comment: "")
+    
+    public static let ImtLocalizableIntroAutoTranslated = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Auto.Translated",
+        tableName: nil,
+        value: "Any foreign language webpage is opened by default with the immersive translation browser and automatically translated; \nSearch results are automatically translated into the native language.",
+        comment: "")
+    
+    public static let ImtLocalizableIntroNativeLanguage = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Native.language",
+        tableName: nil,
+        value: "Your native language",
+        comment: "")
+    
+    public static let ImtLocalizableIntroSetDefaultBrowser = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Set.Default.Browser",
+        tableName: nil,
+        value: "Set as default browser",
+        comment: "")
+    
+    public static let ImtLocalizableIntroSetLater = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Set.Later",
+        tableName: nil,
+        value: "Set up later",
+        comment: "")
+    
+    public static let ImtLocalizableIntroAccessibleReading = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Accessible.Reading",
+        tableName: nil,
+        value: "Accessible reading of foreign language content",
+        comment: "")
+    
+    public static let ImtLocalizableIntroWebPage = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Web.page",
+        tableName: nil,
+        value: "Web page",
+        comment: "")
+    
+    public static let ImtLocalizableIntroVideo = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Video",
+        tableName: nil,
+        value: "Video",
+        comment: "")
+    
+    public static let ImtLocalizableIntroDocument = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Document",
+        tableName: nil,
+        value: "Document",
+        comment: "")
+    
+    public static let ImtLocalizableIntroAllTranslated = MZLocalizedString(
+        key: "Imt.Localizable.Intro.All.Translated",
+        tableName: nil,
+        value: "All translated with one click, \nmaking reading hassle-free!",
+        comment: "")
+    
+    public static let ImtLocalizableIntroBiggerWorld = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Bigger.World",
+        tableName: nil,
+        value: "Eliminate language barriers\nSee a bigger world",
+        comment: "")
+    
+    public static let ImtLocalizableIntroBreakBarriers = MZLocalizedString(
+        key: "Imt.Localizable.Intro.Break.Barriers",
+        tableName: nil,
+        value: "Break language barriers!",
+        comment: "")
+    
+    public static let ImtLocalizableWebTranslation = MZLocalizedString(
+        key: "Imt.Localizable.Web.Translation",
+        tableName: nil,
+        value: "Web translation",
+        comment: "")
+    
+    public static let ImtLocalizableVideoTranslation = MZLocalizedString(
+        key: "Imt.Localizable.Video.Translation",
+        tableName: nil,
+        value: "Video translation",
+        comment: "")
+    
+    public static let ImtLocalizableDocTranslation = MZLocalizedString(
+        key: "Imt.Localizable.Doc.Translation",
+        tableName: nil,
+        value: "Doc translation",
+        comment: "")
+    
+    public static let ImtLocalizableComicTranslation = MZLocalizedString(
+        key: "Imt.Localizable.Comic.Translation",
+        tableName: nil,
+        value: "Comic translation",
+        comment: "")
+}

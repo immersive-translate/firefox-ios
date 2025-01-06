@@ -925,6 +925,8 @@
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
 "Privacy Policy" = "Privacy Policy";
 
+"Immersive Translate Tutorials" = "Immersive Translate Tutorials";
+
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "Connection is not secure";
 
@@ -1387,6 +1389,8 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behavior. */
 "Settings.NewTab.SectionName" = "New Tab";
 
+"Settings.Abount.App.SectionName" = "Abount Immersive Translate";
+
 /* Title displayed in header of the setting panel. */
 "Settings.NewTab.Title" = "New Tab";
 
@@ -1406,7 +1410,7 @@
 "Settings.OfferClipboardBar.Status.v128" = "When opening %@";
 
 /* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Title" = "Offer to Open Copied Links";
+"Settings.OfferClipboardBar.Title" = "When you turn on immersive translation";
 
 /* Title for Open With Settings */
 "Settings.OpenWith.PageTitle" = "Open mail links with";

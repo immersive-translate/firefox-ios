@@ -666,6 +666,10 @@ public struct AccessibilityIdentifiers {
         struct NewTab {
             static let title = "NewTab"
         }
+        
+        struct AboutApp {
+            static let title = "About.App"
+        }
 
         struct NoImageMode {
             static let title = "NoImageMode"

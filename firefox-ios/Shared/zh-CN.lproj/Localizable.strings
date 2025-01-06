@@ -422,7 +422,7 @@
 "FxHomepage.Wallpaper.ButtonLabel.v99" = "Firefox 徽标，更换壁纸。";
 
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
-"Help" = "帮助";
+"Help" = "关于/Firefox帮助";
 
 /* Toggle history syncing setting */
 "History" = "历史记录";
@@ -625,7 +625,7 @@
 "LibraryPanel.Section.Older" = "更早";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "许可协议";
+"Licenses" = "关于/许可协议";
 
 /* Light theme setting in Reading View settings */
 "Light" = "明亮";
@@ -925,7 +925,9 @@
 "Privacy" = "隐私";
 
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
-"Privacy Policy" = "隐私政策";
+"Privacy Policy" = "关于/Firefox隐私政策";
+
+"Immersive Translate Tutorials" = "沉浸式翻译教程";
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "连接不安全";
@@ -937,7 +939,7 @@
 "Quick-Search Engines" = "快速搜索引擎";
 
 /* A label indicating the action that a user can rate the Firefox app in the App store. */
-"Ratings.Settings.RateOnAppStore" = "在 App Store 上评分";
+"Ratings.Settings.RateOnAppStore" = "关于/在 App Store 上评分";
 
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "已读";
@@ -1389,6 +1391,8 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behavior. */
 "Settings.NewTab.SectionName" = "新标签页";
 
+"Settings.Abount.App.SectionName" = "关于 沉浸式翻译";
+
 /* Title displayed in header of the setting panel. */
 "Settings.NewTab.Title" = "新标签页";
 
@@ -1408,7 +1412,7 @@
 "Settings.OfferClipboardBar.Status.v128" = "打开 %@ 时询问";
 
 /* Title of setting to enable the Go to Copied URL feature. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Title" = "询问打开已复制的链接";
+"Settings.OfferClipboardBar.Title" = "当打开沉浸式翻译时";
 
 /* Title for Open With Settings */
 "Settings.OpenWith.PageTitle" = "打开邮件链接于";
@@ -1444,7 +1448,7 @@
 "Settings.SendUsage.Message" = "Mozilla 仅收集为大众提供和改进 Firefox 所必要的信息。";
 
 /* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "发送使用数据";
+"Settings.SendUsage.Title" = "关于/向Mozilla发送使⽤数据";
 
 /* Description displayed under the ”Show Link Previews” option */
 "Settings.ShowLinkPreviews.Status" = "长按链接时显示";
@@ -1474,7 +1478,7 @@
 "Settings.Studies.Toggle.Message" = "Firefox 可能会不时地安装并运行一些研究项目。";
 
 /* Label used as a toggle item in Settings. When this is off, the user is opting out of all studies. */
-"Settings.Studies.Toggle.Title" = "研究";
+"Settings.Studies.Toggle.Title" = "关于/研究";
 
 /* Ddescription that appears in the settings screen to explain what Firefox Sync is useful for. */
 "Settings.Sync.ButtonDescription.v103" = "登录后即可同步标签页、书签、密码等数据。";
@@ -1792,7 +1796,7 @@
 "You don’t have any tabs open in Firefox on your other devices." = "您没有在其他设备的 Firefox 上已经打开的标签页。";
 
 /* Your Rights settings section title */
-"Your Rights" = "您的权利";
+"Your Rights" = "关于/您对于Firefox的权利";
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";

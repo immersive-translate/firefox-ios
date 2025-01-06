@@ -8,4 +8,6 @@ protocol AboutSettingsDelegate: AnyObject {
     func pressedRateApp()
     func pressedLicense(url: URL, title: NSAttributedString)
     func pressedYourRights(url: URL, title: NSAttributedString)
+    func pressedAboutApp()
+    func pressedTutorials(url: URL, title: NSAttributedString)
 }
