@@ -6627,7 +6627,7 @@ extension String {
         value: nil,
         comment: "Title displayed for when there are no open tabs while in private mode")
     public static let TabTrayPrivateBrowsingDescription =  MZLocalizedString(
-        key: "Firefox won’t remember any of your history or cookies, but new bookmarks will be saved.",
+        key: "Immersive Translate won’t remember any of your history or cookies, but new bookmarks will be saved.",
         tableName: "PrivateBrowsing",
         value: nil,
         comment: "Description text displayed when there are no open tabs while in private mode")

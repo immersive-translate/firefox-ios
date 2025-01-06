@@ -47,10 +47,10 @@ class EmptyPrivateTabsView: UIView {
         label.text = .TabTrayPrivateBrowsingDescription
     }
 
-    private lazy var learnMoreButton: LinkButton = .build { button in
-        button.titleLabel?.adjustsFontForContentSizeCategory = true
-        button.addTarget(self, action: #selector(self.didTapLearnMore), for: .touchUpInside)
-    }
+//    private lazy var learnMoreButton: LinkButton = .build { button in
+//        button.titleLabel?.adjustsFontForContentSizeCategory = true
+//        button.addTarget(self, action: #selector(self.didTapLearnMore), for: .touchUpInside)
+//    }
 
     private let iconImageView: UIImageView = .build { imageView in
         imageView.image = UIImage.templateImageNamed(StandardImageIdentifiers.Large.privateMode)
@@ -73,12 +73,12 @@ class EmptyPrivateTabsView: UIView {
                                             a11yIdentifier: AccessibilityIdentifiers.TabTray.learnMoreButton,
                                             font: FXFontStyles.Regular.subheadline.scaledFont(),
                                             contentHorizontalAlignment: .center)
-        learnMoreButton.configure(viewModel: viewModel)
+//        learnMoreButton.configure(viewModel: viewModel)
     }
 
     private func setupLayout() {
         configureLearnMoreButton()
-        containerView.addSubviews(iconImageView, titleLabel, descriptionLabel, learnMoreButton)
+        containerView.addSubviews(iconImageView, titleLabel, descriptionLabel)
         scrollView.addSubview(containerView)
         addSubview(scrollView)
 
@@ -115,19 +115,19 @@ class EmptyPrivateTabsView: UIView {
             descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
 
-            learnMoreButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,
-                                                 constant: UX.paddingInBetweenItems),
-            learnMoreButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            learnMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            learnMoreButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
-                                                    constant: -UX.paddingInBetweenItems),
+//            learnMoreButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor,
+//                                                 constant: UX.paddingInBetweenItems),
+//            learnMoreButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+//            learnMoreButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+//            learnMoreButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
+//                                                    constant: -UX.paddingInBetweenItems),
         ])
     }
 
     func applyTheme(_ theme: Theme) {
         titleLabel.textColor = theme.colors.textPrimary
         descriptionLabel.textColor = theme.colors.textPrimary
-        learnMoreButton.applyTheme(theme: theme)
+//        learnMoreButton.applyTheme(theme: theme)
         iconImageView.tintColor = theme.colors.iconDisabled
     }
 
