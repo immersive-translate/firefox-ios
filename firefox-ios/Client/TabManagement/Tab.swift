@@ -580,6 +580,9 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             )
 
             tabDelegate?.tab(self, didCreateWebView: webView)
+            NotificationCenter.default.addObserver(forName: .NeedRefreshImmersiveTranslateJsInject, object: nil, queue: .main) { _ in
+                UserScriptManager.shared.injectUserScriptsIntoWebView(self.webView, nightMode: self.nightMode, noImageMode: self.noImageMode)
+            }
             webViewLoadingObserver = webView.observe(\.isLoading) { [weak self] _, _ in
                 self?.onLoading?()
             }

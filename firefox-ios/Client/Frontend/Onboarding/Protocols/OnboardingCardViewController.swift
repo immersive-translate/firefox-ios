@@ -147,6 +147,7 @@ class OnboardingCardViewController: UIViewController, Themeable {
 
         primaryButton.configure(viewModel: buttonViewModel)
         primaryButton.applyTheme(theme: themeManager.getCurrentTheme(for: windowUUID))
+        primaryButton.backgroundColor = UIColor(colorString: "EA4C89")
     }
 
     func setupSecondaryButton() {
