@@ -521,6 +521,11 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             configuration.allowsInlineMediaPlayback = true
             let webView = TabWebView(frame: .zero, configuration: configuration, windowUUID: windowUUID)
             webView.configure(delegate: self, navigationDelegate: navigationDelegate)
+                        
+            webView.disableJavascriptDialogBlock(true);
+            webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
+            webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
+            webView.setDebugMode(false)
             webView.accessibilityLabel = .WebViewAccessibilityLabel
             webView.allowsBackForwardNavigationGestures = true
             webView.allowsLinkPreview = true
@@ -1075,7 +1080,7 @@ protocol TabWebViewDelegate: AnyObject {
     func tabWebViewShouldShowAccessoryView(_ tabWebView: TabWebView) -> Bool
 }
 
-class TabWebView: WKWebView, MenuHelperWebViewInterface, ThemeApplicable {
+class TabWebView: DWKWebView, MenuHelperWebViewInterface, ThemeApplicable {
     lazy var accessoryView = AccessoryViewProvider(windowUUID: windowUUID)
     private var logger: Logger = DefaultLogger.shared
     private weak var delegate: TabWebViewDelegate?

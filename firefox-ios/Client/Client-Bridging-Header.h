@@ -5,6 +5,7 @@
 #import <CommonCrypto/CommonCrypto.h>
 
 #import "FSReadingList.h"
+#import "dsBridge.h"
 
 #import "ThirdParty/Apple/UIImage+ImageEffects.h"
 

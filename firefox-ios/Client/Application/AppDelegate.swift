@@ -9,6 +9,7 @@ import UIKit
 import Common
 import Glean
 import TabDataStore
+import CocoaDebug
 
 import class MozillaAppServices.Viaduct
 
@@ -133,6 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    level: .info,
                    category: .lifecycle)
 
+        customCocoaDebug();
         return true
     }
 
@@ -183,6 +185,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         updateTopSitesWidget()
 
         UserDefaults.standard.setValue(Date(), forKey: "LastActiveTimestamp")
+    }
+
+    func customCocoaDebug() {
+        CocoaDebugSettings.shared.enableLogMonitoring = true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

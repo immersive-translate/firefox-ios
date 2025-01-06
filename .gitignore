@@ -49,6 +49,9 @@ DerivedData
 /fastlane/scripts
 /fastlane/templates
 
+# CocoaPods
+Pods/
+
 # content blocking lists
 firefox-ios/Client/ContentBlocker/Lists/*
 

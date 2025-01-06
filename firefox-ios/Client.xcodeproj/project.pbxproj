@@ -265,6 +265,17 @@
 		28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282915E51AF1A7920006EEB5 /* BrowserSchema.swift */; };
 		28E91E751B443AD5009DF274 /* SyncConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E91E741B443AD5009DF274 /* SyncConstants.swift */; };
 		28ECD9BF1BA1F19900D829DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
+		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
+		295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166202D2C109000CAD566 /* immersive-translate.user.js */; };
+		295166242D2C109000CAD566 /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166212D2C109000CAD566 /* mock_gm.js */; };
+		295166322D2C10A300CAD566 /* JSBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2951662D2D2C10A300CAD566 /* JSBUtil.m */; };
+		295166332D2C10A300CAD566 /* HttpClientJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */; };
+		295166342D2C10A300CAD566 /* InternalApis.m in Sources */ = {isa = PBXBuildFile; fileRef = 2951662B2D2C10A300CAD566 /* InternalApis.m */; };
+		295166352D2C10A300CAD566 /* LocalStorageJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */; };
+		295166362D2C10A300CAD566 /* DWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166292D2C10A300CAD566 /* DWKWebView.m */; };
+		295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166272D2C10A300CAD566 /* DSCallInfo.m */; };
+		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
+		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -572,6 +583,7 @@
 		5AF6254528A57B6700A90253 /* MockHistoryHighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254428A57B6700A90253 /* MockHistoryHighlightsManager.swift */; };
 		5AF6254728A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254628A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift */; };
 		5AF6254928A58BB400A90253 /* MockHistoryHighlightsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254828A58BB400A90253 /* MockHistoryHighlightsDelegate.swift */; };
+		5BCA3B616005528D04EE32CA /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 982C99E36B7BFA8D6AF1EEF9 /* Pods_Client.framework */; };
 		5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F130D2D2483508E00B0F7D0 /* FxAWebViewModel.swift */; };
 		5FA2233C27F74071005B3D87 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA2233B27F74071005B3D87 /* Glean */; };
 		5FC276552894AEFF00AF2721 /* LibraryPanelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B101D1AA7F9C600C01CA3 /* LibraryPanelHelper.swift */; };
@@ -2368,6 +2380,7 @@
 		0BF8F8D91AEFF1C900E90BC2 /* noTitle.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = noTitle.html; sourceTree = "<group>"; };
 		0BFF4E518FAC32125B26DFA9 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		0C0040FC9C93BE76DC96924D /* su */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = su; path = su.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
+		0C188714DC21330487773A74 /* Pods-Client.fennec_testing.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.fennec_testing.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.fennec_testing.xcconfig"; sourceTree = "<group>"; };
 		0C2944B19D544A0B270DDB37 /* ta */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ta; path = ta.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0C3947E0A085F03473EBA539 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Search.strings; sourceTree = "<group>"; };
 		0C474316B6171274626C1D7D /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/Today.strings"; sourceTree = "<group>"; };
@@ -2737,6 +2750,21 @@
 		28E91E741B443AD5009DF274 /* SyncConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncConstants.swift; sourceTree = "<group>"; };
 		28ECD9A21BA1EBA800D829DA /* SyncTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SyncTests-Bridging-Header.h"; path = "firefox-ios-tests/Tests/SyncTests/SyncTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2944457497A26D75C7B5940E /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/FindInPage.strings; sourceTree = "<group>"; };
+		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
+		295166202D2C109000CAD566 /* immersive-translate.user.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
+		295166212D2C109000CAD566 /* mock_gm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mock_gm.js; sourceTree = "<group>"; };
+		295166252D2C10A300CAD566 /* dsbridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dsbridge.h; sourceTree = "<group>"; };
+		295166262D2C10A300CAD566 /* DSCallInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSCallInfo.h; sourceTree = "<group>"; };
+		295166272D2C10A300CAD566 /* DSCallInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSCallInfo.m; sourceTree = "<group>"; };
+		295166282D2C10A300CAD566 /* DWKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DWKWebView.h; sourceTree = "<group>"; };
+		295166292D2C10A300CAD566 /* DWKWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DWKWebView.m; sourceTree = "<group>"; };
+		2951662A2D2C10A300CAD566 /* InternalApis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InternalApis.h; sourceTree = "<group>"; };
+		2951662B2D2C10A300CAD566 /* InternalApis.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InternalApis.m; sourceTree = "<group>"; };
+		2951662C2D2C10A300CAD566 /* JSBUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSBUtil.h; sourceTree = "<group>"; };
+		2951662D2D2C10A300CAD566 /* JSBUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSBUtil.m; sourceTree = "<group>"; };
+		2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientJSObject.swift; sourceTree = "<group>"; };
+		295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageJSObject.swift; sourceTree = "<group>"; };
+		2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		29674D56A7F83A12241E6CF5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Menu.strings"; sourceTree = "<group>"; };
 		2995404DA271DB0C04F92319 /* oc */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = oc; path = oc.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
 		29A04A68B7C887BEAC9217EB /* ia */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ia; path = ia.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
@@ -6888,6 +6916,7 @@
 		5701474D98CBB453BEF9044A /* kab */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kab; path = kab.lproj/FindInPage.strings; sourceTree = "<group>"; };
 		5710462DA936DC92C110E2B9 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Today.strings; sourceTree = "<group>"; };
 		5790488BA755E1CC2D300EFF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Shared.strings; sourceTree = "<group>"; };
+		579F641322C75927322FE87A /* Pods-Client.firefox.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.firefox.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.firefox.xcconfig"; sourceTree = "<group>"; };
 		57F145E2AD7AF2643AD94B98 /* gd */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gd; path = gd.lproj/Intro.strings; sourceTree = "<group>"; };
 		580B0C4121748CFE00448DF8 /* DataManagementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagementTests.swift; sourceTree = "<group>"; };
 		587741BC8AE7ADB843B49C5C /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/ClearHistoryConfirm.strings; sourceTree = "<group>"; };
@@ -7951,6 +7980,7 @@
 		97C7471398A31189C4E4D566 /* bs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bs; path = bs.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
 		980C492382221DFFEFCD6340 /* or */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = or; path = or.lproj/ClearPrivateDataConfirm.strings; sourceTree = "<group>"; };
 		982C4C92BC5D34C57F4050F9 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ErrorPages.strings; sourceTree = "<group>"; };
+		982C99E36B7BFA8D6AF1EEF9 /* Pods_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98674293801BB7CC9A9D19DF /* pa-IN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pa-IN"; path = "pa-IN.lproj/ClearPrivateData.strings"; sourceTree = "<group>"; };
 		988942C9A019AF4FD4B3C0C3 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/HistoryPanel.strings; sourceTree = "<group>"; };
 		98B54F46B062D5E486D79D3F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Shared.strings; sourceTree = "<group>"; };
@@ -8042,6 +8072,7 @@
 		A4B545339B012DD5339993C3 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/3DTouchActions.strings; sourceTree = "<group>"; };
 		A4CA448AA96CDBC3A7DBAC77 /* es-AR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-AR"; path = "es-AR.lproj/Storage.strings"; sourceTree = "<group>"; };
 		A4DC42139D8B8F1B3EF09187 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/AuthenticationManager.strings; sourceTree = "<group>"; };
+		A51897B56448475F848E4A42 /* Pods-Client.fennec_enterprise.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.fennec_enterprise.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.fennec_enterprise.xcconfig"; sourceTree = "<group>"; };
 		A53F4A73AD12CBDA5CE2257D /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/Storage.strings; sourceTree = "<group>"; };
 		A5519CF42B5D57560062BECB /* SearchSettingsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsState.swift; sourceTree = "<group>"; };
 		A55319BA2B5D5A850051559F /* SearchSettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsAction.swift; sourceTree = "<group>"; };
@@ -8097,6 +8128,7 @@
 		AA80494199BED7BAA77241A9 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/Storage.strings"; sourceTree = "<group>"; };
 		AAAB41FC97F6C8F8A1506603 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/AuthenticationManager.strings; sourceTree = "<group>"; };
 		AAF64ABAB8A585208603D45B /* dsb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = dsb; path = dsb.lproj/LoginManager.strings; sourceTree = "<group>"; };
+		AAFF1AB5FFBE03F95CE4486C /* Pods-Client.firefoxbeta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.firefoxbeta.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.firefoxbeta.xcconfig"; sourceTree = "<group>"; };
 		AB0303292AB47AF300DCD8EF /* FakespotOptInCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakespotOptInCardView.swift; sourceTree = "<group>"; };
 		AB03032A2AB47AF300DCD8EF /* FakespotOptInCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakespotOptInCardViewModel.swift; sourceTree = "<group>"; };
 		AB03032D2AB484B700DCD8EF /* FakespotOptInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakespotOptInViewModelTests.swift; sourceTree = "<group>"; };
@@ -8117,6 +8149,7 @@
 		AB7D4C3029ACAED100626427 /* Tab+ChangeUserAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tab+ChangeUserAgentTests.swift"; sourceTree = "<group>"; };
 		AB8EE2D22C750E6100BD0A6B /* TrackingProtectionVerifiedByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionVerifiedByView.swift; sourceTree = "<group>"; };
 		AB936A682C05F2B100600F82 /* TrackingProtectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionButton.swift; sourceTree = "<group>"; };
+		AB9935B82475F9016E925557 /* Pods-Client.fennec.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.fennec.xcconfig"; path = "Target Support Files/Pods-Client/Pods-Client.fennec.xcconfig"; sourceTree = "<group>"; };
 		AB9A0C002C6CBC9100BFA22A /* TrackingProtectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingProtectionDetailsViewController.swift; sourceTree = "<group>"; };
 		AB9CBBFE2C53B64B00102610 /* TrackingProtectionAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingProtectionAction.swift; sourceTree = "<group>"; };
 		AB9CBBFF2C53B64B00102610 /* TrackingProtectionMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingProtectionMiddleware.swift; sourceTree = "<group>"; };
@@ -9765,11 +9798,13 @@
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
 				AB2AC6632BCFD0A200022AAB /* X509 in Frameworks */,
 				433F87CE2788EAB600693368 /* GCDWebServers in Frameworks */,
+				2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */,
 				5A06135A29D6052E008F3D38 /* TabDataStore in Frameworks */,
 				EDD2A7F82CDACE7C00ED464C /* UnifiedSearchKit in Frameworks */,
 				216A0D762A40E7AB008077BA /* Redux in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
+				5BCA3B616005528D04EE32CA /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -10431,6 +10466,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2951662E2D2C10A300CAD566 /* dsbridge */ = {
+			isa = PBXGroup;
+			children = (
+				295166252D2C10A300CAD566 /* dsbridge.h */,
+				295166262D2C10A300CAD566 /* DSCallInfo.h */,
+				295166272D2C10A300CAD566 /* DSCallInfo.m */,
+				295166282D2C10A300CAD566 /* DWKWebView.h */,
+				295166292D2C10A300CAD566 /* DWKWebView.m */,
+				2951662A2D2C10A300CAD566 /* InternalApis.h */,
+				2951662B2D2C10A300CAD566 /* InternalApis.m */,
+				2951662C2D2C10A300CAD566 /* JSBUtil.h */,
+				2951662D2D2C10A300CAD566 /* JSBUtil.m */,
+			);
+			path = dsbridge;
+			sourceTree = "<group>";
+		};
+		295166312D2C10A300CAD566 /* JSObject */ = {
+			isa = PBXGroup;
+			children = (
+				2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */,
+				295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */,
+			);
+			path = JSObject;
+			sourceTree = "<group>";
+		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -10583,6 +10643,18 @@
 				2FCAE25B1ABB531100877008 /* SwiftData.swift */,
 			);
 			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		333C7C87A336FAE234935E32 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB9935B82475F9016E925557 /* Pods-Client.fennec.xcconfig */,
+				0C188714DC21330487773A74 /* Pods-Client.fennec_testing.xcconfig */,
+				A51897B56448475F848E4A42 /* Pods-Client.fennec_enterprise.xcconfig */,
+				579F641322C75927322FE87A /* Pods-Client.firefox.xcconfig */,
+				AAFF1AB5FFBE03F95CE4486C /* Pods-Client.firefoxbeta.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		392ED7D51D0AEEEE009D9B62 /* Accessors */ = {
@@ -11124,6 +11196,7 @@
 				C8E18F1F222EDED000E30E52 /* SafariServices.framework */,
 				DAD46F3524A1606C001B3967 /* SwiftUI.framework */,
 				DAD46F3324A1606C001B3967 /* WidgetKit.framework */,
+				982C99E36B7BFA8D6AF1EEF9 /* Pods_Client.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -13879,6 +13952,9 @@
 		E65075551E37F714006961AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
+				2951662E2D2C10A300CAD566 /* dsbridge */,
+				295166312D2C10A300CAD566 /* JSObject */,
 				5AD3B67D2CF665AE00AFA1FE /* UIApplicationInterface.swift */,
 				5AD3B67B2CF65DE300AFA1FE /* LocaleInterface.swift */,
 				8A13FA8C2AD834FA007527AB /* BackgroundTabLoader.swift */,
@@ -14142,6 +14218,7 @@
 				047F9B2A24E1FE1C00CD7DF7 /* WidgetKit */,
 				43BE578B278BA4D900491291 /* RustMozillaAppServices-Info.plist */,
 				8ACD3B972BA8EA8300E73E9A /* PrivacyInfo.xcprivacy */,
+				333C7C87A336FAE234935E32 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -14344,6 +14421,9 @@
 		F84B21EB1A0910F600AAB793 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2951661F2D2C109000CAD566 /* dsbridge.js */,
+				295166202D2C109000CAD566 /* immersive-translate.user.js */,
+				295166212D2C109000CAD566 /* mock_gm.js */,
 				E699220D1B94E3EF007C480D /* About */,
 				D0FCF8031FE4772C004A7995 /* AllFramesAtDocumentEnd.js */,
 				D03F8F22200EAC1E003C2224 /* AllFramesAtDocumentStart.js */,
@@ -14567,8 +14647,6 @@
 				2827316B1ABC9BE700AA1954 /* PBXTargetDependency */,
 			);
 			name = SyncTests;
-			packageProductDependencies = (
-			);
 			productName = SyncTests;
 			productReference = 282731681ABC9BE700AA1954 /* SyncTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -14674,8 +14752,6 @@
 				2FCAE2291ABB51F800877008 /* PBXTargetDependency */,
 			);
 			name = StorageTests;
-			packageProductDependencies = (
-			);
 			productName = StorageTests;
 			productReference = 2FCAE2241ABB51F800877008 /* StorageTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -14838,8 +14914,6 @@
 				E6F9653A1B2F1D330034B023 /* PBXTargetDependency */,
 			);
 			name = SharedTests;
-			packageProductDependencies = (
-			);
 			productName = SharedTests;
 			productReference = E6F9650C1B2F1CF20034B023 /* SharedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -14872,6 +14946,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F84B21DD1A090F8100AAB793 /* Build configuration list for PBXNativeTarget "Client" */;
 			buildPhases = (
+				6D871C90C100B5682ECEDFD1 /* [CP] Check Pods Manifest.lock */,
 				C874A4E327F62C5B006F54E5 /* Swiftlint */,
 				5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */,
 				5FA2232C27F6FA69005B3D87 /* Nimbus Feature Manifest Generator Script */,
@@ -14882,6 +14957,7 @@
 				E6639F191BF11E3A002D0853 /* Conditionally Add Settings Bundle */,
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				4368F81027955AE80013419B /* ShellScript */,
+				5CB870EE6566B498F331EF23 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -14912,6 +14988,7 @@
 				819656162C80C6F300E62323 /* MenuKit */,
 				EDD2A7F72CDACE7C00ED464C /* UnifiedSearchKit */,
 				ED6C8DAB2CE6A4BB00D7F7F3 /* Sentry-Dynamic */,
+				295166392D2C12A700CAD566 /* Alamofire */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -15236,6 +15313,7 @@
 				8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AB2AC6612BCFD0A200022AAB /* XCRemoteSwiftPackageReference "swift-certificates" */,
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -15446,6 +15524,9 @@
 				8A3345642BA499B7008C52AB /* disconnect-block-analytics.json in Resources */,
 				E1AF3567286DE5F800960045 /* PerformanceTestPlan.xctestplan in Resources */,
 				8A1A935A2B757C7C0069C190 /* portrait.json in Resources */,
+				295166222D2C109000CAD566 /* dsbridge.js in Resources */,
+				295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */,
+				295166242D2C109000CAD566 /* mock_gm.js in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
 				8A3345652BA499B7008C52AB /* disconnect-block-cookies-advertising.json in Resources */,
@@ -15642,6 +15723,28 @@
 			shellPath = /bin/sh;
 			shellScript = "rm -rf .venv; bash $PWD/bin/sdk_generator.sh -g Glean -o $SRCROOT/Storage/Generated\n";
 		};
+		5CB870EE6566B498F331EF23 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -15685,6 +15788,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$ACTION\" != \"indexbuild\" ]; then\n    /usr/bin/env -i HOME=$HOME PROJECT=$PROJECT CONFIGURATION=$CONFIGURATION SOURCE_ROOT=$SOURCE_ROOT bash \"$SOURCE_ROOT/bin/nimbus-fml.sh\" --verbose\nfi\n\n";
+		};
+		6D871C90C100B5682ECEDFD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		C874A4E327F62C5B006F54E5 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -16226,6 +16351,12 @@
 				E18259DF29B25E4F00E6BE76 /* UserNotificationCenterProtocol.swift in Sources */,
 				DFFC9AD12A681FA0002A6AAD /* NimbusFakespotFeatureLayer.swift in Sources */,
 				ED07C0EB2CCADCD5006C0627 /* SearchEngineSelectionState.swift in Sources */,
+				295166322D2C10A300CAD566 /* JSBUtil.m in Sources */,
+				295166332D2C10A300CAD566 /* HttpClientJSObject.swift in Sources */,
+				295166342D2C10A300CAD566 /* InternalApis.m in Sources */,
+				295166352D2C10A300CAD566 /* LocalStorageJSObject.swift in Sources */,
+				295166362D2C10A300CAD566 /* DWKWebView.m in Sources */,
+				295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */,
 				1DEBC55E2AC4ED70006E4801 /* RemoteTabsPanel.swift in Sources */,
 				435D660523D794B90046EFA2 /* UpdateViewModel.swift in Sources */,
 				9658143C29FAB610007339BD /* CreditCardInputFieldHelper.swift in Sources */,
@@ -17073,6 +17204,7 @@
 				8AEDB11529F9F00400F2A53B /* SceneContainer.swift in Sources */,
 				B23620512B9BAAF3000B1DE7 /* AddressFormData.swift in Sources */,
 				AB42CC742A1F5240003C9594 /* CreditCardBottomSheetViewController.swift in Sources */,
+				2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */,
 				C8741FE928C4D30F00030029 /* FileManagerInterface.swift in Sources */,
 				8A93F87229D3A5AD004159D9 /* BrowserCoordinator.swift in Sources */,
 				8A3233FE28627446003E1C33 /* LocalDesktopFolder.swift in Sources */,
@@ -24053,7 +24185,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Extensions/NotificationService/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_NOTIFICATIONSERVICE";
@@ -24179,7 +24311,7 @@
 				CODE_SIGN_ENTITLEMENTS = Extensions/Entitlements/Fennec.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = WidgetKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -24363,7 +24495,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				MOZ_BUNDLE_ID = com.web.ios.Fennec;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
@@ -24371,7 +24504,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_FENNEC";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TESTING;
-				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Fennec_Testing;
@@ -24386,12 +24519,18 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 43AQ936H96;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Client/Utils",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MOZ_BUNDLE_ID = zzer.web.ios.Fennec;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -24780,19 +24919,21 @@
 			buildSettings = {
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				MOZ_BUNDLE_ID = com.web.ios.Firefox;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
 					"-no_application_extension",
 				);
-				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Firefox;
 		};
 		E448FC9E1AEE7A6000869B6C /* Firefox */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 579F641322C75927322FE87A /* Pods-Client.firefox.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -24800,6 +24941,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Client/Utils",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -24807,6 +24952,8 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MOZ_BUNDLE_ID = zzer.web.ios.Firefox;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -25048,19 +25195,21 @@
 			buildSettings = {
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				MOZ_BUNDLE_ID = com.web.ios.FennecEnterprise;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
 					"-no_application_extension",
 				);
-				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Fennec_Enterprise;
 		};
 		E6DCC2061DCBB6F100CEC4B7 /* Fennec_Enterprise */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A51897B56448475F848E4A42 /* Pods-Client.fennec_enterprise.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
@@ -25074,6 +25223,10 @@
 					CredentialProvider.appex,
 					"Client/Nimbus/TestData/*",
 				);
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Client/Utils",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -25081,6 +25234,8 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MOZ_BUNDLE_ID = zzer.web.ios.FennecEnterprise;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -25328,19 +25483,21 @@
 			buildSettings = {
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				MOZ_BUNDLE_ID = com.web.ios.FirefoxBeta;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
 					"-no_application_extension",
 				);
-				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = FirefoxBeta;
 		};
 		E6FCC42A1C40562400DF6113 /* FirefoxBeta */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAFF1AB5FFBE03F95CE4486C /* Pods-Client.firefoxbeta.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Beta;
@@ -25348,6 +25505,10 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 43AQ936H96;
 				EXCLUDED_SOURCE_FILE_NAMES = "Client/Nimbus/TestData/*";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Client/Utils",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -25355,6 +25516,8 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MOZ_BUNDLE_ID = zzer.web.ios.FirefoxBeta;
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -25568,7 +25731,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -25597,7 +25760,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_CREDENTIAL_PROVIDER";
-				PRODUCT_BUNDLE_IDENTIFIER = org.mozilla.ios.Fennec.CredentialProvider;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.immersivetranslate.Immersive-Translate.browser.CredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -25838,32 +26001,40 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				MOZ_BUNDLE_DISPLAY_NAME = "Immersive Translate";
+				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-Xlinker",
 					"-no_application_extension",
 				);
-				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
 			name = Fennec;
 		};
 		F84B21DE1A090F8100AAB793 /* Fennec */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB9935B82475F9016E925557 /* Pods-Client.fennec.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Developer;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Client/Utils",
+				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-ld_classic",
@@ -25897,7 +26068,7 @@
 				CODE_SIGN_ENTITLEMENTS = "$(inherit)Extensions/Entitlements/Fennec.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 43AQ936H96;
+				DEVELOPMENT_TEAM = BB5D3W365Y;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Extensions/ShareTo/Info.plist;
 				OTHER_SWIFT_FLAGS = "-DMOZ_CHANNEL_FENNEC -DMOZ_TARGET_SHARETO";
@@ -26166,6 +26337,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = exactVersion;
+				version = 5.8.1;
+			};
+		};
 		432BD0222790EBD000A0F3C3 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adjust/ios_sdk.git";
@@ -26268,6 +26447,11 @@
 		216A0D752A40E7AB008077BA /* Redux */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Redux;
+		};
+		295166392D2C12A700CAD566 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		432BD0232790EBD000A0F3C3 /* Adjust */ = {
 			isa = XCSwiftPackageProductDependency;
