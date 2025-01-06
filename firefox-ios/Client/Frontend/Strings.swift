@@ -4735,6 +4735,11 @@ extension String {
             tableName: nil,
             value: "Help",
             comment: "Label for the help button in the menu page. Pressing this button opens the support page https://support.mozilla.org/en-US/products/ios")
+        public static let IMTSetting = MZLocalizedString(
+            key: "Immersive Translate Settings",
+            tableName: nil,
+            value: nil,
+            comment: "Label for the help button in the menu page. Pressing this button opens the support page https://dash.immersivetranslate.com/")
         public static let Share = MZLocalizedString(
             key: "Menu.Share.v99",
             tableName: nil,

@@ -397,6 +397,7 @@ extension TelemetryWrapper {
         case chinaServerSwitch = "china-server-switch"
         case appMenu = "app_menu"
         case settings = "settings"
+        case imtSettings = "imt-settings"
         case settingsMenuSetAsDefaultBrowser = "set-as-default-browser-menu-go-to-settings"
         case settingsMenuShowTour = "show-tour"
         case settingsMenuPasswords = "passwords"
