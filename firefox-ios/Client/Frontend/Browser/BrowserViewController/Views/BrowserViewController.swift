@@ -1489,7 +1489,7 @@ class BrowserViewController: UIViewController,
         let isErrorURL = url.flatMap { InternalURL($0)?.isErrorPage } ?? false
 
         guard url != nil else {
-            showEmbeddedWebview()
+            showEmbeddedHomepage(inline: true, isPrivate: false)
             if !isToolbarRefactorEnabled {
                 urlBar.locationView.reloadButton.reloadButtonState = .disabled
             }
