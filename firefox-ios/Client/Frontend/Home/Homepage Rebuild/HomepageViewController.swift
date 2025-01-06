@@ -85,6 +85,19 @@ final class HomepageViewController: UIViewController,
 
         listenForThemeChange(view)
         applyTheme()
+        guard UserDefaults.standard.string(forKey: "first-install-key") != nil else {
+            store.dispatch(
+                NavigationBrowserAction(
+                    url: URL(string: "https://onboarding.immersivetranslate.com/mobile/")!,
+                    isGoogleTopSite: false,
+                    windowUUID: self.windowUUID,
+                    actionType: NavigationBrowserActionType.tapOnLink
+                )
+            )
+            UserDefaults.standard.setValue("1", forKey: "first-install-key");
+            UserDefaults.standard.synchronize();
+            return
+        }
     }
 
     // MARK: - Redux

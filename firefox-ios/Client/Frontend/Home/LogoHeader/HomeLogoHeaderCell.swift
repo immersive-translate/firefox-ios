@@ -43,8 +43,9 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
         imageView.contentMode = .scaleAspectFit
     }
 
-    private lazy var logoTextImage: UIImageView = .build { imageView in
-        imageView.contentMode = .scaleAspectFit
+    private lazy var logoText: UILabel = .build { label in
+        label.font = UIFont.systemFont(ofSize: 14);
+        label.text = AppInfo.displayName;
     }
 
     private lazy var containerView: UIStackView = .build { view in
@@ -72,7 +73,7 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
     private func setupView(with showiPadSetup: Bool) {
         contentView.backgroundColor = .clear
         containerView.addArrangedSubview(logoImage)
-        containerView.addArrangedSubview(logoTextImage)
+        containerView.addArrangedSubview(logoText)
         contentView.addSubview(containerView)
 
         containerView.spacing = UX.TextImage.textImageSpacing(for: showiPadSetup)
@@ -92,8 +93,8 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
         logoConstraints = [
             logoImage.widthAnchor.constraint(equalToConstant: UX.Logo.logoSizeConstant(for: iPadSetup)),
             logoImage.heightAnchor.constraint(equalToConstant: UX.Logo.logoSizeConstant(for: iPadSetup)),
-            logoTextImage.widthAnchor.constraint(equalToConstant: UX.TextImage.textImageWidthConstant(for: iPadSetup)),
-            logoTextImage.heightAnchor.constraint(equalTo: logoImage.heightAnchor),
+            logoText.widthAnchor.constraint(equalToConstant: UX.TextImage.textImageWidthConstant(for: iPadSetup)),
+            logoText.heightAnchor.constraint(equalTo: logoImage.heightAnchor),
         ]
 
         if iPadSetup {
@@ -114,13 +115,9 @@ extension HomeLogoHeaderCell: ThemeApplicable {
     func applyTheme(theme: Theme) {
         let wallpaperManager = WallpaperManager()
         if let logoTextColor = wallpaperManager.currentWallpaper.logoTextColor {
-            logoTextImage.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoText)
-                .withRenderingMode(.alwaysTemplate)
-            logoTextImage.tintColor = logoTextColor
+            logoText.textColor = logoTextColor
         } else {
-            logoTextImage.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoText)
-                .withRenderingMode(.alwaysTemplate)
-            logoTextImage.tintColor = theme.colors.textPrimary
+            logoText.textColor = theme.colors.textPrimary
         }
     }
 }
