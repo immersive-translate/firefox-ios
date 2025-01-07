@@ -95,6 +95,16 @@ class UserScriptManager: FeatureFlaggable {
             compiledUserScripts[mockGmName] = userScript
         }
         
+        let setLanguageName = "set-language"
+        if let setLanguageScriptCompatPath = Bundle.main.path(
+            forResource: setLanguageName, ofType: "js"),
+            let source = try? NSString(
+                contentsOfFile: setLanguageScriptCompatPath,
+                encoding: String.Encoding.utf8.rawValue) as String {
+            let userScript = WKUserScript.createInPageContentWorld(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
+            compiledUserScripts[setLanguageName] = userScript
+        }
+        
         let dsBridgeScript = WKUserScript.createInPageContentWorld(source: "window._dswk=true;", injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: true)
         compiledUserScripts["dsbridge"] = dsBridgeScript
         
@@ -158,6 +168,11 @@ class UserScriptManager: FeatureFlaggable {
         if let immersiveSource = PlugInUpdateManager.shared.currentSource {
             let immersiveUserScript = WKUserScript.createInPageContentWorld(source: immersiveSource, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
             webView?.configuration.userContentController.addUserScript(immersiveUserScript)
+        }
+        
+        let setLanguageName = "set-language"
+        if let setLanguageUserScript = compiledUserScripts[setLanguageName] {
+            webView?.configuration.userContentController.addUserScript(setLanguageUserScript)
         }
 
         // Inject the Print Helper. This needs to be in the `page` content world in order to hook `window.print()`.
