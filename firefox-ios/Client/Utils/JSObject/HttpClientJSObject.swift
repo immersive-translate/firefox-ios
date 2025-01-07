@@ -25,10 +25,17 @@ class HttpClientJSObject {
             if (data != nil && data!["data"] != nil) {
                 urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
             }
+            // 用于标记是否已设置Content-Type
+            var contentTypeSet = false
             headers?.forEach({ header in
+                if header.name.lowercased() == "content-type" {
+                    contentTypeSet = true
+                }
                 urlRequest.headers.add(header);
             })
-            urlRequest.headers.add(.contentType("application/json"))
+            if !contentTypeSet {
+                urlRequest.headers.add(.contentType("application/json"))
+            }
             AF.request(urlRequest).responseString(encoding: .utf8) { response in
                 self.deal(forResponse: response, handler:handler)
             }
