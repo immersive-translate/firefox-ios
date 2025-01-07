@@ -155,9 +155,7 @@ class UserScriptManager: FeatureFlaggable {
             webView?.configuration.userContentController.addUserScript(mockGmUserScript)
         }
   
-        if let immersiveSource = try? NSString(
-                contentsOfFile: PlugInUpdateManager.shared.currentResourceLocation,
-                encoding: String.Encoding.utf8.rawValue) as String {
+        if let immersiveSource = PlugInUpdateManager.shared.currentSource {
             let immersiveUserScript = WKUserScript.createInPageContentWorld(source: immersiveSource, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
             webView?.configuration.userContentController.addUserScript(immersiveUserScript)
         }
