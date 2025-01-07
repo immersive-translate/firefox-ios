@@ -853,7 +853,7 @@
     "zh-CN": {
       "default": {
         "visibleDefaultEngines": [
-          "google-b-m", "baidu", "bing", "wikipedia-zh-CN"
+           "bing", "google-b-m", "baidu", "wikipedia-zh-CN"
         ]
       },
       "CN": {

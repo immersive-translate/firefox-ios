@@ -22,7 +22,9 @@ class HttpClientJSObject {
         if (method == "POST") {
             var urlRequest = URLRequest(url: URL(string: url)!)
             urlRequest.method = .post
-            urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
+            if (data != nil && data!["data"] != nil) {
+                urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
+            }
             headers?.forEach({ header in
                 urlRequest.headers.add(header);
             })

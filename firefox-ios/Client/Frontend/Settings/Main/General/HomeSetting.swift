@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
+import Shared
 
 class HomeSetting: Setting {
     private weak var settingsDelegate: GeneralSettingsDelegate?
@@ -17,7 +18,17 @@ class HomeSetting: Setting {
     }
 
     override var status: NSAttributedString {
-        return NSAttributedString(string: NewTabAccessors.getHomePage(self.profile.prefs).settingTitle)
+        let prefs = self.profile.prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.always.rawValue
+        var title:String = "";
+        switch prefs {
+        case StartAtHomeSetting.disabled.rawValue:
+            title = .Settings.Homepage.StartAtHome.Never;
+        case StartAtHomeSetting.afterFourHours.rawValue:
+            title = .Settings.Homepage.StartAtHome.AfterFourHours;
+        default:
+            title = .Settings.Homepage.StartAtHome.Always;
+        }
+        return NSAttributedString(string: title)
     }
 
     override var style: UITableViewCell.CellStyle { return .value1 }

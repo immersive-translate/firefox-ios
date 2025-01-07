@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Foundation
+import Shared
 
 class NewTabPageSetting: Setting {
     private let profile: Profile
@@ -17,7 +18,18 @@ class NewTabPageSetting: Setting {
     }
 
     override var status: NSAttributedString {
-        return NSAttributedString(string: NewTabAccessors.getNewTabPage(self.profile.prefs).settingTitle)
+        let prefs = self.profile.prefs.stringForKey(NewTabAccessors.NewTabPrefKey) ?? NewTabPage.topSites.rawValue
+        var title:String = "";
+        switch prefs {
+        case NewTabPage.blankPage.rawValue:
+            title = .SettingsNewTabBlankPage;
+        case NewTabPage.homePage.rawValue:
+            title = .SettingsNewTabCustom;
+        default:
+            title = .SettingsNewTabTopSites;
+        }
+        return NSAttributedString(string: title)
+//        return NSAttributedString(string: NewTabAccessors.getNewTabPage(self.profile.prefs).settingTitle)
     }
 
     override var style: UITableViewCell.CellStyle { return .value1 }

@@ -33,9 +33,9 @@ class StartAtHomeHelper: FeatureFlaggable {
     var startAtHomeSetting: StartAtHomeSetting {
         get {
             if let prefs = prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) {
-                return StartAtHomeSetting(rawValue: prefs) ?? .afterFourHours
+                return StartAtHomeSetting(rawValue: prefs) ?? .always
             }
-            return .afterFourHours
+            return .always
         }
         set { prefs.setString(newValue.rawValue, forKey: PrefsKeys.UserFeatureFlagPrefs.StartAtHome) }
     }
