@@ -281,6 +281,7 @@
 		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		29B6050F2D2D3053006585C7 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6050E2D2D304C006585C7 /* WindowJSObject.swift */; };
+		29B605112D2D32B5006585C7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 29B605102D2D32B5006585C7 /* PrivacyInfo.xcprivacy */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2520,6 +2521,7 @@
 		295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageJSObject.swift; sourceTree = "<group>"; };
 		2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		29B6050E2D2D304C006585C7 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
+		29B605102D2D32B5006585C7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -12698,6 +12700,7 @@
 				D37524861C6E8B5A00A5F6C2 /* topdomains.txt */,
 				3BC659481E5BA4AE006D560F /* TopSites */,
 				4336FAD1264B169000A6B076 /* WebcompatAllFramesAtDocumentStart.js */,
+				29B605102D2D32B5006585C7 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -13769,6 +13772,7 @@
 				8A3345692BA499B7008C52AB /* disconnect-block-cookies-social.json in Resources */,
 				8A3345682BA499B7008C52AB /* disconnect-block-social.json in Resources */,
 				4336FAD2264B169000A6B076 /* WebcompatAllFramesAtDocumentStart.js in Resources */,
+				29B605112D2D32B5006585C7 /* PrivacyInfo.xcprivacy in Resources */,
 				23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */,
 				E4CD9F541A71506400318571 /* Reader.html in Resources */,
 				E1BDAC832B9F65780063E6BF /* reportSiteIssueOff.json in Resources */,
