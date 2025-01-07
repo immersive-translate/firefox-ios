@@ -217,6 +217,12 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
     private func updateUI() {
         let normalAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.black]
+        let userlinkAttributes = [NSAttributedString.Key.font: UIFont .boldSystemFont(ofSize: 16),
+                                  NSAttributedString.Key.strokeColor: UIColor.black,
+                                  NSAttributedString.Key.link: UX.userProtocolScheme + "://"] as [NSAttributedString.Key : Any];
+        let protocolLinkAttributes = [NSAttributedString.Key.font: UIFont .boldSystemFont(ofSize: 16),
+                                      NSAttributedString.Key.strokeColor: UIColor.black,
+                                      NSAttributedString.Key.link: UX.privacyPolicyScheme + "://"] as [NSAttributedString.Key : Any];
         let leftButtonAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                     NSAttributedString.Key.foregroundColor: UIColor.black]
         let rightButtonAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
@@ -224,9 +230,9 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
         if isFirstStep {
             let attStr = NSMutableAttributedString(string: "欢迎使用沉浸式翻译。在使用沉浸式翻译前，请认真阅读",
                                                    attributes: normalAttributes)
-            attStr.append(NSAttributedString(string: "《用户协议》", attributes: [NSAttributedString.Key.link: UX.userProtocolScheme + "://"]))
+            attStr.append(NSAttributedString(string: "《用户协议》", attributes: userlinkAttributes))
             attStr.append(NSAttributedString(string: "和", attributes: normalAttributes))
-            attStr.append(NSAttributedString(string: "《沉浸式翻译浏览器隐私政策》", attributes: [NSAttributedString.Key.link: UX.privacyPolicyScheme + "://"]))
+            attStr.append(NSAttributedString(string: "《沉浸式翻译浏览器隐私政策》", attributes: protocolLinkAttributes))
             attStr.append(NSAttributedString(string: "。根据《常见类型移动互联网应用程序必要个人信息范围规定》，沉浸式翻译的主要功能为网址浏览、搜索、文件处理、文件管理等，扩展功能包括沉浸式翻译账号等。同意基本功能隐私政策仅代表同意使用网址浏览、搜索、文件处理、文件管理等主要功能时收集、处理相关必要信息，沉浸式翻译账号等拓展功能收集个人信息将在您使用具体功能时单独征求您的同意。", attributes: normalAttributes))
             textView.attributedText = attStr;
             leftButton.setAttributedTitle(NSAttributedString(string: "不同意", attributes: leftButtonAttributes), for: .normal);
