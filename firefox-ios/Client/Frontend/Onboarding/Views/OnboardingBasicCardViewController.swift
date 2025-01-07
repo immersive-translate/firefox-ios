@@ -9,59 +9,25 @@ import Shared
 
 class OnboardingBasicCardViewController: OnboardingCardViewController {
     struct UX {
-        static let stackViewSpacingWithLink: CGFloat = 15
-        static let stackViewSpacingWithoutLink: CGFloat = 24
-        static let stackViewSpacingButtons: CGFloat = 16
-        static let topStackViewPaddingPad: CGFloat = 70
-        static let topStackViewPaddingPhone: CGFloat = 90
-        static let bottomStackViewPaddingPad: CGFloat = 32
-        static let bottomStackViewPaddingPhone: CGFloat = 0
-        static let horizontalTopStackViewPaddingPad: CGFloat = 100
-        static let horizontalTopStackViewPaddingPhone: CGFloat = 24
-        static let scrollViewVerticalPadding: CGFloat = 62
-        static let descriptionBoldFontSize: CGFloat = 20
-        static let imageViewSize = CGSize(width: 240, height: 300)
+        static let titleLabelTopMargin: CGFloat = 68
+        static let titleLabelLeftMargin: CGFloat = 26
+        static let buttonBottomMargin: CGFloat = 16
+        static let primaryButtonHeight: CGFloat = 50
+        static let secondaryButtonHeight: CGFloat = 40
+        static let itemImageViewSize: CGSize = CGSizeMake(67.5, 67.5)
 
-        // small device
-        static let smallImageViewSize = CGSize(width: 240, height: 280)
-        static let smallTopStackViewPadding: CGFloat = 40
-
-        // tiny device (SE 1st gen)
-        static let tinyImageViewSize = CGSize(width: 144, height: 180)
-
-        static let baseImageHeight: CGFloat = 211
     }
 
     // MARK: - Properties
     weak var delegate: OnboardingCardDelegate?
 
-    lazy var buttonStackView: UIStackView = .build { stack in
-        stack.backgroundColor = .clear
-        stack.distribution = .equalSpacing
-        stack.axis = .vertical
-    }
-
-    private lazy var linkButton: LinkButton = .build { button in
-        button.addTarget(self, action: #selector(self.linkButtonAction), for: .touchUpInside)
-    }
-
-    // TODO: https://mozilla-hub.atlassian.net/browse/FXIOS-6816
-    // This should not be calculated using scaling coefficients, but with some
-    // version based on constrains of some kind. The ticket above ensures this work
-    // should get addressed.
-    private var imageViewHeight: CGFloat {
-        return UX.baseImageHeight * scalingCoefficient()
-    }
-
-    private func scalingCoefficient() -> CGFloat {
-        if shouldUseTinyDeviceLayout {
-            return 1.0
-        } else if shouldUseSmallDeviceLayout {
-            return 1.25
-        }
-
-        return 1.4
-    }
+    private lazy var logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleToFill;
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoBall)
+        return imageView
+    }()
 
     // MARK: - Initializers
     init(
@@ -81,9 +47,6 @@ class OnboardingBasicCardViewController: OnboardingCardViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupView()
-        updateLayout()
         applyTheme()
         listenForThemeChange(view)
     }
@@ -99,154 +62,187 @@ class OnboardingBasicCardViewController: OnboardingCardViewController {
     }
 
     // MARK: - View setup
-    func setupView() {
-        view.backgroundColor = .clear
-        contentStackView.spacing = stackViewSpacing()
-        buttonStackView.spacing = stackViewSpacing()
-        addViewsToView()
-
-        // Adapt layout for smaller screens
-        var scrollViewVerticalPadding = UX.scrollViewVerticalPadding
-        var topPadding = UX.topStackViewPaddingPhone
-        var horizontalTopStackViewPadding = UX.horizontalTopStackViewPaddingPhone
-        var bottomStackViewPadding = UX.bottomStackViewPaddingPhone
-
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            topStackView.spacing = stackViewSpacing()
-            buttonStackView.spacing = UX.stackViewSpacingButtons
-            if traitCollection.horizontalSizeClass == .regular {
-                scrollViewVerticalPadding = SharedUX.smallScrollViewVerticalPadding
-                topPadding = UX.topStackViewPaddingPad
-                horizontalTopStackViewPadding = UX.horizontalTopStackViewPaddingPad
-                bottomStackViewPadding = -UX.bottomStackViewPaddingPad
-            } else {
-                scrollViewVerticalPadding = SharedUX.smallScrollViewVerticalPadding
-                topPadding = UX.topStackViewPaddingPhone
-                horizontalTopStackViewPadding = UX.horizontalTopStackViewPaddingPhone
-                bottomStackViewPadding = -UX.bottomStackViewPaddingPhone
-            }
-        } else if UIDevice.current.userInterfaceIdiom == .phone {
-            horizontalTopStackViewPadding = UX.horizontalTopStackViewPaddingPhone
-            bottomStackViewPadding = -UX.bottomStackViewPaddingPhone
-            if shouldUseSmallDeviceLayout {
-                topStackView.spacing = SharedUX.smallStackViewSpacing
-                buttonStackView.spacing = SharedUX.smallStackViewSpacing
-                scrollViewVerticalPadding = SharedUX.smallScrollViewVerticalPadding
-                topPadding = UX.smallTopStackViewPadding
-            } else {
-                topStackView.spacing = stackViewSpacing()
-                buttonStackView.spacing = UX.stackViewSpacingButtons
-                scrollViewVerticalPadding = UX.scrollViewVerticalPadding
-                topPadding = view.frame.height * 0.1
-            }
-        }
-
-        NSLayoutConstraint.activate(
-            [
-                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: scrollViewVerticalPadding),
-                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -scrollViewVerticalPadding),
-
-                scrollView.frameLayoutGuide.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                scrollView.frameLayoutGuide.topAnchor.constraint(
-                    equalTo: view.topAnchor,
-                    constant: scrollViewVerticalPadding
-                ),
-                scrollView.frameLayoutGuide.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                scrollView.frameLayoutGuide.bottomAnchor.constraint(
-                    equalTo: view.bottomAnchor,
-                    constant: -scrollViewVerticalPadding
-                ),
-                scrollView.frameLayoutGuide.heightAnchor.constraint(
-                    equalTo: containerView.heightAnchor
-                ).priority(.defaultLow),
-
-                scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: containerView.topAnchor),
-                scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-                scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-                scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
-
-                // Content view wrapper around text
-                contentContainerView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: topPadding),
-                contentContainerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-                contentContainerView.bottomAnchor.constraint(
-                    equalTo: containerView.bottomAnchor,
-                    constant: bottomStackViewPadding
-                ),
-                contentContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-
-                contentStackView.topAnchor.constraint(greaterThanOrEqualTo: contentContainerView.topAnchor),
-                contentStackView.leadingAnchor.constraint(
-                    equalTo: contentContainerView.leadingAnchor,
-                    constant: horizontalTopStackViewPadding
-                ),
-                contentStackView.bottomAnchor.constraint(
-                    greaterThanOrEqualTo: contentContainerView.bottomAnchor,
-                    constant: -10
-                ),
-                contentStackView.trailingAnchor.constraint(
-                    equalTo: contentContainerView.trailingAnchor,
-                    constant: -horizontalTopStackViewPadding
-                ),
-                contentStackView.centerYAnchor.constraint(equalTo: contentContainerView.centerYAnchor),
-
-                topStackView.topAnchor.constraint(equalTo: contentStackView.topAnchor),
-                topStackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
-                topStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
-
-                linkButton.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
-                linkButton.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
-
-                buttonStackView.leadingAnchor.constraint(equalTo: contentStackView.leadingAnchor),
-                buttonStackView.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor),
-                buttonStackView.trailingAnchor.constraint(equalTo: contentStackView.trailingAnchor),
-
-                imageView.heightAnchor.constraint(equalToConstant: imageViewHeight)
-            ]
-        )
+    func setupFirstIntroView() {
+        titleLabel.text = .ImtLocalizableIntroDefaultBrowser
+        view.addSubview(titleLabel)
+        
+        descriptionLabel.text = .ImtLocalizableIntroAutoTranslated
+        view.addSubview(descriptionLabel)
+        
+        let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
+                                NSAttributedString.Key.foregroundColor: UIColor.white]
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetDefaultBrowser, attributes: primaryAttribute)
+        primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
+        view.addSubview(primaryButton);
+        
+        let secondaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 12),
+                                  NSAttributedString.Key.foregroundColor:  UIColor(colorString: "999999")]
+        let secondaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetLater, attributes: secondaryAttribute)
+        secondaryButton.setAttributedTitle(secondaryAttributeTitle, for: .normal)
+        view.addSubview(secondaryButton);
+        
+        let selectLanguageView = SelectLanguageView();
+        selectLanguageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(selectLanguageView);
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UX.titleLabelTopMargin),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: UX.titleLabelLeftMargin),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            descriptionLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            descriptionLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
+            selectLanguageView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
+            selectLanguageView.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            selectLanguageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            selectLanguageView.bottomAnchor.constraint(equalTo: primaryButton.topAnchor, constant: -60),
+            secondaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -UX.buttonBottomMargin),
+            secondaryButton.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            secondaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            secondaryButton.heightAnchor.constraint(equalToConstant: UX.secondaryButtonHeight),
+            primaryButton.bottomAnchor.constraint(equalTo: secondaryButton.topAnchor, constant: -UX.buttonBottomMargin),
+            primaryButton.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            primaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            primaryButton.heightAnchor.constraint(equalToConstant: UX.primaryButtonHeight),
+        ])
     }
+    
+    
+    func setupSecondaryIntroView() {
+        let theme = currentTheme()
+        titleLabel.text = .ImtLocalizableIntroAccessibleReading
+        view.addSubview(titleLabel)
+        
+        let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
+                                NSAttributedString.Key.foregroundColor: UIColor.white]
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableReminderISee + "🫡", attributes: primaryAttribute)
+        primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
+        view.addSubview(primaryButton);
+        
+        let contentView = UIView();
+        contentView.translatesAutoresizingMaskIntoConstraints = false;
+        view.addSubview(contentView);
+        let label = UILabel();
+        label.translatesAutoresizingMaskIntoConstraints = false;
+        label.numberOfLines = 0
+        label.font = DefaultDynamicFontHelper.preferredBoldFont(withTextStyle: .largeTitle,
+                                                                size: 20.0)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        paragraphStyle.alignment = .center;
+        let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated + "🎉", attributes: labelAttribute)
+        label.attributedText = labelAttributeTitle
+        label.textColor = theme.colors.textPrimary
+        contentView.addSubview(label);
 
-    private func addViewsToView() {
-        topStackView.addArrangedSubview(imageView)
-        topStackView.addArrangedSubview(titleLabel)
-        topStackView.addArrangedSubview(descriptionLabel)
-        contentStackView.addArrangedSubview(topStackView)
-        contentStackView.addArrangedSubview(linkButton)
+        let webItemView = createLogoAndDescView(imageName: "web-intro", desc: .ImtLocalizableIntroWebPage)
+        contentView.addSubview(webItemView);
+        
+        let videoItemView = createLogoAndDescView(imageName: "video-intro", desc: .ImtLocalizableIntroVideo)
+        contentView.addSubview(videoItemView);
 
-        buttonStackView.addArrangedSubview(primaryButton)
-        buttonStackView.addArrangedSubview(secondaryButton)
-        contentStackView.addArrangedSubview(buttonStackView)
+        let documentItemView = createLogoAndDescView(imageName: "document-intro", desc: .ImtLocalizableIntroDocument)
+        contentView.addSubview(documentItemView);
+        
+        let itemMargin = (view.frame.size.width - 3 * UX.itemImageViewSize.width) / 4
 
-        contentContainerView.addSubview(contentStackView)
-        containerView.addSubviews(contentContainerView)
-        scrollView.addSubviews(containerView)
-        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            videoItemView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -60),
+            videoItemView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            videoItemView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            webItemView.topAnchor.constraint(equalTo: videoItemView.topAnchor),
+            webItemView.rightAnchor.constraint(equalTo: videoItemView.leftAnchor, constant:  -itemMargin),
+            documentItemView.topAnchor.constraint(equalTo: videoItemView.topAnchor),
+            documentItemView.leftAnchor.constraint(equalTo: videoItemView.rightAnchor, constant:  itemMargin),
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UX.titleLabelTopMargin),
+            titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: UX.titleLabelLeftMargin),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            contentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            contentView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            primaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            primaryButton.leftAnchor.constraint(equalTo: titleLabel.leftAnchor),
+            primaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            primaryButton.heightAnchor.constraint(equalToConstant: UX.primaryButtonHeight),
+        ])
     }
-
-    private func stackViewSpacing() -> CGFloat {
-        guard viewModel.link?.title != nil else {
-            return UX.stackViewSpacingWithoutLink
-        }
-
-        return UX.stackViewSpacingWithLink
+    
+    
+    func setupThirdIntroView() {
+        let theme = currentTheme()
+        view.addSubview(logoImageView)
+        
+        let label = UILabel();
+        label.translatesAutoresizingMaskIntoConstraints = false;
+        label.numberOfLines = 0
+        label.font = DefaultDynamicFontHelper.preferredBoldFont(withTextStyle: .largeTitle,
+                                                                size: 32.0)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.4
+        paragraphStyle.alignment = .center;
+        let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBiggerWorld, attributes: labelAttribute)
+        label.attributedText = labelAttributeTitle
+        label.textColor = theme.colors.textPrimary
+        view.addSubview(label);
+        
+        let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
+                                NSAttributedString.Key.foregroundColor: UIColor.white]
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBreakBarriers, attributes: primaryAttribute)
+        primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
+        view.addSubview(primaryButton)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 3),
+            logoImageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -26),
+            logoImageView.widthAnchor.constraint(equalToConstant: 70.0),
+            logoImageView.heightAnchor.constraint(equalToConstant: 70.0),
+            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            primaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -UX.buttonBottomMargin),
+            primaryButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: UX.titleLabelLeftMargin),
+            primaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            primaryButton.heightAnchor.constraint(equalToConstant: UX.primaryButtonHeight),
+        ])
     }
-
-    private func setupLinkButton() {
-        guard let buttonTitle = viewModel.link?.title else {
-            linkButton.isUserInteractionEnabled = false
-            linkButton.isHidden = true
-            return
-        }
-        let buttonViewModel = LinkButtonViewModel(
-            title: buttonTitle,
-            a11yIdentifier: "\(self.viewModel.a11yIdRoot)LinkButton",
-            font: FXFontStyles.Regular.callout.scaledFont(),
-            contentHorizontalAlignment: .center
-        )
-        linkButton.configure(viewModel: buttonViewModel)
-        linkButton.applyTheme(theme: currentTheme())
+    
+    func createLogoAndDescView(imageName: String, desc: String) -> UIView {
+        let theme = currentTheme()
+        let itemView = UIView();
+        itemView.translatesAutoresizingMaskIntoConstraints = false;
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleToFill;
+        imageView.image = UIImage(imageLiteralResourceName: imageName)
+        itemView.addSubview(imageView);
+        
+        let label = UILabel();
+        label.translatesAutoresizingMaskIntoConstraints = false;
+        label.textAlignment = .center
+        label.font = DefaultDynamicFontHelper.preferredBoldFont(withTextStyle: .largeTitle,
+                                                                size: 16.0)
+        label.text = desc
+        label.textColor = theme.colors.textPrimary
+        itemView.addSubview(label)
+        NSLayoutConstraint.activate([
+            imageView.widthAnchor.constraint(equalToConstant: UX.itemImageViewSize.width),
+            imageView.heightAnchor.constraint(equalToConstant: UX.itemImageViewSize.height),
+            imageView.leftAnchor.constraint(equalTo: itemView.leftAnchor),
+            imageView.topAnchor.constraint(equalTo: itemView.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: itemView.centerXAnchor),
+            label.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10.0),
+            label.bottomAnchor.constraint(equalTo: itemView.bottomAnchor),
+        ])
+        return itemView
     }
 
     // MARK: - Button Actions
@@ -280,10 +276,16 @@ class OnboardingBasicCardViewController: OnboardingCardViewController {
     override func applyTheme() {
         let theme = currentTheme()
         titleLabel.textColor = theme.colors.textPrimary
-        descriptionLabel.textColor  = theme.colors.textPrimary
+        descriptionLabel.textColor = theme.colors.textPrimary
 
         primaryButton.applyTheme(theme: theme)
         setupSecondaryButton()
-        setupLinkButton()
+        if (viewModel.name == "welcome") {
+            setupFirstIntroView()
+        } else if (viewModel.name == "sign-to-sync") {
+            setupSecondaryIntroView()
+        } else if (viewModel.name == "notification-permissions") {
+            setupThirdIntroView()
+        }
     }
 }

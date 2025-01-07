@@ -32,27 +32,28 @@ class MicrosurveySurfaceManager: MicrosurveyManager {
     /// Checks whether a message exists, and is not expired, and attempts to
     /// build a `MicrosurveyPromptView` to be presented.
     func showMicrosurveyPrompt() -> MicrosurveyModel? {
-        retrieveMessage()
-        guard let message else { return nil }
-        let surveyQuestion = message.text
-        let promptTitle = String(
-            format: message.title ?? .Microsurvey.Prompt.TitleLabel,
-            AppName.shortName.rawValue
-        )
-        let promptButtonLabel = message.buttonLabel ?? .Microsurvey.Prompt.TakeSurveyButton
-        let options = !message.options.isEmpty ? message.options : defaultSurveyOptions
-        let icon = message.icon
-        let utmContent = message.utmContent
-
-        return MicrosurveyModel(
-            id: message.id,
-            promptTitle: promptTitle,
-            promptButtonLabel: promptButtonLabel,
-            surveyQuestion: surveyQuestion,
-            surveyOptions: options,
-            icon: icon,
-            utmContent: utmContent
-        )
+        return nil
+//        retrieveMessage()
+//        guard let message else { return nil }
+//        let surveyQuestion = message.text
+//        let promptTitle = String(
+//            format: message.title ?? .Microsurvey.Prompt.TitleLabel,
+//            AppName.shortName.rawValue
+//        )
+//        let promptButtonLabel = message.buttonLabel ?? .Microsurvey.Prompt.TakeSurveyButton
+//        let options = !message.options.isEmpty ? message.options : defaultSurveyOptions
+//        let icon = message.icon
+//        let utmContent = message.utmContent
+//
+//        return MicrosurveyModel(
+//            id: message.id,
+//            promptTitle: promptTitle,
+//            promptButtonLabel: promptButtonLabel,
+//            surveyQuestion: surveyQuestion,
+//            surveyOptions: options,
+//            icon: icon,
+//            utmContent: utmContent
+//        )
     }
 
     private func retrieveMessage() {

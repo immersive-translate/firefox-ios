@@ -125,8 +125,9 @@ class IntroViewController: UIViewController,
         view.addSubview(pageControl)
 
         NSLayoutConstraint.activate([
-            pageControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -8),
+            pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 26),
+            pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         pageControl.hidesForSinglePage = true
     }
