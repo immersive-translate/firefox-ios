@@ -72,7 +72,7 @@ function GM_addStyle(css) {
 }
 
 function GM_openInTab(url, openInBackground) {
-  window.open(url, "_blank");
+    dsBridge.call("window.open", { url});
 }
 
 window.GM = {
