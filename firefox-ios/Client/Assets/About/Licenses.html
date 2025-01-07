@@ -20,48 +20,53 @@ h2 {
 
 /* hide checkboxes */
 .ac-container input {
-	display: none;
+    display: none;
 }
 /* default to 'closed' */
 .ac-container article {
-	margin-top: -1px;
-	overflow: hidden;
-	height: 0px;
-	position: relative;
-	z-index: 10;
+    margin-top: -1px;
+    overflow: hidden;
+    height: 0px;
+    position: relative;
+    z-index: 10;
 }
 /* 'open' when checked */
 .ac-container input:checked ~ article {
-	height: auto;
+    height: auto;
 }
 /* '+/-' indicator styles/spacing */
 .ac-container label {
-	display: block;
-	padding-right: 21px
+    display: block;
+    padding-right: 21px
 }
 .ac-container h4,
 .ac-container h2 {
-	display: inline-block;
-	padding-right: 17px;
+    display: inline-block;
+    padding-right: 17px;
 }
 .ac-container label h4:after,
 .ac-container label h2:after {
-	content: '\02795';
-	font-size: 1rem;
-	display: inline-block;
-	position: absolute;
-	right: 17px;
+    content: '\02795';
+    font-size: 1rem;
+    display: inline-block;
+    position: absolute;
+    right: 17px;
 }
 .ac-container input:checked + label h4:after,
 .ac-container input:checked + label h2:after {
-	content: "\2796";
+    content: "\2796";
 }
 </style>
 </head>
 
 <h1>Licenses</h1>
 
-<h2>Firefox for iOS</h2>
+<h2>Immersive Translate iOS</h2>
+<p>Immersive Translate iOS includes features and customizations that are subject to the End User License Agreement (EULA). The EULA governs your use of the specific functionalities of the Immersive Translate iOS, distinct from the open-source components. Please note that the EULA applies exclusively to the proprietary aspects of the Immersive Translation iOS and does not alter the licensing terms of the underlying open-source software. The majority of the source code for the foundational software of this product, derived from the Firefox browser, which are both free and open source. A URL identifying the specific source code used to create this copy can be found on the build configuration page, and you can read instructions on how to download and build the code for yourself. is available under the Mozilla Public License 2.0 (MPL). The MPL has a FAQ to assist you in understanding its terms. The remainder of the software, not covered under the MPL, is available under various other free and open source licenses. Licenses requiring the reproduction of their text in distributions are listed below. Please be aware that your copy of this product might not contain code covered by one or more of the licenses listed here, depending on the specific product and version you choose.</p>
+
+<p class="link"><a href="https://immersivetranslate.com/docs/EULA/">End-User License Agreement (EULA) of Immersive Translate </a></p>
+
+<p class="link"><a href="https://github.com/immersive-translate/firefox-ios">github.com/immersive-translate/firefox-ios</a></p>
 <p class="link"><a href="https://github.com/mozilla/firefox-ios">github.com/mozilla/firefox-ios</a></p>
 <div class="text">
 
@@ -748,4 +753,3 @@ limitations under the License.</p>
 <center><p>-</p></center>
 
 </html>
-
