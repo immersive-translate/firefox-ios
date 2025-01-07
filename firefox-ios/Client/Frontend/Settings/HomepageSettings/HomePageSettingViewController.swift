@@ -194,7 +194,7 @@ class HomePageSettingViewController: SettingsTableViewController, FeatureFlaggab
     }
 
     private func setupStartAtHomeSection() -> SettingSection {
-        let defaultSetting = StartAtHomeSetting.always.rawValue
+        let defaultSetting = StartAtHomeSetting.disabled.rawValue
         let prefsSetting = prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? defaultSetting
         currentStartAtHomeSetting = StartAtHomeSetting(rawValue: prefsSetting) ?? .afterFourHours
 

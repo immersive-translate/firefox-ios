@@ -18,7 +18,7 @@ class HomeSetting: Setting {
     }
 
     override var status: NSAttributedString {
-        let prefs = self.profile.prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.always.rawValue
+        let prefs = self.profile.prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.disabled.rawValue
         var title:String = "";
         switch prefs {
         case StartAtHomeSetting.disabled.rawValue:
