@@ -523,7 +523,7 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             let webView = TabWebView(frame: .zero, configuration: configuration, windowUUID: windowUUID)
             webView.configure(delegate: self, navigationDelegate: navigationDelegate)
                         
-            webView.disableJavascriptDialogBlock(true);
+            webView.disableJavascriptDialogBlock(false);
             webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
             webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
             let windowJSObejct = WindowJSObject { [self] url in
