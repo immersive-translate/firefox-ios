@@ -5,9 +5,9 @@
 import UIKit
 import Common
 import ComponentLibrary
-import Shared
 
 class OnboardingCardViewController: UIViewController, Themeable {
+    // MARK: - Common UX Elements
     struct UX {
         static let titleLabelTopMargin: CGFloat = 68
         static let titleLabelLeftMargin: CGFloat = 26
@@ -17,53 +17,99 @@ class OnboardingCardViewController: UIViewController, Themeable {
         static let itemImageViewSize: CGSize = CGSizeMake(67.5, 67.5)
 
     }
+    
+    struct SharedUX {
+        static let topStackViewSpacing: CGFloat = 24
+        static let titleFont: UIFont = {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                return FXFontStyles.Bold.title1.scaledFont()
+            } else {
+                return FXFontStyles.Bold.title2.scaledFont()
+            }
+        }()
 
-    // MARK: - Properties
-    var viewModel: OnboardingCardInfoModelProtocol
-    weak var delegate: OnboardingCardDelegate?
-    var notificationCenter: NotificationProtocol
-    var themeManager: ThemeManager
-    var themeObserver: NSObjectProtocol?
+        // small device
+        static let smallStackViewSpacing: CGFloat = 8
+        static let smallScrollViewVerticalPadding: CGFloat = 20
+    }
+
     let windowUUID: WindowUUID
     var currentWindowUUID: UUID? { windowUUID }
 
-    private lazy var titleLabel: UILabel = .build { label in
+    // Adjusting layout for devices with height lower than 667
+    // including now iPhone SE 2nd generation and iPad
+    var shouldUseSmallDeviceLayout: Bool {
+        return view.frame.height <= 667 || UIDevice.current.userInterfaceIdiom == .pad
+    }
+
+    // Adjusting layout for tiny devices (iPhone SE 1st generation)
+    var shouldUseTinyDeviceLayout: Bool {
+        return UIDevice().isTinyFormFactor
+    }
+
+    // MARK: - Common UI Elements
+    lazy var scrollView: UIScrollView = .build { view in
+        view.backgroundColor = .clear
+    }
+
+    lazy var containerView: UIView = .build { view in
+        view.backgroundColor = .clear
+    }
+
+    lazy var contentContainerView: UIView = .build { stack in
+        stack.backgroundColor = .clear
+    }
+
+    lazy var topStackView: UIStackView = .build { stack in
+        stack.backgroundColor = .clear
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.spacing = SharedUX.topStackViewSpacing
+        stack.axis = .vertical
+    }
+
+    lazy var contentStackView: UIStackView = .build { stack in
+        stack.backgroundColor = .clear
+        stack.alignment = .center
+        stack.distribution = .equalSpacing
+        stack.axis = .vertical
+    }
+    lazy var imageView: UIImageView = .build { imageView in
+        imageView.contentMode = .scaleAspectFit
+        imageView.accessibilityIdentifier = "\(self.viewModel.a11yIdRoot)ImageView"
+    }
+
+    lazy var titleLabel: UILabel = .build { label in
         label.numberOfLines = 0
         label.textAlignment = .left
-        label.font = DefaultDynamicFontHelper.preferredBoldFont(withTextStyle: .largeTitle,
-                                                                size: 20.0)
+        label.font = self.shouldUseSmallDeviceLayout ? FXFontStyles.Bold.title3.scaledFont() : SharedUX.titleFont
         label.adjustsFontForContentSizeCategory = true
         label.accessibilityIdentifier = "\(self.viewModel.a11yIdRoot)TitleLabel"
         label.accessibilityTraits.insert(.header)
     }
 
-    private lazy var descriptionLabel: UILabel = .build { label in
+    lazy var descriptionLabel: UILabel = .build { label in
         label.numberOfLines = 0
         label.textAlignment = .left
-        label.font = DefaultDynamicFontHelper.preferredFont(withTextStyle: .body,
-                                                            size: 14.0)
+        label.font = FXFontStyles.Regular.body.scaledFont()
         label.adjustsFontForContentSizeCategory = true
         label.accessibilityIdentifier = "\(self.viewModel.a11yIdRoot)DescriptionLabel"
     }
     
-    private lazy var primaryButton: UIButton = {
-        let button = UIButton()
+    lazy var primaryButton: PrimaryRoundedButton = .build { button in
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 12.0
         button.layer.masksToBounds = true;
         button.addTarget(self, action: #selector(self.primaryAction), for: .touchUpInside)
         button.backgroundColor = UIColor(colorString: "222222");
-        return button
-    }()
-    
-    private lazy var secondaryButton: UIButton = {
-        let button = UIButton()
+    }
+
+    lazy var secondaryButton: SecondaryRoundedButton = .build { button in
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(self.secondaryAction), for: .touchUpInside)
         button.backgroundColor = UIColor(colorString: "999999")
         button.backgroundColor = .clear
-        return button
-    }()
+    }
     
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -73,18 +119,22 @@ class OnboardingCardViewController: UIViewController, Themeable {
         return imageView
     }()
 
+    // MARK: - Themeable
+    var themeManager: Common.ThemeManager
+    var themeObserver: NSObjectProtocol?
+    var notificationCenter: Common.NotificationProtocol
+
+    var viewModel: OnboardingCardInfoModelProtocol
 
     // MARK: - Initializers
     init(
         viewModel: OnboardingCardInfoModelProtocol,
         windowUUID: WindowUUID,
-        delegate: OnboardingCardDelegate?,
         themeManager: ThemeManager = AppContainer.shared.resolve(),
         notificationCenter: NotificationProtocol = NotificationCenter.default
     ) {
         self.viewModel = viewModel
         self.windowUUID = windowUUID
-        self.delegate = delegate
         self.themeManager = themeManager
         self.notificationCenter = notificationCenter
 
@@ -94,8 +144,7 @@ class OnboardingCardViewController: UIViewController, Themeable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (viewModel.name == "welcome") {
@@ -107,16 +156,19 @@ class OnboardingCardViewController: UIViewController, Themeable {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        delegate?.pageChanged(from: viewModel.name)
+    func currentTheme() -> Theme {
+        return themeManager.getCurrentTheme(for: windowUUID)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        delegate?.sendCardViewTelemetry(from: viewModel.name)
-    }
+    func updateLayout() {
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.body
+        imageView.image = viewModel.image
 
+        setupPrimaryButton()
+        setupSecondaryButton()
+    }
+    
     // MARK: - View setup
     func setupFirstIntroView() {
         titleLabel.text = "将沉浸式翻译设置为默认浏览器"
@@ -296,37 +348,32 @@ class OnboardingCardViewController: UIViewController, Themeable {
         ])
         return itemView
     }
-    
-
-    // MARK: - Button Actions
-    @objc
-    func primaryAction() {
-        delegate?.handleBottomButtonActions(
-            for: viewModel.buttons.primary.action,
-            from: viewModel.name,
-            isPrimaryButton: true)
-    }
 
     @objc
-    func secondaryAction() {
-        guard let buttonAction = viewModel.buttons.secondary?.action else { return }
-
-        delegate?.handleBottomButtonActions(
-            for: buttonAction,
-            from: viewModel.name,
-            isPrimaryButton: false)
-    }
+    func primaryAction() { }
 
     @objc
-    func linkButtonAction() {
-        delegate?.handleBottomButtonActions(
-            for: .readPrivacyPolicy,
-            from: viewModel.name,
-            isPrimaryButton: false)
+    func secondaryAction() { }
+
+    func setupPrimaryButton() {
+        let buttonViewModel = PrimaryRoundedButtonViewModel(
+            title: viewModel.buttons.primary.title,
+            a11yIdentifier: "\(self.viewModel.a11yIdRoot)PrimaryButton"
+        )
+
+        primaryButton.configure(viewModel: buttonViewModel)
+        primaryButton.applyTheme(theme: themeManager.getCurrentTheme(for: windowUUID))
     }
 
-    // MARK: - Themeable
-    func applyTheme() {
+    func setupSecondaryButton() {
+        let buttonViewModel = SecondaryRoundedButtonViewModel(
+            title: viewModel.buttons.secondary?.title,
+            a11yIdentifier: "\(self.viewModel.a11yIdRoot)SecondaryButton"
+        )
 
+        secondaryButton.configure(viewModel: buttonViewModel)
+        secondaryButton.applyTheme(theme: currentTheme())
     }
+
+    func applyTheme() { }
 }
