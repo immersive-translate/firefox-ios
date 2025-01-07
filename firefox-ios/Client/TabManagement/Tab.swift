@@ -658,7 +658,14 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     }
 
     func goBack() {
-        _ = webView?.goBack()
+        if let web = webView, web.canGoBack {
+            _ = webView?.goBack()
+            return
+        }
+        let page = NewTabAccessors.getHomePage(self.profile.prefs)
+        if  let homePageURL = page.url {
+           loadRequest(PrivilegedRequest(url: homePageURL) as URLRequest)
+        }
     }
 
     func goForward() {

@@ -419,6 +419,7 @@ class BrowserViewController: UIViewController,
             if showNavToolbar {
                 navigationToolbarContainer.isHidden = false
                 navigationToolbarContainer.applyTheme(theme: currentTheme())
+                updateBackStatus()
                 updateTabCountUsingTabManager(self.tabManager)
             } else {
                 navigationToolbarContainer.isHidden = true
@@ -1381,6 +1382,11 @@ class BrowserViewController: UIViewController,
 
         browserDelegate?.show(webView: webView)
     }
+    
+    func updateBackStatus(canGoBack:Bool = false) {
+        let isSearch = navigationToolbar.multiStateButton.largeContentTitle == .TabToolbarSearchAccessibilityLabel
+        navigationToolbar.updateBackStatus((canGoBack && tabManager.selectedTab?.webView?.canGoBack ?? false) || !isSearch)
+    }
 
     // MARK: - Microsurvey
     private func setupMicrosurvey() {
@@ -1489,7 +1495,7 @@ class BrowserViewController: UIViewController,
         let isErrorURL = url.flatMap { InternalURL($0)?.isErrorPage } ?? false
 
         guard url != nil else {
-            showEmbeddedHomepage(inline: true, isPrivate: false)
+            showEmbeddedWebview()
             if !isToolbarRefactorEnabled {
                 urlBar.locationView.reloadButton.reloadButtonState = .disabled
             }
@@ -1735,6 +1741,7 @@ class BrowserViewController: UIViewController,
                 urlBar.locationView.reloadButton.reloadButtonState = .disabled
             }
             handleMiddleButtonState(state)
+            updateBackStatus()
             currentMiddleButtonState = state
             return
         }
@@ -1745,11 +1752,13 @@ class BrowserViewController: UIViewController,
                 urlBar.locationView.reloadButton.reloadButtonState = .disabled
             }
             handleMiddleButtonState(state)
+            updateBackStatus()
             currentMiddleButtonState = state
             return
         }
 
         handleMiddleButtonState(.home)
+        updateBackStatus()
         if !isToolbarRefactorEnabled {
             urlBar.locationView.reloadButton.reloadButtonState = isLoading ? .stop : .reload
         }
@@ -1871,7 +1880,8 @@ class BrowserViewController: UIViewController,
             if isToolbarRefactorEnabled {
                 dispatchBackForwardToolbarAction(canGoBack: canGoBack, windowUUID: windowUUID)
             } else {
-                navigationToolbar.updateBackStatus(canGoBack)
+//                navigationToolbar.updateBackStatus(canGoBack)
+                updateBackStatus(canGoBack: canGoBack)
             }
         case .canGoForward:
             guard tab === tabManager.selectedTab,
@@ -3824,7 +3834,8 @@ extension BrowserViewController: TabManagerDelegate {
                                              canGoForward: selectedTab.canGoForward,
                                              windowUUID: windowUUID)
         } else {
-            navigationToolbar.updateBackStatus(selectedTab.canGoBack)
+//            navigationToolbar.updateBackStatus(selectedTab.canGoBack)
+            updateBackStatus(canGoBack: selectedTab.canGoBack)
             navigationToolbar.updateForwardStatus(selectedTab.canGoForward)
         }
 
