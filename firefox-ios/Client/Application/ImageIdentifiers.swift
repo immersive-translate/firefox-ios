@@ -40,6 +40,7 @@ public struct ImageIdentifiers {
     public struct Onboarding {
         public struct HeaderImages {
             public static let welcomev106 = "onboardingWelcome"
+            public static let welcomev106En = "onboardingWelcome-en"
             public static let syncv106 = "onboardingSync"
             public static let notification = "onboardingNotification"
             public static let searchWidget = "onboardingSearchWidget"

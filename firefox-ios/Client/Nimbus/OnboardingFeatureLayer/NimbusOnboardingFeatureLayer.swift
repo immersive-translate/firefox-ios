@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Shared
+import Common
 
 import protocol MozillaAppServices.NimbusMessagingHelperProtocol
 
@@ -194,7 +195,7 @@ class NimbusOnboardingFeatureLayer: NimbusOnboardingFeatureLayerProtocol {
         from identifier: NimbusOnboardingHeaderImage
     ) -> String {
         switch identifier {
-        case .welcomeGlobe: return ImageIdentifiers.Onboarding.HeaderImages.welcomev106
+        case .welcomeGlobe: return AppInfo.isChinaEdition ? ImageIdentifiers.Onboarding.HeaderImages.welcomev106 : ImageIdentifiers.Onboarding.HeaderImages.welcomev106En
         case .syncDevices: return ImageIdentifiers.Onboarding.HeaderImages.syncv106
         case .notifications: return ImageIdentifiers.Onboarding.HeaderImages.notification
         case .setDefaultSteps: return ImageIdentifiers.Onboarding.HeaderImages.setDefaultSteps
