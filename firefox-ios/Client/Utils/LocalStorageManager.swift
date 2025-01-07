@@ -4,6 +4,7 @@
 
 import Foundation
 import WCDBSwift
+import Common
 
 final class LocalStorage: TableCodable {
     var key: String? = nil
@@ -21,7 +22,15 @@ final class LocalStorage: TableCodable {
 
 class LocalStorageManager {
     var tableName = "LocalStorageTable"
-    let database = Database(at: (NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("cache.db"))
+    lazy var database: Database = {
+        var cachePath = "";
+        if let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppInfo.sharedContainerIdentifier) {
+            cachePath = containerURL.path;
+        } else {
+            cachePath = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)[0]
+        }
+        return Database(at: (cachePath as NSString).appendingPathComponent("cache.db"))
+    }()
     private var cacheDic = [String: String]();
 
     
