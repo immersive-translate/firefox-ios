@@ -46,7 +46,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>INIntentsSupported</key>
 	<array>
 		<string>QuickActionIntent</string>
