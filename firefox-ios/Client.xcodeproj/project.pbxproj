@@ -270,6 +270,8 @@
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
 		292E28CD2D2C3AF30096B370 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CC2D2C3AE80096B370 /* AbountAppSetting.swift */; };
 		292E28CF2D2D54460096B370 /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 292E28CE2D2D54410096B370 /* set-language.js */; };
+		292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D22D2D56B00096B370 /* ImtSitesCell.swift */; };
+		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
 		295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166202D2C109000CAD566 /* immersive-translate.user.js */; };
 		295166242D2C109000CAD566 /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166212D2C109000CAD566 /* mock_gm.js */; };
@@ -2511,6 +2513,8 @@
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
 		292E28CC2D2C3AE80096B370 /* AbountAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppSetting.swift; sourceTree = "<group>"; };
 		292E28CE2D2D54410096B370 /* set-language.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
+		292E28D22D2D56B00096B370 /* ImtSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesCell.swift; sourceTree = "<group>"; };
+		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
 		295166202D2C109000CAD566 /* immersive-translate.user.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
 		295166212D2C109000CAD566 /* mock_gm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mock_gm.js; sourceTree = "<group>"; };
@@ -8725,6 +8729,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		292E28D12D2D569F0096B370 /* imt-sites */ = {
+			isa = PBXGroup;
+			children = (
+				292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */,
+				292E28D22D2D56B00096B370 /* ImtSitesCell.swift */,
+			);
+			path = "imt-sites";
+			sourceTree = "<group>";
+		};
 		2951662E2D2C10A300CAD566 /* dsbridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -12777,6 +12790,7 @@
 		F84B22211A09122500AAB793 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				292E28D12D2D569F0096B370 /* imt-sites */,
 				8A7D08E12CAAF79F0035999C /* Homepage Rebuild */,
 				8A0A1BA12B22010200E8706F /* PrivateHome */,
 				C834ACD028D3ACA900203AD1 /* Blurrable.swift */,
@@ -14741,6 +14755,7 @@
 				C8610DAA2A0EBF7100B79FF1 /* OnboardingCardDelegate.swift in Sources */,
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
+				292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
 				8A4593C72BF7BECA002758DE /* MicrosurveyTableViewCell.swift in Sources */,
@@ -15196,6 +15211,7 @@
 				0B11AF022CB412D100AD51D5 /* Metrics.swift in Sources */,
 				C4E3984C1D21F2FD004E89BA /* TabTrayButtonExtensions.swift in Sources */,
 				ED07C0E62CCACD7E006C0627 /* Locale+possibilitiesForLanguageIdentifier.swift in Sources */,
+				292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */,
 				437A857827E43FE100E42764 /* FxAWebViewTelemetry.swift in Sources */,
 				E13E9AB42AAB0FB5001A0E9D /* FakespotCoordinator.swift in Sources */,
 				E1442FD1294782D9003680B0 /* UIModalPresentationStyle+Photon.swift in Sources */,

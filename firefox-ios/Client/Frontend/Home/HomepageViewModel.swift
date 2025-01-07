@@ -100,6 +100,7 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
     private var childViewModels: [HomepageViewModelProtocol]
     var headerViewModel: HomepageHeaderViewModel
     var messageCardViewModel: HomepageMessageCardViewModel
+    var imtSitesViewModel: ImtSitesViewModel
     var topSiteViewModel: TopSitesViewModel
     var bookmarksViewModel: BookmarksViewModel
     var jumpBackInViewModel: JumpBackInViewModel
@@ -130,6 +131,7 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         let messageCardAdaptor = MessageCardDataAdaptorImplementation()
         self.messageCardViewModel = HomepageMessageCardViewModel(dataAdaptor: messageCardAdaptor, theme: theme)
         messageCardAdaptor.delegate = messageCardViewModel
+        self.imtSitesViewModel = ImtSitesViewModel(profile: profile, theme: theme)
         self.topSiteViewModel = TopSitesViewModel(profile: profile,
                                                   theme: theme,
                                                   wallpaperManager: wallpaperManager)
@@ -170,6 +172,7 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         self.customizeButtonViewModel = CustomizeHomepageSectionViewModel(theme: theme)
         self.childViewModels = [headerViewModel,
                                 messageCardViewModel,
+                                imtSitesViewModel,
                                 topSiteViewModel,
                                 jumpBackInViewModel,
                                 bookmarksViewModel,
