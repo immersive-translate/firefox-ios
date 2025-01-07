@@ -57,7 +57,7 @@ extension AppInfo {
     }()
 
     // The App Store page identifier for the Firefox iOS application
-    public static var appStoreId = "id989804926"
+    public static var appStoreId = "id6476744995"
 
     /// Return the shared container identifier (also known as the app group) to be used with for example background
     /// http requests. It is the base bundle identifier with a "group." prefix.
