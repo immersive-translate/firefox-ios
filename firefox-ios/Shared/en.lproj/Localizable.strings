@@ -1416,7 +1416,7 @@
 /* Label used as an item in Settings. When touched it will open a dialog to configure the new tab behavior. */
 "Settings.NewTab.SectionName" = "New Tab";
 
-"Settings.Abount.App.SectionName" = "Abount Immersive Translate";
+"Settings.Abount.App.SectionName" = "Abount";
 
 /* Title displayed in header of the setting panel. */
 "Settings.NewTab.Title" = "New Tab";

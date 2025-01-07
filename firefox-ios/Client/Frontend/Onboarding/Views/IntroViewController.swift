@@ -126,6 +126,7 @@ class IntroViewController: UIViewController,
             pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+        pageControl.hidesForSinglePage = true
     }
 
     private func setupCloseButton() {
