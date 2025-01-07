@@ -22520,6 +22520,7 @@
 					"-Xlinker",
 					"-no_application_extension",
 				);
+				OTHER_SWIFT_FLAGS = "$(OTHER_SWIFT_FLAGS_common) -DMOZ_CHANNEL_RELEASE";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				VALIDATE_WORKSPACE = YES;
 			};
