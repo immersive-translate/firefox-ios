@@ -32,7 +32,7 @@ extension BrowserViewController: WKUIDelegate {
         }
 
         if navigationAction.canOpenExternalApp, let url = navigationAction.request.url {
-            UIApplication.shared.open(url)
+            UIApplication.shared.open(url, options: [:])
             return nil
         }
 

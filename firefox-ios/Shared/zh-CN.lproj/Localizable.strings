@@ -1801,3 +1801,35 @@
 /* Tile title for YouTube */
 "YouTube" = "YouTube";
 
+"Imt.Localizable.App.Info" = "沉浸式翻译是一款基于火狐浏览器技术的定制产品，由沉浸式翻译团队独立开发。火狐浏览器是Mozilla的一个开源项目。";
+"Imt.Localizable.App.Version" = "版本号";
+"Imt.Localizable.App" = "应用";
+"Imt.Localizable.Reminder" = "温馨提示";
+"Imt.Localizable.User.Agreement" = "《用户协议》";
+"Imt.Localizable.User.Agreement.Title" = "用户协议";
+"Imt.Localizable.App.Privacy.Policy" = "《沉浸式翻译浏览器隐私政策》";
+"Imt.Localizable.App.Privacy.Policy.Title" = "隐私政策";
+"Imt.Localizable.Reminder.Pre" = "欢迎使用沉浸式翻译。在使用沉浸式翻译前，请认真阅读";
+"Imt.Localizable.Reminder.Middle" = "和";
+"Imt.Localizable.Reminder.Post" = "。根据《常见类型移动互联网应用程序必要个人信息范围规定》，沉浸式翻译的主要功能为网址浏览、搜索、文件处理、文件管理等，扩展功能包括沉浸式翻译账号等。同意基本功能隐私政策仅代表同意使用网址浏览、搜索、文件处理、文件管理等主要功能时收集、处理相关必要信息，沉浸式翻译账号等拓展功能收集个人信息将在您使用具体功能时单独征求您的同意。";
+"Imt.Localizable.Reminder.Disagree" = "不同意";
+"Imt.Localizable.Reminder.Agree" = "同意并继续";
+"Imt.Localizable.Reminder.Need.Agree" = "本产品需要同意相关协议后才能使用哦";
+"Imt.Localizable.Reminder.Quit.App" = "退出应用";
+"Imt.Localizable.Reminder.I.See" = "我知道了";
+"Imt.Localizable.Intro.Default.Browser" = "将沉浸式翻译设置为默认浏览器";
+"Imt.Localizable.Intro.Auto.Translated" = "任何外文网页默认用沉浸式翻译浏览器打开并自动翻译；\n搜索结果自动翻译为母语。";
+"Imt.Localizable.Intro.Native.language" = "您的母语";
+"Imt.Localizable.Intro.Set.Default.Browser" = "设为默认浏览器";
+"Imt.Localizable.Intro.Set.Later" = "稍后再设置";
+"Imt.Localizable.Intro.Accessible.Reading" = "无障碍阅读外语内容：";
+"Imt.Localizable.Intro.Web.page" = "网页";
+"Imt.Localizable.Intro.Video" = "视频";
+"Imt.Localizable.Intro.Document" = "文档";
+"Imt.Localizable.Intro.All.Translated" = "全部一键翻译，\n阅读再无障碍！";
+"Imt.Localizable.Intro.Bigger.World" = "消除语言障碍\n看见更大的世界";
+"Imt.Localizable.Intro.Break.Barriers" = "开启无语言障碍的世界！";
+"Imt.Localizable.Web.Translation" = "网页翻译";
+"Imt.Localizable.Video.Translation" = "视频翻译";
+"Imt.Localizable.Doc.Translation" = "文档翻译";
+"Imt.Localizable.Comic.Translation" = "漫画翻译";

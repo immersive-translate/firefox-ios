@@ -64,7 +64,7 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont.systemFont(ofSize: 24);
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "温馨提示";
+        titleLabel.text = .ImtLocalizableReminder
         return titleLabel
     }()
     
@@ -215,6 +215,8 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
     }
     
     private func updateUI() {
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.alignment = .justified;
         let normalAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.black]
         let userlinkAttributes = [NSAttributedString.Key.font: UIFont .boldSystemFont(ofSize: 16),
@@ -228,22 +230,22 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
         let rightButtonAttributes = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                     NSAttributedString.Key.foregroundColor: UIColor.blue]
         if isFirstStep {
-            let attStr = NSMutableAttributedString(string: "欢迎使用沉浸式翻译。在使用沉浸式翻译前，请认真阅读",
-                                                   attributes: normalAttributes)
-            attStr.append(NSAttributedString(string: "《用户协议》", attributes: userlinkAttributes))
-            attStr.append(NSAttributedString(string: "和", attributes: normalAttributes))
-            attStr.append(NSAttributedString(string: "《沉浸式翻译浏览器隐私政策》", attributes: protocolLinkAttributes))
-            attStr.append(NSAttributedString(string: "。根据《常见类型移动互联网应用程序必要个人信息范围规定》，沉浸式翻译的主要功能为网址浏览、搜索、文件处理、文件管理等，扩展功能包括沉浸式翻译账号等。同意基本功能隐私政策仅代表同意使用网址浏览、搜索、文件处理、文件管理等主要功能时收集、处理相关必要信息，沉浸式翻译账号等拓展功能收集个人信息将在您使用具体功能时单独征求您的同意。", attributes: normalAttributes))
+            let attStr = NSMutableAttributedString(string: .ImtLocalizableReminderPre,
+                                                               attributes: normalAttributes)
+            attStr.append(NSAttributedString(string: .ImtLocalizableUserAgreement, attributes: userlinkAttributes))
+            attStr.append(NSAttributedString(string: .ImtLocalizableReminderMiddle, attributes: normalAttributes))
+            attStr.append(NSAttributedString(string: .ImtLocalizablePrivacyPolicy, attributes: protocolLinkAttributes))
+            attStr.append(NSAttributedString(string: .ImtLocalizableReminderPost, attributes: normalAttributes))
             textView.attributedText = attStr;
-            leftButton.setAttributedTitle(NSAttributedString(string: "不同意", attributes: leftButtonAttributes), for: .normal);
-            rightButton.setAttributedTitle(NSAttributedString(string: "同意并继续", attributes: rightButtonAttributes), for: .normal);
+            leftButton.setAttributedTitle(NSAttributedString(string: .ImtLocalizableReminderDisagree, attributes: leftButtonAttributes), for: .normal);
+            rightButton.setAttributedTitle(NSAttributedString(string: .ImtLocalizableReminderAgree, attributes: rightButtonAttributes), for: .normal);
             return
         }
-        let attStr = NSMutableAttributedString(string: "本产品需要同意相关协议后才能使用哦",
+        let attStr = NSMutableAttributedString(string: .ImtLocalizableReminderNeedAgree,
                                                attributes: normalAttributes)
         textView.attributedText = attStr;
-        leftButton.setAttributedTitle(NSAttributedString(string: "退出应用", attributes: leftButtonAttributes), for: .normal);
-        rightButton.setAttributedTitle(NSAttributedString(string: "我知道了", attributes: rightButtonAttributes), for: .normal);
+        leftButton.setAttributedTitle(NSAttributedString(string: .ImtLocalizableReminderQuitApp, attributes: leftButtonAttributes), for: .normal);
+        rightButton.setAttributedTitle(NSAttributedString(string: .ImtLocalizableReminderISee, attributes: rightButtonAttributes), for: .normal);
     }
     
     // MARK: - Action
@@ -296,13 +298,13 @@ class LaunchScreenViewController: UIViewController, LaunchFinishedLoadingDelegat
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         if URL.scheme  == UX.userProtocolScheme {
             let viewController = SettingsContentViewController(windowUUID: windowUUID)
-            viewController.settingsTitle = NSAttributedString(string: "用户协议")
+            viewController.settingsTitle = NSAttributedString(string: .ImtLocalizableUserAgreementTitle)
             viewController.url = Foundation.URL(string: "https://immersivetranslate.com/docs/TERMS/")
             self.navigationController?.pushViewController(viewController, animated: true);
             return false
         } else if URL.scheme == UX.privacyPolicyScheme {
             let viewController = SettingsContentViewController(windowUUID: windowUUID)
-            viewController.settingsTitle = NSAttributedString(string: "隐私政策")
+            viewController.settingsTitle = NSAttributedString(string: .ImtLocalizablePrivacyPolicyTitle)
             viewController.url = Foundation.URL(string: "https://immersivetranslate.com/docs/PRIVACY/")
             self.navigationController?.pushViewController(viewController, animated: true);
             return false

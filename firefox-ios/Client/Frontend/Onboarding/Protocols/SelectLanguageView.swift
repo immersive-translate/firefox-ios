@@ -98,7 +98,8 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, U
         let labelMutableAttribute = NSMutableAttributedString(string: "*",
                                                               attributes: [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
                                                                            NSAttributedString.Key.foregroundColor:  UIColor(colorString: "FF5B5B")])
-        labelMutableAttribute.append(NSAttributedString(string: "您的母语：", attributes: [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
+        let text:String = .ImtLocalizableIntroNativeLanguage
+        labelMutableAttribute.append(NSAttributedString(string: "\(text)：", attributes: [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
                                                                                       NSAttributedString.Key.foregroundColor:  UIColor(colorString: "666666")]))
         label.attributedText = labelMutableAttribute
         addSubviews(label)
