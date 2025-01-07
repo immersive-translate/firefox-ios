@@ -179,7 +179,7 @@ class OnboardingCardViewController: UIViewController, Themeable {
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
                                 NSAttributedString.Key.foregroundColor: UIColor.white]
-        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetDefaultBrowser, attributes: primaryAttribute)
+        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableReminderISee + "🫡", attributes: primaryAttribute)
         primaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(primaryButton);
         
@@ -238,7 +238,7 @@ class OnboardingCardViewController: UIViewController, Themeable {
         paragraphStyle.lineHeightMultiple = 1.2
         paragraphStyle.alignment = .center;
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated, attributes: labelAttribute)
+        let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated + "🎉", attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
         label.textColor = UIColor(colorString: "222222")
         contentView.addSubview(label);
