@@ -4,7 +4,6 @@
 
 import Common
 import Foundation
-import Shared
 
 protocol LaunchFinishedLoadingDelegate: AnyObject {
     func launchWith(launchType: LaunchType)
@@ -18,6 +17,8 @@ class LaunchScreenViewModel {
     private var profile: Profile
 
     weak var delegate: LaunchFinishedLoadingDelegate?
+
+    var needShowProtocolPopup = false
 
     init(windowUUID: WindowUUID,
          profile: Profile = AppContainer.shared.resolve(),
@@ -33,29 +34,22 @@ class LaunchScreenViewModel {
         self.surveySurfaceManager = SurveySurfaceManager(windowUUID: windowUUID, and: messageManager)
     }
 
-    func getSplashScreenExperimentHasShown() -> Bool {
-        profile.prefs.boolForKey(PrefsKeys.splashScreenShownKey) ?? false
-    }
-
-    func setSplashScreenExperimentHasShown() {
-        profile.prefs.setBool(true, forKey: PrefsKeys.splashScreenShownKey)
-    }
-
     func startLoading(appVersion: String = AppInfo.appVersion) async {
         await loadLaunchType(appVersion: appVersion)
     }
 
     private func loadLaunchType(appVersion: String) async {
         var launchType: LaunchType?
-        if introScreenManager.shouldShowIntroScreen {
-            launchType = .intro(manager: introScreenManager)
-        } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
-                  await updateViewModel.hasSyncableAccount() {
-            launchType = .update(viewModel: updateViewModel)
-        } else if surveySurfaceManager.shouldShowSurveySurface {
-            launchType = .survey(manager: surveySurfaceManager)
+        if !needShowProtocolPopup {
+            if introScreenManager.shouldShowIntroScreen {
+                launchType = .intro(manager: introScreenManager)
+            } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
+                      await updateViewModel.hasSyncableAccount() {
+                launchType = .update(viewModel: updateViewModel)
+            } else if surveySurfaceManager.shouldShowSurveySurface {
+                launchType = .survey(manager: surveySurfaceManager)
+            }
         }
-
         if let launchType = launchType {
             self.delegate?.launchWith(launchType: launchType)
         } else {
