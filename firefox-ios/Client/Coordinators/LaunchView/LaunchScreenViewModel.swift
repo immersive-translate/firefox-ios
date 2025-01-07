@@ -43,9 +43,6 @@ class LaunchScreenViewModel {
         if !needShowProtocolPopup {
             if introScreenManager.shouldShowIntroScreen {
                 launchType = .intro(manager: introScreenManager)
-            } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
-                      await updateViewModel.hasSyncableAccount() {
-                launchType = .update(viewModel: updateViewModel)
             } else if surveySurfaceManager.shouldShowSurveySurface {
                 launchType = .survey(manager: surveySurfaceManager)
             }

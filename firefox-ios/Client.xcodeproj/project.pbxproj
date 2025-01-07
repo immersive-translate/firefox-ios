@@ -282,6 +282,11 @@
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		29B6050F2D2D3053006585C7 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6050E2D2D304C006585C7 /* WindowJSObject.swift */; };
 		29B605112D2D32B5006585C7 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 29B605102D2D32B5006585C7 /* PrivacyInfo.xcprivacy */; };
+		29B605132D2D35A3006585C7 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605122D2D359D006585C7 /* en.json */; };
+		29B605152D2D40F9006585C7 /* zh-CN.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605142D2D40F2006585C7 /* zh-CN.json */; };
+		29B605172D2D4115006585C7 /* zh-TW.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605162D2D4110006585C7 /* zh-TW.json */; };
+		29B605192D2D432F006585C7 /* SelectLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B605182D2D432A006585C7 /* SelectLanguageView.swift */; };
+		29B6051B2D2D4389006585C7 /* BusinessJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6051A2D2D4385006585C7 /* BusinessJSObject.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2522,6 +2527,11 @@
 		2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		29B6050E2D2D304C006585C7 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		29B605102D2D32B5006585C7 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		29B605122D2D359D006585C7 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
+		29B605142D2D40F2006585C7 /* zh-CN.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "zh-CN.json"; sourceTree = "<group>"; };
+		29B605162D2D4110006585C7 /* zh-TW.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "zh-TW.json"; sourceTree = "<group>"; };
+		29B605182D2D432A006585C7 /* SelectLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageView.swift; sourceTree = "<group>"; };
+		29B6051A2D2D4385006585C7 /* BusinessJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessJSObject.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -8734,6 +8744,7 @@
 		295166312D2C10A300CAD566 /* JSObject */ = {
 			isa = PBXGroup;
 			children = (
+				29B6051A2D2D4385006585C7 /* BusinessJSObject.swift */,
 				29B6050E2D2D304C006585C7 /* WindowJSObject.swift */,
 				2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */,
 				295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */,
@@ -11247,6 +11258,7 @@
 		C88E7A5C2A0554BD0072E638 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				29B605182D2D432A006585C7 /* SelectLanguageView.swift */,
 				C8BD87612A0C257C00CD803A /* OnboardingCardInfoModelProtocol.swift */,
 				2109478828AFD24C00B73D44 /* OnboardingViewControllerProtocol.swift */,
 				21371FA328AA7A8D00BC3F37 /* OnboardingViewModelProtocol.swift */,
@@ -12675,6 +12687,9 @@
 		F84B21EB1A0910F600AAB793 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				29B605162D2D4110006585C7 /* zh-TW.json */,
+				29B605142D2D40F2006585C7 /* zh-CN.json */,
+				29B605122D2D359D006585C7 /* en.json */,
 				2951661F2D2C109000CAD566 /* dsbridge.js */,
 				295166202D2C109000CAD566 /* immersive-translate.user.js */,
 				295166212D2C109000CAD566 /* mock_gm.js */,
@@ -13785,6 +13800,7 @@
 				295166242D2C109000CAD566 /* mock_gm.js in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
+				29B605172D2D4115006585C7 /* zh-TW.json in Resources */,
 				8A3345652BA499B7008C52AB /* disconnect-block-cookies-advertising.json in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
@@ -13802,6 +13818,7 @@
 				D0FCF8081FE4772D004A7995 /* MainFrameAtDocumentStart.js in Resources */,
 				D30684F11C84F12A002D8D82 /* SearchPlugins in Resources */,
 				8A5CDEED27E510F500CC60FF /* pocketglobalfeed.json in Resources */,
+				29B605152D2D40F9006585C7 /* zh-CN.json in Resources */,
 				8A1A93582B757C7C0069C190 /* gradient.json in Resources */,
 				74821FFE1DB6D3AC00EEEA72 /* MailSchemes.plist in Resources */,
 				D308EE561CBF0BF5006843F2 /* CertError.css in Resources */,
@@ -13823,6 +13840,7 @@
 				8CC033FA2BA476840033449E /* FormAutofillHelper.js in Resources */,
 				D0E17FB6201F847600F1FCB5 /* FxASignIn.js in Resources */,
 				8A2B1A5E28216C4D0061216B /* Common.xcconfig in Resources */,
+				29B605132D2D35A3006585C7 /* en.json in Resources */,
 				39A35AED1C0662A3006B9E87 /* SpotlightHelper.js in Resources */,
 				8AF4E7712C45B98F00BAD91C /* RemotePasswordRules.json in Resources */,
 				D0FCF8071FE4772D004A7995 /* MainFrameAtDocumentEnd.js in Resources */,
@@ -14860,6 +14878,7 @@
 				1DF2BDC32BD1BCF300E53C57 /* WindowManager+DebugUtilities.swift in Sources */,
 				C855728629AEA3FB00AF32B0 /* SurveySurfaceViewController.swift in Sources */,
 				AB4FB4DA2C89FB10005EF0CC /* BlockedTrackersModel.swift in Sources */,
+				29B6051B2D2D4389006585C7 /* BusinessJSObject.swift in Sources */,
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
 				EBB8950C21939E4100EB91A0 /* FirefoxTabContentBlocker.swift in Sources */,
 				21618A632A422A3900A5189E /* ThemeMiddleware.swift in Sources */,
@@ -15457,6 +15476,7 @@
 				BD2577992C9D85B5007B344C /* AnyHashable.swift in Sources */,
 				ED371A682CB881EF0099F3C8 /* SearchEngineSelectionCoordinator.swift in Sources */,
 				E177989E2BD7D75A00F6F0EB /* ToolbarMiddleware.swift in Sources */,
+				29B605192D2D432F006585C7 /* SelectLanguageView.swift in Sources */,
 				AB4FB4DC2C89FB10005EF0CC /* BlockedTrackerCell.swift in Sources */,
 				C8CD80D72A1E2C6E0097C3AE /* NimbusMessagingHelperUtilityProtocol.swift in Sources */,
 				8ACE9BFB2A54A010001E7A73 /* ExpandButtonState.swift in Sources */,

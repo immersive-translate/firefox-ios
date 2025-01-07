@@ -72,8 +72,46 @@ function GM_addStyle(css) {
 }
 
 function GM_openInTab(url, openInBackground) {
-    dsBridge.call("window.open", { url});
+   dsBridge.call("window.open", { url});
 }
+
+function GM_openInTab(url, openInBackground) {
+   dsBridge.call("window.open", { url});
+}
+
+function GM_getSelectedLanguage() {
+  let value = dsBridge.call("business.getSelectedLanguage", {});
+  try {
+    return JSON.parse(value);
+  } catch (error) {
+      return {};
+  }
+}
+
+function WJ_doSend(obj, cb) {
+    const { type } = obj;
+    if (type === 'setDefaultBrowser') {
+        dsBridge.call("business.setDefaultBrowser", {});
+        if (cb) {
+            cb()
+        }
+    } else if (type === "isDefaultBrowser") {
+        const value = dsBridge.call("business.isDefaultBrowser", {});
+        if (cb) {
+            cb({"isDefaultBrowser" : (value ? true : false)})
+        }
+    } else if (type === "shareContent") {
+       dsBridge.call("business.shareContent", obj);
+       if (cb) {
+           cb()
+       }
+    }
+}
+
+window.WebViewJavascriptBridge = {
+    doSend: WJ_doSend
+};
+
 
 window.GM = {
   getValue: GM_getValue,
@@ -84,4 +122,6 @@ window.GM = {
   registerMenuCommand: GM_registerMenuCommand,
   addStyle: GM_addStyle,
   openInTab: GM_openInTab,
+  getSelectedLanguage: GM_getSelectedLanguage
 };
+

@@ -526,6 +526,7 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             webView.disableJavascriptDialogBlock(false);
             webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
             webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
+            webView.addJavascriptObject(BusinessJSObject(), namespace: "business");
             let windowJSObejct = WindowJSObject { [self] url in
                 browserVC?.openURLInNewTab(URL(string: url))
             };
