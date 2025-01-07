@@ -1,5 +1,4 @@
 PODS:
-  - CocoaDebug (1.7.7)
   - WCDB.swift (2.0.4):
     - WCDB.swift/no-arc (= 2.0.4)
     - WCDBOptimizedSQLCipher (~> 1.4.2)
@@ -8,20 +7,17 @@ PODS:
   - WCDBOptimizedSQLCipher (1.4.2)
 
 DEPENDENCIES:
-  - CocoaDebug
   - WCDB.swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - CocoaDebug
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
 SPEC CHECKSUMS:
-  CocoaDebug: b38d31464b91a9775928f8667d114db07b136565
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: d727441cfffa962c262118669de612caabc2f73a
+PODFILE CHECKSUM: 07d258a9dd6318b1cd7c3efd74bb0369a90d880e
 
 COCOAPODS: 1.16.2
