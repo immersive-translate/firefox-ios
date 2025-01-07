@@ -3487,7 +3487,11 @@ extension BrowserViewController: LegacyTabDelegate {
             guard let self else { return }
             stopObserving(webView: webView)
             self.scrollController.stopObserving(scrollView: webView.scrollView)
-            webView.uiDelegate = nil
+            if let dwkwebView = webView as? DWKWebView {
+                dwkwebView.dsuiDelegate = nil
+            } else {
+                webView.uiDelegate = nil
+            }
             webView.scrollView.delegate = nil
             webView.removeFromSuperview()
         }
