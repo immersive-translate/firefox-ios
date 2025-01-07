@@ -10,6 +10,7 @@ import Sync
 import UserNotifications
 import Account
 import Common
+import FacebookCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -122,6 +123,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let url = URLContexts.first?.url else { return }
         handleOpenURL(url)
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 
     // MARK: - Continuing User Activities

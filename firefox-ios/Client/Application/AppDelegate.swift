@@ -10,6 +10,7 @@ import Common
 import Glean
 import TabDataStore
 //import CocoaDebug
+import FacebookCore
 
 import class MozillaAppServices.Viaduct
 
@@ -105,6 +106,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        ApplicationDelegate.shared.application(
+                   application,
+                   didFinishLaunchingWithOptions: launchOptions
+        )
         logger.log("didFinishLaunchingWithOptions start",
                    level: .info,
                    category: .lifecycle)
@@ -134,6 +139,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    level: .info,
                    category: .lifecycle)
 
+//        AppEvents.shared.logEvent(AppEvents.Name("fb_mobile_activate_app"))
+//        AppEvents.shared.flush()
 //        customCocoaDebug();
         return true
     }

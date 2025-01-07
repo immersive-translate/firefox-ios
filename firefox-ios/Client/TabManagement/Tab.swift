@@ -528,14 +528,14 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
             let businessJSObject = BusinessJSObject { [self] params in
                 var text = "";
-                if let title = params["title"] {
+                if let title = params["title"], !title.isEmpty {
                     text = title;
                 }
-                if let content = params["content"] {
+                if let content = params["content"], !content.isEmpty {
                     text = text + "\n" + content
                 }
                 browserVC?.navigationHandler?.showShareExtension(url: URL(string: params["url"] ?? "")!,
-                                                                 title: text,
+                                                                 title: text.isEmpty ? nil : text,
                                                                  sourceView: browserVC!.view!,
                                                                  sourceRect: nil,
                                                                  toastContainer: browserVC!.view!,

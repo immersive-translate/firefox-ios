@@ -289,6 +289,12 @@
 		29B605172D2D4115006585C7 /* zh-TW.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605162D2D4110006585C7 /* zh-TW.json */; };
 		29B605192D2D432F006585C7 /* SelectLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B605182D2D432A006585C7 /* SelectLanguageView.swift */; };
 		29B6051B2D2D4389006585C7 /* BusinessJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6051A2D2D4385006585C7 /* BusinessJSObject.swift */; };
+		29D6DFC32D2D67DD0094E832 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC22D2D67DD0094E832 /* FacebookAEM */; };
+		29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC42D2D67DD0094E832 /* FacebookBasics */; };
+		29D6DFC72D2D67DD0094E832 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC62D2D67DD0094E832 /* FacebookCore */; };
+		29D6DFC92D2D67DD0094E832 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC82D2D67DD0094E832 /* FacebookGamingServices */; };
+		29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFCA2D2D67DD0094E832 /* FacebookLogin */; };
+		29D6DFCD2D2D67DD0094E832 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFCC2D2D67DD0094E832 /* FacebookShare */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -8046,20 +8052,26 @@
 				C877037A25222F30006E38EB /* Shared.framework in Frameworks */,
 				C8E18F20222EDED000E30E52 /* SafariServices.framework in Frameworks */,
 				C8E18F1E222EDE4500E30E52 /* Accelerate.framework in Frameworks */,
+				29D6DFCD2D2D67DD0094E832 /* FacebookShare in Frameworks */,
 				F8324A7C2649A5A5007E4BFA /* AuthenticationServices.framework in Frameworks */,
 				E6231C051B90A472005ABB0D /* libxml2.2.tbd in Frameworks */,
 				E17798A02BD8043800F6F0EB /* ToolbarKit in Frameworks */,
 				E6231C011B90A44F005ABB0D /* libz.tbd in Frameworks */,
 				E4B3348A1BBF23F9004E2BFF /* AdSupport.framework in Frameworks */,
 				ED6C8DAC2CE6A4BB00D7F7F3 /* Sentry-Dynamic in Frameworks */,
+				29D6DFC72D2D67DD0094E832 /* FacebookCore in Frameworks */,
 				5A984D362C8A3407007938C9 /* Kingfisher in Frameworks */,
 				819656172C80C6F300E62323 /* MenuKit in Frameworks */,
+				29D6DFC32D2D67DD0094E832 /* FacebookAEM in Frameworks */,
 				8AB30EC82B6C038600BD9A9B /* Lottie in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
+				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
 				AB2AC6632BCFD0A200022AAB /* X509 in Frameworks */,
+				29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */,
+				29D6DFC92D2D67DD0094E832 /* FacebookGamingServices in Frameworks */,
 				433F87CE2788EAB600693368 /* GCDWebServers in Frameworks */,
 				2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */,
 				5A06135A29D6052E008F3D38 /* TabDataStore in Frameworks */,
@@ -13273,6 +13285,12 @@
 				EDD2A7F72CDACE7C00ED464C /* UnifiedSearchKit */,
 				ED6C8DAB2CE6A4BB00D7F7F3 /* Sentry-Dynamic */,
 				295166392D2C12A700CAD566 /* Alamofire */,
+				29D6DFC22D2D67DD0094E832 /* FacebookAEM */,
+				29D6DFC42D2D67DD0094E832 /* FacebookBasics */,
+				29D6DFC62D2D67DD0094E832 /* FacebookCore */,
+				29D6DFC82D2D67DD0094E832 /* FacebookGamingServices */,
+				29D6DFCA2D2D67DD0094E832 /* FacebookLogin */,
+				29D6DFCC2D2D67DD0094E832 /* FacebookShare */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -13598,6 +13616,7 @@
 				AB2AC6612BCFD0A200022AAB /* XCRemoteSwiftPackageReference "swift-certificates" */,
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -22904,6 +22923,14 @@
 				version = 5.8.1;
 			};
 		};
+		29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = exactVersion;
+				version = 17.1.0;
+			};
+		};
 		432BD0222790EBD000A0F3C3 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adjust/ios_sdk.git";
@@ -23011,6 +23038,36 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		29D6DFC22D2D67DD0094E832 /* FacebookAEM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookAEM;
+		};
+		29D6DFC42D2D67DD0094E832 /* FacebookBasics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookBasics;
+		};
+		29D6DFC62D2D67DD0094E832 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		29D6DFC82D2D67DD0094E832 /* FacebookGamingServices */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookGamingServices;
+		};
+		29D6DFCA2D2D67DD0094E832 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		29D6DFCC2D2D67DD0094E832 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
 		};
 		432BD0232790EBD000A0F3C3 /* Adjust */ = {
 			isa = XCSwiftPackageProductDependency;

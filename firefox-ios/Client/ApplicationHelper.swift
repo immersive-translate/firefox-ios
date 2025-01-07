@@ -24,7 +24,7 @@ struct DefaultApplicationHelper: ApplicationHelper {
     /// determine which UIScene the URL is delivered to.
     /// - Parameter url: the URL to open.
     func open(_ url: URL) {
-        UIApplication.shared.open(url)
+        UIApplication.shared.open(url, options: [:])
     }
 
     /// Opens a URL within a specific target window (UIScene).
