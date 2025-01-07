@@ -526,7 +526,38 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             webView.disableJavascriptDialogBlock(false);
             webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
             webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
-            webView.addJavascriptObject(BusinessJSObject(), namespace: "business");
+            let businessJSObject = BusinessJSObject { [self] params in
+                var text = "";
+                if let title = params["title"] {
+                    text = title;
+                }
+                if let content = params["content"] {
+                    text = text + "\n" + content
+                }
+                browserVC?.navigationHandler?.showShareExtension(url: URL(string: params["url"] ?? "")!,
+                                                                 title: text,
+                                                                 sourceView: browserVC!.view!,
+                                                                 sourceRect: nil,
+                                                                 toastContainer: browserVC!.view!,
+                                                                 popoverArrowDirection: UIPopoverArrowDirection.up)
+            } configDefaultBrowserBlock: {
+                DefaultApplicationHelper().open(URL(string: "fennec://deep-link?url=default-browser/tutorial")!)
+                
+//                DefaultApplicationHelper().openSettings()
+                
+//                let metadata = GleanPlumbMessageMetaData(id: "",
+//                                                         impressions: 0,
+//                                                         dismissals: 0,
+//                                                         isExpired: false)
+//                let message = GleanPlumbMessage(id: "default-browser",
+//                                         data: MessageData(),
+//                                         action: "://deep-link?url=default-browser/tutorial",
+//                                         triggers: [],
+//                                         style: StyleData(),
+//                                         metadata:metadata)
+//                GleanPlumbMessageManager.shared.onMessagePressed(message)
+            };
+            webView.addJavascriptObject(businessJSObject, namespace: "business");
             let windowJSObejct = WindowJSObject { [self] url in
                 browserVC?.openURLInNewTab(URL(string: url))
             };
