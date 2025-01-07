@@ -142,14 +142,14 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, U
     }
     
     func initData() {
-        let preferredLocalizations = NSLocale.preferredLanguages.first
         var jsonName = "en"
-        if (preferredLocalizations == "zh-Hans-CN") {
-            jsonName = "zh-CN"
-        } else if (preferredLocalizations == "zh-Hant-CN") {
-            jsonName = "zh-TW"
+        if let preferredLocalizations = NSLocale.preferredLanguages.first {
+            if (preferredLocalizations.contains("zh-Hans")) {
+                jsonName = "zh-CN"
+            } else if (preferredLocalizations.contains("zh-Hant")) {
+                jsonName = "zh-TW"
+            }
         }
-        
         if let text = try? NSString(
             contentsOfFile:  Bundle.main.path(
                 forResource: jsonName, ofType: "json") ?? "",
