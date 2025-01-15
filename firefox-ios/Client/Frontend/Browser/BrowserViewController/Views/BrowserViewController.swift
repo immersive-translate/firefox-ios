@@ -3359,6 +3359,7 @@ extension BrowserViewController {
 
 // MARK: - LegacyTabDelegate
 extension BrowserViewController: LegacyTabDelegate {
+    dynamic
     func tab(_ tab: Tab, didCreateWebView webView: WKWebView) {
         tab.browserVC = self;
         webView.frame = contentContainer.frame

@@ -1114,7 +1114,7 @@ extension WKNavigationAction {
         }
     }
 
-    var canOpenExternalApp: Bool {
+    dynamic var canOpenExternalApp: Bool {
         guard let urlShortDomain = request.url?.shortDomain else { return false }
 
         if let url = URL(string: "\(urlShortDomain)://"), UIApplication.shared.canOpenURL(url) {

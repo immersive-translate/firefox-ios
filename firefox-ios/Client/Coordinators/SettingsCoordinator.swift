@@ -25,11 +25,11 @@ class SettingsCoordinator: BaseCoordinator,
                            QRCodeNavigationHandler {
     var settingsViewController: AppSettingsScreen?
     private let wallpaperManager: WallpaperManagerInterface
-    private let profile: Profile
+    let profile: Profile
     private let tabManager: TabManager
     private let themeManager: ThemeManager
     weak var parentCoordinator: SettingsCoordinatorDelegate?
-    private var windowUUID: WindowUUID { return tabManager.windowUUID }
+    var windowUUID: WindowUUID { return tabManager.windowUUID }
 
     init(router: Router,
          wallpaperManager: WallpaperManagerInterface = WallpaperManager(),

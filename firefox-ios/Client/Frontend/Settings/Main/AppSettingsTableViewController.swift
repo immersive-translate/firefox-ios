@@ -14,7 +14,8 @@ protocol SettingsFlowDelegate: AnyObject,
                                PrivacySettingsDelegate,
                                AccountSettingsDelegate,
                                AboutSettingsDelegate,
-                               SupportSettingsDelegate {
+                               SupportSettingsDelegate,
+                               IMSAccountSettingDelegate {
     func showDevicePassCode()
     func showCreditCardSettings()
     func showExperiments()
@@ -200,7 +201,7 @@ class AppSettingsTableViewController: SettingsTableViewController,
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
         settings += getDefaultBrowserSetting()
-//        settings += getAccountSetting()
+        settings += getIMSAccountSetting()
         settings += getGeneralSettings()
         settings += getPrivacySettings()
         settings += getSupportSettings()
@@ -244,6 +245,20 @@ class AppSettingsTableViewController: SettingsTableViewController,
             AccountStatusSetting(settings: self, settingsDelegate: parentCoordinator),
             SyncNowSetting(settings: self, settingsDelegate: parentCoordinator)
         ] + accountChinaSyncSetting)]
+    }
+    
+    private func getIMSAccountSetting() -> [SettingSection] {
+        guard let userInfo = IMSAccountManager.shard.current() else { return [] }
+        var title: String = .FxAFirefoxAccount
+        if !userInfo.email.isEmpty {
+            title += ": \(userInfo.email)"
+        }
+        let accountSectionTitle = NSAttributedString(string: .FxAFirefoxAccount)
+        return [
+            SettingSection(title: accountSectionTitle, children: [
+                IMSAccountUpgradeSetting(settingsDelegate: parentCoordinator, userInfo: userInfo)
+            ])
+        ]
     }
 
     private func getGeneralSettings() -> [SettingSection] {

@@ -283,6 +283,22 @@
 		295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166272D2C10A300CAD566 /* DSCallInfo.m */; };
 		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
+		29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
+		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
+		29909E7A2D36AE62005C0328 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29909E792D36AE62005C0328 /* StoreKit.framework */; };
+		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
+		29909E892D37D9D8005C0328 /* IMSIAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E872D37D9D8005C0328 /* IMSIAPService.swift */; };
+		29909E8A2D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */; };
+		29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */; };
+		29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E842D37D9D8005C0328 /* IMSAccountManager.swift */; };
+		29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */; };
+		29909E902D37DAD6005C0328 /* URL+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E8F2D37DAD1005C0328 /* URL+IMS.swift */; };
+		29909E932D37DBB7005C0328 /* Strings+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E922D37DBAF005C0328 /* Strings+IMS.swift */; };
+		29909E982D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
+		29909E992D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
+		29909E9E2D37DEB8005C0328 /* SettingsCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */; };
+		29909EA32D37E0F1005C0328 /* WKNavigationAction+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */; };
+		29909EA52D37E11C005C0328 /* BrowserViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */; };
 		29B6050F2D2D3053006585C7 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6050E2D2D304C006585C7 /* WindowJSObject.swift */; };
 		29B605132D2D35A3006585C7 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605122D2D359D006585C7 /* en.json */; };
 		29B605152D2D40F9006585C7 /* zh-CN.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605142D2D40F2006585C7 /* zh-CN.json */; };
@@ -2559,6 +2575,23 @@
 		29909E682D2D7595005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZoomPageBar.strings; sourceTree = "<group>"; };
 		29909E692D2D75A5005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		29909E6B2D2D75AF005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/WidgetIntents.strings; sourceTree = "<group>"; };
+		29909E722D36A0CE005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IMSAccount.strings; sourceTree = "<group>"; };
+		29909E752D36A0D4005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
+		29909E762D36A0D6005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
+		29909E792D36AE62005C0328 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountInfo.swift; sourceTree = "<group>"; };
+		29909E842D37D9D8005C0328 /* IMSAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountManager.swift; sourceTree = "<group>"; };
+		29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountUpgradeSetting.swift; sourceTree = "<group>"; };
+		29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountUpgradeViewController.swift; sourceTree = "<group>"; };
+		29909E872D37D9D8005C0328 /* IMSIAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSIAPService.swift; sourceTree = "<group>"; };
+		29909E8F2D37DAD1005C0328 /* URL+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+IMS.swift"; sourceTree = "<group>"; };
+		29909E922D37DBAF005C0328 /* Strings+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+IMS.swift"; sourceTree = "<group>"; };
+		29909E972D37DD80005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Imt.strings; sourceTree = "<group>"; };
+		29909E9A2D37DD87005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/Imt.strings"; sourceTree = "<group>"; };
+		29909E9B2D37DD87005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/Imt.strings"; sourceTree = "<group>"; };
+		29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsCoordinator+IMS.swift"; sourceTree = "<group>"; };
+		29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKNavigationAction+IMS.swift"; sourceTree = "<group>"; };
+		29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMS.swift"; sourceTree = "<group>"; };
 		29B6050E2D2D304C006585C7 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		29B605122D2D359D006585C7 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		29B605142D2D40F2006585C7 /* zh-CN.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "zh-CN.json"; sourceTree = "<group>"; };
@@ -4378,6 +4411,7 @@
 				8AB30EC82B6C038600BD9A9B /* Lottie in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
+				29909E7A2D36AE62005C0328 /* StoreKit.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
@@ -4389,6 +4423,7 @@
 				5A06135A29D6052E008F3D38 /* TabDataStore in Frameworks */,
 				EDD2A7F82CDACE7C00ED464C /* UnifiedSearchKit in Frameworks */,
 				216A0D762A40E7AB008077BA /* Redux in Frameworks */,
+				29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
 				5BCA3B616005528D04EE32CA /* Pods_Client.framework in Frameworks */,
@@ -5053,15 +5088,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		292E28D12D2D569F0096B370 /* imt-sites */ = {
-			isa = PBXGroup;
-			children = (
-				292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */,
-				292E28D22D2D56B00096B370 /* ImtSitesCell.swift */,
-			);
-			path = "imt-sites";
-			sourceTree = "<group>";
-		};
 		2951662E2D2C10A300CAD566 /* dsbridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -5087,6 +5113,85 @@
 				295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */,
 			);
 			path = JSObject;
+			sourceTree = "<group>";
+		};
+		29909E822D37D9A9005C0328 /* IMS */ = {
+			isa = PBXGroup;
+			children = (
+				29909EA12D37E0E5005C0328 /* DynamicReplacement */,
+				29909E9C2D37DEA5005C0328 /* Settings */,
+				29909E952D37DCDC005C0328 /* Resources */,
+				29909E942D37DC98005C0328 /* Home */,
+				29909E8E2D37DAC0005C0328 /* Extensions */,
+				29909E882D37D9D8005C0328 /* Account */,
+			);
+			path = IMS;
+			sourceTree = "<group>";
+		};
+		29909E882D37D9D8005C0328 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				29909E912D37DB4F005C0328 /* IAP */,
+				29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */,
+				29909E842D37D9D8005C0328 /* IMSAccountManager.swift */,
+				29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */,
+				29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		29909E8E2D37DAC0005C0328 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29909E922D37DBAF005C0328 /* Strings+IMS.swift */,
+				29909E8F2D37DAD1005C0328 /* URL+IMS.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29909E912D37DB4F005C0328 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				29909E872D37D9D8005C0328 /* IMSIAPService.swift */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		29909E942D37DC98005C0328 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */,
+				292E28D22D2D56B00096B370 /* ImtSitesCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		29909E952D37DCDC005C0328 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				295166202D2C109000CAD566 /* immersive-translate.user.js */,
+				29909E712D36A0CE005C0328 /* IMSAccount.strings */,
+				29909E962D37DD80005C0328 /* Imt.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29909E9C2D37DEA5005C0328 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
+				29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		29909EA12D37E0E5005C0328 /* DynamicReplacement */ = {
+			isa = PBXGroup;
+			children = (
+				29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */,
+				29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */,
+			);
+			path = DynamicReplacement;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -5779,6 +5884,7 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29909E792D36AE62005C0328 /* StoreKit.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,
 				8A08EC6327EBDCAC00E119C7 /* AdServices.framework */,
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
@@ -6104,7 +6210,6 @@
 		8A3EF7ED2A2FCEC900796E3A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
 				8ADC2A192A33997900543DAA /* About */,
 				8A5D1CB72A30DBCB005AD35C /* Account */,
 				E68E39BD1C46F42000B85F42 /* AppSettingsTableViewController.swift */,
@@ -8855,6 +8960,7 @@
 		F84B21C01A090F8100AAB793 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				29909E822D37D9A9005C0328 /* IMS */,
 				F84B21E41A0910F600AAB793 /* Application */,
 				F84B21EB1A0910F600AAB793 /* Assets */,
 				E60961841B62B7E100DD640F /* Configuration */,
@@ -9029,7 +9135,6 @@
 				29B605142D2D40F2006585C7 /* zh-CN.json */,
 				29B605122D2D359D006585C7 /* en.json */,
 				2951661F2D2C109000CAD566 /* dsbridge.js */,
-				295166202D2C109000CAD566 /* immersive-translate.user.js */,
 				295166212D2C109000CAD566 /* mock_gm.js */,
 				E699220D1B94E3EF007C480D /* About */,
 				D0FCF8031FE4772C004A7995 /* AllFramesAtDocumentEnd.js */,
@@ -9114,7 +9219,6 @@
 		F84B22211A09122500AAB793 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				292E28D12D2D569F0096B370 /* imt-sites */,
 				8A7D08E12CAAF79F0035999C /* Homepage Rebuild */,
 				8A0A1BA12B22010200E8706F /* PrivateHome */,
 				C834ACD028D3ACA900203AD1 /* Blurrable.swift */,
@@ -9603,6 +9707,7 @@
 				29D6DFC82D2D67DD0094E832 /* FacebookGamingServices */,
 				29D6DFCA2D2D67DD0094E832 /* FacebookLogin */,
 				29D6DFCC2D2D67DD0094E832 /* FacebookShare */,
+				29909E7C2D36BB68005C0328 /* SVProgressHUD */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -9834,6 +9939,7 @@
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -9910,8 +10016,10 @@
 				D59643E625C9B8E000EAB8B9 /* LoginManager.strings in Resources */,
 				434707692C85D3DA009585F0 /* SuggestedSites.strings in Resources */,
 				4369D46F2CF4935C0059C50F /* SocialMediaApp.strings in Resources */,
+				29909E992D37DD80005C0328 /* Imt.strings in Resources */,
 				D58A202925C9D96400105D25 /* BookmarkPanel.strings in Resources */,
 				43470D0B28B39AF80034F500 /* ToolbarLocation.strings in Resources */,
+				29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */,
 				43903A892C20502A00ACF76E /* ActivityStream.strings in Resources */,
 				432C01582B83900600392A88 /* KeyboardAccessory.strings in Resources */,
 				4344BD7D2AEFC6490057F642 /* Shopping.strings in Resources */,
@@ -10045,12 +10153,14 @@
 				8A3345642BA499B7008C52AB /* disconnect-block-analytics.json in Resources */,
 				E1AF3567286DE5F800960045 /* PerformanceTestPlan.xctestplan in Resources */,
 				8A1A935A2B757C7C0069C190 /* portrait.json in Resources */,
+				29909E982D37DD80005C0328 /* Imt.strings in Resources */,
 				295166222D2C109000CAD566 /* dsbridge.js in Resources */,
 				295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */,
 				295166242D2C109000CAD566 /* mock_gm.js in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
 				29B605172D2D4115006585C7 /* zh-TW.json in Resources */,
+				29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */,
 				8A3345652BA499B7008C52AB /* disconnect-block-cookies-advertising.json in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
@@ -10896,6 +11006,7 @@
 				0BDDB33F2CA6B1F000D501DF /* EditFolderViewModel.swift in Sources */,
 				602B3D6729B0E1DB0066DEF8 /* ConversionValueUtil.swift in Sources */,
 				8ADED7EE276A7750009C19E6 /* CumulativeDaysOfUseCounter.swift in Sources */,
+				29909E902D37DAD6005C0328 /* URL+IMS.swift in Sources */,
 				7AC7E0502C160FF800051D4D /* ReaderPanelEmptyStateView.swift in Sources */,
 				4346FF08295BA6A300F4D220 /* CreditCardSettingsViewController.swift in Sources */,
 				E19B38B528A42EBC00D8C541 /* WallpaperCellViewModel.swift in Sources */,
@@ -11054,6 +11165,7 @@
 				2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */,
 				21618A8C2A438A0900A5189E /* ActiveScreenAction.swift in Sources */,
 				E15DE7C2293A7AED00B32667 /* PhotonActionSheetLineSeparator.swift in Sources */,
+				29909EA32D37E0F1005C0328 /* WKNavigationAction+IMS.swift in Sources */,
 				631A369F2CC0A4FE0044DFEB /* NativeErrorPageMiddleware.swift in Sources */,
 				8CE1E43A2B8C76C80026530B /* LoginListView.swift in Sources */,
 				8A832A9429DC99BA0025D5DD /* LaunchScreenViewController.swift in Sources */,
@@ -11405,6 +11517,7 @@
 				F8B7109E2ABE380B0029726E /* RustErrors.swift in Sources */,
 				C8124BB129D6F55400540B79 /* Route.swift in Sources */,
 				8A4EA0DB2C0117CD00E4E4F1 /* MobileMessageSurfaceProtocol.swift in Sources */,
+				29909E9E2D37DEB8005C0328 /* SettingsCoordinator+IMS.swift in Sources */,
 				63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */,
 				2F44FCCB1A9E972E00FD20CC /* SearchEnginePicker.swift in Sources */,
 				21996BAB2AE95AFC00E0D55F /* TabTrayPanelType.swift in Sources */,
@@ -11530,6 +11643,7 @@
 				8AD40FD127BADCBA00672675 /* ToolbarButton.swift in Sources */,
 				A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */,
 				742BD99E2A13AC9000BA6B15 /* OnboardingInstructionPopupViewController.swift in Sources */,
+				29909E932D37DBB7005C0328 /* Strings+IMS.swift in Sources */,
 				9636D92C27F9E50100771F5E /* GleanPlumbMessageStore.swift in Sources */,
 				213B67A627CE682B000542F5 /* StartAtHomeHelper.swift in Sources */,
 				8A8629E2288096C40096DDB1 /* BookmarksFolderCell.swift in Sources */,
@@ -11714,6 +11828,7 @@
 				E40FAB0C1A7ABB77009CB80D /* WebServer.swift in Sources */,
 				59A68D66379CFA85C4EAF00B /* TwoLineImageOverlayCell.swift in Sources */,
 				0A49784A2C53E63200B1E82A /* TrackingProtectionViewController.swift in Sources */,
+				29909EA52D37E11C005C0328 /* BrowserViewController+IMS.swift in Sources */,
 				8A04136928258DF600D20B10 /* SponsoredTileTelemetry.swift in Sources */,
 				D04CD718215EBD85004FF5B0 /* SettingsLoadingView.swift in Sources */,
 				0B8BF3702CA2D60B00E9812D /* BookmarksViewController.swift in Sources */,
@@ -11746,6 +11861,11 @@
 				2178A6A4291455F7002EC290 /* ReaderModeFontSizeButton.swift in Sources */,
 				BCFF93F02AABA55A005B5B71 /* BackgroundFirefoxSuggestIngestUtility.swift in Sources */,
 				BCFF93F22AAF9688005B5B71 /* FirefoxSuggestSettings.swift in Sources */,
+				29909E892D37D9D8005C0328 /* IMSIAPService.swift in Sources */,
+				29909E8A2D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift in Sources */,
+				29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */,
+				29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */,
+				29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */,
 				BCFF93F42AAF9879005B5B71 /* FirefoxSuggestSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12360,6 +12480,26 @@
 				0C474316B6171274626C1D7D /* zh-CN */,
 			);
 			name = Today.strings;
+			sourceTree = "<group>";
+		};
+		29909E712D36A0CE005C0328 /* IMSAccount.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29909E722D36A0CE005C0328 /* en */,
+				29909E752D36A0D4005C0328 /* zh-CN */,
+				29909E762D36A0D6005C0328 /* zh-TW */,
+			);
+			name = IMSAccount.strings;
+			sourceTree = "<group>";
+		};
+		29909E962D37DD80005C0328 /* Imt.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29909E972D37DD80005C0328 /* en */,
+				29909E9A2D37DD87005C0328 /* zh-CN */,
+				29909E9B2D37DD87005C0328 /* zh-TW */,
+			);
+			name = Imt.strings;
 			sourceTree = "<group>";
 		};
 		32484895B328A342AED539C8 /* AuthenticationManager.strings */ = {
@@ -13579,13 +13719,14 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MOZ_BUNDLE_ID = com.web.ios.Fennec;
+				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -14008,12 +14149,13 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MOZ_BUNDLE_ID = com.web.ios.Firefox;
+				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -14288,12 +14430,13 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MOZ_BUNDLE_ID = com.web.ios.FennecEnterprise;
+				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -14580,12 +14723,13 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MOZ_BUNDLE_ID = com.web.ios.FirefoxBeta;
+				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -15101,14 +15245,15 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				MOZ_BUNDLE_DISPLAY_NAME = "Immersive Translate";
 				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
+				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -15452,6 +15597,14 @@
 				version = 5.8.1;
 			};
 		};
+		29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVProgressHUD/SVProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 		29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
@@ -15567,6 +15720,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		29909E7C2D36BB68005C0328 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
 		};
 		29D6DFC22D2D67DD0094E832 /* FacebookAEM */ = {
 			isa = XCSwiftPackageProductDependency;
