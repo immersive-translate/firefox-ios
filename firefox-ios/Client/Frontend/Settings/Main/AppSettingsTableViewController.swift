@@ -201,7 +201,7 @@ class AppSettingsTableViewController: SettingsTableViewController,
     override func generateSettings() -> [SettingSection] {
         var settings = [SettingSection]()
         settings += getDefaultBrowserSetting()
-        settings += getIMSAccountSetting()
+        settings += getAccountSetting()
         settings += getGeneralSettings()
         settings += getPrivacySettings()
         settings += getSupportSettings()
@@ -221,7 +221,8 @@ class AppSettingsTableViewController: SettingsTableViewController,
                                children: [DefaultBrowserSetting(theme: themeManager.getCurrentTheme(for: windowUUID))])]
     }
 
-    private func getAccountSetting() -> [SettingSection] {
+    dynamic
+    func getAccountSetting() -> [SettingSection] {
         let accountChinaSyncSetting: [Setting]
         if !AppInfo.isChinaEdition {
             accountChinaSyncSetting = []
@@ -245,20 +246,6 @@ class AppSettingsTableViewController: SettingsTableViewController,
             AccountStatusSetting(settings: self, settingsDelegate: parentCoordinator),
             SyncNowSetting(settings: self, settingsDelegate: parentCoordinator)
         ] + accountChinaSyncSetting)]
-    }
-    
-    private func getIMSAccountSetting() -> [SettingSection] {
-        guard let userInfo = IMSAccountManager.shard.current() else { return [] }
-        var title: String = .FxAFirefoxAccount
-        if !userInfo.email.isEmpty {
-            title += ": \(userInfo.email)"
-        }
-        let accountSectionTitle = NSAttributedString(string: .FxAFirefoxAccount)
-        return [
-            SettingSection(title: accountSectionTitle, children: [
-                IMSAccountUpgradeSetting(settingsDelegate: parentCoordinator, userInfo: userInfo)
-            ])
-        ]
     }
 
     private func getGeneralSettings() -> [SettingSection] {

@@ -34,7 +34,7 @@ class LegacyHomepageViewController:
 
     weak var statusBarScrollDelegate: StatusBarScrollDelegate?
 
-    private var viewModel: HomepageViewModel
+    var viewModel: HomepageViewModel
     private var contextMenuHelper: HomepageContextMenuHelper
     private var tabManager: TabManager
     private var overlayManager: OverlayModeManager
@@ -471,7 +471,7 @@ class LegacyHomepageViewController:
         }
     }
 
-    private func showSiteWithURLHandler(_ url: URL, isGoogleTopSite: Bool = false) {
+    func showSiteWithURLHandler(_ url: URL, isGoogleTopSite: Bool = false) {
         let visitType = VisitType.bookmark
         // Called from top sites, pocket, learn more in pocket section
         homePanelDelegate?.homePanel(didSelectURL: url, visitType: visitType, isGoogleTopSite: isGoogleTopSite)
@@ -655,9 +655,10 @@ extension LegacyHomepageViewController: UICollectionViewDelegate, UICollectionVi
 
 // MARK: - Actions Handling
 
-private extension LegacyHomepageViewController {
+extension LegacyHomepageViewController {
     // Setup all the tap and long press actions on cells in each sections
-    private func setupSectionsAction() {
+    dynamic
+    func setupSectionsAction() {
         // Header view
         viewModel.headerViewModel.onTapAction = { _ in
             // No action currently set if the logo button is tapped.
@@ -672,10 +673,6 @@ private extension LegacyHomepageViewController {
         viewModel.topSiteViewModel.tilePressedHandler = { [weak self] site, isGoogle in
             guard let url = site.url.asURL else { return }
             self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
-        }
-        
-        viewModel.imtSitesViewModel.itemHandler = { [weak self] url in
-            self?.showSiteWithURLHandler(url, isGoogleTopSite: false)
         }
 
         viewModel.topSiteViewModel.tileLongPressedHandler = { [weak self] (site, sourceView) in

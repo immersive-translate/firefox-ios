@@ -292,7 +292,6 @@
 		29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */; };
 		29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E842D37D9D8005C0328 /* IMSAccountManager.swift */; };
 		29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */; };
-		29909E902D37DAD6005C0328 /* URL+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E8F2D37DAD1005C0328 /* URL+IMS.swift */; };
 		29909E932D37DBB7005C0328 /* Strings+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E922D37DBAF005C0328 /* Strings+IMS.swift */; };
 		29909E982D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
 		29909E992D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
@@ -311,6 +310,15 @@
 		29D6DFC92D2D67DD0094E832 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC82D2D67DD0094E832 /* FacebookGamingServices */; };
 		29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFCA2D2D67DD0094E832 /* FacebookLogin */; };
 		29D6DFCD2D2D67DD0094E832 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFCC2D2D67DD0094E832 /* FacebookShare */; };
+		29EF1DE52D37E3390066018B /* IMSImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29EF1DE32D37E3390066018B /* IMSImages.xcassets */; };
+		29EF1DE72D37E7340066018B /* IMSTopSiteItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */; };
+		29EF1DEA2D37E76A0066018B /* IMSTopSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DE92D37E7660066018B /* IMSTopSitesViewModel.swift */; };
+		29EF1DEC2D37E7A10066018B /* HomepageSectionType+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */; };
+		29EF1DEE2D37EA2C0066018B /* HomepageViewModel+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DED2D37EA270066018B /* HomepageViewModel+IMS.swift */; };
+		29EF1DF02D37F0280066018B /* LegacyHomepageViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */; };
+		29EF1DF32D37FF480066018B /* AppSettingsTableViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */; };
+		29EF1DF62D3804F60066018B /* UserAgent+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */; };
+		29EF1DF72D3805410066018B /* URL+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E8F2D37DAD1005C0328 /* URL+IMS.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2635,6 +2643,14 @@
 		29D6DFF02D2D73D10094E832 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ActivityStream.strings; sourceTree = "<group>"; };
 		29D6DFF12D2D73DD0094E832 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Microsurvey.strings; sourceTree = "<group>"; };
 		29D6DFF22D2D73ED0094E832 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BottomSheet.strings; sourceTree = "<group>"; };
+		29EF1DE32D37E3390066018B /* IMSImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IMSImages.xcassets; sourceTree = "<group>"; };
+		29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTopSiteItemCell.swift; sourceTree = "<group>"; };
+		29EF1DE92D37E7660066018B /* IMSTopSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTopSitesViewModel.swift; sourceTree = "<group>"; };
+		29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomepageSectionType+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DED2D37EA270066018B /* HomepageViewModel+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomepageViewModel+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageViewController+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettingsTableViewController+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAgent+IMS.swift"; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5143,6 +5159,7 @@
 		29909E8E2D37DAC0005C0328 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */,
 				29909E922D37DBAF005C0328 /* Strings+IMS.swift */,
 				29909E8F2D37DAD1005C0328 /* URL+IMS.swift */,
 			);
@@ -5160,6 +5177,9 @@
 		29909E942D37DC98005C0328 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */,
+				29EF1DED2D37EA270066018B /* HomepageViewModel+IMS.swift */,
+				29EF1DE82D37E75B0066018B /* TopSite */,
 				292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */,
 				292E28D22D2D56B00096B370 /* ImtSitesCell.swift */,
 			);
@@ -5172,6 +5192,7 @@
 				295166202D2C109000CAD566 /* immersive-translate.user.js */,
 				29909E712D36A0CE005C0328 /* IMSAccount.strings */,
 				29909E962D37DD80005C0328 /* Imt.strings */,
+				29EF1DE32D37E3390066018B /* IMSImages.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -5179,6 +5200,7 @@
 		29909E9C2D37DEA5005C0328 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */,
 				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
 				29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */,
 			);
@@ -5192,6 +5214,16 @@
 				29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */,
 			);
 			path = DynamicReplacement;
+			sourceTree = "<group>";
+		};
+		29EF1DE82D37E75B0066018B /* TopSite */ = {
+			isa = PBXGroup;
+			children = (
+				29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */,
+				29EF1DE92D37E7660066018B /* IMSTopSitesViewModel.swift */,
+				29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */,
+			);
+			path = TopSite;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -10164,6 +10196,7 @@
 				8A3345652BA499B7008C52AB /* disconnect-block-cookies-advertising.json in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
+				29EF1DE52D37E3390066018B /* IMSImages.xcassets in Resources */,
 				8A1F6C2F2BC5A62400DA6F86 /* PrivacyInfo.xcprivacy in Resources */,
 				E1AF3560286DE5F800960045 /* Smoketest3.xctestplan in Resources */,
 				8A1A93592B757C7C0069C190 /* landscape.json in Resources */,
@@ -10542,6 +10575,7 @@
 				E65075BA1E37F7AB006961AC /* Prefs.swift in Sources */,
 				8A8BAE162B2119E600D774EB /* InternalURL.swift in Sources */,
 				7B10AABB1E3A1F650002DD08 /* URLRequestExtensions.swift in Sources */,
+				29EF1DF72D3805410066018B /* URL+IMS.swift in Sources */,
 				E693F0D91E9D64BD0086DC17 /* OptionalExtensions.swift in Sources */,
 				E65075A01E37F7AB006961AC /* Array+Extensions.swift in Sources */,
 				E65075A31E37F7AB006961AC /* KeychainWrapperExtensions.swift in Sources */,
@@ -10568,6 +10602,7 @@
 				E65075B31E37F7AB006961AC /* KeyboardHelper.swift in Sources */,
 				E65075AA1E37F7AB006961AC /* URLProtectionSpaceExtensions.swift in Sources */,
 				EB7FFFC820A9D38D003E1E34 /* AlertController.swift in Sources */,
+				29EF1DF62D3804F60066018B /* UserAgent+IMS.swift in Sources */,
 				E65075BC1E37F7AB006961AC /* SupportUtils.swift in Sources */,
 				E65075B61E37F7AB006961AC /* Loader.swift in Sources */,
 				E65075BF1E37F7AB006961AC /* UserAgent.swift in Sources */,
@@ -10998,6 +11033,7 @@
 				215B457F27D7FD4B00E5E800 /* LegacyTabGroupData.swift in Sources */,
 				E12BD0B028AC3A7E0029AAF0 /* UIEdgeInsets+Extension.swift in Sources */,
 				C2D80BE72AADE38100CDF7A9 /* CredentialAutofillCoordinator.swift in Sources */,
+				29EF1DF02D37F0280066018B /* LegacyHomepageViewController+IMS.swift in Sources */,
 				8A62B15D2CED408B0045F46E /* ContextMenuState.swift in Sources */,
 				C8BE692729BA2FBB0015C4A2 /* SurveySurfaceInfoModel.swift in Sources */,
 				D0152245229855A8009DE753 /* OneLineTableViewCell.swift in Sources */,
@@ -11006,7 +11042,6 @@
 				0BDDB33F2CA6B1F000D501DF /* EditFolderViewModel.swift in Sources */,
 				602B3D6729B0E1DB0066DEF8 /* ConversionValueUtil.swift in Sources */,
 				8ADED7EE276A7750009C19E6 /* CumulativeDaysOfUseCounter.swift in Sources */,
-				29909E902D37DAD6005C0328 /* URL+IMS.swift in Sources */,
 				7AC7E0502C160FF800051D4D /* ReaderPanelEmptyStateView.swift in Sources */,
 				4346FF08295BA6A300F4D220 /* CreditCardSettingsViewController.swift in Sources */,
 				E19B38B528A42EBC00D8C541 /* WallpaperCellViewModel.swift in Sources */,
@@ -11086,6 +11121,7 @@
 				8AEAD9F52C3D7BA9001A2C5A /* FeatureFlagsDebugViewController.swift in Sources */,
 				A55319BB2B5D5A850051559F /* SearchSettingsAction.swift in Sources */,
 				810CD9C12BB346D800E290C2 /* OnboardingCardViewController.swift in Sources */,
+				29EF1DEC2D37E7A10066018B /* HomepageSectionType+IMS.swift in Sources */,
 				C8A012F126AB07D70096A7A7 /* JumpBackInViewModel.swift in Sources */,
 				8AAAB05F2C1B72C9008830B3 /* SearchHighlightItem.swift in Sources */,
 				8A3EF8172A2FD2B900796E3A /* AdvancedAccountSettings.swift in Sources */,
@@ -11298,6 +11334,7 @@
 				D0625CA8208FC47A0081F3B2 /* BrowserViewController+DownloadQueueDelegate.swift in Sources */,
 				C22753402A3C9E1300B9C0D1 /* WebsiteDataManagementViewModel.swift in Sources */,
 				2F44FCC71A9E8CF500FD20CC /* SearchSettingsTableViewController.swift in Sources */,
+				29EF1DEA2D37E76A0066018B /* IMSTopSitesViewModel.swift in Sources */,
 				0AFF7F682C78989000265214 /* CertificatesHeaderItem.swift in Sources */,
 				8AD3271527E3B45D00EAF033 /* SponsoredTile.swift in Sources */,
 				B2999FF32B194A8300F0FEC1 /* FillCreditCardForm.swift in Sources */,
@@ -11309,6 +11346,7 @@
 				39A359E41BFCCE94006B9E87 /* UserActivityHandler.swift in Sources */,
 				4331A9BD271D267E005E8080 /* ContextualHintViewProvider.swift in Sources */,
 				8CAF29A02AA5E76B00DC3486 /* FakespotMessageCardView.swift in Sources */,
+				29EF1DEE2D37EA2C0066018B /* HomepageViewModel+IMS.swift in Sources */,
 				8A093D7F2A4B3E7D0099ABA5 /* GeneralSettingsDelegate.swift in Sources */,
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,
 				C83432FE26BAD30D00ABAAA6 /* EnhancedTrackingProtectionDetailsVC.swift in Sources */,
@@ -11596,6 +11634,7 @@
 				AB03032B2AB47AF300DCD8EF /* FakespotOptInCardView.swift in Sources */,
 				0BA02DB22942605600C92603 /* FormAutofillHelper.swift in Sources */,
 				B26ADF852B339ED000C6E127 /* AddressAutofillSetting.swift in Sources */,
+				29EF1DE72D37E7340066018B /* IMSTopSiteItemCell.swift in Sources */,
 				8A19ACB82A329128001C2147 /* PrivacyPolicySetting.swift in Sources */,
 				254B760A2B7B44EE00AB8526 /* NimbusFirefoxSuggestFeatureLayer.swift in Sources */,
 				E68AEDB01B18F81A00133D99 /* SwipeAnimator.swift in Sources */,
@@ -11746,6 +11785,7 @@
 				ABEF80D52A254185003F52C4 /* CreditCardBottomSheetFooterView.swift in Sources */,
 				C869912E28917688007ACC5C /* WallpaperDataService.swift in Sources */,
 				5A8017E029CE15D90047120D /* TabManagerImplementation.swift in Sources */,
+				29EF1DF32D37FF480066018B /* AppSettingsTableViewController+IMS.swift in Sources */,
 				8AABBD012A001ADF0089941E /* ApplicationHelper.swift in Sources */,
 				E633E2DA1C21EAF8001FFF6C /* PasswordDetailViewController.swift in Sources */,
 				8A9AC46B276D11280047F5B0 /* PocketViewModel.swift in Sources */,

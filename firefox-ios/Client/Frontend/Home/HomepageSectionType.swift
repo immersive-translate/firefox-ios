@@ -8,7 +8,7 @@ import Foundation
 enum HomepageSectionType: Int, CaseIterable {
     case homepageHeader
     case messageCard
-    case imtSites
+    case imsTopSites
     case topSites
     case jumpBackIn
     case bookmarks
@@ -26,11 +26,11 @@ enum HomepageSectionType: Int, CaseIterable {
         }
     }
 
+    dynamic
     var cellIdentifier: String {
         switch self {
         case .homepageHeader: return LegacyHomepageHeaderCell.cellIdentifier
         case .messageCard: return HomepageMessageCardCell.cellIdentifier
-        case .imtSites: return ImtSitesCell.cellIdentifier
         // Top sites has more than 1 cell type, dequeuing is done through FxHomeSectionHandler protocol
         case .topSites: return ""
         // Pocket has more than 1 cell type, dequeuing is done through FxHomeSectionHandler protocol
@@ -40,9 +40,11 @@ enum HomepageSectionType: Int, CaseIterable {
         case .bookmarks: return BookmarksCell.cellIdentifier
         case .historyHighlights: return HistoryHighlightsCell.cellIdentifier
         case .customizeHome: return CustomizeHomepageSectionCell.cellIdentifier
+        default: return ""
         }
     }
 
+    dynamic
     static var cellTypes: [ReusableCell.Type] {
         return [LegacyHomepageHeaderCell.self,
                 HomepageMessageCardCell.self,
@@ -54,8 +56,7 @@ enum HomepageSectionType: Int, CaseIterable {
                 BookmarksCell.self,
                 HistoryHighlightsCell.self,
                 CustomizeHomepageSectionCell.self,
-                SyncedTabCell.self,
-                ImtSitesCell.self
+                SyncedTabCell.self
         ]
     }
 

@@ -92,15 +92,15 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
 
     var shownSections = [HomepageSectionType]()
     weak var delegate: HomepageViewModelDelegate?
-    private var wallpaperManager: WallpaperManager
+    var wallpaperManager: WallpaperManager
     private var logger: Logger
     private let viewWillAppearEventThrottler = Throttler(seconds: 0.5)
 
     // Child View models
-    private var childViewModels: [HomepageViewModelProtocol]
+    var childViewModels: [HomepageViewModelProtocol]
     var headerViewModel: HomepageHeaderViewModel
     var messageCardViewModel: HomepageMessageCardViewModel
-    var imtSitesViewModel: ImtSitesViewModel
+//    var imtSitesViewModel: ImtSitesViewModel
     var topSiteViewModel: TopSitesViewModel
     var bookmarksViewModel: BookmarksViewModel
     var jumpBackInViewModel: JumpBackInViewModel
@@ -131,7 +131,7 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         let messageCardAdaptor = MessageCardDataAdaptorImplementation()
         self.messageCardViewModel = HomepageMessageCardViewModel(dataAdaptor: messageCardAdaptor, theme: theme)
         messageCardAdaptor.delegate = messageCardViewModel
-        self.imtSitesViewModel = ImtSitesViewModel(profile: profile, theme: theme)
+//        self.imtSitesViewModel = ImtSitesViewModel(profile: profile, theme: theme)
         self.topSiteViewModel = TopSitesViewModel(profile: profile,
                                                   theme: theme,
                                                   wallpaperManager: wallpaperManager)
@@ -172,7 +172,7 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         self.customizeButtonViewModel = CustomizeHomepageSectionViewModel(theme: theme)
         self.childViewModels = [headerViewModel,
                                 messageCardViewModel,
-                                imtSitesViewModel,
+//                                imtSitesViewModel,
                                 topSiteViewModel,
                                 jumpBackInViewModel,
                                 bookmarksViewModel,
@@ -182,6 +182,9 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         self.isPrivate = isPrivate
 
         self.nimbus = nimbus
+        
+        beforeInit()
+        
         topSiteViewModel.delegate = self
         historyHighlightsViewModel.delegate = self
         bookmarksViewModel.delegate = self
@@ -194,7 +197,14 @@ class HomepageViewModel: FeatureFlaggable, InjectedThemeUUIDIdentifiable {
         }
 
         updateEnabledSections()
+        afterInit()
     }
+    
+    dynamic
+    func beforeInit() {}
+    
+    dynamic
+    func afterInit() {}
 
     // MARK: - Interfaces
 
