@@ -106,6 +106,7 @@ class TabTrayViewController: UIViewController,
         return label
     }()
 
+    dynamic
     var segmentControlItems: [Any] {
         let iPhoneItems = [
             TabTrayPanelType.tabs.image!.overlayWith(image: countLabel),

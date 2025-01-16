@@ -51,7 +51,8 @@ class TabTrayCoordinator: BaseCoordinator,
         tabTrayViewController.setupOpenPanel(panelType: tabTraySection)
     }
 
-    private func makeChildPanels() -> [UINavigationController] {
+    dynamic
+    func makeChildPanels() -> [UINavigationController] {
         let windowUUID = tabManager.windowUUID
         let regularTabsPanel = TabDisplayPanel(isPrivateMode: false, windowUUID: windowUUID)
         let privateTabsPanel = TabDisplayPanel(isPrivateMode: true, windowUUID: windowUUID)

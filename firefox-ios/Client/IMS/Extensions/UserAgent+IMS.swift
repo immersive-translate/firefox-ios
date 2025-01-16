@@ -13,6 +13,7 @@ struct IMSCustomUserAgentConstant {
         "paypal.com": defaultMobileUA,
         "yahoo.com": defaultMobileUA,
         "disneyplus.com": customDesktopUA,
+        "immersivetranslate.com": customDesktopUA,
         "xiaohongshu.com": customDesktopUA
     ]
 
@@ -39,7 +40,7 @@ extension UserAgent {
         switch platform {
         case .Desktop:
             guard let customUA = IMSCustomUserAgentConstant.customDesktopUAForDomain[domain] else {
-                return desktopUserAgent()
+                return ims_desktopUserAgent()
             }
             return customUA
         case .Mobile:
@@ -56,6 +57,16 @@ extension UserAgent {
             return ims_getUserAgent(domain: domain, platform: .Desktop)
         } else {
             return ims_getUserAgent(domain: domain, platform: .Mobile)
+        }
+    }
+    
+    @_dynamicReplacement(for: oppositeUserAgent(domain:))
+    public static func ims_oppositeUserAgent(domain: String) -> String {
+        let isDefaultUADesktop = UserAgent.isDesktop(ua: UserAgent.getUserAgent(domain: domain))
+        if isDefaultUADesktop {
+            return UserAgent.ims_getUserAgent(domain: domain, platform: .Mobile)
+        } else {
+            return UserAgent.ims_getUserAgent(domain: domain, platform: .Desktop)
         }
     }
 }

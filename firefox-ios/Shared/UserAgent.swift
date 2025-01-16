@@ -64,6 +64,7 @@ open class UserAgent {
         return UserAgentBuilder.defaultMobileUserAgent().userAgent()
     }
 
+    dynamic
     public static func oppositeUserAgent(domain: String) -> String {
         let isDefaultUADesktop = UserAgent.isDesktop(ua: UserAgent.getUserAgent(domain: domain))
         if isDefaultUADesktop {

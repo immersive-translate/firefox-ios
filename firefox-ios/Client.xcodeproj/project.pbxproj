@@ -322,6 +322,8 @@
 		29EF1DFC2D392EC20066018B /* IntroViewModel+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */; };
 		29EF1DFE2D3939240066018B /* IntroViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */; };
 		29EF1E012D3940870066018B /* IMSGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E002D3940840066018B /* IMSGridView.swift */; };
+		29EF1E032D395E1F0066018B /* TabTrayCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */; };
+		29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2657,6 +2659,8 @@
 		29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntroViewModel+IMS.swift"; sourceTree = "<group>"; };
 		29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntroViewController+IMS.swift"; sourceTree = "<group>"; };
 		29EF1E002D3940840066018B /* IMSGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSGridView.swift; sourceTree = "<group>"; };
+		29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayCoordinator+IMS.swift"; sourceTree = "<group>"; };
+		29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayViewController+IMS.swift"; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5217,6 +5221,8 @@
 		29909EA12D37E0E5005C0328 /* DynamicReplacement */ = {
 			isa = PBXGroup;
 			children = (
+				29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */,
+				29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */,
 				29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */,
 				29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */,
 			);
@@ -11013,6 +11019,7 @@
 				E1FE133129C22726002A65FF /* BackgroundFetchAndProcessingUtility.swift in Sources */,
 				8A4EA0D12C010BE700E4E4F1 /* MicrosurveySurfaceManager.swift in Sources */,
 				8AD40FD527BB1C1000672675 /* LockButton.swift in Sources */,
+				29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */,
 				5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */,
 				2109478928AFD24C00B73D44 /* OnboardingViewControllerProtocol.swift in Sources */,
 				D0FCF7F51FE45842004A7995 /* UserScriptManager.swift in Sources */,
@@ -11728,6 +11735,7 @@
 				8AFA263227B6E9AB00D0C33B /* ToolbarBadge.swift in Sources */,
 				43D16B7A29831C7F009F8279 /* CreditCardAutofillToggle.swift in Sources */,
 				C23889E12A4F3E7200429673 /* ParentCoordinatorDelegate.swift in Sources */,
+				29EF1E032D395E1F0066018B /* TabTrayCoordinator+IMS.swift in Sources */,
 				8AD40FCD27BADC5C00672675 /* TabLocationContainerView.swift in Sources */,
 				8A720C602A4C8B700003018A /* SharedSettingsDelegate.swift in Sources */,
 				211046CD2A7D842A00A7309F /* TPAccessoryInfo.swift in Sources */,
@@ -13787,7 +13795,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14217,7 +14225,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -14498,7 +14506,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -14791,7 +14799,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15313,7 +15321,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
