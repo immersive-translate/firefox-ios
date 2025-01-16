@@ -285,7 +285,6 @@
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
-		29909E7A2D36AE62005C0328 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29909E792D36AE62005C0328 /* StoreKit.framework */; };
 		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
 		29909E892D37D9D8005C0328 /* IMSIAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E872D37D9D8005C0328 /* IMSIAPService.swift */; };
 		29909E8A2D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */; };
@@ -319,6 +318,10 @@
 		29EF1DF32D37FF480066018B /* AppSettingsTableViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */; };
 		29EF1DF62D3804F60066018B /* UserAgent+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */; };
 		29EF1DF72D3805410066018B /* URL+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E8F2D37DAD1005C0328 /* URL+IMS.swift */; };
+		29EF1DFA2D392E820066018B /* IMSOnboardingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */; };
+		29EF1DFC2D392EC20066018B /* IntroViewModel+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */; };
+		29EF1DFE2D3939240066018B /* IntroViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */; };
+		29EF1E012D3940870066018B /* IMSGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E002D3940840066018B /* IMSGridView.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2586,7 +2589,6 @@
 		29909E722D36A0CE005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IMSAccount.strings; sourceTree = "<group>"; };
 		29909E752D36A0D4005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
 		29909E762D36A0D6005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
-		29909E792D36AE62005C0328 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountInfo.swift; sourceTree = "<group>"; };
 		29909E842D37D9D8005C0328 /* IMSAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountManager.swift; sourceTree = "<group>"; };
 		29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountUpgradeSetting.swift; sourceTree = "<group>"; };
@@ -2651,6 +2653,10 @@
 		29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageViewController+IMS.swift"; sourceTree = "<group>"; };
 		29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppSettingsTableViewController+IMS.swift"; sourceTree = "<group>"; };
 		29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAgent+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSOnboardingCardViewController.swift; sourceTree = "<group>"; };
+		29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntroViewModel+IMS.swift"; sourceTree = "<group>"; };
+		29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IntroViewController+IMS.swift"; sourceTree = "<group>"; };
+		29EF1E002D3940840066018B /* IMSGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSGridView.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -4427,7 +4433,6 @@
 				8AB30EC82B6C038600BD9A9B /* Lottie in Frameworks */,
 				5A871488292EA1440039A5BD /* Fuzi in Frameworks */,
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
-				29909E7A2D36AE62005C0328 /* StoreKit.framework in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
@@ -5134,6 +5139,8 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				29EF1DFF2D39407C0066018B /* Common */,
+				29EF1DF82D392E6C0066018B /* Onboarding */,
 				29909EA12D37E0E5005C0328 /* DynamicReplacement */,
 				29909E9C2D37DEA5005C0328 /* Settings */,
 				29909E952D37DCDC005C0328 /* Resources */,
@@ -5224,6 +5231,24 @@
 				29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */,
 			);
 			path = TopSite;
+			sourceTree = "<group>";
+		};
+		29EF1DF82D392E6C0066018B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */,
+				29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */,
+				29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		29EF1DFF2D39407C0066018B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				29EF1E002D3940840066018B /* IMSGridView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -5916,7 +5941,6 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29909E792D36AE62005C0328 /* StoreKit.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,
 				8A08EC6327EBDCAC00E119C7 /* AdServices.framework */,
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
@@ -10973,6 +10997,7 @@
 				8A8D277D2CC000BE0076AD3A /* NavigationBrowserAction.swift in Sources */,
 				396E38F11EE0C8EC00CC180F /* FxAPushMessageHandler.swift in Sources */,
 				8A76B01629F6EB3900A82607 /* ScreenshotService.swift in Sources */,
+				29EF1E012D3940870066018B /* IMSGridView.swift in Sources */,
 				8C1953322B85EAB500761B20 /* AutofillHeaderView.swift in Sources */,
 				8A7AE4442BAB510B0072DAEC /* LibraryPanelCoordinatorDelegate.swift in Sources */,
 				8C19532E2B85E7AE00761B20 /* SelfSizingHostingController.swift in Sources */,
@@ -11006,6 +11031,7 @@
 				EB9A179D20E69A7F00B12184 /* LegacyTheme.swift in Sources */,
 				2128E2802934FBB400FB91BE /* CopyLinkActivity.swift in Sources */,
 				E17BE4C42A94BA6900C5124E /* FakespotHighlightGroupView.swift in Sources */,
+				29EF1DFC2D392EC20066018B /* IntroViewModel+IMS.swift in Sources */,
 				8A2DAD4B2CC02AA00067ECD0 /* LabelButtonHeaderView.swift in Sources */,
 				C825E9832832A425006CB811 /* NimbusSearchBarLayer.swift in Sources */,
 				E1FC23F12A8629380089E14D /* FakespotReliabilityCardView.swift in Sources */,
@@ -11171,6 +11197,7 @@
 				C869912C28917688007ACC5C /* WallpaperNetworkModule.swift in Sources */,
 				E1442FD8294782D9003680B0 /* UIPasteboard+Extension.swift in Sources */,
 				AB4FB4D52C89FAFD005EF0CC /* BlockedTrackersTableController.swift in Sources */,
+				29EF1DFA2D392E820066018B /* IMSOnboardingCardViewController.swift in Sources */,
 				C8A4137428BE58C900D8EFEA /* WallpaperMetadataCodableProtocol.swift in Sources */,
 				8A93080927BFE88F0052167D /* PhotonActionSheetContainerCell.swift in Sources */,
 				C8B41E0A29F0284B00FE218A /* NimbusOnboardingFeatureLayer.swift in Sources */,
@@ -11659,6 +11686,7 @@
 				8ADAE41E2A33A0E2007BF926 /* ShowIntroductionSetting.swift in Sources */,
 				8AF10D8F29D774090086351D /* SceneSetupHelper.swift in Sources */,
 				C4E398601D22C409004E89BA /* TopTabsLayout.swift in Sources */,
+				29EF1DFE2D3939240066018B /* IntroViewController+IMS.swift in Sources */,
 				E1A102D62AC19B30007B617A /* FakespotUtils.swift in Sources */,
 				5A2918CB2B522338002B197E /* GeneralBrowserAction.swift in Sources */,
 				8A5D1CC12A30DCA4005AD35C /* SettingDisclosureUtility.swift in Sources */,
@@ -13759,7 +13787,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14189,7 +14217,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -14470,7 +14498,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -14763,7 +14791,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15285,7 +15313,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

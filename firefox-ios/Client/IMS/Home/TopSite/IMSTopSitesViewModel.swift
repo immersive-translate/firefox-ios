@@ -54,7 +54,7 @@ class IMSTopSitesViewModel {
             .init(site: .init(url: "https://test-browser.immersivetranslate.com/video", title: .ImtLocalizableVideoTranslation, bookmarked: false, faviconResource: .bundleAsset(name: "video-intro", forRemoteResource: Bundle.main.bundleURL))),
             .init(site: .init(url: "https://app.immersivetranslate.com", title: .ImtLocalizableIntroDocument, bookmarked: false, faviconResource: .bundleAsset(name: "document-intro", forRemoteResource: Bundle.main.bundleURL))),
             .init(site: .init(url: "https://test-browser.immersivetranslate.com/manga", title: .ImtLocalizableComicTranslation, bookmarked: false, faviconResource: .bundleAsset(name: "cartoon-intro", forRemoteResource: Bundle.main.bundleURL))),
-            .init(site: .init(url: "https://www.xiaohongshu.com", title: .ImtLocalizableXiaohongshuTranslation, bookmarked: false, faviconResource: .bundleAsset(name: "xiaohongshu-intro", forRemoteResource: Bundle.main.bundleURL)))
+            .init(site: .init(url: "https://browser.immersivetranslate.com/xiaohongshu", title: .ImtLocalizableXiaohongshuTranslation, bookmarked: false, faviconResource: .bundleAsset(name: "xiaohongshu-intro", forRemoteResource: Bundle.main.bundleURL)))
         ]
         self.numberOfItems = self.topSites.count
     }

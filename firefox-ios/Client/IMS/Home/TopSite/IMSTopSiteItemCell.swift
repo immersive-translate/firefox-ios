@@ -61,7 +61,7 @@ class IMSTopSiteItemCell: UICollectionViewCell, ReusableCell {
     private lazy var titleLabel: UILabel = .build { titleLabel in
         titleLabel.textAlignment = .center
         titleLabel.font = FXFontStyles.Regular.caption1.scaledFont()
-        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.adjustsFontForContentSizeCategory = false
         titleLabel.preferredMaxLayoutWidth = UX.imageBackgroundSize.width + HomepageViewModel.UX.shadowRadius
         titleLabel.backgroundColor = .clear
         titleLabel.setContentHuggingPriority(UILayoutPriority(1000), for: .vertical)
@@ -70,7 +70,7 @@ class IMSTopSiteItemCell: UICollectionViewCell, ReusableCell {
     private lazy var sponsoredLabel: UILabel = .build { sponsoredLabel in
         sponsoredLabel.textAlignment = .center
         sponsoredLabel.font = FXFontStyles.Regular.caption2.scaledFont()
-        sponsoredLabel.adjustsFontForContentSizeCategory = true
+        sponsoredLabel.adjustsFontForContentSizeCategory = false
         sponsoredLabel.preferredMaxLayoutWidth = UX.imageBackgroundSize.width + HomepageViewModel.UX.shadowRadius
     }
 

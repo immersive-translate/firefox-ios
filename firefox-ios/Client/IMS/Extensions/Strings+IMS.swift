@@ -216,6 +216,12 @@ extension String {
         tableName: "Imt",
         value: "Comic translation",
         comment: "")
+    
+    public static let ImtLocalizableXiaohongshu = MZLocalizedString(
+        key: "Imt.Localizable.Xiaohongshu",
+        tableName: "Imt",
+        value: "Comic translation",
+        comment: "")
 }
 
 

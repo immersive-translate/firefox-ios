@@ -28,7 +28,7 @@ class IntroViewModel: OnboardingViewModelProtocol, FeatureFlaggable {
     var isDismissable: Bool
     var profile: Profile
     var telemetryUtility: OnboardingTelemetryProtocol
-    private var cardModels: [OnboardingCardInfoModelProtocol]
+    var cardModels: [OnboardingCardInfoModelProtocol]
 
     // MARK: - Initializer
     init(
@@ -46,6 +46,7 @@ class IntroViewModel: OnboardingViewModelProtocol, FeatureFlaggable {
     }
 
     // MARK: - Methods
+    dynamic
     func setupViewControllerDelegates(with delegate: OnboardingCardDelegate, for window: WindowUUID) {
         availableCards.removeAll()
         cardModels.forEach { cardModel in

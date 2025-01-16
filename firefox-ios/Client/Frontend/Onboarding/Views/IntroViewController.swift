@@ -118,7 +118,8 @@ class IntroViewController: UIViewController,
         if viewModel.isDismissable { setupCloseButton() }
     }
 
-    private func setupPageController() {
+    dynamic
+    func setupPageController() {
         addChild(pageController)
         view.addSubview(pageController.view)
         pageController.didMove(toParent: self)
