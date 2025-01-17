@@ -13,12 +13,15 @@ struct IMSCustomUserAgentConstant {
         "paypal.com": defaultMobileUA,
         "yahoo.com": defaultMobileUA,
         "disneyplus.com": customDesktopUA,
-        "immersivetranslate.com": customDesktopUA,
         "xiaohongshu.com": customDesktopUA
     ]
 
     static let customDesktopUAForDomain = [
         "firefox.com": defaultMobileUA
+    ]
+    
+    static let customMobileUAForURL = [
+        "https://browser.immersivetranslate.com/xiaohongshu": customDesktopUA
     ]
 }
 
@@ -67,6 +70,42 @@ extension UserAgent {
             return UserAgent.ims_getUserAgent(domain: domain, platform: .Mobile)
         } else {
             return UserAgent.ims_getUserAgent(domain: domain, platform: .Desktop)
+        }
+    }
+    
+    public static func ims_getUserAgent(url: URL) -> String {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return ims_getUserAgent(url: url, platform: .Desktop)
+        } else {
+            return ims_getUserAgent(url: url, platform: .Mobile)
+        }
+    }
+    
+    
+    public static func ims_oppositeUserAgent(url: URL) -> String {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return ims_getUserAgent(url: url, platform: .Desktop)
+        } else {
+            return ims_getUserAgent(url: url, platform: .Mobile)
+        }
+    }
+    
+    public static func ims_getUserAgent(url: URL, platform: UserAgentPlatform) -> String {
+        let domain = url.baseDomain ?? ""
+        switch platform {
+        case .Desktop:
+            guard let customUA = IMSCustomUserAgentConstant.customDesktopUAForDomain[domain] else {
+                return ims_desktopUserAgent()
+            }
+            return customUA
+        case .Mobile:
+            if let customUA = IMSCustomUserAgentConstant.customMobileUAForURL.first(where: { url.absoluteString.hasPrefix($0.key) })?.value {
+                return customUA
+            }
+            guard let customUA = IMSCustomUserAgentConstant.customMobileUAForDomain[domain] else {
+                return mobileUserAgent()
+            }
+            return customUA
         }
     }
 }
