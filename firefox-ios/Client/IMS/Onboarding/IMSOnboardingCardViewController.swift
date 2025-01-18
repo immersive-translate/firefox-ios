@@ -120,8 +120,12 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         imsdescriptionLabel.text = .ImtLocalizableIntroAutoTranslated
         view.addSubview(imsdescriptionLabel)
         
-        let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
-                                NSAttributedString.Key.foregroundColor: UIColor.white]
+        let primaryAttribute = [
+            NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.underlineStyle: 0
+                
+        ] as [NSAttributedString.Key : Any]
         let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetDefaultBrowser, attributes: primaryAttribute)
         imsprimaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(imsprimaryButton);
