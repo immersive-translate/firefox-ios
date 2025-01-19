@@ -31,17 +31,18 @@ class IMSIAPService {
     }
     
     func purchase(productId: String) async throws {
+        // Get checkout session first
+        let checkoutResponse = try await getProductOrder()
         
-        // 创建购买选项
+        // Get product using existing method
+        let product = try await getProduct(productId: productId)
+        
+        // Create purchase options with outTradeNo as appAccountToken
         let options: Set<StoreKit.Product.PurchaseOption> = [
-            .appAccountToken(UUID()), // 可选：用于关联购买的唯一标识符
-            .simulatesAskToBuyInSandbox(true), // 可选：是否在沙盒环境模拟询问购买
+            .appAccountToken(UUID(uuidString: checkoutResponse.data.imtSession.outTradeNo) ?? UUID()),
+            .simulatesAskToBuyInSandbox(true),
         ]
         
-        let products = try await StoreKit.Product.products(for: [productId])
-        guard let product = products.first else {
-            throw StoreKit.Product.PurchaseError.productUnavailable
-        }
         let result = try await product.purchase(options: options)
         switch result {
         case .success(let verificationResult):
@@ -59,6 +60,48 @@ class IMSIAPService {
         @unknown default:
             break
         }
+    }
+    
+    func getProductOrder() async throws -> CheckoutSessionResponse {
+        let request = CheckoutSessionRequest(
+               priceId: "price_1PfcrjGc8iUjvqOFXi9TgSPS",
+               currency: "cny",
+               startTrial: false,
+               successUrl: "",
+               cancelUrl: "",
+               locale: "",
+               coupon: "",
+               referral: "",
+               quantity: 1,
+               targetLanguage: "",
+               deviceId: "",
+               platform: "",
+               abField: "",
+               appVersion: "",
+               browser: "",
+               browserUserAgent: "",
+               utmCampaign: "",
+               utmMedium: "",
+               utmSource: "",
+               installTime: "2024-12-24T12:42:45.021Z",
+               installChannel: "",
+               interfaceLang: "",
+               lastLoginTime: "2024-12-24T12:42:45.021Z",
+               lastLoginIP: "",
+               userCreateTime: "2024-12-24T12:42:45.021Z",
+               extendData: "",
+               returnUrl: "",
+               actName: "",
+               payTips: ""
+           )
+          
+        guard  let userinfo = IMSAccountManager.shard.current() else {
+            throw NetworkError.invalidURL
+        }
+        let paymentManager = PaymentManager(token: userinfo.token)
+           
+        let response = try await paymentManager.createCheckoutSession(request: request)
+        return response
     }
     
     // 购买信息模型
