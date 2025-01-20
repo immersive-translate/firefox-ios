@@ -20,6 +20,24 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
         return button
     }()
     
+    lazy var refreshButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = .blue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("刷新", for: .normal)
+        button.addTarget(self, action: #selector(refreshAction), for: .touchUpInside)
+        return button
+    }()
+    
+    lazy var productTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.text = IMSAccountConfig.oneYearProductId
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = .lightGray
+        return textField
+    }()
+    
     init(prefs: Prefs, windowUUID: WindowUUID) {
         super.init(style: .plain, windowUUID: windowUUID)
         self.title = .IMS.Settings.Upgrade
@@ -31,26 +49,27 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadProductInfo()
+        self.view.addSubview(self.productTextField)
+        self.view.addSubview(self.refreshButton)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapViewAction))
+        self.view.addGestureRecognizer(tap)
+        
+        NSLayoutConstraint.activate([
+            self.productTextField.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            self.productTextField.widthAnchor.constraint(equalToConstant: 200),
+            self.productTextField.heightAnchor.constraint(equalToConstant: 50),
+            self.productTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            
+            self.refreshButton.topAnchor.constraint(equalTo: self.productTextField.bottomAnchor, constant: 20),
+            self.refreshButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.refreshButton.widthAnchor.constraint(equalToConstant: 100),
+            self.refreshButton.heightAnchor.constraint(equalToConstant: 50)
+            
+        ])
+        
     }
     
-    func loadProductInfo() {
-        SVProgressHUD.show()
-        Task {
-            do {
-                let product = try await IMSAccountManager.shard.iap.getProduct(productId: IMSAccountConfig.oneYearProductId)
-                await MainActor.run {
-                    SVProgressHUD.dismiss()
-                    self.updateProductInfo(product: product)
-                }
-            } catch {
-                await MainActor.run {
-                    SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "获取产品信息失败")
-                }
-            }
-        }
-    }
+    
     
     @MainActor
     func updateProductInfo(product: StoreKit.Product) {
@@ -58,20 +77,34 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
             self.view.addSubview(self.purchaseButton)
             
             NSLayoutConstraint.activate([
+                self.purchaseButton.topAnchor.constraint(equalTo: self.refreshButton.bottomAnchor, constant: 20),
                 self.purchaseButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                self.purchaseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             ])
         }
-        self.purchaseButton.setTitle("\(product.displayName): \(product.displayPrice) \(product.description)", for: .normal)
+        self.purchaseButton.setTitle("购买：\(product.displayName): \(product.displayPrice) \(product.description)", for: .normal)
+    }
+    
+    @objc
+    func tapViewAction() {
+        self.view.endEditing(true)
+    }
+    
+    @objc
+    func refreshAction() {
+        loadProductInfo()
     }
     
     
     @objc
     func purchaseAction() {
+        guard let productId =  self.productTextField.text, !productId.isEmpty else {
+            SVProgressHUD.showError(withStatus: "请输入产品ID")
+            return
+        }
         SVProgressHUD.show()
         Task {
             do {
-                try await IMSAccountManager.shard.iap.purchase(productId: IMSAccountConfig.oneYearProductId)
+                try await IMSAccountManager.shard.iap.purchase(productId: productId)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     SVProgressHUD.showSuccess(withStatus: "购买成功")
@@ -80,6 +113,28 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     SVProgressHUD.showError(withStatus: "购买失败")
+                }
+            }
+        }
+    }
+    
+    func loadProductInfo() {
+        guard let productId =  self.productTextField.text, !productId.isEmpty else {
+            SVProgressHUD.showError(withStatus: "请输入产品ID")
+            return
+        }
+        SVProgressHUD.show()
+        Task {
+            do {
+                let product = try await IMSAccountManager.shard.iap.getProduct(productId: productId)
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.updateProductInfo(product: product)
+                }
+            } catch {
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: "获取产品信息失败")
                 }
             }
         }

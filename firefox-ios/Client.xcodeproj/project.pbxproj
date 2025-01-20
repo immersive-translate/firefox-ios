@@ -265,7 +265,14 @@
 		28E08C9A1AF44F00009BA2FA /* BrowserSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282915E51AF1A7920006EEB5 /* BrowserSchema.swift */; };
 		28E91E751B443AD5009DF274 /* SyncConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E91E741B443AD5009DF274 /* SyncConstants.swift */; };
 		28ECD9BF1BA1F19900D829DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
-		29163DE32D3CBB1E003FCF30 /* CheckoutSessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DE22D3CBB1E003FCF30 /* CheckoutSessionRequest.swift */; };
+		29163DE32D3CBB1E003FCF30 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */; };
+		29163DE52D3E86BC003FCF30 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29163DE42D3E86BC003FCF30 /* StoreKit.framework */; };
+		29163DE72D3E86CE003FCF30 /* ProMonthSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DE62D3E86CE003FCF30 /* ProMonthSubscriptionViewController.swift */; };
+		29163DE92D3E89EA003FCF30 /* ProYearSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DE82D3E89EA003FCF30 /* ProYearSubscriptionViewController.swift */; };
+		29163DEB2D3E8C00003FCF30 /* ProMembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DEA2D3E8C00003FCF30 /* ProMembershipViewController.swift */; };
+		29163DED2D3E8FBF003FCF30 /* ProSubscriptionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DEC2D3E8FBF003FCF30 /* ProSubscriptionPageViewController.swift */; };
+		29163DF02D3E9252003FCF30 /* ProSubscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */; };
+		29163DF12D3E9252003FCF30 /* ProSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -2544,7 +2551,14 @@
 		28C4AB711AD42D4300D9ACE3 /* Clients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clients.swift; sourceTree = "<group>"; };
 		28E91E741B443AD5009DF274 /* SyncConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncConstants.swift; sourceTree = "<group>"; };
 		28ECD9A21BA1EBA800D829DA /* SyncTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SyncTests-Bridging-Header.h"; path = "firefox-ios-tests/Tests/SyncTests/SyncTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		29163DE22D3CBB1E003FCF30 /* CheckoutSessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSessionRequest.swift; sourceTree = "<group>"; };
+		29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		29163DE42D3E86BC003FCF30 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		29163DE62D3E86CE003FCF30 /* ProMonthSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMonthSubscriptionViewController.swift; sourceTree = "<group>"; };
+		29163DE82D3E89EA003FCF30 /* ProYearSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProYearSubscriptionViewController.swift; sourceTree = "<group>"; };
+		29163DEA2D3E8C00003FCF30 /* ProMembershipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProMembershipViewController.swift; sourceTree = "<group>"; };
+		29163DEC2D3E8FBF003FCF30 /* ProSubscriptionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPageViewController.swift; sourceTree = "<group>"; };
+		29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionViewController.swift; sourceTree = "<group>"; };
+		29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProSubscriptionViewController.xib; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -4442,6 +4456,7 @@
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
+				29163DE52D3E86BC003FCF30 /* StoreKit.framework in Frameworks */,
 				AB2AC6632BCFD0A200022AAB /* X509 in Frameworks */,
 				29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */,
 				29D6DFC92D2D67DD0094E832 /* FacebookGamingServices in Frameworks */,
@@ -5182,8 +5197,14 @@
 		29909E912D37DB4F005C0328 /* IAP */ = {
 			isa = PBXGroup;
 			children = (
-				29163DE22D3CBB1E003FCF30 /* CheckoutSessionRequest.swift */,
+				29163DEC2D3E8FBF003FCF30 /* ProSubscriptionPageViewController.swift */,
+				29163DEA2D3E8C00003FCF30 /* ProMembershipViewController.swift */,
+				29163DE82D3E89EA003FCF30 /* ProYearSubscriptionViewController.swift */,
+				29163DE62D3E86CE003FCF30 /* ProMonthSubscriptionViewController.swift */,
+				29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */,
 				29909E872D37D9D8005C0328 /* IMSIAPService.swift */,
+				29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */,
+				29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -5950,6 +5971,7 @@
 		7B604FC11C496005006EEEC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29163DE42D3E86BC003FCF30 /* StoreKit.framework */,
 				C8E18F1D222EDE4400E30E52 /* Accelerate.framework */,
 				8A08EC6327EBDCAC00E119C7 /* AdServices.framework */,
 				E4B334891BBF23F9004E2BFF /* AdSupport.framework */,
@@ -10220,6 +10242,7 @@
 				8A1A935A2B757C7C0069C190 /* portrait.json in Resources */,
 				29909E982D37DD80005C0328 /* Imt.strings in Resources */,
 				295166222D2C109000CAD566 /* dsbridge.js in Resources */,
+				29163DF02D3E9252003FCF30 /* ProSubscriptionViewController.xib in Resources */,
 				295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */,
 				295166242D2C109000CAD566 /* mock_gm.js in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
@@ -11021,7 +11044,7 @@
 				E1E5BE252A28F7BE00248F77 /* PasswordDetailViewControllerModel.swift in Sources */,
 				E1FE133129C22726002A65FF /* BackgroundFetchAndProcessingUtility.swift in Sources */,
 				8A4EA0D12C010BE700E4E4F1 /* MicrosurveySurfaceManager.swift in Sources */,
-				29163DE32D3CBB1E003FCF30 /* CheckoutSessionRequest.swift in Sources */,
+				29163DE32D3CBB1E003FCF30 /* PaymentManager.swift in Sources */,
 				8AD40FD527BB1C1000672675 /* LockButton.swift in Sources */,
 				29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */,
 				5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */,
@@ -11242,6 +11265,7 @@
 				29909EA32D37E0F1005C0328 /* WKNavigationAction+IMS.swift in Sources */,
 				631A369F2CC0A4FE0044DFEB /* NativeErrorPageMiddleware.swift in Sources */,
 				8CE1E43A2B8C76C80026530B /* LoginListView.swift in Sources */,
+				29163DEB2D3E8C00003FCF30 /* ProMembershipViewController.swift in Sources */,
 				8A832A9429DC99BA0025D5DD /* LaunchScreenViewController.swift in Sources */,
 				21E77E4E2AA8BA5200FABA10 /* TabTrayViewController.swift in Sources */,
 				E60D03181D511398002FE3F6 /* SyncDisplayState.swift in Sources */,
@@ -11266,6 +11290,7 @@
 				D0C95E36200FDC5500E4E51C /* MetadataParserHelper.swift in Sources */,
 				0BF1B7E31AC60DEA00A7B407 /* InsetButton.swift in Sources */,
 				DF5D47522A9381C700D6AE74 /* FakespotSettingsCardView.swift in Sources */,
+				29163DED2D3E8FBF003FCF30 /* ProSubscriptionPageViewController.swift in Sources */,
 				C88E7A592A0553440072E638 /* OnboardingCardInfoModel.swift in Sources */,
 				B2DFB7E32B619E2B0004CEA5 /* AddressCellView.swift in Sources */,
 				AB6FEA202AEA5CA200E7B2F2 /* FakespotAdView.swift in Sources */,
@@ -11338,6 +11363,7 @@
 				21A7C45028353D0E0071D996 /* OnboardingBasicCardViewController.swift in Sources */,
 				8C2937702BF79F0300146613 /* EditAddressLocalization.swift in Sources */,
 				742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */,
+				29163DE92D3E89EA003FCF30 /* ProYearSubscriptionViewController.swift in Sources */,
 				C4EFEECF1CEBB6F2009762A4 /* BackForwardTableViewCell.swift in Sources */,
 				E1442FD3294782D9003680B0 /* UIView+Constraints.swift in Sources */,
 				5A70EF21295E3E0B00790249 /* UnitTestSceneDelegate.swift in Sources */,
@@ -11689,6 +11715,7 @@
 				EBB89504219398E500EB91A0 /* TrackingProtectionPageStats.swift in Sources */,
 				D31F95E91AC226CB005C9F3B /* ScreenshotHelper.swift in Sources */,
 				8A5D1CA62A30D6BD005AD35C /* NewTabPageSetting.swift in Sources */,
+				29163DE72D3E86CE003FCF30 /* ProMonthSubscriptionViewController.swift in Sources */,
 				D3968F251A38FE8500CEFD3B /* TabManager.swift in Sources */,
 				2178A6A229145506002EC290 /* ReaderModeFontSizeLabel.swift in Sources */,
 				8A4593C82BF7BECA002758DE /* MicrosurveyViewController.swift in Sources */,
@@ -11892,6 +11919,7 @@
 				E6327A641BF6438E008D12E0 /* DebugSettingsBundleOptions.swift in Sources */,
 				F85C7EDD27109241004BDBA4 /* PasswordManagerOnboardingViewController.swift in Sources */,
 				D8FDEB57220CFE970069A582 /* UIImage+ImageEffects.m in Sources */,
+				29163DF12D3E9252003FCF30 /* ProSubscriptionViewController.swift in Sources */,
 				0BDDB3462CA6E43A00D501DF /* BookmarksSaver.swift in Sources */,
 				EBB89506219398E500EB91A0 /* TabContentBlocker.swift in Sources */,
 				E1B9A2C22CAD91EF00F6A0E9 /* ToolbarTelemetry.swift in Sources */,
@@ -13799,12 +13827,12 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				MOZ_BUNDLE_ID = com.web.ios.Fennec;
 				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
@@ -14229,11 +14257,11 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				MOZ_BUNDLE_ID = com.web.ios.Firefox;
 				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
@@ -14510,11 +14538,11 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				MOZ_BUNDLE_ID = com.web.ios.FennecEnterprise;
 				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
@@ -14803,11 +14831,11 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				MOZ_BUNDLE_ID = com.web.ios.FirefoxBeta;
 				MOZ_BUNDLE_VERSION = 134.0;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
@@ -15325,12 +15353,12 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				MOZ_BUNDLE_DISPLAY_NAME = "Immersive Translate";
 				MOZ_BUNDLE_ID = "com.immersivetranslate.Immersive-Translate.browser";
 				MOZ_BUNDLE_VERSION = 134.0;

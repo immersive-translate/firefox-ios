@@ -95,10 +95,10 @@ class IMSIAPService {
                payTips: ""
            )
           
-        guard  let userinfo = IMSAccountManager.shard.current() else {
-            throw NetworkError.invalidURL
-        }
-        let paymentManager = PaymentManager(token: userinfo.token)
+//        guard  let userinfo = IMSAccountManager.shard.current() else {
+//            throw NetworkError.invalidURL
+//        }
+        let paymentManager = PaymentManager(token: "temp-token-2023-a-b")
            
         let response = try await paymentManager.createCheckoutSession(request: request)
         return response
@@ -115,35 +115,35 @@ class IMSIAPService {
     }
     
     func handleSuccessfulPurchase(_ transaction: Transaction) async throws {
-        // 1. 获取交易信息
-        let transactionId = transaction.id
-        let originalTransactionId = transaction.originalID
-        let productId = transaction.productID
-        let purchaseDate = transaction.purchaseDate
-        
-        // 2. 获取交易的 JSON 表示
-        let transactionJSON = transaction.jsonRepresentation
-        
-        let transactionJSONString = String(data: transactionJSON, encoding: .utf8)
-        
-        SKReceiptRefreshRequest().start()
-        // 3. 获取 App Store 收据
-        
-        // 4. 将收据数据转换为 base64 字符串
-        let receiptString = try await refreshReceipt()
-        
-        // 5. 构建购买信息
-        let purchaseInfo = PurchaseInfo(
-            transactionId: transactionId,
-            originalTransactionId: originalTransactionId,
-            productId: productId,
-            purchaseDate: purchaseDate,
-            transactionJSON: transactionJSON,
-            receipt: receiptString
-        )
-        
-        // 6. 发送到服务器验证
-        try await sendReceiptToServer(purchaseInfo)
+//        // 1. 获取交易信息
+//        let transactionId = transaction.id
+//        let originalTransactionId = transaction.originalID
+//        let productId = transaction.productID
+//        let purchaseDate = transaction.purchaseDate
+//        
+//        // 2. 获取交易的 JSON 表示
+//        let transactionJSON = transaction.jsonRepresentation
+//        
+//        let transactionJSONString = String(data: transactionJSON, encoding: .utf8)
+//        
+//        SKReceiptRefreshRequest().start()
+//        // 3. 获取 App Store 收据
+//        
+//        // 4. 将收据数据转换为 base64 字符串
+//        let receiptString = try await refreshReceipt()
+//        
+//        // 5. 构建购买信息
+//        let purchaseInfo = PurchaseInfo(
+//            transactionId: transactionId,
+//            originalTransactionId: originalTransactionId,
+//            productId: productId,
+//            purchaseDate: purchaseDate,
+//            transactionJSON: transactionJSON,
+//            receipt: receiptString
+//        )
+//        
+//        // 6. 发送到服务器验证
+//        try await sendReceiptToServer(purchaseInfo)
         
         // 7. 完成交易
         await transaction.finish()
