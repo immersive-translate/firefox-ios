@@ -12,7 +12,7 @@ import Glean
 class AppLaunchUtil {
     private var logger: Logger
 //    private var adjustHelper: AdjustHelper
-    private var profile: Profile
+    var profile: Profile
     private let introScreenManager: IntroScreenManager
 
     init(logger: Logger = DefaultLogger.shared,
@@ -21,6 +21,13 @@ class AppLaunchUtil {
         self.profile = profile
 //        self.adjustHelper = AdjustHelper(profile: profile)
         self.introScreenManager = IntroScreenManager(prefs: profile.prefs)
+        
+        self.afterInit()
+    }
+    
+    dynamic
+    func afterInit() {
+        
     }
 
     func setUpPreLaunchDependencies() {
@@ -101,6 +108,7 @@ class AppLaunchUtil {
         AppEventQueue.signal(event: .preLaunchDependenciesComplete)
     }
 
+    dynamic
     func setUpPostLaunchDependencies() {
         let persistedCurrentVersion = InstallType.persistedCurrentVersion()
         // upgrade install - Intro screen shown & persisted current version does not match

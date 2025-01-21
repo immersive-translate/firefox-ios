@@ -50,7 +50,8 @@ class SendAnonymousUsageDataSetting: BoolSetting {
         Experiments.setTelemetrySetting(prefs.boolForKey(AppConstants.prefSendUsageData) ?? true)
     }
 
-    private func setupSettingDidChange() {
+    dynamic
+    func setupSettingDidChange() {
         self.settingDidChange = { [weak self] value in
             // AdjustHelper.setEnabled($0)
             DefaultGleanWrapper.shared.setUpload(isEnabled: value)
