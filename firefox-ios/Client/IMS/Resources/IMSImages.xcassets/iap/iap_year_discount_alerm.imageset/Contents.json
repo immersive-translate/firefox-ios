@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iap_year_discount_alerm.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

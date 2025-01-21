@@ -266,8 +266,10 @@
 		28E91E751B443AD5009DF274 /* SyncConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E91E741B443AD5009DF274 /* SyncConstants.swift */; };
 		28ECD9BF1BA1F19900D829DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6231C001B90A44F005ABB0D /* libz.tbd */; };
 		29163DE32D3CBB1E003FCF30 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */; };
-		29163DF02D3E9252003FCF30 /* ProSubscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */; };
-		29163DF12D3E9252003FCF30 /* ProSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */; };
+		29163DF72D3FD427003FCF30 /* ProSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DF62D3FD427003FCF30 /* ProSubscriptionViewController.swift */; };
+		29163DFA2D3FD56D003FCF30 /* YearProSubscriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29163DF92D3FD56D003FCF30 /* YearProSubscriptionViewController.xib */; };
+		29163DFB2D3FD56D003FCF30 /* YearProSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DF82D3FD56D003FCF30 /* YearProSubscriptionViewController.swift */; };
+		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -286,6 +288,8 @@
 		295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166272D2C10A300CAD566 /* DSCallInfo.m */; };
 		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
+		298CA0D22D3FEE7B0009F52E /* ProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CA0D12D3FEE7B0009F52E /* ProSubscriptionSwiftUIView.swift */; };
+		298CA0D42D4012B30009F52E /* YearProSubscriptionHeaderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298CA0D32D4012B30009F52E /* YearProSubscriptionHeaderSwiftUIView.swift */; };
 		29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
@@ -332,6 +336,8 @@
 		29EF1E012D3940870066018B /* IMSGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E002D3940840066018B /* IMSGridView.swift */; };
 		29EF1E032D395E1F0066018B /* TabTrayCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */; };
 		29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */; };
+		29F0B87E2D401B88007D8AC7 /* YearProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0B87D2D401B88007D8AC7 /* YearProSubscriptionSwiftUIView.swift */; };
+		29F0B8802D401CAA007D8AC7 /* YearProSubscriptionListSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0B87F2D401CAA007D8AC7 /* YearProSubscriptionListSwiftUIView.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2552,8 +2558,10 @@
 		28E91E741B443AD5009DF274 /* SyncConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncConstants.swift; sourceTree = "<group>"; };
 		28ECD9A21BA1EBA800D829DA /* SyncTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SyncTests-Bridging-Header.h"; path = "firefox-ios-tests/Tests/SyncTests/SyncTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
-		29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionViewController.swift; sourceTree = "<group>"; };
-		29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProSubscriptionViewController.xib; sourceTree = "<group>"; };
+		29163DF62D3FD427003FCF30 /* ProSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionViewController.swift; sourceTree = "<group>"; };
+		29163DF82D3FD56D003FCF30 /* YearProSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProSubscriptionViewController.swift; sourceTree = "<group>"; };
+		29163DF92D3FD56D003FCF30 /* YearProSubscriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YearProSubscriptionViewController.xib; sourceTree = "<group>"; };
+		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -2576,6 +2584,8 @@
 		2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientJSObject.swift; sourceTree = "<group>"; };
 		295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageJSObject.swift; sourceTree = "<group>"; };
 		2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		298CA0D12D3FEE7B0009F52E /* ProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
+		298CA0D32D4012B30009F52E /* YearProSubscriptionHeaderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProSubscriptionHeaderSwiftUIView.swift; sourceTree = "<group>"; };
 		29909E542D2D751A005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/KeyboardAccessory.strings; sourceTree = "<group>"; };
 		29909E552D2D7540005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PasswordAutofill.strings; sourceTree = "<group>"; };
 		29909E562D2D7544005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JumpBackIn.strings; sourceTree = "<group>"; };
@@ -2677,6 +2687,8 @@
 		29EF1E002D3940840066018B /* IMSGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSGridView.swift; sourceTree = "<group>"; };
 		29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayCoordinator+IMS.swift"; sourceTree = "<group>"; };
 		29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayViewController+IMS.swift"; sourceTree = "<group>"; };
+		29F0B87D2D401B88007D8AC7 /* YearProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
+		29F0B87F2D401CAA007D8AC7 /* YearProSubscriptionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProSubscriptionListSwiftUIView.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5187,6 +5199,7 @@
 		29909E8E2D37DAC0005C0328 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */,
 				29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */,
 				29909E922D37DBAF005C0328 /* Strings+IMS.swift */,
 				29909E8F2D37DAD1005C0328 /* URL+IMS.swift */,
@@ -5197,10 +5210,15 @@
 		29909E912D37DB4F005C0328 /* IAP */ = {
 			isa = PBXGroup;
 			children = (
+				298CA0D32D4012B30009F52E /* YearProSubscriptionHeaderSwiftUIView.swift */,
+				29163DF62D3FD427003FCF30 /* ProSubscriptionViewController.swift */,
 				29163DE22D3CBB1E003FCF30 /* PaymentManager.swift */,
 				29909E872D37D9D8005C0328 /* IMSIAPService.swift */,
-				29163DEE2D3E9252003FCF30 /* ProSubscriptionViewController.swift */,
-				29163DEF2D3E9252003FCF30 /* ProSubscriptionViewController.xib */,
+				29163DF82D3FD56D003FCF30 /* YearProSubscriptionViewController.swift */,
+				29163DF92D3FD56D003FCF30 /* YearProSubscriptionViewController.xib */,
+				298CA0D12D3FEE7B0009F52E /* ProSubscriptionSwiftUIView.swift */,
+				29F0B87D2D401B88007D8AC7 /* YearProSubscriptionSwiftUIView.swift */,
+				29F0B87F2D401CAA007D8AC7 /* YearProSubscriptionListSwiftUIView.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -10249,9 +10267,9 @@
 				8A1A935A2B757C7C0069C190 /* portrait.json in Resources */,
 				29909E982D37DD80005C0328 /* Imt.strings in Resources */,
 				295166222D2C109000CAD566 /* dsbridge.js in Resources */,
-				29163DF02D3E9252003FCF30 /* ProSubscriptionViewController.xib in Resources */,
 				295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */,
 				295166242D2C109000CAD566 /* mock_gm.js in Resources */,
+				29163DFA2D3FD56D003FCF30 /* YearProSubscriptionViewController.xib in Resources */,
 				23BEA76A251A99ED00A014BF /* NewYorkMedium-RegularItalic.otf in Resources */,
 				7B2142FE1E5E055000CDD3FC /* InfoPlist.strings in Resources */,
 				29B605172D2D4115006585C7 /* zh-TW.json in Resources */,
@@ -10658,6 +10676,7 @@
 				E65075AC1E37F7AB006961AC /* String+Extension.swift in Sources */,
 				E683F0C21E93D4E90035D990 /* DictionaryExtensions.swift in Sources */,
 				288A2DB51AB8B38D0023ABC3 /* Error.swift in Sources */,
+				29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */,
 				E65075A91E37F7AB006961AC /* URLExtensions.swift in Sources */,
 				96666D0129969AF700A4029F /* URLCaching.swift in Sources */,
 				D054352A226687A400FDE4EF /* UIBarButtonItemExtensions.swift in Sources */,
@@ -11218,6 +11237,7 @@
 				DFACBF81277B916B003D5F41 /* ConfigurableGradientView.swift in Sources */,
 				8A454D432CB9B8F5009436D9 /* TopSitesManager.swift in Sources */,
 				7482205C1DBAB56300EEEA72 /* MailProviders.swift in Sources */,
+				298CA0D42D4012B30009F52E /* YearProSubscriptionHeaderSwiftUIView.swift in Sources */,
 				8A93F87029D3A597004159D9 /* SceneCoordinator.swift in Sources */,
 				631A36A32CC0B2470044DFEB /* NativeErrorPageHelper.swift in Sources */,
 				C88E7A602A05551B0072E638 /* NimbusOnboardingFeatureLayerProtocol.swift in Sources */,
@@ -11429,6 +11449,7 @@
 				E17496402994302D0096900A /* PreferredFont.swift in Sources */,
 				E1442FD4294782D9003680B0 /* URL+Mail.swift in Sources */,
 				AB4FB4DD2C89FB10005EF0CC /* BlockedTrackersTableView.swift in Sources */,
+				298CA0D22D3FEE7B0009F52E /* ProSubscriptionSwiftUIView.swift in Sources */,
 				9636D92827F5D72D00771F5E /* GleanPlumbMessageManager.swift in Sources */,
 				C80685D126A0C93900DCD895 /* UserResearch.swift in Sources */,
 				B2999FF52B194AB200F0FEC1 /* FormAutofillHelperError.swift in Sources */,
@@ -11450,6 +11471,7 @@
 				43AB6FA425DC53D30016B015 /* LegacyLabelButtonHeaderView.swift in Sources */,
 				43D16B7C29831CD0009F8279 /* CreditCardItemRow.swift in Sources */,
 				39673BC12B6D82F400653F4A /* FxNimbusMessaging.swift in Sources */,
+				29F0B8802D401CAA007D8AC7 /* YearProSubscriptionListSwiftUIView.swift in Sources */,
 				965C3C942933A860006499ED /* LaunchSessionProvider.swift in Sources */,
 				C8163851268A0899004C7160 /* AddCredentialViewController.swift in Sources */,
 				8A19ACB22A3290AE001C2147 /* ClearPrivateDataSetting.swift in Sources */,
@@ -11592,6 +11614,7 @@
 				2F44FCC51A9E85E900FD20CC /* SettingsTableViewController.swift in Sources */,
 				211046C92A7ADE9000A7309F /* BlockPopupSetting.swift in Sources */,
 				8A3233FC286270CF003E1C33 /* FxBookmarkNode.swift in Sources */,
+				29163DFB2D3FD56D003FCF30 /* YearProSubscriptionViewController.swift in Sources */,
 				E1CEC2022A28C3F100B177D5 /* LoginDetailCenteredTableViewCell.swift in Sources */,
 				C2D71B972A384F40003DEC7A /* ThemedSubtitleTableViewCell.swift in Sources */,
 				8A83B7462A264FA0002FF9AC /* SettingsCoordinator.swift in Sources */,
@@ -11866,10 +11889,12 @@
 				8A7653BF28A2C92600924ABF /* PocketStandardCellViewModel.swift in Sources */,
 				0B8BF3752CA2EFC000E9812D /* EditBookmarkCell.swift in Sources */,
 				8A5D1CAE2A30D71A005AD35C /* ThemeSetting.swift in Sources */,
+				29F0B87E2D401B88007D8AC7 /* YearProSubscriptionSwiftUIView.swift in Sources */,
 				1BE7A4902C636AC800460798 /* URLSession+sharedMPTCP.swift in Sources */,
 				C82F4C2B29AE2DF1005BD116 /* NotificationsSettingsViewController.swift in Sources */,
 				59A68B280D62462B85CF57A4 /* HistoryPanel.swift in Sources */,
 				C400467C1CF4E43E00B08303 /* BackForwardListViewController.swift in Sources */,
+				29163DF72D3FD427003FCF30 /* ProSubscriptionViewController.swift in Sources */,
 				D5D237782640BBA600326204 /* ExperimentsSettingsViewController.swift in Sources */,
 				D3972BF31C22412B00035B87 /* ShareExtensionHelper.swift in Sources */,
 				8AB30ECA2B6C03C700BD9A9B /* DataClearanceAnimation.swift in Sources */,
@@ -11926,7 +11951,6 @@
 				E6327A641BF6438E008D12E0 /* DebugSettingsBundleOptions.swift in Sources */,
 				F85C7EDD27109241004BDBA4 /* PasswordManagerOnboardingViewController.swift in Sources */,
 				D8FDEB57220CFE970069A582 /* UIImage+ImageEffects.m in Sources */,
-				29163DF12D3E9252003FCF30 /* ProSubscriptionViewController.swift in Sources */,
 				0BDDB3462CA6E43A00D501DF /* BookmarksSaver.swift in Sources */,
 				EBB89506219398E500EB91A0 /* TabContentBlocker.swift in Sources */,
 				E1B9A2C22CAD91EF00F6A0E9 /* ToolbarTelemetry.swift in Sources */,

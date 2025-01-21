@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iap_year_info_icon.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -5,17 +5,16 @@
 extension AppSettingsTableViewController {
     @_dynamicReplacement(for: getAccountSetting)
     func ims_getAccountSetting() -> [SettingSection] {
-        return []
-//        guard let userInfo = IMSAccountManager.shard.current() else { return [] }
-//        var title: String = .FxAFirefoxAccount
-//        if !userInfo.email.isEmpty {
-//            title += ": \(userInfo.email)"
-//        }
-//        let accountSectionTitle = NSAttributedString(string: .FxAFirefoxAccount)
-//        return [
-//            SettingSection(title: accountSectionTitle, children: [
-//                IMSAccountUpgradeSetting(settingsDelegate: parentCoordinator, userInfo: userInfo)
-//            ])
-//        ]
+        guard let userInfo = IMSAccountManager.shard.current() else { return [] }
+        var title: String = .FxAFirefoxAccount
+        if !userInfo.email.isEmpty {
+            title += ": \(userInfo.email)"
+        }
+        let accountSectionTitle = NSAttributedString(string: .FxAFirefoxAccount)
+        return [
+            SettingSection(title: accountSectionTitle, children: [
+                IMSAccountUpgradeSetting(settingsDelegate: parentCoordinator, userInfo: userInfo)
+            ])
+        ]
     }
 }

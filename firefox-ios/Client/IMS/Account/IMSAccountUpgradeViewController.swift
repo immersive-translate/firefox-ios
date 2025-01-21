@@ -97,25 +97,28 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
     
     @objc
     func purchaseAction() {
-        guard let productId =  self.productTextField.text, !productId.isEmpty else {
-            SVProgressHUD.showError(withStatus: "请输入产品ID")
-            return
-        }
-        SVProgressHUD.show()
-        Task {
-            do {
-                try await IMSAccountManager.shard.iap.purchase(productId: productId)
-                await MainActor.run {
-                    SVProgressHUD.dismiss()
-                    SVProgressHUD.showSuccess(withStatus: "购买成功")
-                }
-            } catch {
-                await MainActor.run {
-                    SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "购买失败")
-                }
-            }
-        }
+        let subscriptionVC = ProSubscriptionViewController()
+        present(subscriptionVC, animated: true)
+
+//        guard let productId =  self.productTextField.text, !productId.isEmpty else {
+//            SVProgressHUD.showError(withStatus: "请输入产品ID")
+//            return
+//        }
+//        SVProgressHUD.show()
+//        Task {
+//            do {
+//                try await IMSAccountManager.shard.iap.purchase(productId: productId)
+//                await MainActor.run {
+//                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.showSuccess(withStatus: "购买成功")
+//                }
+//            } catch {
+//                await MainActor.run {
+//                    SVProgressHUD.dismiss()
+//                    SVProgressHUD.showError(withStatus: "购买失败")
+//                }
+//            }
+//        }
     }
     
     func loadProductInfo() {
