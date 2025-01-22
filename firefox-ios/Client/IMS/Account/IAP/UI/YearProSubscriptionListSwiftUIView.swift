@@ -91,8 +91,9 @@ struct YearProSubscriptionListSwiftUIView: View {
                         Text("PDF Pro")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
-                        Image("iap_year_info_icon")
-                            .resizable()
+                    
+                           
+                        ProSubscriptionPopverTipIcon(tipMessage: "PDF Pro")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -109,8 +110,8 @@ struct YearProSubscriptionListSwiftUIView: View {
                         Text("漫画翻译")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
-                        Image("iap_year_info_icon")
-                            .resizable()
+                       
+                        ProSubscriptionPopverTipIcon(tipMessage: "漫画翻译")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -156,8 +157,9 @@ struct YearProSubscriptionListSwiftUIView: View {
                         Text("优先的电子邮件支持")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
-                        Image("iap_year_info_icon")
-                            .resizable()
+                     
+                          
+                        ProSubscriptionPopverTipIcon(tipMessage: "优先使用电子邮件支持")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
