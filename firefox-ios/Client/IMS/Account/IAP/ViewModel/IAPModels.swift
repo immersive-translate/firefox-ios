@@ -3,10 +3,8 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 
-import Foundation
-
 // 请求参数模型
-struct CheckoutSessionRequest: Codable {
+struct IMSHttpOrderRequest: Codable {
     let priceId: String
     let currency: String
     let startTrial: Bool
@@ -39,21 +37,21 @@ struct CheckoutSessionRequest: Codable {
 }
 
 // 响应模型
-struct CheckoutSessionResponse: Codable {
+struct IMSHttpResponse<Data: Codable>: Codable {
     let code: Int
-    let data: SessionData
+    let data: Data
 }
 
-struct SessionData: Codable {
+struct IMSResponseOrder: Codable {
     let imtSessionId: Int
-    let imtSession: IMTSession
+    let imtSession: IMSResponseOrderSession
     let redirect: String
     let clientSecret: String?
     let prePayId: String?
     let jsApiUiPackage: String?
 }
 
-struct IMTSession: Codable {
+struct IMSResponseOrderSession: Codable {
     let userId: Int
     let userEmail: String
     let subscriptionGoodsID: Int
@@ -91,65 +89,34 @@ struct IMTSession: Codable {
     }
 }
 
-// 网络请求错误枚举
-enum NetworkError: Error {
-    case invalidURL
-    case requestFailed(Error)
-    case invalidResponse
-    case invalidData
+struct IMSResponseConfigData: Codable {
+    let data: [IMSResponseConfigChannel]
 }
 
-// 支付管理类
-class PaymentManager {
-    // 配置
-    private struct Config {
-        static let baseURL = "https://test-api2.immersivetranslate.com"
-        static let checkoutPath = "/v1/user/ios-pay-checkout-sessions"
-    }
-    
-    private let session: URLSession
-    private let token: String
-    
-    init(token: String) {
-        self.token = token
-        self.session = URLSession.shared
-    }
-    
-    // 创建结账会话
-    func createCheckoutSession(request: CheckoutSessionRequest) async throws -> CheckoutSessionResponse {
-        guard let url = URL(string: Config.baseURL + Config.checkoutPath) else {
-            throw NetworkError.invalidURL
-        }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = "POST"
-        
-        // 设置请求头
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
-        urlRequest.setValue("zh-CN,zh;q=0.9,en;q=0.8", forHTTPHeaderField: "Accept-Language")
-        urlRequest.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
-        urlRequest.setValue(token, forHTTPHeaderField: "token")
-        
-        // 设置请求体
-        let encoder = JSONEncoder()
-        urlRequest.httpBody = try encoder.encode(request)
-        
-        do {
-            let (data, response) = try await session.data(for: urlRequest)
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.invalidResponse
-            }
-            
-            guard (200...299).contains(httpResponse.statusCode) else {
-                throw NetworkError.invalidResponse
-            }
-            
-            let decoder = JSONDecoder()
-            return try decoder.decode(CheckoutSessionResponse.self, from: data)
-        } catch {
-            throw NetworkError.requestFailed(error)
-        }
-    }
+// 渠道信息
+struct IMSResponseConfigChannel: Codable {
+    let channelName: String
+    let channelIco: String
+    let channelCode: String
+    let symbol: String
+    let goods: [IMSResponseConfiGood]
+}
+
+// 商品信息
+struct IMSResponseConfiGood: Codable {
+    let channelCode: String
+    let appStoreId: String
+    let currency: String
+    let notice: String
+    let isShowNotice: Bool
+    let amount: String
+    let actualAmount: String
+    let goodName: String
+    let goodType: IMSResponseConfiGoodType
+    let discountRate: Double
+}
+
+enum IMSResponseConfiGoodType: String, Codable {
+    case monthly = "monthly"
+    case yearly = "yearly"
 }

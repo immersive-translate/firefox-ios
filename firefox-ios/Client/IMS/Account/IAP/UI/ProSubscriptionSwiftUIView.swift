@@ -1,36 +1,43 @@
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
-
 import SwiftUI
-
-struct RoundedCorner: Shape {
-    var radius: CGFloat
-    var corners: UIRectCorner
-    
-    func path(in rect: CGRect) -> Path {
-        let path = UIBezierPath(
-            roundedRect: rect,
-            byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius)
-        )
-        return Path(path.cgPath)
-    }
-}
-
-// 创建一个扩展来简化使用
-extension View {
-    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape(RoundedCorner(radius: radius, corners: corners))
-    }
-}
+import Combine
 
 struct ProSubscriptionSwiftUIView: View {
+    @ObservedObject var viewModel: ProSubscriptionViewModel
+    
+    init(viewModel: ProSubscriptionViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
-            YearProSubscriptionSwiftUIView()
+            GeometryReader { geo in
+                TabView(selection: $viewModel.selectedConfiGoodType) {
+                    ForEach(viewModel.config.infos) { info in
+                        switch info.serverProduct.goodType {
+                        case .monthly:
+                            MonthProSubscriptionSwiftUIView()
+                                .frame(width: geo.size.width)
+                                .frame(height: geo.size.height)
+                                .tag(IMSResponseConfiGoodType.monthly)
+                        case .yearly:
+                            YearProSubscriptionSwiftUIView()
+                                .frame(width: geo.size.width)
+                                .frame(height: geo.size.height)
+                                .tag(IMSResponseConfiGoodType.yearly)
+                        }
+                    }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never)) // 设置分页样式
+                .background(Color.clear)
+                
+            }
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
 
-            Spacer()
+            
             // 底部固定的内容
             VStack(spacing: 0) {
                 Divider()
@@ -43,29 +50,33 @@ struct ProSubscriptionSwiftUIView: View {
                             .frame(width: 4)
 
                         Button {
-
+                            withAnimation {
+                                viewModel.selectedConfiGoodType = .yearly
+                            }
                         } label: {
                             Text("连续包年（节省30%）")
                                 .font(.system(size: 14, weight: .bold))
-                                .foregroundColor(.white)
+                                .foregroundColor(viewModel.selectedConfiGoodType == .yearly ? .white: .black)
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (216.0 / 335.0))
                         .frame(height: 40)
-                        .background(Color(red: 0.92, green: 0.3, blue: 0.54))
+                        .background(viewModel.selectedConfiGoodType == .yearly ? Color(red: 0.92, green: 0.3, blue: 0.54) : .clear)
                         .cornerRadius(28)
 
                         Button {
-
+                            withAnimation {
+                                viewModel.selectedConfiGoodType = .monthly
+                            }
                         } label: {
                             Text("连续包月")
                                 .font(.system(size: 14, weight: .bold))
-                                .foregroundColor(.black)
+                                .foregroundColor(viewModel.selectedConfiGoodType == .monthly ? .white: .black)
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (111.0 / 335.0))
                         .frame(height: 40)
-                        .background(.clear)
+                        .background(viewModel.selectedConfiGoodType == .monthly ? Color(red: 0.92, green: 0.3, blue: 0.54) : .clear)
                         .cornerRadius(28)
 
                         Spacer()
@@ -130,7 +141,7 @@ struct ProSubscriptionSwiftUIView: View {
 }
 
 #Preview {
-    ProSubscriptionSwiftUIView()
+    ProSubscriptionSwiftUIView(viewModel: .init(config: .init(channelName: "", channelIco: "", channelCode: "", symbol: "", infos: [])))
 }
 
 

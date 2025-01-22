@@ -7,39 +7,21 @@ import Common
 import Shared
 import StoreKit
 import SVProgressHUD
+import SwiftUI
 
-class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsScreen {
+class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen {
     var parentCoordinator: SettingsFlowDelegate?
     
-    lazy var purchaseButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("", for: .normal)
-        button.addTarget(self, action: #selector(purchaseAction), for: .touchUpInside)
-        return button
-    }()
+    var subscriptionHostingController: UIHostingController<ProSubscriptionSwiftUIView>?
     
-    lazy var refreshButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("刷新", for: .normal)
-        button.addTarget(self, action: #selector(refreshAction), for: .touchUpInside)
-        return button
-    }()
+    let token: String
     
-    lazy var productTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = IMSAccountConfig.oneYearProductId
-        textField.borderStyle = .roundedRect
-        textField.backgroundColor = .lightGray
-        return textField
-    }()
-    
-    init(prefs: Prefs, windowUUID: WindowUUID) {
-        super.init(style: .plain, windowUUID: windowUUID)
+    init(token: String,
+         profile: Profile? = nil,
+         tabManager: TabManager? = nil,
+         windowUUID: WindowUUID) {
+        self.token = token
+        super.init(windowUUID: windowUUID, profile: profile, tabManager: tabManager)
         self.title = .IMS.Settings.Upgrade
     }
     
@@ -49,98 +31,55 @@ class IMSAccountUpgradeViewController: SettingsTableViewController, AppSettingsS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.addSubview(self.productTextField)
-        self.view.addSubview(self.refreshButton)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapViewAction))
-        self.view.addGestureRecognizer(tap)
         
-        NSLayoutConstraint.activate([
-            self.productTextField.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            self.productTextField.widthAnchor.constraint(equalToConstant: 200),
-            self.productTextField.heightAnchor.constraint(equalToConstant: 50),
-            self.productTextField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            self.refreshButton.topAnchor.constraint(equalTo: self.productTextField.bottomAnchor, constant: 20),
-            self.refreshButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.refreshButton.widthAnchor.constraint(equalToConstant: 100),
-            self.refreshButton.heightAnchor.constraint(equalToConstant: 50)
-            
-        ])
-        
-    }
-    
-    
-    
-    @MainActor
-    func updateProductInfo(product: StoreKit.Product) {
-        if self.purchaseButton.superview == nil {
-            self.view.addSubview(self.purchaseButton)
-            
-            NSLayoutConstraint.activate([
-                self.purchaseButton.topAnchor.constraint(equalTo: self.refreshButton.bottomAnchor, constant: 20),
-                self.purchaseButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            ])
-        }
-        self.purchaseButton.setTitle("购买：\(product.displayName): \(product.displayPrice) \(product.description)", for: .normal)
-    }
-    
-    @objc
-    func tapViewAction() {
-        self.view.endEditing(true)
-    }
-    
-    @objc
-    func refreshAction() {
         loadProductInfo()
     }
     
     
-    @objc
-    func purchaseAction() {
-        let subscriptionVC = ProSubscriptionViewController()
-        present(subscriptionVC, animated: true)
-
-//        guard let productId =  self.productTextField.text, !productId.isEmpty else {
-//            SVProgressHUD.showError(withStatus: "请输入产品ID")
-//            return
-//        }
-//        SVProgressHUD.show()
-//        Task {
-//            do {
-//                try await IMSAccountManager.shard.iap.purchase(productId: productId)
-//                await MainActor.run {
-//                    SVProgressHUD.dismiss()
-//                    SVProgressHUD.showSuccess(withStatus: "购买成功")
-//                }
-//            } catch {
-//                await MainActor.run {
-//                    SVProgressHUD.dismiss()
-//                    SVProgressHUD.showError(withStatus: "购买失败")
-//                }
-//            }
-//        }
-    }
     
     func loadProductInfo() {
-        guard let productId =  self.productTextField.text, !productId.isEmpty else {
-            SVProgressHUD.showError(withStatus: "请输入产品ID")
-            return
-        }
         SVProgressHUD.show()
         Task {
             do {
-                let product = try await IMSAccountManager.shard.iap.getProduct(productId: productId)
+                let ret = try await IMSIAPHttpService.getConfig(token: IMSAccountConfig.testToken)
+                guard let channel = ret.data.data.first else {
+                    throw SKError(.clientInvalid)
+                }
+                let products = try await IMSAccountManager.shard.iap.getProducts(channel.goods.map{$0.appStoreId})
+                guard !products.isEmpty, products.count == channel.goods.count else {
+                    throw SKError(.clientInvalid)
+                }
+                var infos: [ProSubscriptionInfo] = []
+                for good in channel.goods {
+                    if let product = products.first(where: { $0.id == good.appStoreId }) {
+                        infos.append(.init(serverProduct: good, appleProduct: product))
+                    }
+                }
+                let config: ProSubscriptionConfig = .init(channelName: channel.channelName, channelIco: channel.channelIco, channelCode: channel.channelCode, symbol: channel.symbol, infos: infos)
+                
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    self.updateProductInfo(product: product)
+                    let hostingController = UIHostingController(rootView: ProSubscriptionSwiftUIView(viewModel: .init(config: config)))
+                    self.view.addSubview(hostingController.view)
+                    self.addChild(hostingController)
+                    hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        hostingController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+                        hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                        hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                        hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+                    ])
+                    self.subscriptionHostingController = hostingController
                 }
             } catch {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "获取产品信息失败")
+                    SVProgressHUD.showError(withStatus: "获取数据失败")
                 }
             }
+            
         }
+        
     }
     
     func handle(route: Route.SettingsSection) {

@@ -7,6 +7,7 @@ import StoreKit
 struct IMSAccountConfig {
     static let localStoreKey = "immersiveTranslateCacheKey_user_info"
     static let oneYearProductId = "1year"
+    static let testToken = "temp-token-2023-a-b"
 }
 
 
@@ -14,8 +15,8 @@ struct IMSAccountConfig {
 class IMSAccountManager {
     static let shard = IMSAccountManager()
     
-    lazy var iap: IMSIAPService = {
-        return IMSIAPService()
+    lazy var iap: IMSIAPAppleService = {
+        return IMSIAPAppleService()
     }()
     
     private init() {}
@@ -30,6 +31,4 @@ class IMSAccountManager {
     func setup() {
         self.iap.observeTransactions()
     }
-    
-    
 }

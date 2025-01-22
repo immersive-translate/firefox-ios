@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-struct YearProSubscriptionHeaderSwiftUIView: View {
+struct MonthProSubscriptionHeaderSwiftUIView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -17,66 +17,23 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             stops: [
                                 Gradient.Stop(
                                     color: Color(
-                                        red: 1, green: 0.57,
-                                        blue: 0.52
-                                    ).opacity(0.4),
-                                    location: 0.00),
+                                        red: 0.16, green: 0.63, blue: 1
+                                    ).opacity(0.4), location: 0.00),
                                 Gradient.Stop(
                                     color: Color(
-                                        red: 1, green: 0.68,
-                                        blue: 0.52
-                                    ).opacity(0), location: 0.67
-                                ),
+                                        red: 0.16, green: 0.63, blue: 1
+                                    ).opacity(0), location: 0.67),
                             ],
-                            startPoint: UnitPoint(
-                                x: 0.41, y: 0),
+                            startPoint: UnitPoint(x: 0.41, y: 0),
                             endPoint: UnitPoint(x: 0.3, y: 1)
                         )
                     )
-                
+
                 ZStack(alignment: .top) {
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Image("iap_year_discount_alerm")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                            
-                            Text("限时特惠")
-                                .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
-                                .foregroundColor(
-                                    Color(red: 1, green: 0.78, blue: 0.21))
-                            Spacer()
-                        }
-                        .padding(.leading, 24)
-                        .padding(.bottom, 10)
-                    }
-                    .foregroundColor(.clear)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 64)
-                    .background(
-                        LinearGradient(
-                            stops: [
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 0.13, green: 0.13, blue: 0.13),
-                                    location: 0.00),
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 0.41, green: 0.41, blue: 0.41),
-                                    location: 1.00),
-                            ],
-                            startPoint: UnitPoint(x: 0.31, y: 1.08),
-                            endPoint: UnitPoint(x: 0.92, y: 0)
-                        )
-                    )
-                    .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
-                    .offset(y: 191 - 64 + 44)
-                    
                     ZStack(alignment: .bottom) {
                         VStack {
                             HStack {
-                                Text("年费Pro会员")
+                                Text("月费Pro会员")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
@@ -87,7 +44,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             }
                             .padding(.leading, 24)
                             .padding(.top, 24)
-                            
+
                             HStack {
                                 Text("¥48.3")
                                     .font(
@@ -107,11 +64,11 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
                                 Spacer()
-                                
+
                             }
                             .padding(.leading, 24)
                             .padding(.top, 16)
-                            
+
                             HStack {
                                 Text("¥579.6/年")
                                     .font(
@@ -133,11 +90,13 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             .padding(.leading, 24)
                             .padding(.top, 8)
                             .padding(.bottom, 20)
-                            
+
                         }
                         .foregroundColor(.clear)
                         .frame(maxWidth: .infinity)
                         .frame(height: 191)
+                        .foregroundColor(.clear)
+                        .frame(width: 335, height: 191)
                         .background(
                             LinearGradient(
                                 stops: [
@@ -145,7 +104,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                         color: .white, location: 0.39),
                                     Gradient.Stop(
                                         color: Color(
-                                            red: 1, green: 0.82, blue: 0.84),
+                                            red: 0.75, green: 0.84, blue: 1),
                                         location: 1.00),
                                 ],
                                 startPoint: UnitPoint(x: 0.03, y: 0.03),
@@ -159,73 +118,30 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 .stroke(
                                     Color(red: 0.84, green: 0.84, blue: 0.84),
                                     lineWidth: 1)
-                            
+
                         )
-                        
-                        HStack {
-                            Spacer()
-                            
-                            HStack {
-                                Text("🔥立省248.4元")
-                                    .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 14)
-                                    )
-                                    .foregroundColor(
-                                        Color(
-                                            red: 0.92, green: 0.3,
-                                            blue: 0.54))
-                            }
-                            .foregroundColor(.clear)
-                            .frame(height: 30)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 5)
-                            .background(
-                                LinearGradient(
-                                    stops: [
-                                        Gradient.Stop(
-                                            color: Color(
-                                                red: 0.92, green: 0.3,
-                                                blue: 0.54
-                                            ).opacity(0.15), location: 0.00),
-                                        Gradient.Stop(
-                                            color: Color(
-                                                red: 0.92, green: 0.3,
-                                                blue: 0.54
-                                            ).opacity(0.04), location: 1.00),
-                                    ],
-                                    startPoint: UnitPoint(x: 1, y: 0),
-                                    endPoint: UnitPoint(x: 0, y: 1)
-                                )
-                            )
-                            .cornerRadius(24, corners: [.topLeft, .bottomRight])
-                            
-                        }
                     }
                     .foregroundColor(.clear)
                     .frame(maxWidth: .infinity)
                     .frame(height: 191)
-                    
-                    
+
                 }
                 .frame(maxWidth: .infinity)
-                
+
                 .padding(.horizontal, 20)
                 .padding(.top, 26)
-                
+
             }
             .ignoresSafeArea()
         }
-        .frame(height: 259)
     }
 }
 
 #Preview {
     VStack {
-        YearProSubscriptionHeaderSwiftUIView()
-            
-        
+        MonthProSubscriptionHeaderSwiftUIView()
+
         Spacer()
     }
-        .ignoresSafeArea()
+    .ignoresSafeArea()
 }

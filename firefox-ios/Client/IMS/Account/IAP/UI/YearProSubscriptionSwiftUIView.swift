@@ -8,9 +8,14 @@ struct YearProSubscriptionSwiftUIView: View {
     var body: some View {
         VStack(spacing: 0) {
             YearProSubscriptionHeaderSwiftUIView()
-            YearProSubscriptionListSwiftUIView()
+                .frame(maxWidth: .infinity)
+                .frame(height: 191 + 26)
             
             Spacer()
+                .frame(height: 42)
+            
+            YearProSubscriptionListSwiftUIView()
+                .frame(maxHeight: .infinity)
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity)
