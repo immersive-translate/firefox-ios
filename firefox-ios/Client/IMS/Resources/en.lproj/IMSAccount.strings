@@ -7,3 +7,26 @@
 */
 
 "Settings.IMSAccount.Upgrade.Title" = "Upgrade";
+"Settings.IMSAccount.IAP.Save" = "Save";
+"Settings.IMSAccount.IAP.YearPro" = "Annual Membership";
+"Settings.IMSAccount.IAP.Month" = "Month";
+"Settings.IMSAccount.IAP.Year" = "Year";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro-exclusive world-class AI translation service";
+"Settings.IMSAccount.IAP.DeepL Translation" = "DeepL Translation";
+"Settings.IMSAccount.IAP.OpenAI Translation" = "OpenAI Translation";
+"Settings.IMSAccount.IAP.Claude Translation" = "Claude Translation";
+"Settings.IMSAccount.IAP.Gemini Translation" = "Gemini Translation";
+"Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro-exclusive advanced features";
+"Settings.IMSAccount.IAP.PDF Pro" = "PDF Pro";
+"Settings.IMSAccount.IAP.Manga Translation" = "Manga Translation";
+"Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "Youtube Bilingual Subtitle Download";
+"Settings.IMSAccount.IAP.Multi-device sync configuration" = "Multi-device sync configuration";
+"Settings.IMSAccount.IAP.Priority email support" = "Priority email support";
+"Settings.IMSAccount.IAP.Consecutive annual subscription" = "Consecutive annual subscription";
+"Settings.IMSAccount.IAP.Consecutive monthly subscription" = "Consecutive monthly subscription";
+"Settings.IMSAccount.IAP.Subscribe now" = "Subscribe now";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "Monthly Pro Membership";
+"Settings.IMSAccount.IAP.Limited Time Offer" = "Limited Time Offer";
+"Settings.IMSAccount.IAP.Aler Confirm" = "OK";
+"Settings.IMSAccount.IAP.You have successfully subscribed" = "You have successfully subscribed";
+"Settings.IMSAccount.IAP.You have fail subscribed" = "Your subscription has failed";

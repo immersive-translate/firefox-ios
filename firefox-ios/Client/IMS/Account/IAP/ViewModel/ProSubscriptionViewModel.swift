@@ -12,6 +12,11 @@ struct ProSubscriptionInfo: Identifiable {
     let appleProduct: StoreKit.Product
 }
 
+enum ProSubscriptionMessageType {
+    case none
+    case title(String)
+}
+
 
 class ProSubscriptionViewModel: ObservableObject {
     
@@ -20,6 +25,9 @@ class ProSubscriptionViewModel: ObservableObject {
     
     @Published
     var selectedConfiGoodType: IMSResponseConfiGoodType = .yearly
+    
+    @Published
+    var messageType: ProSubscriptionMessageType = .none
     
     let token: String
     init(token: String) {
@@ -66,7 +74,7 @@ class ProSubscriptionViewModel: ObservableObject {
     @MainActor
     func purchaseProduct() {
         guard let info = infos.first(where: { $0.serverProduct.goodType == self.selectedConfiGoodType }) else {
-            SVProgressHUD.showError(withStatus: "获取数据失败")
+            self.messageType = .title("\(String.IMS.IAP.subscriptionFail)!")
             return
         }
         SVProgressHUD.show()
@@ -85,12 +93,22 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showSuccess(withStatus: "购买成功")
+                    switch info.serverProduct.goodType {
+                    case .monthly:
+                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.monthlyProMembership)!")
+                    case .yearly:
+                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.yearPro)!")
+                    }
                 }
             } catch {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "购买失败")
+                    switch info.serverProduct.goodType {
+                    case .monthly:
+                        self.messageType = .title("\(String.IMS.IAP.subscriptionFail)\n\(String.IMS.IAP.monthlyProMembership)!")
+                    case .yearly:
+                        self.messageType = .title("\(String.IMS.IAP.subscriptionFail)\n\(String.IMS.IAP.yearPro)!")
+                    }
                 }
             }
         }

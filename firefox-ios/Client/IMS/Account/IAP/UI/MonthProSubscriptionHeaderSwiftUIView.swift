@@ -34,7 +34,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                     ZStack(alignment: .bottom) {
                         VStack {
                             HStack {
-                                Text("月费Pro会员")
+                                Text("\(String.IMS.IAP.monthlyProMembership)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
@@ -56,7 +56,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
-                                Text("/月")
+                                Text("/\(String.IMS.IAP.month)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 24)

@@ -87,7 +87,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 .resizable()
                                 .frame(width: 24, height: 24)
                             
-                            Text("限时特惠")
+                            Text("\(String.IMS.IAP.limitedTimeOffer)")
                                 .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                                 .foregroundColor(
                                     Color(red: 1, green: 0.78, blue: 0.21))
@@ -121,7 +121,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                     ZStack(alignment: .bottom) {
                         VStack {
                             HStack {
-                                Text("年费Pro会员")
+                                Text("\(String.IMS.IAP.yearPro)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
@@ -143,7 +143,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
-                                Text("/月")
+                                Text("/\(String.IMS.IAP.month)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 24)
@@ -158,14 +158,14 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             .padding(.top, 16)
                             
                             HStack {
-                                Text("\(getYearCurrentPriceString)/年")
+                                Text("\(getYearCurrentPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 16)
                                     )
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
-                                Text("\(getYearOriginPriceString)/年")
+                                Text("\(getYearOriginPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 16)
@@ -211,7 +211,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 Spacer()
                                 
                                 HStack {
-                                    Text("🔥立省\(getSavedMoneyString)")
+                                    Text("🔥\(String.IMS.IAP.save)\(getSavedMoneyString)")
                                         .font(
                                             Font.custom(
                                                 "Alibaba PuHuiTi 3.0", size: 14)

@@ -1,24 +1,28 @@
+import Combine
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 import SwiftUI
-import Combine
 
 struct ProSubscriptionSwiftUIView: View {
     @ObservedObject var viewModel: ProSubscriptionViewModel
-    
+
     init(viewModel: ProSubscriptionViewModel) {
         self.viewModel = viewModel
     }
-    
+
     var getDiscountPercentString: String {
-        guard let info = viewModel.infos.first(where: { $0.serverProduct.goodType == .yearly }) else {
+        guard
+            let info = viewModel.infos.first(where: {
+                $0.serverProduct.goodType == .yearly
+            })
+        else {
             return ""
         }
         let discountRate = info.serverProduct.discountRate
         // 将折扣率转换为百分比并四舍五入到整数
         let percentValue = Int(round(discountRate * 100))
-        return "（节省\(percentValue)% ）"
+        return "（\(String.IMS.IAP.save)\(percentValue)% ）"
     }
 
     var body: some View {
@@ -26,14 +30,64 @@ struct ProSubscriptionSwiftUIView: View {
             if viewModel.infos.isEmpty {
                 EmptyView()
             } else {
-                subscriptionView
+                ZStack {
+                    subscriptionView
+                    messageAlertView
+                }
             }
         }
         .onAppear {
             viewModel.fetchProductInfos()
         }
     }
-    
+
+    var messageAlertView: some View {
+        switch viewModel.messageType {
+        case .none:
+            AnyView(EmptyView())
+        case .title(let string):
+            AnyView(
+                VStack {
+                    VStack(spacing: 0) {
+                        Text("\(string)")
+                            .font(
+                                Font.custom("PingFang SC", size: 17)
+                                    .weight(.medium)
+                            )
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.black.opacity(0.9))
+                            .padding(.top, 42)
+                            .padding(.bottom, 34.5)
+
+                        Divider()
+                        Button {
+                            viewModel.messageType = .none
+                        } label: {
+                            Text("\(String.IMS.IAP.confirm)")
+                                .font(
+                                    Font.custom("PingFang SC", size: 17)
+                                        .weight(.medium)
+                                )
+                                .multilineTextAlignment(.center)
+                                .foregroundColor(.black.opacity(0.9))
+                                .frame(maxWidth: .infinity)
+                                .frame(maxHeight: .infinity)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 56)
+
+                    }
+                    .background(.white)
+                    .cornerRadius(8)
+                }
+                .padding(.horizontal, 27)
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+                .background(.black.opacity(0.5))
+            )
+        }
+    }
+
     var subscriptionView: some View {
         VStack(spacing: 0) {
             GeometryReader { geo in
@@ -53,14 +107,13 @@ struct ProSubscriptionSwiftUIView: View {
                         }
                     }
                 }
-                .tabViewStyle(.page(indexDisplayMode: .never)) // 设置分页样式
+                .tabViewStyle(.page(indexDisplayMode: .never))  // 设置分页样式
                 .background(Color.clear)
-                
+
             }
             .frame(maxWidth: .infinity)
             .frame(maxHeight: .infinity)
 
-            
             // 底部固定的内容
             VStack(spacing: 0) {
                 Divider()
@@ -77,14 +130,22 @@ struct ProSubscriptionSwiftUIView: View {
                                 viewModel.selectedConfiGoodType = .yearly
                             }
                         } label: {
-                            Text("连续包年\(getDiscountPercentString)")
-                                .font(.system(size: 14, weight: .bold))
-                                .foregroundColor(viewModel.selectedConfiGoodType == .yearly ? .white: .black)
+                            Text(
+                                "\(String.IMS.IAP.consecutiveAnnualSubscription)\(getDiscountPercentString)"
+                            )
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(
+                                viewModel.selectedConfiGoodType == .yearly
+                                    ? .white : .black)
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (216.0 / 335.0))
                         .frame(height: 40)
-                        .background(viewModel.selectedConfiGoodType == .yearly ? Color(red: 0.92, green: 0.3, blue: 0.54) : .clear)
+                        .background(
+                            viewModel.selectedConfiGoodType == .yearly
+                                ? Color(red: 0.92, green: 0.3, blue: 0.54)
+                                : .clear
+                        )
                         .cornerRadius(28)
 
                         Button {
@@ -92,14 +153,22 @@ struct ProSubscriptionSwiftUIView: View {
                                 viewModel.selectedConfiGoodType = .monthly
                             }
                         } label: {
-                            Text("连续包月")
-                                .font(.system(size: 14, weight: .bold))
-                                .foregroundColor(viewModel.selectedConfiGoodType == .monthly ? .white: .black)
+                            Text(
+                                "\(String.IMS.IAP.consecutiveMonthlySubscription)"
+                            )
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundColor(
+                                viewModel.selectedConfiGoodType == .monthly
+                                    ? .white : .black)
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (111.0 / 335.0))
                         .frame(height: 40)
-                        .background(viewModel.selectedConfiGoodType == .monthly ? Color(red: 0.92, green: 0.3, blue: 0.54) : .clear)
+                        .background(
+                            viewModel.selectedConfiGoodType == .monthly
+                                ? Color(red: 0.92, green: 0.3, blue: 0.54)
+                                : .clear
+                        )
                         .cornerRadius(28)
 
                         Spacer()
@@ -129,11 +198,11 @@ struct ProSubscriptionSwiftUIView: View {
                 Button {
                     viewModel.purchaseProduct()
                 } label: {
-                    Text("立即订阅")
+                    Text("\(String.IMS.IAP.subscribeNow)")
                         .font(.system(size: 16, weight: .bold))
                         .foregroundColor(Color(red: 1, green: 0.78, blue: 0.21))
-
-                        .frame(width: 82.76471, alignment: .topLeading)
+                        .frame(maxWidth: .infinity)
+                        .frame(maxHeight: .infinity)
                 }
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
@@ -166,5 +235,3 @@ struct ProSubscriptionSwiftUIView: View {
 #Preview {
     ProSubscriptionSwiftUIView(viewModel: .init(token: ""))
 }
-
-
