@@ -43,7 +43,7 @@ class IMSIAPAppleService {
         // Create purchase options with outTradeNo as appAccountToken
         let options: Set<StoreKit.Product.PurchaseOption> = [
             .appAccountToken(accountToken),
-            .simulatesAskToBuyInSandbox(true),
+            .simulatesAskToBuyInSandbox(false),
         ]
         
         let result = try await product.purchase(options: options)
@@ -67,5 +67,18 @@ class IMSIAPAppleService {
     
     func handleSuccessfulPurchase(_ transaction: Transaction) async throws {
         await transaction.finish()
+    }
+    
+    static func formatPrice(product: StoreKit.Product, price: Decimal? = nil) -> String {
+        let price = (price ?? product.price) as NSDecimalNumber
+        let locale = product.priceFormatStyle.locale
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = locale
+        formatter.currencyCode = locale.currencyCode
+        formatter.currencySymbol = locale.currencySymbol
+        
+        return formatter.string(from: price) ?? ""
     }
 }

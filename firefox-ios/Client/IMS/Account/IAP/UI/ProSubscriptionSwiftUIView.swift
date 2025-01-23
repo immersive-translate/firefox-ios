@@ -11,19 +11,42 @@ struct ProSubscriptionSwiftUIView: View {
         self.viewModel = viewModel
     }
     
+    var getDiscountPercentString: String {
+        guard let info = viewModel.infos.first(where: { $0.serverProduct.goodType == .yearly }) else {
+            return ""
+        }
+        let discountRate = info.serverProduct.discountRate
+        // 将折扣率转换为百分比并四舍五入到整数
+        let percentValue = Int(round(discountRate * 100))
+        return "（节省\(percentValue)% ）"
+    }
+
     var body: some View {
+        VStack {
+            if viewModel.infos.isEmpty {
+                EmptyView()
+            } else {
+                subscriptionView
+            }
+        }
+        .onAppear {
+            viewModel.fetchProductInfos()
+        }
+    }
+    
+    var subscriptionView: some View {
         VStack(spacing: 0) {
             GeometryReader { geo in
                 TabView(selection: $viewModel.selectedConfiGoodType) {
-                    ForEach(viewModel.config.infos) { info in
+                    ForEach(viewModel.infos) { info in
                         switch info.serverProduct.goodType {
                         case .monthly:
-                            MonthProSubscriptionSwiftUIView()
+                            MonthProSubscriptionSwiftUIView(info: info)
                                 .frame(width: geo.size.width)
                                 .frame(height: geo.size.height)
                                 .tag(IMSResponseConfiGoodType.monthly)
                         case .yearly:
-                            YearProSubscriptionSwiftUIView()
+                            YearProSubscriptionSwiftUIView(info: info)
                                 .frame(width: geo.size.width)
                                 .frame(height: geo.size.height)
                                 .tag(IMSResponseConfiGoodType.yearly)
@@ -54,7 +77,7 @@ struct ProSubscriptionSwiftUIView: View {
                                 viewModel.selectedConfiGoodType = .yearly
                             }
                         } label: {
-                            Text("连续包年（节省30%）")
+                            Text("连续包年\(getDiscountPercentString)")
                                 .font(.system(size: 14, weight: .bold))
                                 .foregroundColor(viewModel.selectedConfiGoodType == .yearly ? .white: .black)
                         }
@@ -104,7 +127,7 @@ struct ProSubscriptionSwiftUIView: View {
                     .frame(height: 20)
 
                 Button {
-                    print("click")
+                    viewModel.purchaseProduct()
                 } label: {
                     Text("立即订阅")
                         .font(.system(size: 16, weight: .bold))
@@ -141,7 +164,7 @@ struct ProSubscriptionSwiftUIView: View {
 }
 
 #Preview {
-    ProSubscriptionSwiftUIView(viewModel: .init(config: .init(channelName: "", channelIco: "", channelCode: "", symbol: "", infos: [])))
+    ProSubscriptionSwiftUIView(viewModel: .init(token: ""))
 }
 
 

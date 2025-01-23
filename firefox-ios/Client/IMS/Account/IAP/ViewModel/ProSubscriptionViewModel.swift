@@ -4,6 +4,7 @@
 
 import Foundation
 import StoreKit
+import SVProgressHUD
 
 struct ProSubscriptionInfo: Identifiable {
     let id = UUID()
@@ -11,22 +12,87 @@ struct ProSubscriptionInfo: Identifiable {
     let appleProduct: StoreKit.Product
 }
 
-struct ProSubscriptionConfig {
-    let channelName: String
-    let channelIco: String
-    let channelCode: String
-    let symbol: String
-    
-    let infos: [ProSubscriptionInfo]
-}
 
 class ProSubscriptionViewModel: ObservableObject {
-    let config: ProSubscriptionConfig
     
     @Published
-    var selectedConfiGoodType: IMSResponseConfiGoodType = .monthly
+    var infos: [ProSubscriptionInfo] = []
     
-    init(config: ProSubscriptionConfig) {
-        self.config = config
+    @Published
+    var selectedConfiGoodType: IMSResponseConfiGoodType = .yearly
+    
+    let token: String
+    init(token: String) {
+        self.token = token
+    }
+    
+    @MainActor
+    func fetchProductInfos() {
+        SVProgressHUD.show()
+        Task {
+            do {
+                let ret = try await IMSIAPHttpService.getConfig(token: IMSAccountConfig.testToken)
+                guard let channel = ret.data.data.first else {
+                    throw SKError(.clientInvalid)
+                }
+                let products = try await IMSAccountManager.shard.iap.getProducts(channel.goods.map{$0.appStoreId})
+                guard !products.isEmpty, products.count == channel.goods.count else {
+                    throw SKError(.clientInvalid)
+                }
+                let infos: [ProSubscriptionInfo] = channel.goods.compactMap { good in
+                    if let product = products.first(where: { $0.id == good.appStoreId }) {
+                        return ProSubscriptionInfo(serverProduct: good, appleProduct: product)
+                    }
+                    return nil
+                }.sorted { item1, item2 in
+                    if item1.serverProduct.goodType == .yearly {
+                        return true
+                    }
+                    return false
+                }
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.infos = infos
+                }
+            } catch {
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: "获取数据失败")
+                }
+            }
+        }
+    }
+    
+    @MainActor
+    func purchaseProduct() {
+        guard let info = infos.first(where: { $0.serverProduct.goodType == self.selectedConfiGoodType }) else {
+            SVProgressHUD.showError(withStatus: "获取数据失败")
+            return
+        }
+        SVProgressHUD.show()
+        Task {
+            do {
+                let priceId = info.serverProduct.appStoreId
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .currency
+                formatter.locale = .current
+                let currencyCode = formatter.currencyCode.lowercased()
+                let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
+                
+                let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "")
+                let ret: IMSHttpResponse<IMSResponseOrder> = try await IMSIAPHttpService.getOrder(token: self.token, data: req)
+                let outTradeNo = ret.data.imtSession.outTradeNo
+                try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showSuccess(withStatus: "购买成功")
+                }
+            } catch {
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: "购买失败")
+                }
+            }
+        }
     }
 }

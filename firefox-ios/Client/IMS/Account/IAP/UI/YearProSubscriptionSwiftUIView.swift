@@ -5,9 +5,10 @@
 import SwiftUI
 
 struct YearProSubscriptionSwiftUIView: View {
+    let info: ProSubscriptionInfo
     var body: some View {
         VStack(spacing: 0) {
-            YearProSubscriptionHeaderSwiftUIView()
+            YearProSubscriptionHeaderSwiftUIView(info: info)
                 .frame(maxWidth: .infinity)
                 .frame(height: 191 + 26)
             
@@ -20,8 +21,4 @@ struct YearProSubscriptionSwiftUIView: View {
         .ignoresSafeArea()
         .frame(maxWidth: .infinity)
     }
-}
-
-#Preview {
-    YearProSubscriptionSwiftUIView()
 }
