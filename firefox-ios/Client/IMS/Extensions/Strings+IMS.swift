@@ -363,15 +363,15 @@ extension String {
                             comment: "")
             
             public static let subscriptionSuccess = MZLocalizedString(
-                            key: "You have successfully subscribed",
+                            key: "Settings.IMSAccount.IAP.You have successfully subscribed",
                             tableName: "IMSAccount",
-                            value: "Limited Time Offer",
+                            value: "You have successfully subscribed",
                             comment: "")
             
             public static let subscriptionFail = MZLocalizedString(
                             key: "Settings.IMSAccount.IAP.You have fail subscribed",
                             tableName: "IMSAccount",
-                            value: "Limited Time Offer",
+                            value: "You have fail subscribed",
                             comment: "")
             
             

@@ -23,7 +23,7 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
          tabManager: TabManager? = nil,
          windowUUID: WindowUUID) {
         self.token = token
-        self.viewModel = ProSubscriptionViewModel(token: IMSAccountConfig.testToken)
+        self.viewModel = ProSubscriptionViewModel(token: token)
         super.init(windowUUID: windowUUID, profile: profile, tabManager: tabManager)
         self.title = .IMS.Settings.Upgrade
     }

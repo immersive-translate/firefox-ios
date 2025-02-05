@@ -19,7 +19,7 @@ struct ProSubscriptionSwiftUIView: View {
         else {
             return ""
         }
-        let discountRate = info.serverProduct.discountRate
+        let discountRate = 1 - info.serverProduct.discountRate
         // 将折扣率转换为百分比并四舍五入到整数
         let percentValue = Int(round(discountRate * 100))
         return "（\(String.IMS.IAP.save)\(percentValue)% ）"
@@ -36,6 +36,7 @@ struct ProSubscriptionSwiftUIView: View {
                 }
             }
         }
+        .background(Color.white)
         .onAppear {
             viewModel.fetchProductInfos()
         }
