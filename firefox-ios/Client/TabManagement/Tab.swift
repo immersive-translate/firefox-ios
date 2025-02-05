@@ -66,8 +66,7 @@ enum TabUrlType: String {
 
 typealias TabUUID = String
 
-class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
-    weak var browserVC : BrowserViewController?
+class Tab: NSObject, ThemeApplicable, FeatureFlaggable, ShareTab {
     static let privateModeKey = "PrivateModeKey"
     private var _isPrivate = false
     private(set) var isPrivate: Bool {
@@ -342,6 +341,9 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     // point to a tempfile containing the content so it can be shared to external applications.
     var temporaryDocument: TemporaryDocument?
 
+    /// Used to retain a reference to an AR 3D model preview until display ends
+    var quickLookPreviewHelper: OpenQLPreviewHelper?
+
     /// Returns true if this tab's URL is known, and it's longer than we want to store.
     var urlIsTooLong: Bool {
         guard let url = self.url else {
@@ -419,6 +421,7 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     /// Any time a tab tries to make requests to display a Javascript Alert and we are not the active
     /// tab instance, queue it for later until we become foregrounded.
     private var alertQueue = [JSAlertInfo]()
+    private var newAlertQueue = [NewJSAlertInfo]()
 
     var onLoading: VoidReturnCallback?
     private var webViewLoadingObserver: NSKeyValueObservation?
@@ -522,47 +525,6 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             configuration.allowsInlineMediaPlayback = true
             let webView = TabWebView(frame: .zero, configuration: configuration, windowUUID: windowUUID)
             webView.configure(delegate: self, navigationDelegate: navigationDelegate)
-                        
-            webView.disableJavascriptDialogBlock(false);
-            webView.addJavascriptObject(LocalStorageJSObject(), namespace: "localStorage");
-            webView.addJavascriptObject(HttpClientJSObject(), namespace: "httpClient");
-            let businessJSObject = BusinessJSObject { [self] params in
-                var text = "";
-                if let title = params["title"], !title.isEmpty {
-                    text = title;
-                }
-                if let content = params["content"], !content.isEmpty {
-                    text = text + "\n" + content
-                }
-                browserVC?.navigationHandler?.showShareExtension(url: URL(string: params["url"] ?? "")!,
-                                                                 title: text.isEmpty ? nil : text,
-                                                                 sourceView: browserVC!.view!,
-                                                                 sourceRect: nil,
-                                                                 toastContainer: browserVC!.view!,
-                                                                 popoverArrowDirection: UIPopoverArrowDirection.up)
-            } configDefaultBrowserBlock: {
-                DefaultApplicationHelper().open(URL(string: "fennec://deep-link?url=default-browser/tutorial")!)
-                
-//                DefaultApplicationHelper().openSettings()
-                
-//                let metadata = GleanPlumbMessageMetaData(id: "",
-//                                                         impressions: 0,
-//                                                         dismissals: 0,
-//                                                         isExpired: false)
-//                let message = GleanPlumbMessage(id: "default-browser",
-//                                         data: MessageData(),
-//                                         action: "://deep-link?url=default-browser/tutorial",
-//                                         triggers: [],
-//                                         style: StyleData(),
-//                                         metadata:metadata)
-//                GleanPlumbMessageManager.shared.onMessagePressed(message)
-            };
-            webView.addJavascriptObject(businessJSObject, namespace: "business");
-            let windowJSObejct = WindowJSObject { [self] url in
-                browserVC?.openURLInNewTab(URL(string: url))
-            };
-            webView.addJavascriptObject(windowJSObejct, namespace: "window");
-            webView.setDebugMode(false)
             webView.accessibilityLabel = .WebViewAccessibilityLabel
             webView.allowsBackForwardNavigationGestures = true
             webView.allowsLinkPreview = true
@@ -617,9 +579,6 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
             )
 
             tabDelegate?.tab(self, didCreateWebView: webView)
-            NotificationCenter.default.addObserver(forName: .NeedRefreshImmersiveTranslateJsInject, object: nil, queue: .main) { _ in
-                UserScriptManager.shared.injectUserScriptsIntoWebView(self.webView, nightMode: self.nightMode, noImageMode: self.noImageMode)
-            }
             webViewLoadingObserver = webView.observe(\.isLoading) { [weak self] _, _ in
                 self?.onLoading?()
             }
@@ -695,14 +654,7 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     }
 
     func goBack() {
-        if let web = webView, web.canGoBack {
-            _ = webView?.goBack()
-            return
-        }
-        let page = NewTabAccessors.getHomePage(self.profile.prefs)
-        if  let homePageURL = page.url {
-           loadRequest(PrivilegedRequest(url: homePageURL) as URLRequest)
-        }
+        _ = webView?.goBack()
     }
 
     func goForward() {
@@ -742,7 +694,8 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     func reload(bypassCache: Bool = false) {
         // If the current page is an error page, and the reload button is tapped, load the original URL
         if let url = webView?.url, let internalUrl = InternalURL(url), let page = internalUrl.originalURLFromErrorPage {
-            webView?.replaceLocation(with: page)
+            let request = URLRequest(url: page, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+            webView?.load(request)
             return
         }
 
@@ -926,6 +879,27 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable {
     func dequeueJavascriptAlertPrompt() -> JSAlertInfo? {
         guard !alertQueue.isEmpty else { return nil }
         return alertQueue.removeFirst()
+    }
+
+    func cancelQueuedAlerts() {
+        newAlertQueue.forEach { alert in
+            alert.cancel()
+        }
+    }
+
+    /// Queues a JS Alert for later display
+    /// Do not call completionHandler until the alert is displayed and dismissed
+    func newQueueJavascriptAlertPrompt(_ alert: NewJSAlertInfo) {
+        newAlertQueue.append(alert)
+    }
+
+    func newDequeueJavascriptAlertPrompt() -> NewJSAlertInfo? {
+        guard !newAlertQueue.isEmpty else { return nil }
+        return newAlertQueue.removeFirst()
+    }
+
+    func hasJavascriptAlertPrompt() -> Bool {
+        return !newAlertQueue.isEmpty
     }
 
     override func observeValue(

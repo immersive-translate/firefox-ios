@@ -4,7 +4,6 @@
 
 import Foundation
 import Shared
-import Storage
 import Common
 
 extension UIGestureRecognizer {
@@ -75,7 +74,6 @@ class TopTabDisplayManager: NSObject {
     private let collectionView: UICollectionView
 
     private let tabReuseIdentifier: String
-    private var hasSentInactiveTabShownEvent = false
     var profile: Profile
     var notificationCenter: NotificationProtocol
 

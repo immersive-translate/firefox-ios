@@ -7,9 +7,10 @@ import Shared
 
 class HomeSetting: Setting {
     private weak var settingsDelegate: GeneralSettingsDelegate?
-    private let profile: Profile
+    private let profile: Profile?
 
     override var accessoryView: UIImageView? {
+        guard let theme else { return nil }
         return SettingDisclosureUtility.buildDisclosureIndicator(theme: theme)
     }
 
@@ -17,18 +18,9 @@ class HomeSetting: Setting {
         return AccessibilityIdentifiers.Settings.Homepage.homeSettings
     }
 
-    override var status: NSAttributedString {
-        let prefs = self.profile.prefs.stringForKey(PrefsKeys.UserFeatureFlagPrefs.StartAtHome) ?? StartAtHomeSetting.disabled.rawValue
-        var title:String = "";
-        switch prefs {
-        case StartAtHomeSetting.disabled.rawValue:
-            title = .Settings.Homepage.StartAtHome.Never;
-        case StartAtHomeSetting.afterFourHours.rawValue:
-            title = .Settings.Homepage.StartAtHome.AfterFourHours;
-        default:
-            title = .Settings.Homepage.StartAtHome.Always;
-        }
-        return NSAttributedString(string: title)
+    override var status: NSAttributedString? {
+        guard let profile else { return nil }
+        return NSAttributedString(string: NewTabAccessors.getHomePage(profile.prefs).settingTitle)
     }
 
     override var style: UITableViewCell.CellStyle { return .value1 }

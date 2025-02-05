@@ -17,10 +17,17 @@ class ToolbarMenuTests: BaseTestCase {
         let hamburgerMenu = app.buttons[AccessibilityIdentifiers.Toolbar.settingsMenuButton]
         let tabsButton = app.buttons[AccessibilityIdentifiers.Toolbar.tabsButton]
         let firstPocketCell = app.collectionViews.cells["PocketCell"].firstMatch
+        let backButton = app.buttons[AccessibilityIdentifiers.Toolbar.backButton]
+        let forwardButton = app.buttons[AccessibilityIdentifiers.Toolbar.forwardButton]
+        let searchField = app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField]
         waitForElementsToExist(
             [
                 hamburgerMenu,
-                firstPocketCell
+                firstPocketCell,
+                backButton,
+                forwardButton,
+                searchField,
+                tabsButton
             ]
         )
         if iPad() {
@@ -41,42 +48,45 @@ class ToolbarMenuTests: BaseTestCase {
             )
         }
         navigator.goto(BrowserTabMenu)
-        mozWaitForElementToExist(app.tables["Context Menu"])
+        mozWaitForElementToExist(app.buttons[AccessibilityIdentifiers.MainMenu.HeaderView.mainButton])
         validateMenuOptions()
+        app.buttons["MainMenu.CloseMenuButton"].tap()
         XCUIDevice.shared.orientation = .landscapeLeft
-        mozWaitForElementToExist(hamburgerMenu)
-        mozWaitForElementToNotExist(app.tables["Context Menu"])
-        mozWaitForElementToExist(app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField])
-        mozWaitForElementToExist(tabsButton)
+        waitForElementsToExist(
+            [
+                hamburgerMenu,
+                firstPocketCell,
+                backButton,
+                forwardButton,
+                searchField,
+                tabsButton
+            ]
+        )
         XCTAssertTrue(
             hamburgerMenu.isRightOf(rightElement: tabsButton),
             "Menu button is not on the right side of tabs button"
         )
-        mozWaitForElementToExist(firstPocketCell)
         XCTAssertTrue(
             hamburgerMenu.isAbove(element: firstPocketCell),
             "Menu button is not below the pocket cells area"
         )
         hamburgerMenu.tap()
-        mozWaitForElementToExist(app.tables["Context Menu"])
+        mozWaitForElementToExist(app.buttons[AccessibilityIdentifiers.MainMenu.HeaderView.mainButton])
         validateMenuOptions()
-        app.otherElements["PopoverDismissRegion"].tap()
-        mozWaitForElementToNotExist(app.tables["Context Menu"])
+        app.buttons["MainMenu.CloseMenuButton"].tap()
+        mozWaitForElementToNotExist(app.buttons[AccessibilityIdentifiers.MainMenu.HeaderView.mainButton])
     }
 
     private func validateMenuOptions() {
         waitForElementsToExist(
             [
-                app.tables.otherElements[StandardImageIdentifiers.Large.bookmarkTrayFill],
-                app.tables.otherElements[StandardImageIdentifiers.Large.download],
-                app.tables.otherElements[StandardImageIdentifiers.Large.readingList],
-                app.tables.otherElements[StandardImageIdentifiers.Large.login],
-                app.tables.otherElements[StandardImageIdentifiers.Large.sync],
-                app.tables.otherElements[StandardImageIdentifiers.Large.nightMode],
-                app.tables.otherElements[StandardImageIdentifiers.Large.whatsNew],
-                app.tables.otherElements[StandardImageIdentifiers.Large.helpCircle],
-                app.tables.otherElements[StandardImageIdentifiers.Large.edit],
-                app.tables.otherElements[StandardImageIdentifiers.Large.settings]
+                app.buttons[AccessibilityIdentifiers.MainMenu.HeaderView.mainButton],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.newTab],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.newPrivateTab],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.bookmarks],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.history],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.downloads],
+                app.tables.cells[AccessibilityIdentifiers.MainMenu.passwords]
             ]
         )
     }

@@ -7,58 +7,79 @@ import Common
 import Shared
 import Storage
 
-// TODO: FXIOS-10165 - Add full logic + tests for retrieving top sites
-/// Manager to fetch the top sites data, the data gets updated from notifications on specific user actions
-class TopSitesManager {
-    private var logger: Logger
-    private let prefs: Prefs
-    private let contileProvider: ContileProviderInterface
-    private let googleTopSiteManager: GoogleTopSiteManagerProvider
-    private let topSiteHistoryManager: TopSiteHistoryManagerProvider
-    private let searchEnginesManager: SearchEnginesManagerProvider
+protocol TopSitesManagerInterface {
+    /// Returns a list of top sites state using the top site history manager to fetch the other sites
+    /// which is composed of history-based (Frecency) + pinned + default suggested tiles
+    func getOtherSites() async -> [TopSiteState]
 
-    // TODO: FXIOS-10477 - Add number of rows calculation and device size updates
-    private let maxTopSites: Int
-    private let maxNumberOfSponsoredTile: Int = 2
+    /// Returns a list of sponsored tiles using the contile provider
+    func fetchSponsoredSites() async -> [SponsoredTile]
 
-    init(
-        prefs: Prefs,
-        contileProvider: ContileProviderInterface = ContileProvider(),
-        googleTopSiteManager: GoogleTopSiteManagerProvider,
-        topSiteHistoryManager: TopSiteHistoryManagerProvider,
-        searchEnginesManager: SearchEnginesManagerProvider,
-        logger: Logger = DefaultLogger.shared,
-        maxTopSites: Int = 4 * 14 // Max rows * max tiles on the largest screen plus some padding
-    ) {
-        self.prefs = prefs
-        self.contileProvider = contileProvider
-        self.googleTopSiteManager = googleTopSiteManager
-        self.topSiteHistoryManager = topSiteHistoryManager
-        self.searchEnginesManager = searchEnginesManager
-        self.logger = logger
-        self.maxTopSites = maxTopSites
-    }
-
-    func getTopSites() async -> [TopSiteState] {
-        return await calculateTopSites()
-    }
-
+    /// Returns a list of top sites used to show the user
+    ///
     /// Top sites are composed of pinned sites, history, sponsored tiles and google top site.
-    /// In terms of space, pinned tiles has precedence over the Google tile, 
+    /// In terms of space, pinned tiles has precedence over the Google tile,
     /// which has precedence over sponsored and frecency tiles.
     ///
     /// From a user perspective, Google top site is always first (from left to right),
     /// then comes the sponsored tiles, pinned sites and then frecency top sites.
     /// We only add Google or sponsored tiles if number of pinned tiles doesn't exceeds the available number shown of tiles.
-    private func calculateTopSites() async -> [TopSiteState] {
-        // TODO: FXIOS-10477 - Look into creating task groups to run asynchronous methods concurrently
-        let otherSites = await getOtherSites()
+    func recalculateTopSites(otherSites: [TopSiteState], sponsoredSites: [SponsoredTile]) async -> [TopSiteState]
 
+    /// Removes the site out of the top sites.
+    /// If site is pinned it removes it from pinned and top sites list.
+    func removeTopSite(_ site: Site)
+
+    /// Adds the top site as a pinned tile in the top sites lists.
+    func pinTopSite(_ site: Site)
+
+    /// Unpin removes the top site from the location it's in.
+    /// The site still can appear in the top sites as unpin.
+    func unpinTopSite(_ site: Site)
+}
+
+/// Manager to fetch the top sites data, the data gets updated from notifications on specific user actions
+class TopSitesManager: TopSitesManagerInterface, FeatureFlaggable {
+    private var logger: Logger
+    private let profile: Profile
+    private let contileProvider: ContileProviderInterface
+    private let googleTopSiteManager: GoogleTopSiteManagerProvider
+    private let topSiteHistoryManager: TopSiteHistoryManagerProvider
+    private let searchEnginesManager: SearchEnginesManagerProvider
+    private let unifiedAdsProvider: UnifiedAdsProviderInterface
+    private let dispatchQueue: DispatchQueueInterface
+
+    private let maxTopSites: Int
+    private let maxNumberOfSponsoredTile: Int = 2
+
+    init(
+        profile: Profile,
+        contileProvider: ContileProviderInterface = ContileProvider(),
+        unifiedAdsProvider: UnifiedAdsProviderInterface = UnifiedAdsProvider(),
+        googleTopSiteManager: GoogleTopSiteManagerProvider,
+        topSiteHistoryManager: TopSiteHistoryManagerProvider,
+        searchEnginesManager: SearchEnginesManagerProvider,
+        logger: Logger = DefaultLogger.shared,
+        dispatchQueue: DispatchQueueInterface = DispatchQueue.main,
+        maxTopSites: Int = 4 * 14 // Max rows * max tiles on the largest screen plus some padding
+    ) {
+        self.profile = profile
+        self.contileProvider = contileProvider
+        self.unifiedAdsProvider = unifiedAdsProvider
+        self.googleTopSiteManager = googleTopSiteManager
+        self.topSiteHistoryManager = topSiteHistoryManager
+        self.searchEnginesManager = searchEnginesManager
+        self.logger = logger
+        self.dispatchQueue = dispatchQueue
+        self.maxTopSites = maxTopSites
+    }
+
+    func recalculateTopSites(otherSites: [TopSiteState], sponsoredSites: [SponsoredTile]) async -> [TopSiteState] {
         let availableSpaceCount = getAvailableSpaceCount(with: otherSites)
         let googleTopSite = addGoogleTopSite(with: availableSpaceCount)
 
         let updatedSpaceCount = getUpdatedSpaceCount(with: googleTopSite, and: availableSpaceCount)
-        let sponsoredSites = await getSponsoredSites(with: updatedSpaceCount, and: otherSites)
+        let sponsoredSites = await filterSponsoredSites(contiles: sponsoredSites, with: updatedSpaceCount, and: otherSites)
 
         let totalTopSites = googleTopSite + sponsoredSites + otherSites
 
@@ -69,7 +90,7 @@ class TopSitesManager {
     // MARK: Google tile
     private func addGoogleTopSite(with availableSpaceCount: Int) -> [TopSiteState] {
         guard googleTopSiteManager.shouldAddGoogleTopSite(hasSpace: availableSpaceCount > 0),
-                let googleSite = googleTopSiteManager.suggestedSiteData
+              let googleSite = googleTopSiteManager.suggestedSiteData
         else {
             return []
         }
@@ -77,46 +98,63 @@ class TopSitesManager {
     }
 
     // MARK: Sponsored tiles (Contiles)
-    private var shouldLoadSponsoredTiles: Bool {
-        return prefs.boolForKey(PrefsKeys.UserFeatureFlagPrefs.SponsoredShortcuts) ?? true
+    func fetchSponsoredSites() async -> [SponsoredTile] {
+        let contiles = await withCheckedContinuation { continuation in
+            if featureFlags.isFeatureEnabled(.unifiedAds, checking: .buildOnly) {
+                unifiedAdsProvider.fetchTiles { [weak self] result in
+                    if case .success(let unifiedTiles) = result {
+                        let sponsoredTiles = UnifiedAdsConverter.convert(unifiedTiles: unifiedTiles)
+                        continuation.resume(returning: sponsoredTiles)
+                    } else {
+                        self?.logger.log(
+                            "Unified ads provider did not return any sponsored tiles when requested",
+                            level: .warning,
+                            category: .homepage
+                        )
+                        continuation.resume(returning: [])
+                    }
+                }
+            } else {
+                contileProvider.fetchContiles { [weak self] result in
+                    if case .success(let contiles) = result {
+                        continuation.resume(returning: contiles)
+                    } else {
+                        self?.logger.log(
+                            "Contile provider did not return any sponsored tiles when requested",
+                            level: .warning,
+                            category: .homepage
+                        )
+                        continuation.resume(returning: [])
+                    }
+                }
+            }
+        }
+
+        return contiles.compactMap { SponsoredTile(contile: $0) }
     }
 
-    private func getSponsoredSites(with availableSpaceCount: Int, and otherSites: [TopSiteState]) async -> [TopSiteState] {
-        guard availableSpaceCount > 0, shouldLoadSponsoredTiles else { return [] }
+    private var shouldLoadSponsoredTiles: Bool {
+        return profile.prefs.boolForKey(PrefsKeys.UserFeatureFlagPrefs.SponsoredShortcuts) ?? true
+    }
 
-        let contiles = await fetchSponsoredSites()
+    private func filterSponsoredSites(
+        contiles: [SponsoredTile],
+        with availableSpaceCount: Int,
+        and otherSites: [TopSiteState]
+    ) async -> [TopSiteState] {
+        guard availableSpaceCount > 0, shouldLoadSponsoredTiles else { return [] }
 
         guard !contiles.isEmpty else { return [] }
 
         let filteredContiles = contiles
+            .prefix(maxNumberOfSponsoredTile)
             .filter { shouldShowSponsoredSite(with: $0, and: otherSites) }
             .compactMap { TopSiteState(site: $0) }
 
         return filteredContiles
     }
 
-    private func fetchSponsoredSites() async -> [SponsoredTile] {
-        let contiles = await withCheckedContinuation { continuation in
-            contileProvider.fetchContiles { [weak self] result in
-                if case .success(let contiles) = result {
-                    continuation.resume(returning: contiles)
-                } else {
-                    self?.logger.log(
-                        "Contile provider did not return any sponsored tiles when requested",
-                        level: .warning,
-                        category: .homepage
-                    )
-                    continuation.resume(returning: [])
-                }
-            }
-        }
-
-        return contiles
-            .prefix(maxNumberOfSponsoredTile)
-            .compactMap { SponsoredTile(contile: $0) }
-    }
-
-    /// Show the sponsored site only if site is not already present in the pinned sites 
+    /// Show the sponsored site only if site is not already present in the pinned sites
     /// and it's not the default search engine
     private func shouldShowSponsoredSite(with sponsoredSite: Site, and otherSites: [TopSiteState]) -> Bool {
         let siteDomain = sponsoredSite.url.asURL?.shortDomain
@@ -132,8 +170,8 @@ class TopSitesManager {
         return !sponsoredSiteIsAlreadyPresent && shouldAddDefaultEngine
     }
 
-    // MARK: Other Sites = History-based (Frencency) + Pinned + Default suggested tiles
-    private func getOtherSites() async -> [TopSiteState] {
+    // MARK: Other Sites
+    func getOtherSites() async -> [TopSiteState] {
         let otherSites = await withCheckedContinuation { continuation in
             topSiteHistoryManager.getTopSites { sites in
                 continuation.resume(returning: sites)
@@ -179,6 +217,32 @@ class TopSitesManager {
             duplicates.insert(state)
 
             return state
+        }
+    }
+
+    // MARK: - Context menu actions
+    func removeTopSite(_ site: Site) {
+        unpinTopSite(site)
+        dispatchQueue.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?.hideURLFromTopSites(site)
+        }
+    }
+
+    func pinTopSite(_ site: Site) {
+        _ = profile.pinnedSites.addPinnedTopSite(site)
+    }
+
+    func unpinTopSite(_ site: Site) {
+        googleTopSiteManager.removeGoogleTopSite(site: site)
+        topSiteHistoryManager.removeTopSite(site: site)
+    }
+
+    private func hideURLFromTopSites(_ site: Site) {
+        topSiteHistoryManager.removeDefaultTopSitesTile(site: site)
+        // We make sure to remove all history for URL so it doesn't show anymore in the
+        // top sites, this is the approach that Android takes too.
+        profile.places.deleteVisitsFor(url: site.url).uponQueue(.main) { [weak self] _ in
+            NotificationCenter.default.post(name: .TopSitesUpdated, object: self)
         }
     }
 }

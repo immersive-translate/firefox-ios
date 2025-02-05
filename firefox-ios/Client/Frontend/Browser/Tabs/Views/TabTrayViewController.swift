@@ -4,7 +4,6 @@
 
 import Common
 import Foundation
-import Storage
 import Redux
 import Shared
 
@@ -301,10 +300,6 @@ class TabTrayViewController: UIViewController,
 
         if tabTrayState.shouldDismiss {
             delegate?.didFinish()
-        }
-
-        if let url = tabTrayState.shareURL {
-            navigationHandler?.shareTab(url: url, sourceView: self.view)
         }
 
         if tabTrayState.showCloseConfirmation {

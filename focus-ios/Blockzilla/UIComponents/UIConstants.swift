@@ -202,6 +202,17 @@ struct UIConstants {
 
         static let labelStudies = NSLocalizedString("Settings.toggleStudies", value: "Studies", comment: "Label for Studies toggle on the settings screen")
         static let detailTextStudies = NSLocalizedString("Settings.detailTextStudies", value: "%@ may install and run studies from time to time.", comment: "Description associated to the Studies toggle on the settings screen. %@ is the app name (Focus/Klar)")
+        
+        static let labelCrashReports = NSLocalizedString(
+            "Settings.toggleCrashReports",
+            value: "Automatically Send Crash Reports",
+            comment: "Label for Crash Reports toggle on settings screen"
+        )
+        static let detailTextCrashReports = NSLocalizedString(
+            "Settings.detailTextCrashReports",
+            value: "Crash reports allow us diagnose and fix issues with the browser.",
+            comment: "Description associated with the Crash Reports toggle on settings screen"
+        )
 
         static let general = NSLocalizedString("Settings.general", value: "General", comment: "Title for section in settings menu")
         static let theme = NSLocalizedString("Settings.theme", value: "Theme", comment: "Theme section in settings menu")

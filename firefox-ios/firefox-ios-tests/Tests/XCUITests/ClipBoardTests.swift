@@ -41,7 +41,7 @@ class ClipBoardTests: BaseTestCase {
                     return
                 }
                 if value.hasPrefix("http") == false {
-                    value = "http://\(value)"
+                    value = "http://www.\(value)/"
                 }
                 XCTAssertNotNil(myString)
                 XCTAssertEqual(myString, value, "Url matches with the UIPasteboard")
@@ -63,9 +63,11 @@ class ClipBoardTests: BaseTestCase {
         mozWaitForElementToNotExist(app.staticTexts["XCUITests-Runner pasted from Fennec"])
         navigator.nowAt(NewTabScreen)
         navigator.goto(URLBarOpen)
-        urlBarAddress.press(forDuration: 3)
-        app.otherElements["Paste"].tap()
-        mozWaitForValueContains(urlBarAddress, value: "http://www.example.com/")
+        if #available(iOS 17, *) {
+            urlBarAddress.press(forDuration: 3)
+            app.otherElements["Paste"].waitAndTap()
+            mozWaitForValueContains(urlBarAddress, value: "http://www.example.com/")
+        }
     }
 
     // https://mozilla.testrail.io/index.php?/cases/view/2307051
@@ -73,6 +75,8 @@ class ClipBoardTests: BaseTestCase {
         // Tap on "Copy Link
         navigator.openURL(url_3)
         waitForTabsButton()
+        // Menu Refactor: No "Copy Link" from browser tab menu
+        /*
         navigator.performAction(Action.CopyAddressPAM)
         // The Link is copied to clipboard
         mozWaitForElementToExist(app.staticTexts["URL Copied To Clipboard"])
@@ -86,6 +90,7 @@ class ClipBoardTests: BaseTestCase {
         mozWaitForElementToExist(urlBar)
         waitForValueContains(urlBar, value: "localhost")
         mozWaitForElementToExist(app.staticTexts["Example Domain"])
+        */
     }
 
     // https://mozilla.testrail.io/index.php?/cases/view/2325691

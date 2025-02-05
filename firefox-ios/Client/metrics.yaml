@@ -731,6 +731,28 @@ app:
       - fx-ios-data-stewards@mozilla.com
     expires: "2025-07-01"
 
+# Usage reporting
+usage:
+  profile_id:
+    type: uuid
+    lifetime: user
+    description: |
+      A UUID uniquely identifying the profile,
+      not shared with other telemetry data.
+    bugs:
+      - https://github.com/mozilla-mobile/firefox-ios/pull/23254
+    data_reviews:
+      - https://github.com/mozilla-mobile/firefox-ios/pull/23254
+    data_sensitivity:
+      - technical
+      - highly_sensitive
+    notification_emails:
+      - fx-ios-data-stewards@mozilla.com
+      - glean-team@mozilla.com
+    expires: never
+    send_in_pings:
+      - usage-reporting
+
 # Downloads
 downloads:
   download_now_button_tapped:
@@ -5090,19 +5112,6 @@ share_sheet:
     notification_emails:
       - fx-ios-data-stewards@mozilla.com
     expires: "2025-07-01"
-  copy_link_tapped:
-    type: event
-    description: |
-      Counts the number of times a user taps copy
-      button from Share Sheet actions
-    bugs:
-      - https://mozilla-hub.atlassian.net/browse/FXIOS-5226
-    data_reviews:
-      - https://github.com/mozilla-mobile/firefox-ios/pull/12526
-      - https://github.com/mozilla-mobile/firefox-ios/pull/14102
-    notification_emails:
-      - fx-ios-data-stewards@mozilla.com
-    expires: "2025-07-01"
   pocket_action_tapped:
     type: event
     description: |
@@ -5129,6 +5138,40 @@ share_sheet:
     notification_emails:
       - fx-ios-data-stewards@mozilla.com
     expires: "2025-07-01"
+  shared_to:
+    type: event
+    description: |
+      Event to record that the user has shared content via the ShareManager.
+    bugs:
+      - https://github.com/mozilla-mobile/firefox-ios/issues/23704
+    data_reviews:
+      - https://github.com/mozilla-mobile/firefox-ios/pull/23786
+    notification_emails:
+      - fx-ios-data-stewards@mozilla.com
+    expires: "2025-07-01"
+    extra_keys:
+      activity_identifier:
+        type: string
+        description: |
+          The activity identifier indicating to where the user shared content.
+      share_type:
+        type: string
+        description: |
+          The type of content shared. Either a file, website, or tab.
+      has_share_message:
+        type: boolean
+        description: |
+          Whether an explicit share message (and optional subject line) was 
+          appended to the shared content.
+      is_enrolled_in_sent_from_firefox:
+        type: boolean
+        description: |
+          Whether the user is enrolled in the Sent from Firefox experiment.
+      is_opted_in_sent_from_firefox:
+        type: boolean
+        description: |
+          Whether the user is opted in to the Sent from Firefox experiment.
+          Only returns true if the user is both enrolled and opted in.
 
 # Device specific metrics
 
@@ -6112,3 +6155,47 @@ server_knobs:
       - fx-ios-data-stewards@mozilla.com
       - brosa@mozilla.com
     expires: "2025-07-01"
+
+nimbus_system:
+  recorded_nimbus_context:
+    type: object
+    structure:
+      type: object
+      properties:
+        is_first_run:
+          type: boolean
+        event_query_values:
+          type: object
+          properties:
+            days_opened_in_last_28:
+              type: number
+        is_review_checker_enabled:
+          type: boolean
+        is_phone:
+          type: boolean
+        app_version:
+          type: string
+        locale:
+          type: string
+        days_since_install:
+          type: number
+        days_since_update:
+          type: number
+        language:
+          type: string
+        region:
+          type: string
+        is_default_browser:
+          type: boolean
+    description: |
+      The Nimbus context object that is recorded to Glean
+    bugs:
+      - 'https://github.com/mozilla-mobile/firefox-ios/issues/23736'
+    data_reviews:
+      - 'https://github.com/mozilla-mobile/firefox-ios/pull/23737#issuecomment-2541639916'
+    data_sensitivity:
+      - interaction
+    notification_emails:
+      - chumphreys@mozilla.com
+      - project-nimbus@mozilla.com
+    expires: never

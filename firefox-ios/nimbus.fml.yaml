@@ -25,6 +25,7 @@ include:
   - nimbus-features/gleanServerKnobs.yaml
   - nimbus-features/homepageRebuildFeature.yaml
   - nimbus-features/homescreenFeature.yaml
+  - nimbus-features/jsAlertRefactor.yaml
   - nimbus-features/menuRefactorFeature.yaml
   - nimbus-features/messagingFeature.yaml
   - nimbus-features/microsurveyFeature.yaml
@@ -43,4 +44,6 @@ include:
   - nimbus-features/toolbarRefactorFeature.yaml
   - nimbus-features/tosFeature.yaml
   - nimbus-features/trackingProtectionRefactor.yaml
+  - nimbus-features/unifiedAds.yaml
+  - nimbus-features/universalLinks.yaml
   - nimbus-features/zoomFeature.yaml

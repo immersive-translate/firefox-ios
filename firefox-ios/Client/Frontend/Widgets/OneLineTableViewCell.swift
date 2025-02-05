@@ -8,7 +8,7 @@ import SiteImageView
 
 enum OneLineTableViewCustomization {
     case regular
-    case inactiveCell
+    case newFolder
 }
 
 struct OneLineTableViewCellViewModel {
@@ -16,11 +16,13 @@ struct OneLineTableViewCellViewModel {
     var leftImageView: UIImage?
     let accessoryView: UIImageView?
     let accessoryType: UITableViewCell.AccessoryType
+    let editingAccessoryView: UIImageView?
 }
 
 class OneLineTableViewCell: UITableViewCell,
                             ReusableCell,
-                            ThemeApplicable {
+                            ThemeApplicable,
+                            BookmarksRefactorFeatureFlagProvider {
     // Tableview cell items
 
     struct UX {
@@ -33,6 +35,15 @@ class OneLineTableViewCell: UITableViewCell,
         static let shortLeadingMargin: CGFloat = 5
         static let longLeadingMargin: CGFloat = 13
         static let cornerRadius: CGFloat = 5
+    }
+
+    var reorderControlImageView: UIImageView? {
+        let reorderControl = self.subviews.first { view in
+            view.classForCoder.description() == "UITableViewCellReorderControl"
+        }
+        return reorderControl?.subviews.first { view in
+            view is UIImageView
+        } as? UIImageView
     }
 
     var shouldLeftAlignTitle = false
@@ -55,7 +66,6 @@ class OneLineTableViewCell: UITableViewCell,
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         setupLayout()
     }
 
@@ -70,15 +80,42 @@ class OneLineTableViewCell: UITableViewCell,
                             right: 0)
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateReorderControl()
+    }
+
+    private func updateReorderControl() {
+        guard isBookmarkRefactorEnabled else { return }
+        reorderControlImageView?.image = reorderControlImageView?.image?.withRenderingMode(.alwaysTemplate)
+    }
+
     /// Holds a reference to the left image view's leading constraint so we can update
     /// its constant when modifying this cell's ``indentationLevel`` value.
     private var leftImageViewLeadingConstraint: NSLayoutConstraint?
 
     override var indentationLevel: Int {
         didSet {
-            // Update the leading constraint based on this cell's indentationLevel value,
-            // adding 1 since the default indentation is 0.
-            leftImageViewLeadingConstraint?.constant = UX.borderViewMargin * CGFloat(1 + indentationLevel)
+            // Update the leading constraint based on this cell's indentationLevel value
+            if isBookmarkRefactorEnabled {
+                setBookmarksRefactorMargin()
+            } else {
+                // adding 1 since the default indentation is 0.
+                leftImageViewLeadingConstraint?.constant = UX.borderViewMargin * CGFloat(1 + indentationLevel)
+            }
+        }
+    }
+
+    private func setBookmarksRefactorMargin() {
+        // Sets the indentation so that at each level the folder icon is left
+        // aligned with the label of the parent folder above it.
+        if indentationLevel == 0 {
+            leftImageViewLeadingConstraint?.constant = UX.borderViewMargin
+        } else {
+            let indentationLevelMargin: CGFloat = UX.borderViewMargin + UX.imageSize + UX.longLeadingMargin
+            let indentSize = (UX.imageSize + UX.longLeadingMargin)
+            let indentLevel = indentSize * CGFloat(indentationLevel-1)
+            leftImageViewLeadingConstraint?.constant = indentationLevelMargin + indentLevel
         }
     }
 
@@ -149,6 +186,7 @@ class OneLineTableViewCell: UITableViewCell,
         titleLabel.text = viewModel.title
         accessoryView = viewModel.accessoryView
         accessoryType = viewModel.accessoryType
+        editingAccessoryView = viewModel.editingAccessoryView
 
         if let image = viewModel.leftImageView {
             leftImageView.manuallySetImage(image)
@@ -163,9 +201,22 @@ class OneLineTableViewCell: UITableViewCell,
     func applyTheme(theme: Theme) {
         selectedView.backgroundColor = theme.colors.layer5Hover
         backgroundColor = theme.colors.layer5
-        titleLabel.textColor = theme.colors.textPrimary
         bottomSeparatorView.backgroundColor = theme.colors.borderPrimary
-        accessoryView?.tintColor = theme.colors.iconSecondary
-        leftImageView.tintColor = theme.colors.textPrimary
+        if isBookmarkRefactorEnabled {
+            accessoryView?.tintColor = theme.colors.iconSecondary
+            editingAccessoryView?.tintColor = theme.colors.iconSecondary
+            tintColor = theme.colors.iconSecondary
+        }
+
+        switch customization {
+        case .regular:
+            accessoryView?.tintColor = theme.colors.iconSecondary
+            leftImageView.tintColor = theme.colors.textPrimary
+            titleLabel.textColor = theme.colors.textPrimary
+        case .newFolder:
+            accessoryView?.tintColor = theme.colors.iconSecondary
+            leftImageView.tintColor = theme.colors.textAccent
+            titleLabel.textColor = theme.colors.textAccent
+        }
     }
 }

@@ -4,27 +4,32 @@
 
 import Common
 import Foundation
+import Shared
 
 protocol LaunchFinishedLoadingDelegate: AnyObject {
     func launchWith(launchType: LaunchType)
     func launchBrowser()
+    func finishedLoadingLaunchOrder()
 }
 
 class LaunchScreenViewModel {
+    private var termsOfServiceManager: TermsOfServiceManager
     private var introScreenManager: IntroScreenManager
     private var updateViewModel: UpdateViewModel
     private var surveySurfaceManager: SurveySurfaceManager
     private var profile: Profile
 
-    weak var delegate: LaunchFinishedLoadingDelegate?
+    // order of screens shown at launch
+    private(set) var launchOrder: [LaunchType]?
 
-    var needShowProtocolPopup = false
+    weak var delegate: LaunchFinishedLoadingDelegate?
 
     init(windowUUID: WindowUUID,
          profile: Profile = AppContainer.shared.resolve(),
          messageManager: GleanPlumbMessageManagerProtocol = Experiments.messaging,
          onboardingModel: OnboardingViewModel = NimbusOnboardingFeatureLayer().getOnboardingModel(for: .upgrade)) {
         self.profile = profile
+        self.termsOfServiceManager = TermsOfServiceManager(prefs: profile.prefs)
         self.introScreenManager = IntroScreenManager(prefs: profile.prefs)
         let telemetryUtility = OnboardingTelemetryUtility(with: onboardingModel)
         self.updateViewModel = UpdateViewModel(profile: profile,
@@ -34,21 +39,48 @@ class LaunchScreenViewModel {
         self.surveySurfaceManager = SurveySurfaceManager(windowUUID: windowUUID, and: messageManager)
     }
 
+    func getSplashScreenExperimentHasShown() -> Bool {
+        profile.prefs.boolForKey(PrefsKeys.splashScreenShownKey) ?? false
+    }
+
+    func setSplashScreenExperimentHasShown() {
+        profile.prefs.setBool(true, forKey: PrefsKeys.splashScreenShownKey)
+    }
+
     func startLoading(appVersion: String = AppInfo.appVersion) async {
         await loadLaunchType(appVersion: appVersion)
     }
 
-    private func loadLaunchType(appVersion: String) async {
-        var launchType: LaunchType?
-        if !needShowProtocolPopup {
-            if introScreenManager.shouldShowIntroScreen {
-                launchType = .intro(manager: introScreenManager)
-            } else if surveySurfaceManager.shouldShowSurveySurface {
-                launchType = .survey(manager: surveySurfaceManager)
-            }
+    func loadNextLaunchType() {
+        guard let launches = launchOrder else { return }
+
+        if let launchType = launches.first {
+            delegate?.launchWith(launchType: launchType)
+            launchOrder?.removeFirst()
+        } else {
+            self.delegate?.launchBrowser()
         }
-        if let launchType = launchType {
-            self.delegate?.launchWith(launchType: launchType)
+    }
+
+    private func loadLaunchType(appVersion: String) async {
+        var launchOrder = [LaunchType]()
+
+        if introScreenManager.shouldShowIntroScreen {
+            if termsOfServiceManager.shouldShowScreen {
+                launchOrder.append(.termsOfService(manager: termsOfServiceManager))
+            }
+
+            launchOrder.append(.intro(manager: introScreenManager))
+        } else if updateViewModel.shouldShowUpdateSheet(appVersion: appVersion),
+                  await updateViewModel.hasSyncableAccount() {
+            launchOrder.append(.update(viewModel: updateViewModel))
+        } else if surveySurfaceManager.shouldShowSurveySurface {
+            launchOrder.append(.survey(manager: surveySurfaceManager))
+        }
+
+        if !launchOrder.isEmpty {
+            self.launchOrder = launchOrder
+            self.delegate?.finishedLoadingLaunchOrder()
         } else {
             self.delegate?.launchBrowser()
         }

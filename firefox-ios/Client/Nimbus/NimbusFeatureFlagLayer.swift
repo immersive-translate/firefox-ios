@@ -55,6 +55,9 @@ final class NimbusFeatureFlagLayer {
         case .inactiveTabs:
             return checkTabTrayFeature(for: featureID, from: nimbus)
 
+        case .jsAlertRefactor:
+            return checkJSAlertRefactor(from: nimbus)
+
         case .loginAutofill:
             return checkNimbusForLoginAutofill(for: featureID, from: nimbus)
 
@@ -97,14 +100,23 @@ final class NimbusFeatureFlagLayer {
         case .sentFromFirefox:
             return checkSentFromFirefoxFeature(from: nimbus)
 
+        case .sentFromFirefoxTreatmentA:
+            return checkSentFromFirefoxFeatureTreatmentA(from: nimbus)
+
         case .splashScreen:
             return checkSplashScreenFeature(for: featureID, from: nimbus)
 
         case .toolbarRefactor:
             return checkToolbarRefactorFeature(from: nimbus)
 
+        case .unifiedAds:
+            return checkUnifiedAdsFeature(from: nimbus)
+
         case .unifiedSearch:
             return checkUnifiedSearchFeature(from: nimbus)
+
+        case .universalLinks:
+            return checkUniversalLinkFeature(from: nimbus)
 
         case .toolbarOneTapNewTab:
             return checkToolbarOneTapNewTabFeature(from: nimbus)
@@ -146,6 +158,11 @@ final class NimbusFeatureFlagLayer {
     private func checkSentFromFirefoxFeature(from nimbus: FxNimbus) -> Bool {
         let config = nimbus.features.sentFromFirefoxFeature.value()
         return config.enabled
+    }
+
+    private func checkSentFromFirefoxFeatureTreatmentA(from nimbus: FxNimbus) -> Bool {
+        let config = nimbus.features.sentFromFirefoxFeature.value()
+        return config.isTreatmentA
     }
 
     private func checkAwesomeBarFeature(for featureID: NimbusFeatureFlagID,
@@ -204,9 +221,19 @@ final class NimbusFeatureFlagLayer {
         return config.enabled
     }
 
+    private func checkUnifiedAdsFeature(from nimbus: FxNimbus) -> Bool {
+        let config = nimbus.features.unifiedAds.value()
+        return config.enabled
+    }
+
     private func checkUnifiedSearchFeature(from nimbus: FxNimbus) -> Bool {
         let config = nimbus.features.toolbarRefactorFeature.value()
         return config.unifiedSearch
+    }
+
+    private func checkUniversalLinkFeature(from nimbus: FxNimbus) -> Bool {
+        let config = nimbus.features.universalLinks.value()
+        return config.enabled
     }
 
     private func checkToolbarOneTapNewTabFeature(from nimbus: FxNimbus) -> Bool {
@@ -284,6 +311,12 @@ final class NimbusFeatureFlagLayer {
         guard let status = config.sectionsEnabled[nimbusID] else { return false }
 
         return status
+    }
+
+    private func checkJSAlertRefactor(from nimbus: FxNimbus) -> Bool {
+        let config = nimbus.features.jsAlertRefactor.value()
+
+        return config.enabled
     }
 
     private func checkFakespotFeature(from nimbus: FxNimbus) -> Bool {

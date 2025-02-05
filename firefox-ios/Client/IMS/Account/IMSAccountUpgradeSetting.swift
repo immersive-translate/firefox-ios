@@ -12,10 +12,12 @@ class IMSAccountUpgradeSetting: Setting {
     private weak var settingsDelegate: IMSAccountSettingDelegate?
     
     override var accessoryView: UIImageView? {
+        guard let theme else { return nil }
         return SettingDisclosureUtility.buildDisclosureIndicator(theme: theme)
     }
     
     override var title: NSAttributedString? {
+        guard let theme else { return nil }
         return NSAttributedString(string: .IMS.Settings.Upgrade,
                                   attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary])
     }

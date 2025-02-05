@@ -3,6 +3,11 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 import Shared
 
+
+private class BundleClass {
+    public static let bundle = Bundle(for: BundleClass.self)
+}
+
 private func MZLocalizedString(
     key: String,
     tableName: String?,
@@ -11,7 +16,7 @@ private func MZLocalizedString(
 ) -> String {
     return NSLocalizedString(key,
                              tableName: tableName,
-                             bundle: Strings.bundle,
+                             bundle: BundleClass.bundle,
                              value: value ?? "",
                              comment: comment)
 }

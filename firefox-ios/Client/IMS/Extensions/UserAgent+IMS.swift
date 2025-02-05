@@ -4,6 +4,7 @@
 import Common
 import WebKit
 import UIKit
+import Shared
 
 struct IMSCustomUserAgentConstant {
     private static let defaultMobileUA = UserAgentBuilder.defaultMobileUserAgent().userAgent()

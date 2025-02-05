@@ -10,14 +10,18 @@ import Storage
 
 import enum MozillaAppServices.BookmarkRoots
 
-class TabManagerMiddleware {
+class TabManagerMiddleware: BookmarksRefactorFeatureFlagProvider {
     private let profile: Profile
     private let logger: Logger
+    private let inactiveTabTelemetry = InactiveTabsTelemetry()
+    private let bookmarksSaver: BookmarksSaver
 
     init(profile: Profile = AppContainer.shared.resolve(),
-         logger: Logger = DefaultLogger.shared) {
+         logger: Logger = DefaultLogger.shared,
+         bookmarksSaver: BookmarksSaver? = nil) {
         self.profile = profile
         self.logger = logger
+        self.bookmarksSaver = bookmarksSaver ?? DefaultBookmarksSaver(profile: profile)
     }
 
     lazy var tabsPanelProvider: Middleware<AppState> = { state, action in
@@ -147,7 +151,7 @@ class TabManagerMiddleware {
 
         case TabPanelViewActionType.selectTab:
             guard let tabUUID = action.tabUUID else { return }
-            selectTab(for: tabUUID, uuid: action.windowUUID)
+            selectTab(for: tabUUID, uuid: action.windowUUID, isInactiveTab: action.isInactiveTab ?? false)
 
         case TabPanelViewActionType.closeAllInactiveTabs:
             closeAllInactiveTabs(state: state, uuid: action.windowUUID)
@@ -155,7 +159,7 @@ class TabManagerMiddleware {
         case TabPanelViewActionType.undoCloseAllInactiveTabs:
             undoCloseAllInactiveTabs(uuid: action.windowUUID)
 
-        case TabPanelViewActionType.closeInactiveTabs:
+        case TabPanelViewActionType.closeInactiveTab:
             guard let tabUUID = action.tabUUID else { return }
             closeInactiveTab(for: tabUUID, state: state, uuid: action.windowUUID)
 
@@ -165,6 +169,15 @@ class TabManagerMiddleware {
         case TabPanelViewActionType.learnMorePrivateMode:
             guard let urlRequest = action.urlRequest else { return }
             didTapLearnMoreAboutPrivate(with: urlRequest, uuid: action.windowUUID)
+
+        case TabPanelViewActionType.toggleInactiveTabs:
+            guard let tabState = state.screenState(TabsPanelState.self,
+                                                   for: .tabsPanel,
+                                                   window: action.windowUUID)
+            else { return }
+            let expanded = tabState.isInactiveTabsExpanded
+            inactiveTabTelemetry.sectionToggled(hasExpanded: expanded)
+            break
 
         default:
             break
@@ -508,6 +521,7 @@ class TabManagerMiddleware {
     /// Makes a backup of tabs to be deleted in case the undo option is selected.
     private func closeAllInactiveTabs(state: AppState, uuid: WindowUUID) {
         guard let tabsState = state.screenState(TabsPanelState.self, for: .tabsPanel, window: uuid) else { return }
+        inactiveTabTelemetry.closedAllTabs()
         let tabManager = tabManager(for: uuid)
         Task {
             await tabManager.removeAllInactiveTabs()
@@ -547,6 +561,7 @@ class TabManagerMiddleware {
 
     private func closeInactiveTab(for tabUUID: String, state: AppState, uuid: WindowUUID) {
         guard let tabsState = state.screenState(TabsPanelState.self, for: .tabsPanel, window: uuid) else { return }
+        inactiveTabTelemetry.tabSwipedToClose()
         let tabManager = tabManager(for: uuid)
         Task {
             if let tabToClose = tabManager.getTabForUUID(uuid: tabUUID) {
@@ -587,7 +602,7 @@ class TabManagerMiddleware {
         addNewTab(with: urlRequest, isPrivate: true, showOverlay: false, for: uuid)
     }
 
-    private func selectTab(for tabUUID: TabUUID, uuid: WindowUUID) {
+    private func selectTab(for tabUUID: TabUUID, uuid: WindowUUID, isInactiveTab: Bool) {
         let tabManager = tabManager(for: uuid)
         guard let tab = tabManager.getTabForUUID(uuid: tabUUID) else { return }
 
@@ -596,6 +611,10 @@ class TabManagerMiddleware {
         let action = TabTrayAction(windowUUID: uuid,
                                    actionType: TabTrayActionType.dismissTabTray)
         store.dispatch(action)
+
+        if isInactiveTab {
+            inactiveTabTelemetry.tabOpened()
+        }
     }
 
     private func tabManager(for uuid: WindowUUID) -> TabManager {
@@ -882,11 +901,10 @@ class TabManagerMiddleware {
 
     private func addToBookmarks(_ shareItem: ShareItem?) {
         guard let shareItem else { return }
-        // Add new mobile bookmark at the top of the list
-        profile.places.createBookmark(parentGUID: BookmarkRoots.MobileFolderGUID,
-                                      url: shareItem.url,
-                                      title: shareItem.title,
-                                      position: 0)
+
+        Task {
+            await self.bookmarksSaver.createBookmark(url: shareItem.url, title: shareItem.title, position: 0)
+        }
     }
 
     private func addToReadingList(with tabID: TabUUID?, uuid: WindowUUID) {

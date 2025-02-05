@@ -6,10 +6,11 @@ import Foundation
 import Shared
 
 class NewTabPageSetting: Setting {
-    private let profile: Profile
+    private let profile: Profile?
     private weak var settingsDelegate: GeneralSettingsDelegate?
 
     override var accessoryView: UIImageView? {
+        guard let theme else { return nil }
         return SettingDisclosureUtility.buildDisclosureIndicator(theme: theme)
     }
 
@@ -17,19 +18,9 @@ class NewTabPageSetting: Setting {
         return AccessibilityIdentifiers.Settings.NewTab.title
     }
 
-    override var status: NSAttributedString {
-        let prefs = self.profile.prefs.stringForKey(NewTabAccessors.NewTabPrefKey) ?? NewTabPage.topSites.rawValue
-        var title:String = "";
-        switch prefs {
-        case NewTabPage.blankPage.rawValue:
-            title = .SettingsNewTabBlankPage;
-        case NewTabPage.homePage.rawValue:
-            title = .SettingsNewTabCustom;
-        default:
-            title = .SettingsNewTabTopSites;
-        }
-        return NSAttributedString(string: title)
-//        return NSAttributedString(string: NewTabAccessors.getNewTabPage(self.profile.prefs).settingTitle)
+    override var status: NSAttributedString? {
+        guard let profile else { return nil }
+        return NSAttributedString(string: NewTabAccessors.getNewTabPage(profile.prefs).settingTitle)
     }
 
     override var style: UITableViewCell.CellStyle { return .value1 }

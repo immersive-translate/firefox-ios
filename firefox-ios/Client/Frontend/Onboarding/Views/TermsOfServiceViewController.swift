@@ -7,14 +7,13 @@ import Shared
 import UIKit
 import ComponentLibrary
 
-enum LinkType: Int {
-    case termsOfService
-    case privacyNotice
-    case manage
-}
+class TermsOfServiceViewController: UIViewController, Themeable {
+	enum LinkType: Int {
+		case termsOfService
+		case privacyNotice
+		case manage
+	}
 
-class TermsOfServiceViewController: UIViewController,
-                                    Themeable {
     struct UX {
         static let horizontalMargin: CGFloat = 24
         static let logoIconSize: CGFloat = 160
@@ -23,12 +22,19 @@ class TermsOfServiceViewController: UIViewController,
         static let distanceBetweenViews = 2 * margin
     }
 
+    struct Links {
+        static let termsOfService = "https://www.mozilla.org/about/legal/terms/firefox/"
+        static let privacyNotice = "https://www.mozilla.org/privacy/firefox/"
+    }
+
     // MARK: - Properties
+    private let profile: Profile
     var windowUUID: WindowUUID
     var themeManager: ThemeManager
-    var themeObserver: (any NSObjectProtocol)?
+    var themeObserver: NSObjectProtocol?
     var currentWindowUUID: UUID? { windowUUID }
     var notificationCenter: NotificationProtocol
+    var didFinishFlow: (() -> Void)?
 
     // MARK: - UI elements
     private lazy var contentScrollView: UIScrollView = .build()
@@ -44,16 +50,26 @@ class TermsOfServiceViewController: UIViewController,
         label.accessibilityIdentifier = AccessibilityIdentifiers.TermsOfService.title
     }
 
+    private lazy var subtitleLabel: UILabel = .build { label in
+        label.text = .Onboarding.TermsOfService.Subtitle
+        label.font = FXFontStyles.Regular.subheadline.scaledFont()
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
+        label.accessibilityIdentifier = AccessibilityIdentifiers.TermsOfService.subtitle
+    }
+
     private lazy var logoImage: UIImageView = .build { logoImage in
         logoImage.image = UIImage(named: ImageIdentifiers.logo)
         logoImage.accessibilityIdentifier = AccessibilityIdentifiers.TermsOfService.logo
     }
 
-    private lazy var confirmationButton: PrimaryRoundedButton = .build { [weak self] button in
+    private lazy var confirmationButton: PrimaryRoundedButton = .build { button in
         let viewModel = PrimaryRoundedButtonViewModel(
             title: .Onboarding.TermsOfService.AgreementButtonTitle,
             a11yIdentifier: AccessibilityIdentifiers.TermsOfService.agreeAndContinueButton)
         button.configure(viewModel: viewModel)
+        button.addTarget(self, action: #selector(self.acceptTermsOfService), for: .touchUpInside)
     }
 
     private lazy var agreementContent: UIStackView = .build { stackView in
@@ -63,10 +79,12 @@ class TermsOfServiceViewController: UIViewController,
 
     // MARK: - Initializers
     init(
+        profile: Profile,
         windowUUID: WindowUUID,
         themeManager: ThemeManager = AppContainer.shared.resolve(),
         notificationCenter: NotificationProtocol = NotificationCenter.default
     ) {
+        self.profile = profile
         self.windowUUID = windowUUID
         self.themeManager = themeManager
         self.notificationCenter = notificationCenter
@@ -80,10 +98,16 @@ class TermsOfServiceViewController: UIViewController,
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - View cycles
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         listenForThemeChange(view)
+    }
+
+    // MARK: - Button actions
+    @objc
+    private func acceptTermsOfService() {
+        didFinishFlow?()
     }
 
     // MARK: - View setup
@@ -106,7 +130,10 @@ class TermsOfServiceViewController: UIViewController,
 
         let manageLink = String.Onboarding.TermsOfService.ManageLink
         let manageText = String.Onboarding.TermsOfService.ManagePreferenceAgreement
-        let manageAgreement = String(format: manageText, AppName.shortName.rawValue, manageLink)
+        let manageAgreement = String(format: manageText,
+                                     AppName.shortName.rawValue,
+                                     MozillaName.shortName.rawValue,
+                                     manageLink)
         setupAgreementTextView(with: manageAgreement,
                                linkTitle: manageLink,
                                linkType: .manage,
@@ -117,6 +144,7 @@ class TermsOfServiceViewController: UIViewController,
         view.addSubview(contentScrollView)
         contentScrollView.addSubview(contentView)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(subtitleLabel)
         contentView.addSubview(logoImage)
         contentView.addSubview(confirmationButton)
         contentView.addSubview(agreementContent)
@@ -145,8 +173,12 @@ class TermsOfServiceViewController: UIViewController,
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UX.horizontalMargin),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UX.horizontalMargin),
 
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: UX.margin),
+            subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UX.horizontalMargin),
+            subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UX.horizontalMargin),
+
             agreementContent.topAnchor.constraint(
-                greaterThanOrEqualTo: titleLabel.bottomAnchor,
+                greaterThanOrEqualTo: subtitleLabel.bottomAnchor,
                 constant: UX.distanceBetweenViews
             ),
             agreementContent.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UX.horizontalMargin),
@@ -220,19 +252,21 @@ class TermsOfServiceViewController: UIViewController,
     // MARK: - Button actions
     @objc
     private func presentTermsOfService(_ gesture: UIGestureRecognizer) {
-        // TODO: FXIOS-10638 Firefox iOS: Use the correct Terms of Service and Privacy Notice URLs in ToSViewController
-        presentLink(with: nil)
+        presentLink(with: URL(string: Links.termsOfService))
     }
 
     @objc
     private func presentPrivacyNotice(_ gesture: UIGestureRecognizer) {
-        // TODO: FXIOS-10638 Firefox iOS: Use the correct Terms of Service and Privacy Notice URLs in ToSViewController
-        presentLink(with: nil)
+        presentLink(with: URL(string: Links.privacyNotice))
     }
 
     @objc
     private func presentManagePreferences(_ gesture: UIGestureRecognizer) {
-        // TODO: FXIOS-10347 Firefox iOS: Manage Privacy Preferences during Onboarding
+        let managePreferencesVC = PrivacyPreferencesViewController(profile: profile, windowUUID: windowUUID)
+        if UIDevice.current.userInterfaceIdiom != .phone {
+            managePreferencesVC.modalPresentationStyle = .formSheet
+        }
+        present(managePreferencesVC, animated: true)
     }
 
     @objc
@@ -245,6 +279,7 @@ class TermsOfServiceViewController: UIViewController,
         let theme = themeManager.getCurrentTheme(for: windowUUID)
         view.backgroundColor = theme.colors.layer2
         titleLabel.textColor = theme.colors.textPrimary
+        subtitleLabel.textColor = theme.colors.textSecondary
         confirmationButton.applyTheme(theme: theme)
         configure()
     }

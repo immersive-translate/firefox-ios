@@ -126,14 +126,19 @@ class SearchTests: BaseTestCase {
         // Copy, Paste and Go to url
         navigator.goto(URLBarOpen)
         typeOnSearchBar(text: "www.mozilla.org")
-        urlBarAddress.press(forDuration: 5)
-        app.menuItems["Select All"].tap()
+        if iPad() {
+            urlBarAddress.waitAndTap()
+            urlBarAddress.waitAndTap()
+        } else {
+            urlBarAddress.press(forDuration: 5)
+        }
+        app.menuItems["Select All"].waitAndTap()
         app.menuItems["Copy"].waitAndTap()
         app.buttons[AccessibilityIdentifiers.Browser.UrlBar.cancelButton].waitAndTap()
 
         navigator.nowAt(HomePanelsScreen)
         mozWaitForElementToExist(
-            app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+            app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         )
         app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField].waitAndTap()
         urlBarAddress.waitAndTap()
@@ -183,8 +188,8 @@ class SearchTests: BaseTestCase {
         changeSearchEngine(searchEngine: "Bing")
         changeSearchEngine(searchEngine: "DuckDuckGo")
         changeSearchEngine(searchEngine: "Google")
-        changeSearchEngine(searchEngine: "eBay")
         changeSearchEngine(searchEngine: "Wikipedia")
+        changeSearchEngine(searchEngine: "eBay")
     }
 
     // https://mozilla.testrail.io/index.php?/cases/view/2353246
@@ -230,7 +235,7 @@ class SearchTests: BaseTestCase {
         let url = app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField]
         mozWaitForValueContains(url, value: "google")
         // Now there should be two tabs open
-        let numTab = app.buttons["Show Tabs"].value as? String
+        let numTab = app.buttons[AccessibilityIdentifiers.Toolbar.tabsButton].value as? String
         XCTAssertEqual("2", numTab)
     }
 
@@ -345,7 +350,7 @@ class SearchTests: BaseTestCase {
 
             // The URL bar is focused, Top Sites panel is displayed and the keyboard pops-up
             validateUrlHasFocusAndKeyboardIsDisplayed()
-            mozWaitForElementToExist(app.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell])
+            mozWaitForElementToExist(app.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell])
 
             // Tap the back icon <
             app.buttons[AccessibilityIdentifiers.Browser.UrlBar.cancelButton].tap()
@@ -405,6 +410,7 @@ class SearchTests: BaseTestCase {
         }
 
         // Delete the text and type "g"
+        app.textFields.firstMatch.waitAndTap()
         app.buttons["Clear text"].waitAndTap()
         typeTextAndValidateSearchSuggestions(text: "g", isSwitchOn: true)
 
@@ -463,6 +469,7 @@ class SearchTests: BaseTestCase {
         } else {
             mozWaitForElementToNotExist(app.tables.buttons[StandardImageIdentifiers.Large.appendUpLeft])
             mozWaitForElementToExist(app.tables["SiteTable"].staticTexts["Firefox Suggest"])
+            mozWaitForElementToExist(app.tables.cells.firstMatch)
             XCTAssertTrue(app.tables.cells.count <= 3)
         }
     }
