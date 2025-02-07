@@ -17,4 +17,17 @@ extension AppSettingsTableViewController {
             ])
         ]
     }
+    
+    @_dynamicReplacement(for: getSupportSettings)
+    func ims_getSupportSettings() -> [SettingSection] {
+        var supportSettings = [
+            ShowIntroductionSetting(settings: self, settingsDelegate: self),
+            SendFeedbackSetting(settingsDelegate: parentCoordinator),
+            AbountAppSetting(settingsDelegate: parentCoordinator),
+        ]
+        
+        return [SettingSection(title: NSAttributedString(string: .AppSettingsSupport),
+                               children: supportSettings)]
+        
+    }
 }

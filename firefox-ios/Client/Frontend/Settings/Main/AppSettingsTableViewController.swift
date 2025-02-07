@@ -443,7 +443,8 @@ class AppSettingsTableViewController: SettingsTableViewController,
                                children: privacySettings)]
     }
 
-    private func getSupportSettings() -> [SettingSection] {
+    dynamic
+    func getSupportSettings() -> [SettingSection] {
         let isTermsOfServiceFeatureEnabled = featureFlags.isFeatureEnabled(.tosFeature, checking: .buildOnly)
 
         var supportSettings = [
