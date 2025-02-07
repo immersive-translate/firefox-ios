@@ -11,7 +11,7 @@ class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinish
     var window: UIWindow?
     var windowUUID: WindowUUID { reservedWindowUUID.uuid }
     private let screenshotService: ScreenshotService
-    private let sceneContainer: SceneContainer
+    let sceneContainer: SceneContainer
     private let windowManager: WindowManager
     private let reservedWindowUUID: ReservedWindowUUID
 
@@ -43,6 +43,7 @@ class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinish
         window?.makeKeyAndVisible()
     }
 
+    dynamic
     func start() {
         router.setRootViewController(sceneContainer, hideBar: true)
 

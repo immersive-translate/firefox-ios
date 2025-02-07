@@ -16,6 +16,7 @@ struct IMSIAPHttpService {
         static let baseURL = "https://test-api2.immersivetranslate.com"
         static let checkoutPath = "/v1/user/ios-pay-checkout-sessions"
         static let configPath = "/v1/payments/ios-pay-config"
+        static let userPath = "/v1/user"
     }
      
     
@@ -85,6 +86,40 @@ struct IMSIAPHttpService {
             
             let decoder = JSONDecoder()
             return try decoder.decode(IMSHttpResponse<IMSResponseConfigData>.self, from: data)
+        } catch {
+            throw NetworkError.requestFailed(error)
+        }
+    }
+    
+    static func getUserInfo(token: String) async throws -> IMSHttpResponse<IMSAccountInfoResp> {
+        guard let url = URL(string: Config.baseURL + Config.userPath) else {
+            throw NetworkError.invalidURL
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        
+        // 设置请求头
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
+        urlRequest.setValue("zh-CN,zh;q=0.9,en;q=0.8", forHTTPHeaderField: "Accept-Language")
+        urlRequest.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        urlRequest.setValue(token, forHTTPHeaderField: "token")
+        
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: urlRequest)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw NetworkError.invalidResponse
+            }
+            
+            guard (200...299).contains(httpResponse.statusCode) else {
+                throw NetworkError.invalidResponse
+            }
+            
+            let decoder = JSONDecoder()
+            return try decoder.decode(IMSHttpResponse<IMSAccountInfoResp>.self, from: data)
         } catch {
             throw NetworkError.requestFailed(error)
         }

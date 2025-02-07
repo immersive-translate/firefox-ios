@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iap_upgrade_bt_icon.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

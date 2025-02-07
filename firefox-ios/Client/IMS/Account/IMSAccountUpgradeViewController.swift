@@ -14,16 +14,16 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     var subscriptionHostingController: UIHostingController<ProSubscriptionSwiftUIView>?
     
-    let token: String
+    let userInfo: IMSAccountInfo
     
     let viewModel: ProSubscriptionViewModel
     
-    init(token: String,
+    init(userInfo: IMSAccountInfo,
          profile: Profile? = nil,
          tabManager: TabManager? = nil,
          windowUUID: WindowUUID) {
-        self.token = token
-        self.viewModel = ProSubscriptionViewModel(token: token)
+        self.userInfo = userInfo
+        self.viewModel = ProSubscriptionViewModel(userInfo: userInfo)
         super.init(windowUUID: windowUUID, profile: profile, tabManager: tabManager)
         self.title = .IMS.Settings.Upgrade
     }

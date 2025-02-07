@@ -4,7 +4,7 @@
 
 
 protocol IMSAccountSettingDelegate: AnyObject {
-    func pressedIMSAccountUpgrade(token: String)
+    func pressedIMSAccountUpgrade(userInfo: IMSAccountInfo)
 }
 
 class IMSAccountUpgradeSetting: Setting {
@@ -29,7 +29,7 @@ class IMSAccountUpgradeSetting: Setting {
     }
     
     override func onClick(_ navigationController: UINavigationController?) {
-        settingsDelegate?.pressedIMSAccountUpgrade(token: userInfo.token)
+        settingsDelegate?.pressedIMSAccountUpgrade(userInfo: userInfo)
     }
     
 }

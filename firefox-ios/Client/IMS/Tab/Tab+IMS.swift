@@ -803,3 +803,37 @@ extension TabWebView: WKUIDelegate {
     }
 
 }
+
+extension TabWebView {
+    func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        return DSUIDelegate?.webView?(webView, createWebViewWith: configuration, for: navigationAction, windowFeatures: windowFeatures)
+        
+    }
+    
+    func webViewDidClose(_ webView: WKWebView) {
+        DSUIDelegate?.webViewDidClose?(webView)
+    }
+    
+    func webView(
+        _ webView: WKWebView,
+        contextMenuConfigurationForElement elementInfo: WKContextMenuElementInfo,
+        completionHandler: @escaping (UIContextMenuConfiguration?) -> Void
+    ) {
+        
+        DSUIDelegate?.webView?(webView, contextMenuConfigurationForElement: elementInfo, completionHandler: completionHandler)
+    }
+    
+    @available(iOS 15, *)
+    func webView(_ webView: WKWebView,
+                 requestMediaCapturePermissionFor origin: WKSecurityOrigin,
+                 initiatedByFrame frame: WKFrameInfo,
+                 type: WKMediaCaptureType,
+                 decisionHandler: @escaping (WKPermissionDecision) -> Void) {
+        DSUIDelegate?.webView?(webView, requestMediaCapturePermissionFor: origin, initiatedByFrame: frame, type: type, decisionHandler: decisionHandler)
+    }
+}

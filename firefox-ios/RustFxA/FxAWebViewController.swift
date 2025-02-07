@@ -19,7 +19,7 @@ enum DismissType {
  */
 class FxAWebViewController: UIViewController {
     fileprivate let dismissType: DismissType
-    fileprivate var webView: WKWebView
+    var webView: WKWebView
     /// Used to show a second WKWebView to browse help links.
     fileprivate var helpBrowser: WKWebView?
     fileprivate let viewModel: FxAWebViewModel
@@ -67,6 +67,12 @@ class FxAWebViewController: UIViewController {
         contentController.add(scriptMessageHandler, name: "accountsCommandHandler")
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        afterInit()
+    }
+    
+    dynamic
+    func afterInit()  {
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

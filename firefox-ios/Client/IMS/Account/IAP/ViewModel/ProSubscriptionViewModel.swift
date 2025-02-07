@@ -24,14 +24,27 @@ class ProSubscriptionViewModel: ObservableObject {
     var infos: [ProSubscriptionInfo] = []
     
     @Published
+    var userInfo: IMSAccountInfo
+    
+    @Published
     var selectedConfiGoodType: IMSResponseConfiGoodType = .yearly
     
     @Published
     var messageType: ProSubscriptionMessageType = .none
     
-    let token: String
-    init(token: String) {
-        self.token = token
+    @Published
+    var showUpgradeAlert: Bool = false
+    
+    init(userInfo: IMSAccountInfo) {
+        self.userInfo = userInfo
+    }
+    
+    deinit {
+        Task {
+            await MainActor.run {
+                SVProgressHUD.dismiss()
+            }
+        }
     }
     
     @MainActor
@@ -39,8 +52,10 @@ class ProSubscriptionViewModel: ObservableObject {
         SVProgressHUD.show()
         Task {
             do {
-                let ret = try await IMSIAPHttpService.getConfig(token: IMSAccountConfig.testToken)
-                guard let channel = ret.data.data.first else {
+                async let configAsync = IMSIAPHttpService.getConfig(token: self.userInfo.token)
+                async let userInfoAsync = IMSIAPHttpService.getUserInfo(token: self.userInfo.token)
+                let (config, userInfo) = try await (configAsync, userInfoAsync)
+                guard let channel = config.data.data.first else {
                     throw SKError(.clientInvalid)
                 }
                 let products = try await IMSAccountManager.shard.iap.getProducts(channel.goods.map{$0.appStoreId})
@@ -61,6 +76,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     self.infos = infos
+                    self.userInfo = IMSAccountInfo(subscription: userInfo.data.subscription, token: self.userInfo.token, email: userInfo.data.email)
                 }
             } catch {
                 await MainActor.run {
@@ -88,7 +104,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
                 
                 let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "")
-                let ret: IMSHttpResponse<IMSResponseOrder> = try await IMSIAPHttpService.getOrder(token: self.token, data: req)
+                let ret: IMSHttpResponse<IMSResponseOrder> = try await IMSIAPHttpService.getOrder(token: self.userInfo.token, data: req)
                 let outTradeNo = ret.data.imtSession.outTradeNo
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {

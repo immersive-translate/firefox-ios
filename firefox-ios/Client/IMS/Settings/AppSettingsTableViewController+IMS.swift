@@ -7,8 +7,8 @@ extension AppSettingsTableViewController {
     func ims_getAccountSetting() -> [SettingSection] {
         guard let userInfo = IMSAccountManager.shard.current() else { return [] }
         var title: String = .FxAFirefoxAccount
-        if !userInfo.email.isEmpty {
-            title += ": \(userInfo.email)"
+        if let email = userInfo.email, !email.isEmpty {
+            title += ": \(email)"
         }
         let accountSectionTitle = NSAttributedString(string: .FxAFirefoxAccount)
         return [

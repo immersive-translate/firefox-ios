@@ -3,6 +3,7 @@ import Combine
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 import SwiftUI
+import StoreKit
 
 struct ProSubscriptionSwiftUIView: View {
     @ObservedObject var viewModel: ProSubscriptionViewModel
@@ -24,6 +25,33 @@ struct ProSubscriptionSwiftUIView: View {
         let percentValue = Int(round(discountRate * 100))
         return "（\(String.IMS.IAP.save)\(percentValue)% ）"
     }
+    
+    func getUpgradeSavePercentString(monthProduct: StoreKit.Product, yearProduct: StoreKit.Product) -> String {
+        let rate = (monthProduct.price - yearProduct.price / 12.0) / monthProduct.price
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent  // 设置为百分比格式
+        formatter.minimumFractionDigits = 0  // 最小小数位数
+        formatter.maximumFractionDigits = 0  // 最大小数位数
+        if let result = formatter.string(from: rate as NSNumber) {
+            return result
+        }
+        return ""
+    }
+    
+    func getYearCurrentPriceString(yearProduct: StoreKit.Product) -> String {
+        return IMSIAPAppleService.formatPrice(product: yearProduct)
+    }
+    
+    func getYearEndTimeString() -> String {
+        let currentDate = Date()
+        if let futureDate = Calendar.current.date(byAdding: .year, value: 1, to: currentDate) {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            let formattedDate = formatter.string(from: futureDate)
+            return formattedDate
+        }
+        return ""
+    }
 
     var body: some View {
         VStack {
@@ -32,6 +60,9 @@ struct ProSubscriptionSwiftUIView: View {
             } else {
                 ZStack {
                     subscriptionView
+                    if viewModel.showUpgradeAlert {
+                        upgradeMessageView
+                    }
                     messageAlertView
                 }
             }
@@ -87,6 +118,269 @@ struct ProSubscriptionSwiftUIView: View {
                 .background(.black.opacity(0.5))
             )
         }
+    }
+    
+    
+    var upgradeMessageView: some View {
+        if let monthProduct = viewModel.infos.first(where: { $0.serverProduct.goodType == .monthly })?.appleProduct,
+           let yearProduct = viewModel.infos.first(where: { $0.serverProduct.goodType == .yearly })?.appleProduct {
+            AnyView(
+                VStack {
+                    ZStack(alignment: .topTrailing) {
+                        VStack(spacing: 0) {
+                            HStack {
+                                Text("升级为年费Pro会员")
+                                    .font(
+                                        Font.custom("Alibaba PuHuiTi 3.0", size: 18)
+                                    )
+                                    .foregroundColor(
+                                        Color(red: 0.2, green: 0.2, blue: 0.2))
+                                
+                                Spacer()
+                            }
+                            Spacer().frame(height: 29)
+                            
+                            HStack(spacing: 0) {
+                                Text("年度套餐每年会比月度套餐节省 ")
+                                    .font(
+                                        Font.custom("Alibaba PuHuiTi 3.0", size: 14)
+                                    )
+                                    .foregroundColor(.black)
+                                
+                                Text("\(getUpgradeSavePercentString(monthProduct: monthProduct, yearProduct: yearProduct))")
+                                    .font(
+                                        Font.custom("Alibaba PuHuiTi 3.0", size: 24)
+                                    )
+                                    .foregroundColor(
+                                        Color(red: 0.92, green: 0.3, blue: 0.54))
+                                
+                                Spacer()
+                            }
+                            
+                            Spacer().frame(height: 21)
+                            
+                            HStack {
+                                Text(
+                                    "现在升级将会立即自动扣款 \(getYearCurrentPriceString(yearProduct: yearProduct))\n(已按比例扣除当前套餐未使用的时间)\n\n新的到期日期为 \(getYearEndTimeString())"
+                                )
+                                .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                                .foregroundColor(.black)
+                                
+                                Spacer()
+                            }
+                            
+                            Spacer().frame(height: 32)
+                            
+                            Button {
+                                viewModel.purchaseProduct()
+                            } label: {
+                                HStack {
+                                    Image("iap_upgrade_bt_icon")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("立即升级")
+                                        .font(
+                                            Font.custom(
+                                                "Alibaba PuHuiTi 3.0", size: 16)
+                                        )
+                                        .foregroundColor(
+                                            Color(red: 1, green: 0.78, blue: 0.21))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 40)
+                                .background(
+                                    LinearGradient(
+                                        stops: [
+                                            Gradient.Stop(
+                                                color: Color(
+                                                    red: 0.13, green: 0.13,
+                                                    blue: 0.13), location: 0.00),
+                                            Gradient.Stop(
+                                                color: Color(
+                                                    red: 0.41, green: 0.41,
+                                                    blue: 0.41), location: 1.00),
+                                        ],
+                                        startPoint: UnitPoint(x: 0.31, y: 1.08),
+                                        endPoint: UnitPoint(x: 0.92, y: 0)
+                                    )
+                                )
+                                
+                                .cornerRadius(8)
+                                .padding(.horizontal, 9)
+                            }
+                            
+                            Spacer().frame(height: 10)
+                            
+                            Button {
+                                viewModel.showUpgradeAlert = false
+                            } label: {
+                                HStack {
+                                    Text("取消")
+                                        .font(
+                                            Font.custom(
+                                                "Alibaba PuHuiTi 3.0", size: 16)
+                                        )
+                                        .foregroundColor(
+                                            Color(red: 0.6, green: 0.6, blue: 0.6))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 40)
+                                .cornerRadius(8)
+                                .padding(.horizontal, 9)
+                            }
+                            
+                        }
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 20)
+                        .frame(maxWidth: .infinity)
+                        .background(.white)
+                        .cornerRadius(8)
+                        
+                        Button {
+                            viewModel.showUpgradeAlert = false
+                        } label: {
+                            HStack {
+                                Image("iap_upgrade_alert_close_icon")
+                                    .resizable()
+                                    .frame(width: 16, height: 16)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(maxHeight: .infinity)
+                        }
+                        .frame(width: 40, height: 40)
+                        .padding(.trailing, 20)
+                        .padding(.top, 20)
+                        
+                    }
+                }
+                    .padding(.horizontal, 27)
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: .infinity)
+                    .background(.black.opacity(0.5))
+            )
+        } else {
+            AnyView(EmptyView())
+        }
+    }
+
+    var subscriptionButtonBgView: some View {
+        if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+            AnyView(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(
+                            color: Color.clear, location: 0.00),
+                        Gradient.Stop(
+                            color: Color.clear, location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.31, y: 1.08),
+                    endPoint: UnitPoint(x: 0.92, y: 0)
+                )
+            )
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .inset(by: 0.5)
+                    .stroke(
+                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+
+            )
+        } else if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+            AnyView(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(
+                            color: Color(
+                                red: 0.13, green: 0.13, blue: 0.13),
+                            location: 0.00),
+                        Gradient.Stop(
+                            color: Color(
+                                red: 0.41, green: 0.41, blue: 0.41),
+                            location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.31, y: 1.08),
+                    endPoint: UnitPoint(x: 0.92, y: 0)
+                )
+            )
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .inset(by: 0.5)
+                    .stroke(
+                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+
+            )
+        } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+            AnyView(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(
+                            color: Color.clear, location: 0.00),
+                        Gradient.Stop(
+                            color: Color.clear, location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.31, y: 1.08),
+                    endPoint: UnitPoint(x: 0.92, y: 0)
+                )
+            )
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .inset(by: 0.5)
+                    .stroke(
+                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+
+            )
+        } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+            AnyView(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(
+                            color: Color.clear, location: 0.00),
+                        Gradient.Stop(
+                            color: Color.clear, location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.31, y: 1.08),
+                    endPoint: UnitPoint(x: 0.92, y: 0)
+                )
+            )
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .inset(by: 0.5)
+                    .stroke(
+                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+
+            )
+        }  else {
+            AnyView(
+                LinearGradient(
+                    stops: [
+                        Gradient.Stop(
+                            color: Color(
+                                red: 0.13, green: 0.13, blue: 0.13),
+                            location: 0.00),
+                        Gradient.Stop(
+                            color: Color(
+                                red: 0.41, green: 0.41, blue: 0.41),
+                            location: 1.00),
+                    ],
+                    startPoint: UnitPoint(x: 0.31, y: 1.08),
+                    endPoint: UnitPoint(x: 0.92, y: 0)
+                )
+            )
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .inset(by: 0.5)
+                    .stroke(
+                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+
+            )
+        }
+
     }
 
     var subscriptionView: some View {
@@ -197,32 +491,81 @@ struct ProSubscriptionSwiftUIView: View {
                     .frame(height: 20)
 
                 Button {
-                    viewModel.purchaseProduct()
+                    if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+                        // 当前月付，选择月付，不处理
+                    } else if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+                        // 当前月付，选择年付，升级, 显示弹窗
+                        viewModel.showUpgradeAlert = true
+                    } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+                        // 当前年付，选择月付，不处理
+                        
+                    } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+                        // 当前年付，选择年付，不处理
+                    } else {
+                        viewModel.purchaseProduct()
+                    }
                 } label: {
-                    Text("\(String.IMS.IAP.subscribeNow)")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(Color(red: 1, green: 0.78, blue: 0.21))
-                        .frame(maxWidth: .infinity)
-                        .frame(maxHeight: .infinity)
+
+                    if let subscriptionType = viewModel.userInfo.subscription?.subscriptionType {
+                        if subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+                            Text("当前套餐")
+                                .font(
+                                    Font.custom("Alibaba PuHuiTi 3.0", size: 16)
+                                )
+                                .foregroundColor(
+                                    Color(red: 0.6, green: 0.6, blue: 0.6))
+                                .frame(maxWidth: .infinity)
+                                .frame(maxHeight: .infinity)
+                            
+                            
+                        } else if subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+                            Text("当前套餐")
+                                .font(
+                                    Font.custom("Alibaba PuHuiTi 3.0", size: 16)
+                                )
+                                .foregroundColor(
+                                    Color(red: 0.6, green: 0.6, blue: 0.6))
+                                .frame(maxWidth: .infinity)
+                                .frame(maxHeight: .infinity)
+
+                        } else if subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+                            HStack {
+                                Image("iap_upgrade_bt_icon")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+
+                                Text("\(String.IMS.Settings.Upgrade)")
+                                    .font(
+                                        Font.custom(
+                                            "Alibaba PuHuiTi 3.0", size: 16)
+                                    )
+                                    .foregroundColor(
+                                        Color(red: 1, green: 0.78, blue: 0.21))
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(maxHeight: .infinity)
+                        } else if subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+                            Text("目前暂不支持降级")
+                              .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
+                              .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+                              .frame(maxWidth: .infinity)
+                              .frame(maxHeight: .infinity)
+                        }
+                    } else {
+                        Text("\(String.IMS.IAP.subscribeNow)")
+                            .font(.system(size: 16, weight: .bold))
+                            .foregroundColor(
+                                Color(red: 1, green: 0.78, blue: 0.21)
+                            )
+                            .frame(maxWidth: .infinity)
+                            .frame(maxHeight: .infinity)
+
+                    }
+
                 }
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
-                .background(
-                    LinearGradient(
-                        stops: [
-                            Gradient.Stop(
-                                color: Color(
-                                    red: 0.13, green: 0.13, blue: 0.13),
-                                location: 0.00),
-                            Gradient.Stop(
-                                color: Color(
-                                    red: 0.41, green: 0.41, blue: 0.41),
-                                location: 1.00),
-                        ],
-                        startPoint: UnitPoint(x: 0.31, y: 1.08),
-                        endPoint: UnitPoint(x: 0.92, y: 0)
-                    )
-                )
+                .background(subscriptionButtonBgView)
                 .cornerRadius(12)
                 .padding(.horizontal, 20)
 
@@ -234,5 +577,5 @@ struct ProSubscriptionSwiftUIView: View {
 }
 
 #Preview {
-    ProSubscriptionSwiftUIView(viewModel: .init(token: ""))
+    ProSubscriptionSwiftUIView(viewModel: .init(userInfo: .init(subscription: nil, token: "", email: "")))
 }

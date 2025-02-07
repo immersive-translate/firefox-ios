@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "iap_upgrade_alert_close_icon.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

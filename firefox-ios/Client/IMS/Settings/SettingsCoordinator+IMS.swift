@@ -10,8 +10,8 @@ import Redux
 
 extension SettingsCoordinator: IMSAccountSettingDelegate {
     
-    func pressedIMSAccountUpgrade(token: String) {
-        let viewController = IMSAccountUpgradeViewController(token: token, windowUUID: windowUUID)
+    func pressedIMSAccountUpgrade(userInfo: IMSAccountInfo) {
+        let viewController = IMSAccountUpgradeViewController(userInfo: userInfo, windowUUID: windowUUID)
         viewController.profile = profile
         viewController.parentCoordinator = self;
         router.push(viewController)
