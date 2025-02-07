@@ -3592,17 +3592,13 @@ extension BrowserViewController: LegacyTabDelegate {
         }
     }
 
+    dynamic
     func tab(_ tab: Tab, willDeleteWebView webView: WKWebView) {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             tab.cancelQueuedAlerts()
             stopObserving(webView: webView)
             self.scrollController.stopObserving(scrollView: webView.scrollView)
-            if let dwkwebView = webView as? DWKWebView {
-                dwkwebView.dsuiDelegate = nil
-            } else {
-                webView.uiDelegate = nil
-            }
             webView.scrollView.delegate = nil
             webView.removeFromSuperview()
         }

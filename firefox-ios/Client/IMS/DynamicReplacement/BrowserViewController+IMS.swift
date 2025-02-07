@@ -13,10 +13,22 @@ extension BrowserViewController {
     @_dynamicReplacement(for: tab(_:didCreateWebView:))
     func ims_tab(_ tab: Tab, didCreateWebView webView: WKWebView) {
         self.tab(tab, didCreateWebView: webView)
-        if let dwkwebView = webView as? DWKWebView {
-            dwkwebView.dsuiDelegate = self
+        if let dwkwebView = webView as? TabWebView {
+            dwkwebView.DSUIDelegate = self
         } else {
             webView.uiDelegate = self
+        }
+    }
+    
+    @_dynamicReplacement(for: tab(_:willDeleteWebView:))
+    func ims_tab(_ tab: Tab, willDeleteWebView webView: WKWebView) {
+        self.tab(tab, willDeleteWebView: webView)
+        DispatchQueue.main.async {
+            if let dwkwebView = webView as? TabWebView {
+                dwkwebView.DSUIDelegate = nil
+            } else {
+                webView.uiDelegate = nil
+            }
         }
     }
     

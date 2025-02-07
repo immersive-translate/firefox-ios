@@ -202,7 +202,8 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
         return section
     }
 
-    private func getLibrarySection() -> [PhotonRowActions] {
+    dynamic
+    func getLibrarySection() -> [PhotonRowActions] {
         var section = [PhotonRowActions]()
 
         if !isFileURL {
@@ -217,13 +218,10 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
 
             let readingListSection = getReadingListSection()
             append(to: &section, action: readingListSection)
-            
-            let imtSettingAction = getImtSettingAction()
-            append(to: &section, action: imtSettingAction)
         }
 
-//        let syncAction = syncMenuButton()
-//        append(to: &section, action: syncAction)
+        let syncAction = syncMenuButton()
+        append(to: &section, action: syncAction)
 
         return section
     }
@@ -440,10 +438,11 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
         }.items
     }
 
-    private func getHelpAction() -> PhotonRowActions {
+    dynamic
+    func getHelpAction() -> PhotonRowActions {
         return SingleActionViewModel(title: .LegacyAppMenu.Help,
                                      iconString: StandardImageIdentifiers.Large.helpCircle) { _ in
-            if let url = URL(string: "https://immersivetranslate.com/docs/usage/") {
+            if let url = URL(string: "https://support.mozilla.org/products/ios") {
                 self.delegate?.openURLInNewTab(url, isPrivate: self.tabManager.selectedTab?.isPrivate ?? false)
             }
             TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .help)
@@ -501,7 +500,8 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
         return items
     }
 
-    private func syncMenuButton() -> PhotonRowActions? {
+    dynamic
+    func syncMenuButton() -> PhotonRowActions? {
         let action: (SingleActionViewModel) -> Void = { [weak self] action in
             let fxaParams = FxALaunchParams(entrypoint: .browserMenu, query: [:])
             let parameters = FxASignInViewParameters(launchParameters: fxaParams,
@@ -701,16 +701,6 @@ class MainMenuActionHelper: PhotonActionSheetProtocol,
                                          object: .readingListItem,
                                          value: .pageActionMenu)
         }
-    }
-    
-    private func getImtSettingAction() -> PhotonRowActions {
-        return SingleActionViewModel(title: .LegacyAppMenu.IMTSetting,
-                                     iconString: StandardImageIdentifiers.Large.settings) { _ in
-            if let url = URL(string: "https://dash.immersivetranslate.com/") {
-                self.delegate?.openURLInNewTab(url, isPrivate: false)
-            }
-            TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .imtSettings)
-        }.items
     }
 
     // MARK: Bookmark

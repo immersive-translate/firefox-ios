@@ -320,6 +320,9 @@
 		292E28CF2D2D54460096B370 /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 292E28CE2D2D54410096B370 /* set-language.js */; };
 		292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D22D2D56B00096B370 /* ImtSitesCell.swift */; };
 		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
+		294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */; };
+		294666BA2D55B96800BB9196 /* HeaderView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B92D55B96500BB9196 /* HeaderView+IMS.swift */; };
+		294666C12D55D84E00BB9196 /* TabWebViewHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 294666C02D55D84E00BB9196 /* TabWebViewHook.m */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
 		295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166202D2C109000CAD566 /* immersive-translate.user.js */; };
 		295166242D2C109000CAD566 /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166212D2C109000CAD566 /* mock_gm.js */; };
@@ -2602,6 +2605,10 @@
 		292E28CE2D2D54410096B370 /* set-language.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
 		292E28D22D2D56B00096B370 /* ImtSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesCell.swift; sourceTree = "<group>"; };
 		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
+		294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuActionHelper+IMS.swift"; sourceTree = "<group>"; };
+		294666B92D55B96500BB9196 /* HeaderView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderView+IMS.swift"; sourceTree = "<group>"; };
+		294666BF2D55D84E00BB9196 /* TabWebViewHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabWebViewHook.h; sourceTree = "<group>"; };
+		294666C02D55D84E00BB9196 /* TabWebViewHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabWebViewHook.m; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
 		295166202D2C109000CAD566 /* immersive-translate.user.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
 		295166212D2C109000CAD566 /* mock_gm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mock_gm.js; sourceTree = "<group>"; };
@@ -5335,6 +5342,8 @@
 			isa = PBXGroup;
 			children = (
 				290863C52D53DF2A0080F05D /* Tab+IMS.swift */,
+				294666BF2D55D84E00BB9196 /* TabWebViewHook.h */,
+				294666C02D55D84E00BB9196 /* TabWebViewHook.m */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
@@ -5345,6 +5354,26 @@
 				290863C82D552E2C0080F05D /* SplashScreenAnimation+IMS.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		294666B62D55AAA200BB9196 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				294666B92D55B96500BB9196 /* HeaderView+IMS.swift */,
+				294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		294666BB2D55BB2D00BB9196 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
+				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
+				295166312D2C10A300CAD566 /* JSObject */,
+				2951662E2D2C10A300CAD566 /* dsbridge */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2951662E2D2C10A300CAD566 /* dsbridge */ = {
@@ -5377,6 +5406,8 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				294666BB2D55BB2D00BB9196 /* Utils */,
+				294666B62D55AAA200BB9196 /* Menu */,
 				290863C72D552E240080F05D /* Launch */,
 				290863C42D53DEF60080F05D /* Tab */,
 				29B9C9AC2D3F3B1B00365400 /* Helpers */,
@@ -5452,6 +5483,7 @@
 			children = (
 				29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */,
 				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
+				292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */,
 				29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */,
 			);
 			path = Settings;
@@ -7198,7 +7230,6 @@
 			isa = PBXGroup;
 			children = (
 				292E28CC2D2C3AE80096B370 /* AbountAppSetting.swift */,
-				292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */,
 				8ADC2A1A2A33998100543DAA /* AppStoreReviewSetting.swift */,
 				8ADC2A1E2A3399BD00543DAA /* LicenseAndAcknowledgementsSetting.swift */,
 				8ADC2A1C2A33999800543DAA /* VersionSetting.swift */,
@@ -9033,10 +9064,6 @@
 		E65075551E37F714006961AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
-				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
-				2951662E2D2C10A300CAD566 /* dsbridge */,
-				295166312D2C10A300CAD566 /* JSObject */,
 				5AD3B67D2CF665AE00AFA1FE /* UIApplicationInterface.swift */,
 				5AD3B67B2CF65DE300AFA1FE /* LocaleInterface.swift */,
 				8A13FA8C2AD834FA007527AB /* BackgroundTabLoader.swift */,
@@ -11789,6 +11816,7 @@
 				C8163851268A0899004C7160 /* AddCredentialViewController.swift in Sources */,
 				8A19ACB22A3290AE001C2147 /* ClearPrivateDataSetting.swift in Sources */,
 				8A9B87AF2C1B39EA0042B894 /* SearchListSection.swift in Sources */,
+				294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */,
 				CA520E7A24913C1B00CCAB48 /* PasswordManagerViewModel.swift in Sources */,
 				8AE1E1CD27B191110024C45E /* SearchBarSettingsViewModel.swift in Sources */,
 				43D16B8529831EA5009F8279 /* Style.swift in Sources */,
@@ -11891,6 +11919,7 @@
 				3BB50E201D627539004B33DF /* LegacyHomepageViewController.swift in Sources */,
 				C82A94F3269F68F300624AA7 /* CoreFlaggableFeature.swift in Sources */,
 				F84B22241A09122500AAB793 /* LibraryViewController.swift in Sources */,
+				294666BA2D55B96800BB9196 /* HeaderView+IMS.swift in Sources */,
 				E16941B82C5119A200FF5F4E /* Autocompletable.swift in Sources */,
 				39455F771FC83F430088A22C /* TabEventHandler.swift in Sources */,
 				8A36BE2929EDBC6900AC1C5C /* ContentContainer.swift in Sources */,
@@ -12131,6 +12160,7 @@
 				8AB8572E27D94A1A0075C173 /* UXSizeClass.swift in Sources */,
 				965C3C8F29313A1B006499ED /* AppSessionManager.swift in Sources */,
 				ED07C0EF2CCAE856006C0627 /* SearchEngineSelectionMiddleware.swift in Sources */,
+				294666C12D55D84E00BB9196 /* TabWebViewHook.m in Sources */,
 				45D5EDA729269F7500311934 /* DataObserver.swift in Sources */,
 				81A3F6F02C2DAEE200BDD86B /* MainMenuCoordinator.swift in Sources */,
 				961577922A38FDB300391E8D /* SponsoredTileDataUtility.swift in Sources */,

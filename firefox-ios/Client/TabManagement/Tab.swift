@@ -1102,7 +1102,7 @@ protocol TabWebViewDelegate: AnyObject {
     func tabWebViewShouldShowAccessoryView(_ tabWebView: TabWebView) -> Bool
 }
 
-class TabWebView: DWKWebView, MenuHelperWebViewInterface, ThemeApplicable {
+class TabWebView: WKWebView, MenuHelperWebViewInterface, ThemeApplicable {
     lazy var accessoryView = AccessoryViewProvider(windowUUID: windowUUID)
     private var logger: Logger = DefaultLogger.shared
     private weak var delegate: TabWebViewDelegate?
@@ -1121,6 +1121,7 @@ class TabWebView: DWKWebView, MenuHelperWebViewInterface, ThemeApplicable {
         return accessoryView
     }
 
+    dynamic
     func configure(delegate: TabWebViewDelegate,
                    navigationDelegate: WKNavigationDelegate?) {
         self.delegate = delegate
