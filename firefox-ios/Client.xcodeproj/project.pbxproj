@@ -322,7 +322,6 @@
 		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
 		294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */; };
 		294666BA2D55B96800BB9196 /* HeaderView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B92D55B96500BB9196 /* HeaderView+IMS.swift */; };
-		294666C12D55D84E00BB9196 /* TabWebViewHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 294666C02D55D84E00BB9196 /* TabWebViewHook.m */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
 		295166232D2C109000CAD566 /* immersive-translate.user.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166202D2C109000CAD566 /* immersive-translate.user.js */; };
 		295166242D2C109000CAD566 /* mock_gm.js in Resources */ = {isa = PBXBuildFile; fileRef = 295166212D2C109000CAD566 /* mock_gm.js */; };
@@ -2607,8 +2606,6 @@
 		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
 		294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuActionHelper+IMS.swift"; sourceTree = "<group>"; };
 		294666B92D55B96500BB9196 /* HeaderView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderView+IMS.swift"; sourceTree = "<group>"; };
-		294666BF2D55D84E00BB9196 /* TabWebViewHook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabWebViewHook.h; sourceTree = "<group>"; };
-		294666C02D55D84E00BB9196 /* TabWebViewHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabWebViewHook.m; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
 		295166202D2C109000CAD566 /* immersive-translate.user.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "immersive-translate.user.js"; sourceTree = "<group>"; };
 		295166212D2C109000CAD566 /* mock_gm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = mock_gm.js; sourceTree = "<group>"; };
@@ -5342,8 +5339,6 @@
 			isa = PBXGroup;
 			children = (
 				290863C52D53DF2A0080F05D /* Tab+IMS.swift */,
-				294666BF2D55D84E00BB9196 /* TabWebViewHook.h */,
-				294666C02D55D84E00BB9196 /* TabWebViewHook.m */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
@@ -12160,7 +12155,6 @@
 				8AB8572E27D94A1A0075C173 /* UXSizeClass.swift in Sources */,
 				965C3C8F29313A1B006499ED /* AppSessionManager.swift in Sources */,
 				ED07C0EF2CCAE856006C0627 /* SearchEngineSelectionMiddleware.swift in Sources */,
-				294666C12D55D84E00BB9196 /* TabWebViewHook.m in Sources */,
 				45D5EDA729269F7500311934 /* DataObserver.swift in Sources */,
 				81A3F6F02C2DAEE200BDD86B /* MainMenuCoordinator.swift in Sources */,
 				961577922A38FDB300391E8D /* SponsoredTileDataUtility.swift in Sources */,
