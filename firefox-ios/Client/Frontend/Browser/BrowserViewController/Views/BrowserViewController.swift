@@ -3998,6 +3998,7 @@ extension BrowserViewController: TabManagerDelegate {
         }
     }
 
+    dynamic
     func tabManager(_ tabManager: TabManager, didAddTab tab: Tab, placeNextToParentTab: Bool, isRestoring: Bool) {
         // If we are restoring tabs then we update the count once at the end
         if !isRestoring {

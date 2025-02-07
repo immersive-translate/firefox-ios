@@ -18,6 +18,7 @@ struct SplashScreenAnimation {
         animationView = LottieAnimationView(name: "splashScreen.json")
     }
 
+    dynamic
     func configureAnimation(with view: UIView) {
         setupAnimation(with: view)
         playAnimation(with: view)

@@ -518,6 +518,7 @@ class Tab: NSObject, ThemeApplicable, FeatureFlaggable, ShareTab {
         }
     }
 
+    dynamic
     func createWebview(with restoreSessionData: Data? = nil, configuration: WKWebViewConfiguration) {
         self.configuration = configuration
         if webView == nil {
