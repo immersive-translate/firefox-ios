@@ -380,6 +380,61 @@ extension String {
                             comment: "")
             
             
+            public static let upgradetoAnnualProMembership = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership",
+                            tableName: "IMSAccount",
+                            value: "Upgrade to Annual Pro Membership",
+                            comment: "")
+            
+            public static let theAnnualPlanSaves = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.The annual plan saves",
+                            tableName: "IMSAccount",
+                            value: "The annual plan saves %@ per year compared to the monthly plan",
+                            comment: "")
+            
+            public static let upgradingNowWillAutomaticallyDeduct = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrading now will automatically deduct",
+                            tableName: "IMSAccount",
+                            value: "Upgrading now will automatically deduct %@ immediately (the unused time of the current package has been deducted in proportion)",
+                            comment: "")
+            
+            
+            public static let theUnusedTimeOfTheCurrentPackage = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.the unused time of the current package",
+                            tableName: "IMSAccount",
+                            value: "(the unused time of the current package has been deducted in proportion)",
+                            comment: "")
+          
+            public static let newExpirationDate = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.New expiration date",
+                            tableName: "IMSAccount",
+                            value: "New expiration date is %@",
+                            comment: "")
+           
+            public static let upgradeNow  = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade Now",
+                            tableName: "IMSAccount",
+                            value: "Upgrade Now",
+                            comment: "")
+           
+            
+             public static let Cancel = MZLocalizedString(
+                             key: "Settings.IMSAccount.IAP.Cancel",
+                             tableName: "IMSAccount",
+                             value: "Cancel",
+                             comment: "")
+          
+            public static let currentPlan = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.currentPlan",
+                            tableName: "IMSAccount",
+                            value: "currentPlan",
+                            comment: "")
+           
+            public static let downgradingIsNotSupported = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.downgradingIsNotSupported",
+                            tableName: "IMSAccount",
+                            value: "downgradingIsNotSupported",
+                            comment: "")
         }
     }
 }

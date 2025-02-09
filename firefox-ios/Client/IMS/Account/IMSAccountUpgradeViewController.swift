@@ -10,7 +10,7 @@ import SVProgressHUD
 import SwiftUI
 
 class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen {
-    var parentCoordinator: SettingsFlowDelegate?
+    weak var parentCoordinator: SettingsFlowDelegate?
     
     var subscriptionHostingController: UIHostingController<ProSubscriptionSwiftUIView>?
     
@@ -46,6 +46,11 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
             hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
         self.subscriptionHostingController = hostingController
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        SVProgressHUD.dismiss()
     }
     
     

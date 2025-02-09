@@ -129,7 +129,7 @@ struct ProSubscriptionSwiftUIView: View {
                     ZStack(alignment: .topTrailing) {
                         VStack(spacing: 0) {
                             HStack {
-                                Text("升级为年费Pro会员")
+                                Text("\(String.IMS.IAP.upgradetoAnnualProMembership)")
                                     .font(
                                         Font.custom("Alibaba PuHuiTi 3.0", size: 18)
                                     )
@@ -141,7 +141,7 @@ struct ProSubscriptionSwiftUIView: View {
                             Spacer().frame(height: 29)
                             
                             HStack(spacing: 0) {
-                                Text("年度套餐每年会比月度套餐节省 ")
+                                Text("\(String.IMS.IAP.theAnnualPlanSaves)")
                                     .font(
                                         Font.custom("Alibaba PuHuiTi 3.0", size: 14)
                                     )
@@ -159,12 +159,22 @@ struct ProSubscriptionSwiftUIView: View {
                             
                             Spacer().frame(height: 21)
                             
-                            HStack {
-                                Text(
-                                    "现在升级将会立即自动扣款 \(getYearCurrentPriceString(yearProduct: yearProduct))\n(已按比例扣除当前套餐未使用的时间)\n\n新的到期日期为 \(getYearEndTimeString())"
-                                )
-                                .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
-                                .foregroundColor(.black)
+                            HStack(spacing: 0) {
+                                Text("\(String.IMS.IAP.upgradingNowWillAutomaticallyDeduct)")
+                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                                    .foregroundColor(.black)
+                                Text(" \(getYearCurrentPriceString(yearProduct: yearProduct))")
+                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                                    .foregroundColor(Color(red: 0.92, green: 0.3, blue: 0.54))
+                                
+                                
+                                Spacer()
+                            }
+                            HStack(spacing: 0) {
+                                Text("\(String.IMS.IAP.theUnusedTimeOfTheCurrentPackage)")
+                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                                    .foregroundColor(.black)
+                                
                                 
                                 Spacer()
                             }
@@ -179,7 +189,7 @@ struct ProSubscriptionSwiftUIView: View {
                                         .resizable()
                                         .frame(width: 20, height: 20)
                                     
-                                    Text("立即升级")
+                                    Text("\(String.IMS.IAP.upgradeNow)")
                                         .font(
                                             Font.custom(
                                                 "Alibaba PuHuiTi 3.0", size: 16)
@@ -216,7 +226,7 @@ struct ProSubscriptionSwiftUIView: View {
                                 viewModel.showUpgradeAlert = false
                             } label: {
                                 HStack {
-                                    Text("取消")
+                                    Text("\(String.IMS.IAP.Cancel)")
                                         .font(
                                             Font.custom(
                                                 "Alibaba PuHuiTi 3.0", size: 16)
@@ -508,7 +518,7 @@ struct ProSubscriptionSwiftUIView: View {
 
                     if let subscriptionType = viewModel.userInfo.subscription?.subscriptionType {
                         if subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
-                            Text("当前套餐")
+                            Text("\(String.IMS.IAP.currentPlan)")
                                 .font(
                                     Font.custom("Alibaba PuHuiTi 3.0", size: 16)
                                 )
@@ -519,7 +529,7 @@ struct ProSubscriptionSwiftUIView: View {
                             
                             
                         } else if subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
-                            Text("当前套餐")
+                            Text("\(String.IMS.IAP.currentPlan)")
                                 .font(
                                     Font.custom("Alibaba PuHuiTi 3.0", size: 16)
                                 )
@@ -545,7 +555,7 @@ struct ProSubscriptionSwiftUIView: View {
                             .frame(maxWidth: .infinity)
                             .frame(maxHeight: .infinity)
                         } else if subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
-                            Text("目前暂不支持降级")
+                            Text("\(String.IMS.IAP.downgradingIsNotSupported)")
                               .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                               .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
                               .frame(maxWidth: .infinity)

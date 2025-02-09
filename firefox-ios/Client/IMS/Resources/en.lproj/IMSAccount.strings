@@ -30,3 +30,12 @@
 "Settings.IMSAccount.IAP.Aler Confirm" = "OK";
 "Settings.IMSAccount.IAP.You have successfully subscribed" = "You have successfully subscribed";
 "Settings.IMSAccount.IAP.You have fail subscribed" = "Your subscription has failed";
+"Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "Upgrade to Annual Pro Membership";
+"Settings.IMSAccount.IAP.The annual plan saves" = "Annual plans save more per year compared to monthly plans, up to";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "Upgrade now and the amount will be automatically charged immediately,";
+"Settings.IMSAccount.IAP.the unused time of the current package" = "(the unused time of the current package has been deducted in proportion)";
+"Settings.IMSAccount.IAP.New expiration date" = "New expiration date is %@";
+"Settings.IMSAccount.IAP.Upgrade Now" = "Upgrade Now";
+"Settings.IMSAccount.IAP.Cancel" = "Cancel";
+"Settings.IMSAccount.IAP.Current Plan" = "Current Plan";
+"Settings.IMSAccount.IAP.Downgrading is not supported" = "Downgrading is not supported";
