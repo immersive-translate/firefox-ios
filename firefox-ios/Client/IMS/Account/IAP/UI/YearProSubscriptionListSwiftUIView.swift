@@ -13,7 +13,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                         Text("\(String.IMS.IAP.proExclusiveAITranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
-                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.proExclusiveAITranslation)")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.proExclusiveAITranslationtip)")
                             .frame(width: 16, height: 16)
                         
                         Spacer()
@@ -93,7 +93,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                     
                            
-                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.pdfPro)")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.pdfProtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -111,7 +111,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                        
-                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.mangaTranslation)")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.mangaTranslationtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -159,7 +159,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                      
                           
-                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.priorityEmailSupport)")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.priorityEmailSupporttip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         

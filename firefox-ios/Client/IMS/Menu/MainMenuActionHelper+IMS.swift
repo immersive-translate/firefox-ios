@@ -22,7 +22,7 @@ extension MainMenuActionHelper {
     private func getImtSettingAction() -> PhotonRowActions {
         return SingleActionViewModel(title: .LegacyAppMenu.IMTSetting,
                                      iconString: StandardImageIdentifiers.Large.settings) { _ in
-            if let url = URL(string: "https://dash.immersivetranslate.com/") {
+            if let url = URL(string: IMSAppUrlConfig.dash) {
                 self.delegate?.openURLInNewTab(url, isPrivate: false)
             }
             TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .imtSettings)
@@ -33,7 +33,7 @@ extension MainMenuActionHelper {
     func ims_getHelpAction() -> PhotonRowActions {
         return SingleActionViewModel(title: .LegacyAppMenu.Help,
                                      iconString: StandardImageIdentifiers.Large.helpCircle) { _ in
-            if let url = URL(string: "https://immersivetranslate.com/docs/usage/") {
+            if let url = URL(string: IMSAppUrlConfig.usage) {
                 self.delegate?.openURLInNewTab(url, isPrivate: self.tabManager.selectedTab?.isPrivate ?? false)
             }
             TelemetryWrapper.recordEvent(category: .action, method: .tap, object: .help)
@@ -63,7 +63,7 @@ extension MainMenuConfigurationUtility {
                         actionType: MainMenuActionType.tapNavigateToDestination,
                         navigationDestination: MenuNavigationDestination(
                             .goToURL,
-                            url: URL(string: "https://dash.immersivetranslate.com/")
+                            url: URL(string: IMSAppUrlConfig.dash)
                         ),
                         telemetryInfo: TelemetryInfo(isHomepage: tabInfo.isHomepage)
                     )
@@ -149,7 +149,7 @@ extension MainMenuConfigurationUtility {
                             actionType: MainMenuActionType.tapNavigateToDestination,
                             navigationDestination: MenuNavigationDestination(
                                 .goToURL,
-                                url: URL(string: "https://immersivetranslate.com/docs/CHANGELOG/")
+                                url: URL(string: IMSAppUrlConfig.changelog)
                             ),
                             telemetryInfo: TelemetryInfo(isHomepage: tabInfo.isHomepage)
                         )
@@ -174,7 +174,7 @@ extension MainMenuConfigurationUtility {
                             actionType: MainMenuActionType.tapNavigateToDestination,
                             navigationDestination: MenuNavigationDestination(
                                 .goToURL,
-                                url: URL(string: "https://immersivetranslate.com/docs/usage/")
+                                url: URL(string: IMSAppUrlConfig.usage)
                             ),
                             telemetryInfo: TelemetryInfo(isHomepage: tabInfo.isHomepage)
                         )

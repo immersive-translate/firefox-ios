@@ -317,13 +317,13 @@ class IMSLaunchScreenViewController: UIViewController, LaunchFinishedLoadingDele
         if URL.scheme  == UX.userProtocolScheme {
             let viewController = SettingsContentViewController(windowUUID: windowUUID)
             viewController.settingsTitle = NSAttributedString(string: .ImtLocalizableUserAgreementTitle)
-            viewController.url = Foundation.URL(string: "https://immersivetranslate.com/docs/TERMS/")
+            viewController.url = Foundation.URL(string: IMSAppUrlConfig.terms)
             self.navigationController?.pushViewController(viewController, animated: true);
             return false
         } else if URL.scheme == UX.privacyPolicyScheme {
             let viewController = SettingsContentViewController(windowUUID: windowUUID)
             viewController.settingsTitle = NSAttributedString(string: .ImtLocalizablePrivacyPolicyTitle)
-            viewController.url = Foundation.URL(string: "https://immersivetranslate.com/docs/PRIVACY/")
+            viewController.url = Foundation.URL(string: IMSAppUrlConfig.privacy)
             self.navigationController?.pushViewController(viewController, animated: true);
             return false
         }

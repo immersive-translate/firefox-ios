@@ -316,6 +316,7 @@
 		290863CF2D5625FD0080F05D /* FxAWebViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */; };
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
+		291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -395,6 +396,7 @@
 		29F4D6A92D413FA200BA6F44 /* CustomPopoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6A82D413FA200BA6F44 /* CustomPopoverModifier.swift */; };
 		29F4D6AD2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */; };
 		29F87B412D5A545F0013C044 /* MainMenuViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */; };
+		29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B432D5B6E520013C044 /* IMSAppManager.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2605,6 +2607,7 @@
 		290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FxAWebViewController+IMS.swift"; sourceTree = "<group>"; };
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
+		291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppName+IMS.swift"; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -2685,6 +2688,7 @@
 		29F4D6A82D413FA200BA6F44 /* CustomPopoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopoverModifier.swift; sourceTree = "<group>"; };
 		29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPopverTipIcon.swift; sourceTree = "<group>"; };
 		29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuViewController+IMS.swift"; sourceTree = "<group>"; };
+		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5437,6 +5441,7 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				29F87B422D5B6E470013C044 /* Global */,
 				294090F62D5B0D3000C23DD6 /* Browser */,
 				291AADC42D5AED580046DB22 /* State */,
 				290863CD2D5625A60080F05D /* RustFxA */,
@@ -5600,6 +5605,15 @@
 				29909E872D37D9D8005C0328 /* IMSIAPAppleService.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29F87B422D5B6E470013C044 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */,
+				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -11393,6 +11407,7 @@
 				E1A6AB4628CA6A4C00EBEBDD /* String+Extension.swift in Sources */,
 				1D2F68AF2ACB272500524B92 /* RemoteTabsTableViewController.swift in Sources */,
 				ED07C0ED2CCAE745006C0627 /* SearchEngineSelectionAction.swift in Sources */,
+				29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */,
 				8AABBCFC2A0010900089941E /* GleanWrapper.swift in Sources */,
 				8C92DE912A7128CB0090BD28 /* ProductAnalysisResponse.swift in Sources */,
 				292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */,
@@ -12324,6 +12339,7 @@
 				9609F4CA26B57CE800F81493 /* Calendar+Extension.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
 				ED7A08DF2CF674BA0035EC8F /* ShareTab.swift in Sources */,
+				291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */,
 				DFA51481275FFEE500266AA0 /* HistoryHighlightsManager.swift in Sources */,
 				81C3E6092C93261A00A19A5A /* MainMenuDetailsViewController.swift in Sources */,
 				8ADC2A182A33775F00543DAA /* FxASignInViewParameters.swift in Sources */,

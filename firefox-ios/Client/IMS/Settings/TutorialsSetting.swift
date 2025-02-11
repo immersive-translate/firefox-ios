@@ -10,7 +10,7 @@ class TutorialsSetting: Setting {
     private weak var settingsDelegate: AboutSettingsDelegate?
 
     override var url: URL? {
-        return URL(string: "https://immersivetranslate.com/docs/usage")
+        return URL(string: IMSAppUrlConfig.usage)
     }
 
     init(theme: Theme,

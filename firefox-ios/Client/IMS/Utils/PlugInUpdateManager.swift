@@ -11,7 +11,7 @@ extension Notification.Name {
 
 class PlugInUpdateManager {
     public static let shared = PlugInUpdateManager()
-    private static let url = "https://download.immersivetranslate.com/immersive-translate.user.js";
+    private static let url = IMSAppUrlConfig.immersiveTranslateUser;
     private static let resouceNameCacheKey = "resouceNameCacheKey";
     private static let resouceEtagCacheKey = "resouceEtagCacheKey";
     private let cacheDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0];

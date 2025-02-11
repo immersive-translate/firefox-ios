@@ -270,6 +270,12 @@ extension String {
                 tableName: "IMSAccount",
                 value: "Pro-exclusive world-class AI translation service",
                 comment: "")
+            public static let proExclusiveAITranslationtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip",
+                tableName: "IMSAccount",
+                value: "Pro-exclusive world-class AI translation service",
+                comment: "")
+            
             
             public static let deeplTranslation = MZLocalizedString(
                 key: "Settings.IMSAccount.IAP.DeepL Translation",
@@ -307,8 +313,20 @@ extension String {
                 value: "PDF Pro",
                 comment: "")
             
+            public static let pdfProtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.PDF Pro tip",
+                tableName: "IMSAccount",
+                value: "PDF Pro",
+                comment: "")
+            
+            
             public static let mangaTranslation = MZLocalizedString(
                 key: "Settings.IMSAccount.IAP.Manga Translation",
+                tableName: "IMSAccount",
+                value: "Manga Translation",
+                comment: "")
+            public static let mangaTranslationtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Manga Translation tip",
                 tableName: "IMSAccount",
                 value: "Manga Translation",
                 comment: "")
@@ -327,6 +345,11 @@ extension String {
             
             public static let priorityEmailSupport = MZLocalizedString(
                 key: "Settings.IMSAccount.IAP.Priority email support",
+                tableName: "IMSAccount",
+                value: "Priority email support",
+                comment: "")
+            public static let priorityEmailSupporttip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Priority email support tip",
                 tableName: "IMSAccount",
                 value: "Priority email support",
                 comment: "")
