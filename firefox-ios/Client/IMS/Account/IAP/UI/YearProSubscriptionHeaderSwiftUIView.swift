@@ -17,7 +17,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
     
     var getYearOriginPriceString: String {
     
-        let discoutRate = info.serverProduct.discountRate
+        let discoutRate = 1 - info.serverProduct.discountRate
         let currentPrice = info.appleProduct.price
         let discountDecimal = Decimal(floatLiteral: discoutRate)
         let originPrice = if discoutRate > 0 {
@@ -30,7 +30,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
     }
     
     var getSavedMoneyString: String {
-        let discoutRate = info.serverProduct.discountRate
+        let discoutRate = 1 - info.serverProduct.discountRate
         let currentPrice = info.appleProduct.price
         
         // 计算原价
@@ -177,7 +177,9 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             }
                             .padding(.leading, 24)
                             .padding(.top, 8)
-                            .padding(.bottom, 20)
+                            
+                            Spacer()
+                                .frame(height: 30)
                             
                         }
                         .foregroundColor(.clear)
@@ -222,9 +224,10 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                                 blue: 0.54))
                                 }
                                 .foregroundColor(.clear)
-                                .frame(height: 30)
+                                
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 5)
+                                .frame(height: 30)
                                 .background(
                                     LinearGradient(
                                         stops: [

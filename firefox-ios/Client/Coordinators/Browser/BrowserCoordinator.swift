@@ -597,6 +597,12 @@ class BrowserCoordinator: BaseCoordinator,
             popoverArrowDirection: .any
         )
     }
+    
+    func showCustomViewController(vc: UIViewController) {
+        let navigationController = DismissableNavigationViewController()
+        navigationController.setViewControllers([vc], animated: false)
+        present(navigationController)
+    }
 
     private func makeMenuNavViewController() -> DismissableNavigationViewController? {
         if let mainMenuCoordinator = childCoordinators.first(where: { $0 is MainMenuCoordinator }) as? MainMenuCoordinator {

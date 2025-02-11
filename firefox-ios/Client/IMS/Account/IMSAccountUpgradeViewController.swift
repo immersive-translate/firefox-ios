@@ -14,11 +14,11 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     var subscriptionHostingController: UIHostingController<ProSubscriptionSwiftUIView>?
     
-    let userInfo: IMSAccountInfo
+    let userInfo: IMSAccountInfo?
     
     let viewModel: ProSubscriptionViewModel
     
-    init(userInfo: IMSAccountInfo,
+    init(userInfo: IMSAccountInfo?,
          profile: Profile? = nil,
          tabManager: TabManager? = nil,
          windowUUID: WindowUUID) {

@@ -4,11 +4,11 @@
 
 
 protocol IMSAccountSettingDelegate: AnyObject {
-    func pressedIMSAccountUpgrade(userInfo: IMSAccountInfo)
+    func pressedIMSAccountUpgrade(userInfo: IMSAccountInfo?)
 }
 
 class IMSAccountUpgradeSetting: Setting {
-    let userInfo: IMSAccountInfo
+    let userInfo: IMSAccountInfo?
     private weak var settingsDelegate: IMSAccountSettingDelegate?
     
     override var accessoryView: UIImageView? {
@@ -22,7 +22,7 @@ class IMSAccountUpgradeSetting: Setting {
                                   attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary])
     }
     
-    init(settingsDelegate: IMSAccountSettingDelegate?, userInfo: IMSAccountInfo) {
+    init(settingsDelegate: IMSAccountSettingDelegate?, userInfo: IMSAccountInfo?) {
         self.settingsDelegate = settingsDelegate
         self.userInfo = userInfo
         super.init(title: nil)

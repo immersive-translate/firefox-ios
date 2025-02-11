@@ -39,7 +39,7 @@ class MainMenuViewController: UIViewController,
     var themeObserver: NSObjectProtocol?
     weak var coordinator: MainMenuCoordinator?
 
-    private let windowUUID: WindowUUID
+    let windowUUID: WindowUUID
     private let profile: Profile
     private var menuState: MainMenuState
     private let logger: Logger
@@ -275,6 +275,7 @@ class MainMenuViewController: UIViewController,
         )
     }
 
+    dynamic
     func newState(state: MainMenuState) {
         menuState = state
 

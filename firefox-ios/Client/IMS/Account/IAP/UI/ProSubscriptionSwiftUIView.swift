@@ -20,7 +20,7 @@ struct ProSubscriptionSwiftUIView: View {
         else {
             return ""
         }
-        let discountRate = 1 - info.serverProduct.discountRate
+        let discountRate = info.serverProduct.discountRate
         // 将折扣率转换为百分比并四舍五入到整数
         let percentValue = Int(round(discountRate * 100))
         return "（\(String.IMS.IAP.save)\(percentValue)% ）"
@@ -276,7 +276,7 @@ struct ProSubscriptionSwiftUIView: View {
     }
 
     var subscriptionButtonBgView: some View {
-        if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+        if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
             AnyView(
                 LinearGradient(
                     stops: [
@@ -297,7 +297,7 @@ struct ProSubscriptionSwiftUIView: View {
                         Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
 
             )
-        } else if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+        } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
             AnyView(
                 LinearGradient(
                     stops: [
@@ -322,7 +322,7 @@ struct ProSubscriptionSwiftUIView: View {
                         Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
 
             )
-        } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+        } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
             AnyView(
                 LinearGradient(
                     stops: [
@@ -343,7 +343,7 @@ struct ProSubscriptionSwiftUIView: View {
                         Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
 
             )
-        } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+        } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
             AnyView(
                 LinearGradient(
                     stops: [
@@ -501,22 +501,22 @@ struct ProSubscriptionSwiftUIView: View {
                     .frame(height: 20)
 
                 Button {
-                    if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+                    if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
                         // 当前月付，选择月付，不处理
-                    } else if viewModel.userInfo.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+                    } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
                         // 当前月付，选择年付，升级, 显示弹窗
                         viewModel.showUpgradeAlert = true
-                    } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+                    } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
                         // 当前年付，选择月付，不处理
                         
-                    } else if viewModel.userInfo.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+                    } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
                         // 当前年付，选择年付，不处理
                     } else {
                         viewModel.purchaseProduct()
                     }
                 } label: {
 
-                    if let subscriptionType = viewModel.userInfo.subscription?.subscriptionType {
+                    if let subscriptionType = viewModel.userInfo?.subscription?.subscriptionType {
                         if subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
                             Text("\(String.IMS.IAP.currentPlan)")
                                 .font(

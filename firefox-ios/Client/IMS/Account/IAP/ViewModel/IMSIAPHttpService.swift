@@ -57,7 +57,7 @@ struct IMSIAPHttpService {
         }
     }
     
-    static func getConfig(token: String) async throws -> IMSHttpResponse<IMSResponseConfigData> {
+    static func getConfig() async throws -> IMSHttpResponse<IMSResponseConfigData> {
         guard let url = URL(string: Config.baseURL + Config.configPath) else {
             throw NetworkError.invalidURL
         }
@@ -70,7 +70,7 @@ struct IMSIAPHttpService {
         urlRequest.setValue("text/plain", forHTTPHeaderField: "Accept")
         urlRequest.setValue("zh-CN,zh;q=0.9,en;q=0.8", forHTTPHeaderField: "Accept-Language")
         urlRequest.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
-        urlRequest.setValue(token, forHTTPHeaderField: "token")
+//        urlRequest.setValue(token, forHTTPHeaderField: "token")
         
         
         do {
@@ -91,7 +91,8 @@ struct IMSIAPHttpService {
         }
     }
     
-    static func getUserInfo(token: String) async throws -> IMSHttpResponse<IMSAccountInfoResp> {
+    static func getUserInfo(token: String?) async throws -> IMSHttpResponse<IMSAccountInfoResp>? {
+        guard let token = token else { return nil }
         guard let url = URL(string: Config.baseURL + Config.userPath) else {
             throw NetworkError.invalidURL
         }

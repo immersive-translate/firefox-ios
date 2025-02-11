@@ -425,13 +425,13 @@ extension String {
                              comment: "")
           
             public static let currentPlan = MZLocalizedString(
-                            key: "Settings.IMSAccount.IAP.currentPlan",
+                            key: "Settings.IMSAccount.IAP.Current Plan",
                             tableName: "IMSAccount",
                             value: "currentPlan",
                             comment: "")
            
             public static let downgradingIsNotSupported = MZLocalizedString(
-                            key: "Settings.IMSAccount.IAP.downgradingIsNotSupported",
+                            key: "Settings.IMSAccount.IAP.Downgrading is not supported",
                             tableName: "IMSAccount",
                             value: "downgradingIsNotSupported",
                             comment: "")

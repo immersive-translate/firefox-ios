@@ -42,11 +42,12 @@ extension MainMenuActionHelper {
 }
 
 extension MainMenuConfigurationUtility {
-    @_dynamicReplacement(for: getLibrariesSection(with:tabInfo:))
-    func ims_getLibrariesSection(with uuid: WindowUUID, tabInfo: MainMenuTabInfo) -> MenuSection {
-        let origin = self.getLibrariesSection(with: uuid, tabInfo: tabInfo)
-        var options = origin.options
-        
+    @_dynamicReplacement(for: getMainMenuElements(with:and:))
+    func ims_getMainMenuElements(
+        with uuid: WindowUUID,
+        and tabInfo: MainMenuTabInfo
+    ) -> [MenuSection] {
+        var menuSections = self.getMainMenuElements(with: uuid, and: tabInfo)
         let imtSettingAction = MenuElement(
             title: .LegacyAppMenu.IMTSetting,
             iconName: StandardImageIdentifiers.Large.settings,
@@ -70,11 +71,39 @@ extension MainMenuConfigurationUtility {
             }
         )
         
-        options.append(imtSettingAction)
+        let imsUpgradeSettingAction = MenuElement(
+            title: .IMS.Settings.Upgrade,
+            iconName: StandardImageIdentifiers.Large.settings,
+            isEnabled: true,
+            isActive: false,
+            a11yLabel: "",
+            a11yHint: "",
+            a11yId: "",
+            action: {
+                store.dispatch(
+                    IMSMainMenuAction(
+                        windowUUID: uuid,
+                        actionType: MainMenuActionType.tapNavigateToDestination,
+                        navigationDestination: .upgrade,
+                        telemetryInfo: TelemetryInfo(isHomepage: tabInfo.isHomepage)
+                    )
+                )
+            }
+        )
         
-        return MenuSection(options: options)
+        let imsMenuSection = MenuSection(options: [
+            imtSettingAction,
+            imsUpgradeSettingAction,
+        ])
+        if menuSections.count > 1 {
+            menuSections.insert(imsMenuSection, at: 1)
+        } else {
+            menuSections.append(imsMenuSection)
+        }
+        
+        return menuSections
+        
     }
-    
     @_dynamicReplacement(for: getOtherToolsSection(with:isHomepage:tabInfo:))
     func ims_getOtherToolsSection(
         with uuid: WindowUUID,
