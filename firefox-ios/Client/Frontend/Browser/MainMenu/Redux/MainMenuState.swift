@@ -129,12 +129,6 @@ struct MainMenuState: ScreenState, Equatable {
         else {
             return defaultState(from: state)
         }
-        // 暂无更好的拦截方法
-        if let imsMainMenuState = IMSMainMenuState.reducer(IMSMainMenuState(windowUUID: action.windowUUID), action) {
-            var defaultState = defaultState(from: state)
-            defaultState.imsMainMenuState = imsMainMenuState
-            return defaultState
-        }
         
         switch action.actionType {
         case MainMenuActionType.viewDidLoad:

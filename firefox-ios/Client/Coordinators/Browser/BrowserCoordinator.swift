@@ -598,10 +598,8 @@ class BrowserCoordinator: BaseCoordinator,
         )
     }
     
-    func showCustomViewController(vc: UIViewController) {
-        let navigationController = DismissableNavigationViewController()
-        navigationController.setViewControllers([vc], animated: false)
-        present(navigationController)
+    func getBrowserViewController() -> BrowserViewController {
+        return self.browserViewController
     }
 
     private func makeMenuNavViewController() -> DismissableNavigationViewController? {

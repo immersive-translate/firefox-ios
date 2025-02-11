@@ -80,7 +80,7 @@ extension MainMenuConfigurationUtility {
             a11yHint: "",
             a11yId: "",
             action: {
-                store.dispatch(
+                imsStore.dispatch(
                     IMSMainMenuAction(
                         windowUUID: uuid,
                         actionType: MainMenuActionType.tapNavigateToDestination,

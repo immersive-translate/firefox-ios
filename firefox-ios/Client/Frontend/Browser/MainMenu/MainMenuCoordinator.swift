@@ -19,8 +19,8 @@ protocol MainMenuCoordinatorDelegate: AnyObject {
 
     /// Open the share sheet to share the currently selected `Tab`.
     func showShareSheetForCurrentlySelectedTab()
-    
-    func showCustomViewController(vc: UIViewController)
+
+    func getBrowserViewController() -> BrowserViewController
 }
 
 class MainMenuCoordinator: BaseCoordinator, FeatureFlaggable {

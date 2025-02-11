@@ -315,6 +315,7 @@
 		290863CB2D5621D40080F05D /* LaunchScreenViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863CA2D5621CC0080F05D /* LaunchScreenViewController+IMS.swift */; };
 		290863CF2D5625FD0080F05D /* FxAWebViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */; };
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
+		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -322,6 +323,8 @@
 		292E28CF2D2D54460096B370 /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 292E28CE2D2D54410096B370 /* set-language.js */; };
 		292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D22D2D56B00096B370 /* ImtSitesCell.swift */; };
 		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
+		294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */; };
+		294090F82D5B0D3C00C23DD6 /* BrowserViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */; };
 		294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */; };
 		294666BA2D55B96800BB9196 /* HeaderView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B92D55B96500BB9196 /* HeaderView+IMS.swift */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
@@ -348,7 +351,6 @@
 		29909E992D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
 		29909E9E2D37DEB8005C0328 /* SettingsCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */; };
 		29909EA32D37E0F1005C0328 /* WKNavigationAction+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */; };
-		29909EA52D37E11C005C0328 /* BrowserViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */; };
 		29B6050F2D2D3053006585C7 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6050E2D2D304C006585C7 /* WindowJSObject.swift */; };
 		29B605152D2D40F9006585C7 /* zh-CN.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605142D2D40F2006585C7 /* zh-CN.json */; };
 		29B605172D2D4115006585C7 /* zh-TW.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605162D2D4110006585C7 /* zh-TW.json */; };
@@ -2602,6 +2604,7 @@
 		290863CA2D5621CC0080F05D /* LaunchScreenViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewController+IMS.swift"; sourceTree = "<group>"; };
 		290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FxAWebViewController+IMS.swift"; sourceTree = "<group>"; };
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
+		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -2609,6 +2612,8 @@
 		292E28CE2D2D54410096B370 /* set-language.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
 		292E28D22D2D56B00096B370 /* ImtSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesCell.swift; sourceTree = "<group>"; };
 		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
+		294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUpgradeCoordinator.swift; sourceTree = "<group>"; };
+		294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMS.swift"; sourceTree = "<group>"; };
 		294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuActionHelper+IMS.swift"; sourceTree = "<group>"; };
 		294666B92D55B96500BB9196 /* HeaderView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderView+IMS.swift"; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
@@ -2641,7 +2646,6 @@
 		29909E9B2D37DD87005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/Imt.strings"; sourceTree = "<group>"; };
 		29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsCoordinator+IMS.swift"; sourceTree = "<group>"; };
 		29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKNavigationAction+IMS.swift"; sourceTree = "<group>"; };
-		29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMS.swift"; sourceTree = "<group>"; };
 		29B6050E2D2D304C006585C7 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		29B605122D2D359D006585C7 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		29B605142D2D40F2006585C7 /* zh-CN.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "zh-CN.json"; sourceTree = "<group>"; };
@@ -5366,6 +5370,22 @@
 			path = RustFxA;
 			sourceTree = "<group>";
 		};
+		291AADC42D5AED580046DB22 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		294090F62D5B0D3000C23DD6 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */,
+			);
+			path = Browser;
+			sourceTree = "<group>";
+		};
 		294666B62D55AAA200BB9196 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -5417,6 +5437,8 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				294090F62D5B0D3000C23DD6 /* Browser */,
+				291AADC42D5AED580046DB22 /* State */,
 				290863CD2D5625A60080F05D /* RustFxA */,
 				294666BB2D55BB2D00BB9196 /* Utils */,
 				294666B62D55AAA200BB9196 /* Menu */,
@@ -5461,6 +5483,7 @@
 		29909E912D37DB4F005C0328 /* IAP */ = {
 			isa = PBXGroup;
 			children = (
+				294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */,
 				29F4D6A32D41308500BA6F44 /* ViewModel */,
 				29F4D6812D41287000BA6F44 /* UI */,
 			);
@@ -5506,7 +5529,6 @@
 			children = (
 				29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */,
 				29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */,
-				29909EA42D37E119005C0328 /* BrowserViewController+IMS.swift */,
 				29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */,
 			);
 			path = DynamicReplacement;
@@ -11454,6 +11476,7 @@
 				295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */,
 				1DEBC55E2AC4ED70006E4801 /* RemoteTabsPanel.swift in Sources */,
 				29F4D6A92D413FA200BA6F44 /* CustomPopoverModifier.swift in Sources */,
+				294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */,
 				435D660523D794B90046EFA2 /* UpdateViewModel.swift in Sources */,
 				9658143C29FAB610007339BD /* CreditCardInputFieldHelper.swift in Sources */,
 				5A9F83442B2B8CE900272819 /* TabPeekModel.swift in Sources */,
@@ -11539,6 +11562,7 @@
 				8A4AC0EB28C929D700439F83 /* URLSessionDataTaskProtocol.swift in Sources */,
 				C45F44691D087DB600CB7EF0 /* TopTabsViewController.swift in Sources */,
 				8A0727462B4890B50071BB9F /* WebviewTelemetry.swift in Sources */,
+				291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */,
 				8ADC2A212A3399DC00543DAA /* YourRightsSetting.swift in Sources */,
 				DF529E9F2AA86FF4003C5373 /* FakespotReviewQualityCardView.swift in Sources */,
 				1D0BA05C24F46A0400D731B5 /* TopSitesProvider.swift in Sources */,
@@ -12307,6 +12331,7 @@
 				8AB5958828413F6C0090F4AE /* BookmarksCell.swift in Sources */,
 				8A83B7482A264FB7002FF9AC /* LibraryCoordinator.swift in Sources */,
 				E1CD81C2290C62A600124B27 /* HostingTableViewCell.swift in Sources */,
+				294090F82D5B0D3C00C23DD6 /* BrowserViewController+IMS.swift in Sources */,
 				8AA020EF2B9A37E500771DE0 /* NimbusSplashScreenFeatureLayer.swift in Sources */,
 				E13C072D2C2189B80087E404 /* ToolbarActionState.swift in Sources */,
 				43175DB826B87D2C00C41C31 /* AdsTelemetryHelper.swift in Sources */,
@@ -12334,7 +12359,6 @@
 				59A68D66379CFA85C4EAF00B /* TwoLineImageOverlayCell.swift in Sources */,
 				0A49784A2C53E63200B1E82A /* TrackingProtectionViewController.swift in Sources */,
 				0AFE9BF12CF47DFC003DB4D1 /* PrivacyPreferencesViewController.swift in Sources */,
-				29909EA52D37E11C005C0328 /* BrowserViewController+IMS.swift in Sources */,
 				8A04136928258DF600D20B10 /* SponsoredTileTelemetry.swift in Sources */,
 				D04CD718215EBD85004FF5B0 /* SettingsLoadingView.swift in Sources */,
 				0B8BF3702CA2D60B00E9812D /* BookmarksViewController.swift in Sources */,

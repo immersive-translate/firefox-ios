@@ -7,15 +7,73 @@ import Common
 
 extension MainMenuViewController {
     
-    @_dynamicReplacement(for: newState(state:))
-    func ims_newState(state: MainMenuState) {
-        if let imsMainMenuState = state.imsMainMenuState,
-           let navigationDestination = imsMainMenuState.navigationDestination{
-            self.coordinator?.navigateTo(navigationDestination, animated: true)
-        } else {
-            self.newState(state: state)
+    struct IMSMainMenuViewControllerAssociatedKeys {
+        static var imsMainMenuKey: UInt8 = 0
+    }
+    
+    var imsMainMenuController: IMSMainMenuController? {
+        get {
+            objc_getAssociatedObject(self, &IMSMainMenuViewControllerAssociatedKeys.imsMainMenuKey) as? IMSMainMenuController
         }
-        
+        set {
+            objc_setAssociatedObject(self, &IMSMainMenuViewControllerAssociatedKeys.imsMainMenuKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    
+    @_dynamicReplacement(for: subscribeToRedux)
+    func ims_subscribeToRedux() {
+        self.subscribeToRedux()
+        if self.imsMainMenuController == nil {
+            self.imsMainMenuController = IMSMainMenuController(windowUUID: windowUUID, parentMenuViewController: self)
+        }
+        self.imsMainMenuController?.subscribeToRedux()
+    }
+}
+
+class IMSMainMenuController: StoreSubscriber {
+    var windowUUID: WindowUUID
+    weak var parentMenuViewController: MainMenuViewController?
+    
+    init(windowUUID: WindowUUID, parentMenuViewController: MainMenuViewController?) {
+        self.windowUUID = windowUUID
+        self.parentMenuViewController = parentMenuViewController
+    }
+    
+    deinit {
+        self.unsubscribeFromRedux()
+    }
+    
+    func subscribeToRedux() {
+        imsStore.dispatch(
+            IMSScreenAction(
+                windowUUID: windowUUID,
+                actionType: ScreenActionType.showScreen,
+                screen: .mainMenu
+            )
+        )
+        let uuid = windowUUID
+        imsStore.subscribe(self, transform: {
+            return $0.select({ appState in
+                return IMSMainMenuState(appState: appState, uuid: uuid)
+            })
+        })
+    }
+    
+    func unsubscribeFromRedux() {
+        imsStore.dispatch(
+            IMSScreenAction(
+                windowUUID: windowUUID,
+                actionType: ScreenActionType.closeScreen,
+                screen: .mainMenu
+            )
+        )
+    }
+    
+    func newState(state: IMSMainMenuState) {
+        if let navigationDestination = state.navigationDestination {
+            self.parentMenuViewController?.coordinator?.navigateTo(navigationDestination, animated: true)
+        }
     }
 }
 
@@ -54,12 +112,16 @@ final class IMSMainMenuAction: Action {
     }
 }
 
-struct IMSMainMenuState: Equatable {
+struct IMSMainMenuState: IMSScreenState, Equatable {
     var windowUUID: WindowUUID
     var navigationDestination: IMSMainMenuNavigationDestination?
     
-    init(appState: AppState, uuid: WindowUUID) {
-        self.init(windowUUID: uuid)
+    init(appState: IMSAppState, uuid: WindowUUID) {
+        guard let mainMenuState = imsStore.state.screenState(IMSMainMenuState.self, for: .mainMenu, window: uuid) else {
+            self.init(windowUUID: uuid)
+            return
+        }
+        self.init(windowUUID: uuid, navigationDestination: mainMenuState.navigationDestination)
     }
     
     init(windowUUID: WindowUUID, navigationDestination: IMSMainMenuNavigationDestination? = nil) {
@@ -67,23 +129,26 @@ struct IMSMainMenuState: Equatable {
         self.navigationDestination = navigationDestination
     }
     
-    static let reducer: Reducer<Self?> = { state, action in
-        guard action.windowUUID == .unavailable || action.windowUUID == state?.windowUUID,
-            let state = state
+    static let reducer: Reducer<Self> = { state, action in
+        guard action.windowUUID == .unavailable || action.windowUUID == state.windowUUID
         else {
-            return nil
+            return defaultState(from: state)
         }
         switch action.actionType {
         case MainMenuActionType.tapNavigateToDestination:
-            guard let action = action as? IMSMainMenuAction else { return nil }
+            guard let action = action as? IMSMainMenuAction else { return defaultState(from: state) }
             return IMSMainMenuState(
                 windowUUID: state.windowUUID,
                 navigationDestination: action.navigationDestination
             )
         default:
-            return nil
+            return defaultState(from: state)
         }
         
+    }
+    
+    static func defaultState(from state: IMSMainMenuState) -> IMSMainMenuState {
+        return IMSMainMenuState(windowUUID: state.windowUUID, navigationDestination: nil)
     }
 }
 
@@ -102,9 +167,8 @@ extension MainMenuCoordinator {
     }
     
     func showIMSUpgrade() {
-        let viewController = IMSAccountUpgradeViewController(userInfo: nil, windowUUID: windowUUID)
-//        router.push(viewController, animated: true)
-        self.navigationHandler?.showCustomViewController(vc: viewController)
+        let browserViewController = self.navigationHandler?.getBrowserViewController()
+        browserViewController?.showIMSUpgradeViewController()
         
     }
 }

@@ -249,6 +249,7 @@ class MainMenuViewController: UIViewController,
     }
 
     // MARK: - Redux
+    dynamic
     func subscribeToRedux() {
         store.dispatch(
             ScreenAction(
@@ -265,6 +266,7 @@ class MainMenuViewController: UIViewController,
         })
     }
 
+    dynamic
     func unsubscribeFromRedux() {
         store.dispatch(
             ScreenAction(
@@ -275,7 +277,6 @@ class MainMenuViewController: UIViewController,
         )
     }
 
-    dynamic
     func newState(state: MainMenuState) {
         menuState = state
 
