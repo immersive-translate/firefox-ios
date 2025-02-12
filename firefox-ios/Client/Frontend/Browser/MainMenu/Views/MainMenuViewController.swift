@@ -266,7 +266,6 @@ class MainMenuViewController: UIViewController,
         })
     }
 
-    dynamic
     func unsubscribeFromRedux() {
         store.dispatch(
             ScreenAction(

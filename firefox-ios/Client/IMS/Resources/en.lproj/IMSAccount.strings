@@ -8,7 +8,7 @@
 
 "Settings.IMSAccount.Upgrade.Title" = "Upgrade";
 "Settings.IMSAccount.IAP.Save" = "Save";
-"Settings.IMSAccount.IAP.YearPro" = "Annual Membership";
+"Settings.IMSAccount.IAP.YearPro" = "Annual";
 "Settings.IMSAccount.IAP.Month" = "Month";
 "Settings.IMSAccount.IAP.Year" = "Year";
 "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro-exclusive world-class AI translation service";
@@ -29,7 +29,7 @@
 "Settings.IMSAccount.IAP.Consecutive annual subscription" = "Annual";
 "Settings.IMSAccount.IAP.Consecutive monthly subscription" = "Monthly";
 "Settings.IMSAccount.IAP.Subscribe now" = "Subscribe now";
-"Settings.IMSAccount.IAP.Monthly Pro Membership" = "Monthly Pro Membership";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "Monthly";
 "Settings.IMSAccount.IAP.Limited Time Offer" = "Limited Time Offer";
 "Settings.IMSAccount.IAP.Aler Confirm" = "OK";
 "Settings.IMSAccount.IAP.You have successfully subscribed" = "You have successfully subscribed";

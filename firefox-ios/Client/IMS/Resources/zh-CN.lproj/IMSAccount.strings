@@ -8,7 +8,7 @@
 
 "Settings.IMSAccount.Upgrade.Title" = "升级";
 "Settings.IMSAccount.IAP.Save" = "节省";
-"Settings.IMSAccount.IAP.YearPro" = "年费会员";
+"Settings.IMSAccount.IAP.YearPro" = "年度会员";
 "Settings.IMSAccount.IAP.Month" = "月";
 "Settings.IMSAccount.IAP.Year" = "年";
 "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro专属全球顶尖AI翻译服务";
@@ -29,7 +29,7 @@
 "Settings.IMSAccount.IAP.Consecutive annual subscription" = "连续包年";
 "Settings.IMSAccount.IAP.Consecutive monthly subscription" = "连续包月";
 "Settings.IMSAccount.IAP.Subscribe now" = "立即订阅";
-"Settings.IMSAccount.IAP.Monthly Pro Membership" = "月费Pro会员";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "月度会员";
 "Settings.IMSAccount.IAP.Limited Time Offer" = "限时特惠";
 "Settings.IMSAccount.IAP.Aler Confirm" = "确定";
 "Settings.IMSAccount.IAP.You have successfully subscribed" = "您已成功订阅";
