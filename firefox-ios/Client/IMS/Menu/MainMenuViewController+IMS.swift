@@ -162,7 +162,7 @@ extension MainMenuCoordinator {
             case .upgrade:
                 self.showIMSUpgrade()
             }
-            
+            removeCoordinatorFromParent()
         })
     }
     

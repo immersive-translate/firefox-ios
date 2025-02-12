@@ -80,6 +80,7 @@ public final class MenuMainView: UIView,
 
     // MARK: - Interface
     public func reloadTableView(with data: [MenuSection]) {
+        print("reloadTableView: \(data.count)")
         tableView.reloadTableView(with: data)
     }
 

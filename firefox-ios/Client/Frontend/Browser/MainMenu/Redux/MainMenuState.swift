@@ -60,8 +60,6 @@ struct MainMenuState: ScreenState, Equatable {
     var navigationDestination: MenuNavigationDestination?
     var currentTabInfo: MainMenuTabInfo?
     var currentSubmenuView: MainMenuDetailsViewType?
-    
-    var imsMainMenuState: IMSMainMenuState?
 
     private let menuConfigurator = MainMenuConfigurationUtility()
 
@@ -83,8 +81,7 @@ struct MainMenuState: ScreenState, Equatable {
             navigationDestination: mainMenuState.navigationDestination,
             shouldDismiss: mainMenuState.shouldDismiss,
             accountData: mainMenuState.accountData,
-            accountIcon: mainMenuState.accountIcon,
-            imsMainMenuState: mainMenuState.imsMainMenuState
+            accountIcon: mainMenuState.accountIcon
         )
     }
 
@@ -121,7 +118,6 @@ struct MainMenuState: ScreenState, Equatable {
         self.shouldDismiss = shouldDismiss
         self.accountData = accountData
         self.accountIcon = accountIcon
-        self.imsMainMenuState = imsMainMenuState
     }
 
     static let reducer: Reducer<Self> = { state, action in

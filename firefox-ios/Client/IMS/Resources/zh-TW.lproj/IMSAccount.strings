@@ -7,7 +7,7 @@
 */
 "Settings.IMSAccount.Upgrade.Title" = "升级";
 "Settings.IMSAccount.IAP.Save" = "節省";
-"Settings.IMSAccount.IAP.YearPro" = "年費會員";
+"Settings.IMSAccount.IAP.YearPro" = "年度會員";
 "Settings.IMSAccount.IAP.Month" = "月";
 "Settings.IMSAccount.IAP.Year" = "年";
 "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro專屬全球頂尖AI翻譯服務";
@@ -25,10 +25,10 @@
 "Settings.IMSAccount.IAP.Multi-device sync configuration" = "多設備同步配置";
 "Settings.IMSAccount.IAP.Priority email support" = "優先的電子郵件支持";
 "Settings.IMSAccount.IAP.Priority email support tip" = "若您遇到問題，請聯繫客戶支援團隊 support@immersivetranslate.com";
-"Settings.IMSAccount.IAP.Consecutive annual subscription" = "連續包年";
+"Settings.IMSAccount.IAP.Consecut ive annual subscription" = "連續包年";
 "Settings.IMSAccount.IAP.Consecutive monthly subscription" = "連續包月";
 "Settings.IMSAccount.IAP.Subscribe now" = "立即訂閱";
-"Settings.IMSAccount.IAP.Monthly Pro Membership" = "月費Pro會員";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "月度會員";
 "Settings.IMSAccount.IAP.Limited Time Offer" = "限時特惠";
 "Settings.IMSAccount.IAP.Aler Confirm" = "確定";
 "Settings.IMSAccount.IAP.You have successfully subscribed" = "您已成功訂閱";
