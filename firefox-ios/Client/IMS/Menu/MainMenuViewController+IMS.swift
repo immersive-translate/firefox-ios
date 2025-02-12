@@ -167,8 +167,9 @@ extension MainMenuCoordinator {
     }
     
     func showIMSUpgrade() {
-        let browserViewController = self.navigationHandler?.getBrowserViewController()
-        browserViewController?.showIMSUpgradeViewController()
+        if let imsBrowserCoordinator = self.navigationHandler as? IMSBrowserCoordinatorDelegate {
+            imsBrowserCoordinator.showIMSUpgradeViewController()
+        }
         
     }
 }

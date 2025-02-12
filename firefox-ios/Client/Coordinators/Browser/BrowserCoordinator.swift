@@ -42,7 +42,7 @@ class BrowserCoordinator: BaseCoordinator,
     var privateViewController: PrivateHomepageViewController?
     var errorViewController: NativeErrorPageViewController?
 
-    private var profile: Profile
+    var profile: Profile
     private let tabManager: TabManager
     private let themeManager: ThemeManager
     private let windowManager: WindowManager
@@ -50,7 +50,7 @@ class BrowserCoordinator: BaseCoordinator,
     private let glean: GleanWrapper
     private let applicationHelper: ApplicationHelper
     private var browserIsReady = false
-    private var windowUUID: WindowUUID { return tabManager.windowUUID }
+    var windowUUID: WindowUUID { return tabManager.windowUUID }
 
     override var isDismissable: Bool { false }
 
@@ -596,10 +596,6 @@ class BrowserCoordinator: BaseCoordinator,
             toastContainer: self.browserViewController.contentContainer,
             popoverArrowDirection: .any
         )
-    }
-    
-    func getBrowserViewController() -> BrowserViewController {
-        return self.browserViewController
     }
 
     private func makeMenuNavViewController() -> DismissableNavigationViewController? {

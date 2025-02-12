@@ -14,16 +14,12 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     var subscriptionHostingController: UIHostingController<ProSubscriptionSwiftUIView>?
     
-    let userInfo: IMSAccountInfo?
-    
     let viewModel: ProSubscriptionViewModel
     
-    init(userInfo: IMSAccountInfo?,
-         profile: Profile? = nil,
+    init(profile: Profile? = nil,
          tabManager: TabManager? = nil,
          windowUUID: WindowUUID) {
-        self.userInfo = userInfo
-        self.viewModel = ProSubscriptionViewModel(userInfo: userInfo)
+        self.viewModel = ProSubscriptionViewModel()
         super.init(windowUUID: windowUUID, profile: profile, tabManager: tabManager)
         self.title = .IMS.Settings.Upgrade
     }
@@ -53,6 +49,14 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
         SVProgressHUD.dismiss()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     
     func handle(route: Route.SettingsSection) {
         

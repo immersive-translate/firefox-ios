@@ -14,8 +14,7 @@ protocol SettingsFlowDelegate: AnyObject,
                                PrivacySettingsDelegate,
                                AccountSettingsDelegate,
                                AboutSettingsDelegate,
-                               SupportSettingsDelegate,
-                               IMSAccountSettingDelegate {
+                               SupportSettingsDelegate {
     func showDevicePassCode()
     func showCreditCardSettings()
     func showExperiments()

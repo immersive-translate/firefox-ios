@@ -5,9 +5,14 @@ import Common
 import Foundation
 import MenuKit
 import Shared
+import SVProgressHUD
 
 class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
     let windowUUID: WindowUUID
+    let profile: Profile
+    weak var parentCoordinator: ParentCoordinatorDelegate?
+    
+    var rootViewController: IMSAccountUpgradeViewController?
     
     init(
         router: Router,
@@ -15,6 +20,7 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
         profile: Profile
     ) {
         self.windowUUID = windowUUID
+        self.profile = profile
         super.init(router: router)
     }
 
@@ -25,8 +31,56 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
         )
     }
     
+    deinit {
+        print("")
+    }
+    
     private func createUpgradeViewController() -> UIViewController {
-        let viewController = IMSAccountUpgradeViewController(userInfo: nil, windowUUID: windowUUID)
+        let viewController = IMSAccountUpgradeViewController(windowUUID: windowUUID)
+        viewController.viewModel.coordinator = self
+        self.rootViewController = viewController
         return viewController
+    }
+    
+    func showLoginModalWebView() {
+        guard let url = URL(string: IMSAppUrlConfig.login + "?from=ios_upgrade") else { return }
+        let navigationController = DismissableNavigationViewController()
+        let coordinator = ModalBrowserCoordinator(
+            url: url,
+            router: DefaultRouter(navigationController: navigationController),
+            windowUUID: windowUUID,
+            profile: profile
+        )
+        navigationController.onViewDismissed = { [weak self] in
+            self?.parentCoordinator?.didFinish(from: coordinator)
+            Task {
+                await self?.rootViewController?.viewModel.fetchProductInfos()
+            }
+        }
+        
+        coordinator.start()
+        
+        router.present(navigationController)
+    }
+    
+    func showPurchaseSuccess() {
+        SVProgressHUD.show()
+        let windowUUID = windowUUID
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
+            SVProgressHUD.dismiss()
+            self?.router.dismiss(animated: true, completion: {
+                store.dispatch(
+                    MainMenuAction(
+                        windowUUID: windowUUID,
+                        actionType: MainMenuActionType.tapNavigateToDestination,
+                        navigationDestination: MenuNavigationDestination(
+                            .goToURL,
+                            url: URL(string: IMSAppUrlConfig.purchaseSuccess)
+                        ),
+                        telemetryInfo: TelemetryInfo(isHomepage: false)
+                    )
+                )
+            })
+        }
     }
 }

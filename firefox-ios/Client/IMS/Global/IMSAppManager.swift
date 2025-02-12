@@ -3,7 +3,9 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 struct IMSAppUrlConfig {
+    
     static let immersiveTranslateUser = "https://download.immersivetranslate.com/immersive-translate.user.js"
+    
     static let dash = "https://dash.immersivetranslate.com/"
     
     static let usage = "https://immersivetranslate.com/docs/usage/"
@@ -14,6 +16,10 @@ struct IMSAppUrlConfig {
     
     static let privacy = "https://immersivetranslate.com/docs/PRIVACY/"
     static let baseURL =  "https://test-api2.immersivetranslate.com"
+    
+    static let login = "https://test.immersivetranslate.com/accounts/login"
+    
+    static let purchaseSuccess = "https://test.immersivetranslate.com/accounts/success"
 }
 
 struct IMSAppManager {

@@ -362,6 +362,10 @@ extension TabWebView: WKUIDelegate {
         let internalApis = InternalApis()
         internalApis.webview = self
         addJavascriptObject(internalApis, namespace: "_dsb")
+        setJavascriptCloseWindowListener {[weak self] in
+            guard let self = self else { return }
+            self.DSUIDelegate?.webViewDidClose?(self)
+        }
     }
     
     

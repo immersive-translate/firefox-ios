@@ -326,6 +326,9 @@
 		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
 		294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */; };
 		294090F82D5B0D3C00C23DD6 /* BrowserViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */; };
+		294090FC2D5C3E9700C23DD6 /* ModalBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */; };
+		294090FE2D5C46CA00C23DD6 /* ModalBrowserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090FD2D5C46B400C23DD6 /* ModalBrowserCoordinator.swift */; };
+		294091002D5C4D3000C23DD6 /* IMSBrowserCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090FF2D5C4D1E00C23DD6 /* IMSBrowserCoordinatorDelegate.swift */; };
 		294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */; };
 		294666BA2D55B96800BB9196 /* HeaderView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294666B92D55B96500BB9196 /* HeaderView+IMS.swift */; };
 		295166222D2C109000CAD566 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 2951661F2D2C109000CAD566 /* dsbridge.js */; };
@@ -343,14 +346,12 @@
 		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
 		29909E892D37D9D8005C0328 /* IMSIAPAppleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E872D37D9D8005C0328 /* IMSIAPAppleService.swift */; };
-		29909E8A2D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */; };
 		29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */; };
 		29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E842D37D9D8005C0328 /* IMSAccountManager.swift */; };
 		29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */; };
 		29909E932D37DBB7005C0328 /* Strings+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E922D37DBAF005C0328 /* Strings+IMS.swift */; };
 		29909E982D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
 		29909E992D37DD80005C0328 /* Imt.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E962D37DD80005C0328 /* Imt.strings */; };
-		29909E9E2D37DEB8005C0328 /* SettingsCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */; };
 		29909EA32D37E0F1005C0328 /* WKNavigationAction+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */; };
 		29B6050F2D2D3053006585C7 /* WindowJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6050E2D2D304C006585C7 /* WindowJSObject.swift */; };
 		29B605152D2D40F9006585C7 /* zh-CN.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605142D2D40F2006585C7 /* zh-CN.json */; };
@@ -2617,6 +2618,9 @@
 		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
 		294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUpgradeCoordinator.swift; sourceTree = "<group>"; };
 		294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMS.swift"; sourceTree = "<group>"; };
+		294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBrowserViewController.swift; sourceTree = "<group>"; };
+		294090FD2D5C46B400C23DD6 /* ModalBrowserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBrowserCoordinator.swift; sourceTree = "<group>"; };
+		294090FF2D5C4D1E00C23DD6 /* IMSBrowserCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBrowserCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuActionHelper+IMS.swift"; sourceTree = "<group>"; };
 		294666B92D55B96500BB9196 /* HeaderView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeaderView+IMS.swift"; sourceTree = "<group>"; };
 		2951661F2D2C109000CAD566 /* dsbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
@@ -2639,7 +2643,6 @@
 		29909E762D36A0D6005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
 		29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountInfo.swift; sourceTree = "<group>"; };
 		29909E842D37D9D8005C0328 /* IMSAccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountManager.swift; sourceTree = "<group>"; };
-		29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountUpgradeSetting.swift; sourceTree = "<group>"; };
 		29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountUpgradeViewController.swift; sourceTree = "<group>"; };
 		29909E872D37D9D8005C0328 /* IMSIAPAppleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSIAPAppleService.swift; sourceTree = "<group>"; };
 		29909E8F2D37DAD1005C0328 /* URL+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+IMS.swift"; sourceTree = "<group>"; };
@@ -2647,7 +2650,6 @@
 		29909E972D37DD80005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Imt.strings; sourceTree = "<group>"; };
 		29909E9A2D37DD87005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/Imt.strings"; sourceTree = "<group>"; };
 		29909E9B2D37DD87005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/Imt.strings"; sourceTree = "<group>"; };
-		29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsCoordinator+IMS.swift"; sourceTree = "<group>"; };
 		29909EA22D37E0EE005C0328 /* WKNavigationAction+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKNavigationAction+IMS.swift"; sourceTree = "<group>"; };
 		29B6050E2D2D304C006585C7 /* WindowJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowJSObject.swift; sourceTree = "<group>"; };
 		29B605122D2D359D006585C7 /* en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
@@ -5385,6 +5387,9 @@
 		294090F62D5B0D3000C23DD6 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				294090FF2D5C4D1E00C23DD6 /* IMSBrowserCoordinatorDelegate.swift */,
+				294090FD2D5C46B400C23DD6 /* ModalBrowserCoordinator.swift */,
+				294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */,
 				294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */,
 			);
 			path = Browser;
@@ -5468,7 +5473,6 @@
 				29909E912D37DB4F005C0328 /* IAP */,
 				29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */,
 				29909E842D37D9D8005C0328 /* IMSAccountManager.swift */,
-				29909E852D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift */,
 				29909E862D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift */,
 			);
 			path = Account;
@@ -5524,7 +5528,6 @@
 				29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */,
 				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
 				292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */,
-				29909E9D2D37DEB0005C0328 /* SettingsCoordinator+IMS.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -11490,6 +11493,7 @@
 				295166362D2C10A300CAD566 /* DWKWebView.m in Sources */,
 				295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */,
 				1DEBC55E2AC4ED70006E4801 /* RemoteTabsPanel.swift in Sources */,
+				294090FC2D5C3E9700C23DD6 /* ModalBrowserViewController.swift in Sources */,
 				29F4D6A92D413FA200BA6F44 /* CustomPopoverModifier.swift in Sources */,
 				294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */,
 				435D660523D794B90046EFA2 /* UpdateViewModel.swift in Sources */,
@@ -12047,7 +12051,6 @@
 				F8B7109E2ABE380B0029726E /* RustErrors.swift in Sources */,
 				C8124BB129D6F55400540B79 /* Route.swift in Sources */,
 				8A4EA0DB2C0117CD00E4E4F1 /* MobileMessageSurfaceProtocol.swift in Sources */,
-				29909E9E2D37DEB8005C0328 /* SettingsCoordinator+IMS.swift in Sources */,
 				63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */,
 				2F44FCCB1A9E972E00FD20CC /* SearchEnginePicker.swift in Sources */,
 				21996BAB2AE95AFC00E0D55F /* TabTrayPanelType.swift in Sources */,
@@ -12058,6 +12061,7 @@
 				C2D71B952A384F11003DEC7A /* ThemedTableViewCell.swift in Sources */,
 				219A0FD72ACC8C03009A6D1A /* InactiveTabsHeaderView.swift in Sources */,
 				8A5D1CBF2A30DC75005AD35C /* SyncNowSetting.swift in Sources */,
+				294090FE2D5C46CA00C23DD6 /* ModalBrowserCoordinator.swift in Sources */,
 				8A5D1CAA2A30D6E2005AD35C /* TabsSetting.swift in Sources */,
 				210E0EB8298D9D4500BB4F33 /* DefaultSearchEngineProvider.swift in Sources */,
 				8AE80BBA2891C0C300BC12EA /* JumpBackInSectionLayout.swift in Sources */,
@@ -12317,6 +12321,7 @@
 				21EA466A2B04130500AAAB2D /* TabsPanelState.swift in Sources */,
 				D04D1B862097859B0074B35F /* DownloadToast.swift in Sources */,
 				C29B64EE2AD937D500F3244B /* QRCodeNavigationHandler.swift in Sources */,
+				294091002D5C4D3000C23DD6 /* IMSBrowserCoordinatorDelegate.swift in Sources */,
 				8A19ACB42A3290D9001C2147 /* ContentBlockerSetting.swift in Sources */,
 				290863C62D53DF310080F05D /* Tab+IMS.swift in Sources */,
 				219935E72B05447C00E5966F /* TabDisplayModel.swift in Sources */,
@@ -12407,7 +12412,6 @@
 				BCFF93F02AABA55A005B5B71 /* BackgroundFirefoxSuggestIngestUtility.swift in Sources */,
 				BCFF93F22AAF9688005B5B71 /* FirefoxSuggestSettings.swift in Sources */,
 				29909E892D37D9D8005C0328 /* IMSIAPAppleService.swift in Sources */,
-				29909E8A2D37D9D8005C0328 /* IMSAccountUpgradeSetting.swift in Sources */,
 				29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */,
 				29B9C9B22D3F3CA800365400 /* AppLaunchUtil+IMS.swift in Sources */,
 				29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */,
@@ -14471,7 +14475,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14901,7 +14905,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15182,7 +15186,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15475,7 +15479,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15997,7 +16001,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

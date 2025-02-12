@@ -67,17 +67,4 @@ extension BrowserViewController {
             webView.customUserAgent = UserAgent.ims_getUserAgent(url: url)
         }
     }
-    
-    func showIMSUpgradeViewController() {
-
-        let navigationController = DismissableNavigationViewController()
-        let coordinator = IMSUpgradeCoordinator(
-            router: DefaultRouter(navigationController: navigationController),
-            windowUUID: windowUUID,
-            profile: profile
-        )
-        coordinator.start()
-        
-        self.present(navigationController, animated: true)
-    }
 }

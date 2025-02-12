@@ -587,5 +587,5 @@ struct ProSubscriptionSwiftUIView: View {
 }
 
 #Preview {
-    ProSubscriptionSwiftUIView(viewModel: .init(userInfo: .init(subscription: nil, token: "", email: "")))
+    ProSubscriptionSwiftUIView(viewModel: .init())
 }

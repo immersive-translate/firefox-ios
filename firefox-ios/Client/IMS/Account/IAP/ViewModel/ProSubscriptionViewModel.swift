@@ -20,6 +20,8 @@ enum ProSubscriptionMessageType {
 
 class ProSubscriptionViewModel: ObservableObject {
     
+    weak var coordinator: IMSUpgradeCoordinator?
+    
     @Published
     var infos: [ProSubscriptionInfo] = []
     
@@ -35,8 +37,8 @@ class ProSubscriptionViewModel: ObservableObject {
     @Published
     var showUpgradeAlert: Bool = false
     
-    init(userInfo: IMSAccountInfo?) {
-        self.userInfo = userInfo
+    init() {
+        
     }
     
     deinit {
@@ -52,8 +54,9 @@ class ProSubscriptionViewModel: ObservableObject {
         SVProgressHUD.show()
         Task {
             do {
+                let localUserInfo = IMSAccountManager.shard.current()
                 async let configAsync = IMSIAPHttpService.getConfig()
-                async let userInfoAsync = IMSIAPHttpService.getUserInfo(token: self.userInfo?.token)
+                async let userInfoAsync = IMSIAPHttpService.getUserInfo(token: localUserInfo?.token)
                 let (config, userInfo) = try await (configAsync, userInfoAsync)
                 guard let channel = config.data.data.first else {
                     throw SKError(.clientInvalid)
@@ -76,7 +79,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     self.infos = infos
-                    if let userInfo = userInfo, let token = self.userInfo?.token {
+                    if let userInfo = userInfo, let token = localUserInfo?.token {
                         self.userInfo = IMSAccountInfo(subscription: userInfo.data.subscription, token: token, email: userInfo.data.email)
                     } else {
                         self.userInfo = nil
@@ -99,6 +102,7 @@ class ProSubscriptionViewModel: ObservableObject {
             return
         }
         guard let token = userInfo?.token else {
+            coordinator?.showLoginModalWebView()
             return
         }
         SVProgressHUD.show()
@@ -117,12 +121,13 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    switch info.serverProduct.goodType {
-                    case .monthly:
-                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.monthlyProMembership)!")
-                    case .yearly:
-                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.yearPro)!")
-                    }
+                    self.coordinator?.showPurchaseSuccess()
+//                    switch info.serverProduct.goodType {
+//                    case .monthly:
+//                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.monthlyProMembership)!")
+//                    case .yearly:
+//                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.yearPro)!")
+//                    }
                 }
             } catch {
                 await MainActor.run {
