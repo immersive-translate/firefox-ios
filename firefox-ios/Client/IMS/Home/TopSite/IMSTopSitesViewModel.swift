@@ -30,15 +30,17 @@ class IMSTopSitesViewModel {
     private let topSiteHistoryManager: TopSiteHistoryManager
     private let googleTopSiteManager: GoogleTopSiteManager
     private var wallpaperManager: WallpaperManager
+    private let unifiedAdsTelemetry: UnifiedAdsCallbackTelemetry
 
     init(profile: Profile,
          isZeroSearch: Bool = false,
          theme: Theme,
-         wallpaperManager: WallpaperManager) {
+         wallpaperManager: WallpaperManager,
+         unifiedAdsTelemetry: UnifiedAdsCallbackTelemetry = DefaultUnifiedAdsCallbackTelemetry()) {
         self.profile = profile
         self.isZeroSearch = isZeroSearch
         self.theme = theme
-        self.dimensionManager = TopSitesDimensionImplementation()
+        self.dimensionManager = LegacyTopSitesDimensionImplementation()
 
         self.topSiteHistoryManager = TopSiteHistoryManager(profile: profile)
         self.googleTopSiteManager = GoogleTopSiteManager(prefs: profile.prefs)
@@ -47,6 +49,7 @@ class IMSTopSitesViewModel {
                                                         googleTopSiteManager: googleTopSiteManager)
         topSitesDataAdaptor = adaptor
         self.wallpaperManager = wallpaperManager
+        self.unifiedAdsTelemetry = unifiedAdsTelemetry
         adaptor.delegate = self
         
         self.topSites = [
@@ -68,7 +71,7 @@ class IMSTopSitesViewModel {
 
     func sendImpressionTelemetry(_ homeTopSite: TopSite, position: Int) {
         guard !hasSentImpressionForTile(homeTopSite) else { return }
-        homeTopSite.impressionTracking(position: position)
+        homeTopSite.impressionTracking(position: position, unifiedAdsTelemetry: unifiedAdsTelemetry)
     }
 
     private func topSitePressTracking(homeTopSite: TopSite, position: Int) {

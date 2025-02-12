@@ -3,6 +3,11 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 import Shared
 
+
+private class BundleClass {
+    public static let bundle = Bundle(for: BundleClass.self)
+}
+
 private func MZLocalizedString(
     key: String,
     tableName: String?,
@@ -11,7 +16,7 @@ private func MZLocalizedString(
 ) -> String {
     return NSLocalizedString(key,
                              tableName: tableName,
-                             bundle: Strings.bundle,
+                             bundle: BundleClass.bundle,
                              value: value ?? "",
                              comment: comment)
 }
@@ -233,6 +238,226 @@ extension String {
                 tableName: "IMSAccount",
                 value: "Upgrade",
                 comment: "")
+        }
+        
+        public struct IAP {
+            public static let save = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Save",
+                tableName: "IMSAccount",
+                value: "Save",
+                comment: "")
+            
+            public static let yearPro = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.YearPro",
+                tableName: "IMSAccount",
+                value: "Annual Membership",
+                comment: "")
+            
+            public static let month = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Month",
+                tableName: "IMSAccount",
+                value: "Month",
+                comment: "")
+            
+            public static let year = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Year",
+                tableName: "IMSAccount",
+                value: "Year",
+                comment: "")
+            
+            public static let proExclusiveAITranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service",
+                tableName: "IMSAccount",
+                value: "Pro-exclusive world-class AI translation service",
+                comment: "")
+            public static let proExclusiveAITranslationtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip",
+                tableName: "IMSAccount",
+                value: "Pro-exclusive world-class AI translation service",
+                comment: "")
+            
+            
+            public static let deeplTranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.DeepL Translation",
+                tableName: "IMSAccount",
+                value: "DeepL Translation",
+                comment: "")
+            
+            public static let openAITranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.OpenAI Translation",
+                tableName: "IMSAccount",
+                value: "OpenAI Translation",
+                comment: "")
+            
+            public static let claudeTranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Claude Translation",
+                tableName: "IMSAccount",
+                value: "Claude Translation",
+                comment: "")
+            
+            public static let geminiTranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Gemini Translation",
+                tableName: "IMSAccount",
+                value: "Gemini Translation",
+                comment: "")
+            
+            public static let proExclusiveFeatures = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Pro-exclusive advanced features",
+                tableName: "IMSAccount",
+                value: "Pro-exclusive advanced features",
+                comment: "")
+            
+            public static let pdfPro = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.PDF Pro",
+                tableName: "IMSAccount",
+                value: "PDF Pro",
+                comment: "")
+            
+            public static let pdfProtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.PDF Pro tip",
+                tableName: "IMSAccount",
+                value: "PDF Pro",
+                comment: "")
+            
+            
+            public static let mangaTranslation = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Manga Translation",
+                tableName: "IMSAccount",
+                value: "Manga Translation",
+                comment: "")
+            public static let mangaTranslationtip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Manga Translation tip",
+                tableName: "IMSAccount",
+                value: "Manga Translation",
+                comment: "")
+            
+            public static let youtubeBilingualSubtitle = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download",
+                tableName: "IMSAccount",
+                value: "Youtube Bilingual Subtitle Download",
+                comment: "")
+            
+            public static let multiDeviceSync = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Multi-device sync configuration",
+                tableName: "IMSAccount",
+                value: "Multi-device sync configuration",
+                comment: "")
+            
+            public static let priorityEmailSupport = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Priority email support",
+                tableName: "IMSAccount",
+                value: "Priority email support",
+                comment: "")
+            public static let priorityEmailSupporttip = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Priority email support tip",
+                tableName: "IMSAccount",
+                value: "Priority email support",
+                comment: "")
+            
+            public static let consecutiveAnnualSubscription = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Consecutive annual subscription",
+                tableName: "IMSAccount",
+                value: "Consecutive annual subscription",
+                comment: "")
+            
+            public static let consecutiveMonthlySubscription = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Consecutive monthly subscription",
+                tableName: "IMSAccount",
+                value: "Consecutive monthly subscription",
+                comment: "")
+            
+            public static let subscribeNow = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Subscribe now",
+                tableName: "IMSAccount",
+                value: "Subscribe now",
+                comment: "")
+            
+            public static let monthlyProMembership = MZLocalizedString(
+                key: "Settings.IMSAccount.IAP.Monthly Pro Membership",
+                tableName: "IMSAccount",
+                value: "Monthly Pro Membership",
+                comment: "")
+            
+            public static let limitedTimeOffer = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Limited Time Offer",
+                            tableName: "IMSAccount",
+                            value: "Limited Time Offer",
+                            comment: "")
+            
+            public static let confirm = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Aler Confirm",
+                            tableName: "IMSAccount",
+                            value: "OK",
+                            comment: "")
+            
+            public static let subscriptionSuccess = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.You have successfully subscribed",
+                            tableName: "IMSAccount",
+                            value: "You have successfully subscribed",
+                            comment: "")
+            
+            public static let subscriptionFail = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.You have fail subscribed",
+                            tableName: "IMSAccount",
+                            value: "You have fail subscribed",
+                            comment: "")
+            
+            
+            public static let upgradetoAnnualProMembership = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership",
+                            tableName: "IMSAccount",
+                            value: "Upgrade to Annual Pro Membership",
+                            comment: "")
+            
+            public static let theAnnualPlanSaves = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.The annual plan saves",
+                            tableName: "IMSAccount",
+                            value: "The annual plan saves %@ per year compared to the monthly plan",
+                            comment: "")
+            
+            public static let upgradingNowWillAutomaticallyDeduct = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrading now will automatically deduct",
+                            tableName: "IMSAccount",
+                            value: "Upgrading now will automatically deduct %@ immediately (the unused time of the current package has been deducted in proportion)",
+                            comment: "")
+            
+            
+            public static let theUnusedTimeOfTheCurrentPackage = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.the unused time of the current package",
+                            tableName: "IMSAccount",
+                            value: "(the unused time of the current package has been deducted in proportion)",
+                            comment: "")
+          
+            public static let newExpirationDate = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.New expiration date",
+                            tableName: "IMSAccount",
+                            value: "New expiration date is %@",
+                            comment: "")
+           
+            public static let upgradeNow  = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade Now",
+                            tableName: "IMSAccount",
+                            value: "Upgrade Now",
+                            comment: "")
+           
+            
+             public static let Cancel = MZLocalizedString(
+                             key: "Settings.IMSAccount.IAP.Cancel",
+                             tableName: "IMSAccount",
+                             value: "Cancel",
+                             comment: "")
+          
+            public static let currentPlan = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Current Plan",
+                            tableName: "IMSAccount",
+                            value: "currentPlan",
+                            comment: "")
+           
+            public static let downgradingIsNotSupported = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Downgrading is not supported",
+                            tableName: "IMSAccount",
+                            value: "downgradingIsNotSupported",
+                            comment: "")
         }
     }
 }

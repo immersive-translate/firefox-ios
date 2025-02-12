@@ -44,6 +44,16 @@ class EditFolderViewController: UIViewController,
         view.tableHeaderView = headerSpacerView
     }
 
+    private lazy var saveBarButton: UIBarButtonItem =  {
+        let button = UIBarButtonItem(
+            title: String.Bookmarks.Menu.EditBookmarkSave,
+            style: .done,
+            target: self,
+            action: #selector(saveButtonAction)
+        )
+        return button
+    }()
+
     init(viewModel: EditFolderViewModel,
          windowUUID: WindowUUID,
          themeManager: any ThemeManager = AppContainer.shared.resolve(),
@@ -64,6 +74,7 @@ class EditFolderViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.controllerTitle
+        navigationItem.rightBarButtonItem = saveBarButton
         viewModel.onFolderStatusUpdate = { [weak self] in
             self?.tableView.reloadSections(IndexSet(integer: Section.parentFolder.rawValue), with: .automatic)
         }
@@ -92,7 +103,11 @@ class EditFolderViewController: UIViewController,
             navigationController?.setNavigationBarHidden(true, animated: true)
         }
         onViewWillDisappear?()
-        viewModel.save()
+
+        // Only save when clicking the back button, not when we swipe the view controller away
+        if isMovingFromParent {
+            viewModel.save()
+        }
     }
 
     private func setupSubviews() {
@@ -103,6 +118,14 @@ class EditFolderViewController: UIViewController,
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+
+    // MARK: - Actions
+
+    @objc
+    func saveButtonAction() {
+        // Save will happen in viewWillDisappear
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Themeable

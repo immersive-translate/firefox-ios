@@ -60,6 +60,8 @@ struct MainMenuState: ScreenState, Equatable {
     var navigationDestination: MenuNavigationDestination?
     var currentTabInfo: MainMenuTabInfo?
     var currentSubmenuView: MainMenuDetailsViewType?
+    
+    var imsMainMenuState: IMSMainMenuState?
 
     private let menuConfigurator = MainMenuConfigurationUtility()
 
@@ -81,7 +83,8 @@ struct MainMenuState: ScreenState, Equatable {
             navigationDestination: mainMenuState.navigationDestination,
             shouldDismiss: mainMenuState.shouldDismiss,
             accountData: mainMenuState.accountData,
-            accountIcon: mainMenuState.accountIcon
+            accountIcon: mainMenuState.accountIcon,
+            imsMainMenuState: mainMenuState.imsMainMenuState
         )
     }
 
@@ -94,7 +97,8 @@ struct MainMenuState: ScreenState, Equatable {
             navigationDestination: nil,
             shouldDismiss: false,
             accountData: nil,
-            accountIcon: nil
+            accountIcon: nil,
+            imsMainMenuState: nil
         )
     }
 
@@ -106,7 +110,8 @@ struct MainMenuState: ScreenState, Equatable {
         navigationDestination: MenuNavigationDestination? = nil,
         shouldDismiss: Bool = false,
         accountData: AccountData?,
-        accountIcon: UIImage?
+        accountIcon: UIImage?,
+        imsMainMenuState: IMSMainMenuState? = nil
     ) {
         self.windowUUID = windowUUID
         self.menuElements = menuElements
@@ -116,6 +121,7 @@ struct MainMenuState: ScreenState, Equatable {
         self.shouldDismiss = shouldDismiss
         self.accountData = accountData
         self.accountIcon = accountIcon
+        self.imsMainMenuState = imsMainMenuState
     }
 
     static let reducer: Reducer<Self> = { state, action in
@@ -123,7 +129,7 @@ struct MainMenuState: ScreenState, Equatable {
         else {
             return defaultState(from: state)
         }
-
+        
         switch action.actionType {
         case MainMenuActionType.viewDidLoad:
             return MainMenuState(

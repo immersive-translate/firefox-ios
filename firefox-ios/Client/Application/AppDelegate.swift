@@ -3,7 +3,6 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import Shared
-import Storage
 import CoreSpotlight
 import UIKit
 import Common
@@ -113,6 +112,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         logger.log("didFinishLaunchingWithOptions start",
                    level: .info,
                    category: .lifecycle)
+
+        // Fix iOS simulator builds for Fennec after running unit tests locally [FXIOS-10712]
+        fixSimulatorDevBuild(application)
 
         pushNotificationSetup()
         appLaunchUtil?.setUpPostLaunchDependencies()
@@ -260,6 +262,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let wallpaperManager = WallpaperManager()
             wallpaperManager.checkForUpdates()
         }
+    }
+
+    private func fixSimulatorDevBuild(_ application: UIApplication) {
+        // Corrects an issue for development when running Fennec target in
+        // the simulator after having run unit tests locally.
+        #if targetEnvironment(simulator) && MOZ_CHANNEL_FENNEC
+        let key = "_FennecLaunchedUnitTestDelegate"
+        guard let flagSet = UserDefaults.standard.value(forKey: key) as? Bool, flagSet else { return }
+        // Private API. This code is not present in release builds.
+        application.openSessions.forEach {
+            application.perform(Selector(("_removeSessionFromSessionSet:")), with: $0)
+        }
+        UserDefaults.standard.removeObject(forKey: key)
+        #endif
     }
 }
 

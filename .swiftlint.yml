@@ -84,6 +84,8 @@ only_rules: # Only enforce these rules, ignore all others
   - yoda_condition
   - accessibility_label_for_image
   - accessibility_trait_for_button
+  - force_cast
+  - closure_body_length
 
 # These rules were originally opted into. Disabling for now to get
 # Swiftlint up and running.
@@ -98,6 +100,10 @@ line_length:
   warning: 125
   ignores_urls: true
   ignores_interpolated_strings: true
+
+closure_body_length:
+  warning: 71
+  error: 71
 
 file_header:
   required_string: |
@@ -131,6 +137,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   # so must be excluded due to file_header rule
   - firefox-ios/Package.swift
   - BrowserKit/Package.swift
+  - BrowserKit/Sources/Shared/Deferred/
   - BrowserKit/.build/
   - firefox-ios/Client/ContentBlocker/ContentBlockerGenerator/Package.swift
   - Package.swift

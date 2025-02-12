@@ -19,7 +19,7 @@ enum DismissType {
  */
 class FxAWebViewController: UIViewController {
     fileprivate let dismissType: DismissType
-    fileprivate var webView: WKWebView
+    var webView: WKWebView
     /// Used to show a second WKWebView to browse help links.
     fileprivate var helpBrowser: WKWebView?
     fileprivate let viewModel: FxAWebViewModel
@@ -65,12 +65,14 @@ class FxAWebViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         let scriptMessageHandler = WKScriptMessageHandleDelegate(self)
         contentController.add(scriptMessageHandler, name: "accountsCommandHandler")
-        if let dwkwebView = webView as? DWKWebView {
-            dwkwebView.dsuiDelegate = self
-        } else {
-            webView.uiDelegate = self
-        }
+        webView.navigationDelegate = self
         webView.uiDelegate = self
+        afterInit()
+    }
+    
+    dynamic
+    func afterInit()  {
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -175,7 +177,7 @@ extension FxAWebViewController: WKNavigationDelegate {
         }
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation?) {
         let hideLongpress = "document.body.style.webkitTouchCallout='none';"
         webView.evaluateJavascriptInDefaultContentWorld(hideLongpress)
 

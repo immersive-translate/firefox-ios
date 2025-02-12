@@ -39,7 +39,7 @@ class MainMenuViewController: UIViewController,
     var themeObserver: NSObjectProtocol?
     weak var coordinator: MainMenuCoordinator?
 
-    private let windowUUID: WindowUUID
+    let windowUUID: WindowUUID
     private let profile: Profile
     private var menuState: MainMenuState
     private let logger: Logger
@@ -249,6 +249,7 @@ class MainMenuViewController: UIViewController,
     }
 
     // MARK: - Redux
+    dynamic
     func subscribeToRedux() {
         store.dispatch(
             ScreenAction(
@@ -265,6 +266,7 @@ class MainMenuViewController: UIViewController,
         })
     }
 
+    dynamic
     func unsubscribeFromRedux() {
         store.dispatch(
             ScreenAction(

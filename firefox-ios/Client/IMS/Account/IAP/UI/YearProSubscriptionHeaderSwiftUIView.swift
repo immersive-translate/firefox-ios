@@ -5,6 +5,51 @@
 import SwiftUI
 
 struct YearProSubscriptionHeaderSwiftUIView: View {
+    let info: ProSubscriptionInfo
+    
+    var getYearMonthPriceString: String {
+        IMSIAPAppleService.formatPrice(product: info.appleProduct, price: info.appleProduct.price / 12)
+    }
+    
+    var getYearCurrentPriceString: String {
+        IMSIAPAppleService.formatPrice(product: info.appleProduct)
+    }
+    
+    var getYearOriginPriceString: String {
+    
+        let discoutRate = 1 - info.serverProduct.discountRate
+        let currentPrice = info.appleProduct.price
+        let discountDecimal = Decimal(floatLiteral: discoutRate)
+        let originPrice = if discoutRate > 0 {
+            currentPrice / discountDecimal
+            
+        } else {
+            currentPrice
+        }
+        return IMSIAPAppleService.formatPrice(product: info.appleProduct, price: originPrice)
+    }
+    
+    var getSavedMoneyString: String {
+        let discoutRate = 1 - info.serverProduct.discountRate
+        let currentPrice = info.appleProduct.price
+        
+        // 计算原价
+        let discountDecimal = Decimal(floatLiteral: discoutRate)
+        let originPrice = if discoutRate > 0 {
+            currentPrice / discountDecimal
+        } else {
+            currentPrice
+        }
+        
+        // 计算节省的金额
+        let savedMoney = originPrice - currentPrice
+        
+        // 格式化节省的金额
+        return IMSIAPAppleService.formatPrice(product: info.appleProduct, price: savedMoney)
+    }
+
+    
+    
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -42,7 +87,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 .resizable()
                                 .frame(width: 24, height: 24)
                             
-                            Text("限时特惠")
+                            Text("\(String.IMS.IAP.limitedTimeOffer)")
                                 .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                                 .foregroundColor(
                                     Color(red: 1, green: 0.78, blue: 0.21))
@@ -76,7 +121,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                     ZStack(alignment: .bottom) {
                         VStack {
                             HStack {
-                                Text("年费Pro会员")
+                                Text("\(String.IMS.IAP.yearPro)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
@@ -89,7 +134,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             .padding(.top, 24)
                             
                             HStack {
-                                Text("¥48.3")
+                                Text(getYearMonthPriceString)
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 48)
@@ -98,7 +143,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
-                                Text("/月")
+                                Text("/\(String.IMS.IAP.month)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 24)
@@ -113,14 +158,14 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             .padding(.top, 16)
                             
                             HStack {
-                                Text("¥579.6/年")
+                                Text("\(getYearCurrentPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 16)
                                     )
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
-                                Text("¥828/年")
+                                Text("\(getYearOriginPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 16)
@@ -132,7 +177,9 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             }
                             .padding(.leading, 24)
                             .padding(.top, 8)
-                            .padding(.bottom, 20)
+                            
+                            Spacer()
+                                .frame(height: 30)
                             
                         }
                         .foregroundColor(.clear)
@@ -161,45 +208,47 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     lineWidth: 1)
                             
                         )
-                        
-                        HStack {
-                            Spacer()
-                            
+                        if info.serverProduct.discountRate > 0 {
                             HStack {
-                                Text("🔥立省248.4元")
-                                    .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 14)
+                                Spacer()
+                                
+                                HStack {
+                                    Text("🔥\(String.IMS.IAP.save)\(getSavedMoneyString)")
+                                        .font(
+                                            Font.custom(
+                                                "Alibaba PuHuiTi 3.0", size: 14)
+                                        )
+                                        .foregroundColor(
+                                            Color(
+                                                red: 0.92, green: 0.3,
+                                                blue: 0.54))
+                                }
+                                .foregroundColor(.clear)
+                                
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 5)
+                                .frame(height: 30)
+                                .background(
+                                    LinearGradient(
+                                        stops: [
+                                            Gradient.Stop(
+                                                color: Color(
+                                                    red: 0.92, green: 0.3,
+                                                    blue: 0.54
+                                                ).opacity(0.15), location: 0.00),
+                                            Gradient.Stop(
+                                                color: Color(
+                                                    red: 0.92, green: 0.3,
+                                                    blue: 0.54
+                                                ).opacity(0.04), location: 1.00),
+                                        ],
+                                        startPoint: UnitPoint(x: 1, y: 0),
+                                        endPoint: UnitPoint(x: 0, y: 1)
                                     )
-                                    .foregroundColor(
-                                        Color(
-                                            red: 0.92, green: 0.3,
-                                            blue: 0.54))
-                            }
-                            .foregroundColor(.clear)
-                            .frame(height: 30)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 5)
-                            .background(
-                                LinearGradient(
-                                    stops: [
-                                        Gradient.Stop(
-                                            color: Color(
-                                                red: 0.92, green: 0.3,
-                                                blue: 0.54
-                                            ).opacity(0.15), location: 0.00),
-                                        Gradient.Stop(
-                                            color: Color(
-                                                red: 0.92, green: 0.3,
-                                                blue: 0.54
-                                            ).opacity(0.04), location: 1.00),
-                                    ],
-                                    startPoint: UnitPoint(x: 1, y: 0),
-                                    endPoint: UnitPoint(x: 0, y: 1)
                                 )
-                            )
-                            .cornerRadius(24, corners: [.topLeft, .bottomRight])
-                            
+                                .cornerRadius(24, corners: [.topLeft, .bottomRight])
+                                
+                            }
                         }
                     }
                     .foregroundColor(.clear)
@@ -219,12 +268,3 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
     }
 }
 
-#Preview {
-    VStack {
-        YearProSubscriptionHeaderSwiftUIView()
-            
-        
-        Spacer()
-    }
-        .ignoresSafeArea()
-}

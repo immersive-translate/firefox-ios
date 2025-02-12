@@ -29,7 +29,8 @@ class BrowserCoordinator: BaseCoordinator,
                           WindowEventCoordinator,
                           MainMenuCoordinatorDelegate,
                           ETPCoordinatorSSLStatusDelegate,
-                          SearchEngineSelectionCoordinatorDelegate {
+                          SearchEngineSelectionCoordinatorDelegate,
+                          BookmarksRefactorFeatureFlagProvider {
     private struct UX {
         static let searchEnginePopoverSize = CGSize(width: 250, height: 536)
     }
@@ -41,7 +42,7 @@ class BrowserCoordinator: BaseCoordinator,
     var privateViewController: PrivateHomepageViewController?
     var errorViewController: NativeErrorPageViewController?
 
-    private var profile: Profile
+    var profile: Profile
     private let tabManager: TabManager
     private let themeManager: ThemeManager
     private let windowManager: WindowManager
@@ -49,7 +50,7 @@ class BrowserCoordinator: BaseCoordinator,
     private let glean: GleanWrapper
     private let applicationHelper: ApplicationHelper
     private var browserIsReady = false
-    private var windowUUID: WindowUUID { return tabManager.windowUUID }
+    var windowUUID: WindowUUID { return tabManager.windowUUID }
 
     override var isDismissable: Bool { false }
 
@@ -59,7 +60,7 @@ class BrowserCoordinator: BaseCoordinator,
          profile: Profile = AppContainer.shared.resolve(),
          themeManager: ThemeManager = AppContainer.shared.resolve(),
          windowManager: WindowManager = AppContainer.shared.resolve(),
-         glean: GleanWrapper = DefaultGleanWrapper.shared,
+         glean: GleanWrapper = DefaultGleanWrapper(),
          applicationHelper: ApplicationHelper = DefaultApplicationHelper()) {
         self.screenshotService = screenshotService
         self.profile = profile
@@ -94,6 +95,9 @@ class BrowserCoordinator: BaseCoordinator,
     }
 
     // MARK: - LaunchCoordinatorDelegate
+    func didFinishTermsOfService(from coordinator: LaunchCoordinator) {
+        didFinishLaunch(from: coordinator)
+    }
 
     func didFinishLaunch(from coordinator: LaunchCoordinator) {
         router.dismiss(animated: true, completion: nil)
@@ -134,13 +138,24 @@ class BrowserCoordinator: BaseCoordinator,
         screenshotService.screenshotableView = nil
     }
 
-    func showHomepage() {
-        let homepageController = self.homepageViewController ?? HomepageViewController(windowUUID: windowUUID)
+    func showHomepage(
+        overlayManager: OverlayModeManager,
+        isZeroSearch: Bool,
+        statusBarScrollDelegate: StatusBarScrollDelegate,
+        toastContainer: UIView
+    ) {
+        let homepageController = self.homepageViewController ?? HomepageViewController(
+            windowUUID: windowUUID,
+            overlayManager: overlayManager,
+            statusBarScrollDelegate: statusBarScrollDelegate,
+            toastContainer: toastContainer
+        )
         guard browserViewController.embedContent(homepageController) else {
             logger.log("Unable to embed new homepage", level: .debug, category: .coordinator)
             return
         }
         self.homepageViewController = homepageController
+        homepageController.scrollToTop()
     }
 
     func showPrivateHomepage(overlayManager: OverlayModeManager) {
@@ -157,23 +172,41 @@ class BrowserCoordinator: BaseCoordinator,
         browserViewController.homePanel(didSelectURL: url, visitType: visitType, isGoogleTopSite: isGoogleTopSite)
     }
 
-    func showContextMenu() {
-        // TODO: FXIOS-10613 - Add proper context menu actions
-        let state = ContextMenuState()
-        let viewModel = PhotonActionSheetViewModel(actions: state.actions,
-                                                   modalStyle: .overFullScreen)
-        let sheet = PhotonActionSheet(viewModel: viewModel, windowUUID: windowUUID)
-        sheet.modalTransitionStyle = .crossDissolve
-        present(sheet, animated: true)
+    func showContextMenu(for configuration: ContextMenuConfiguration) {
+        let coordinator = ContextMenuCoordinator(
+            configuration: configuration,
+            router: router,
+            windowUUID: windowUUID,
+            bookmarksHandlerDelegate: browserViewController
+        )
+        coordinator.parentCoordinator = self
+        add(child: coordinator)
+        coordinator.start()
+    }
+
+    func showEditBookmark(parentFolder: FxBookmarkNode, bookmark: FxBookmarkNode) {
+        let navigationController = DismissableNavigationViewController()
+        let router = DefaultRouter(navigationController: navigationController)
+        let bookmarksCoordinator = BookmarksCoordinator(
+            router: router,
+            profile: profile,
+            windowUUID: windowUUID,
+            libraryCoordinator: self,
+            libraryNavigationHandler: nil,
+            isBookmarkRefactorEnabled: isBookmarkRefactorEnabled
+        )
+        add(child: bookmarksCoordinator)
+        bookmarksCoordinator.start(parentFolder: parentFolder, bookmark: bookmark)
+        navigationController.onViewDismissed = { [weak self] in
+            // Remove coordinator when user drags down to dismiss modal
+            self?.didFinish(from: bookmarksCoordinator)
+        }
+        present(navigationController)
     }
 
     // MARK: - PrivateHomepageDelegate
     func homePanelDidRequestToOpenInNewTab(with url: URL, isPrivate: Bool, selectNewTab: Bool) {
-        browserViewController.homePanelDidRequestToOpenInNewTab(
-            url,
-            isPrivate: isPrivate,
-            selectNewTab: selectNewTab
-        )
+        openInNewTab(url: url, isPrivate: isPrivate, selectNewTab: selectNewTab)
     }
 
     func switchMode() {
@@ -244,7 +277,7 @@ class BrowserCoordinator: BaseCoordinator,
             return browserViewController.tabManager.selectedTab?.currentWebView()?.hasOnlySecureContent ?? false
         }
 
-        guard let bar = browserViewController.urlBar else { return false }
+        guard let bar = browserViewController.legacyUrlBar else { return false }
         return bar.locationView.hasSecureContent
     }
 
@@ -287,8 +320,8 @@ class BrowserCoordinator: BaseCoordinator,
         case let .searchURL(url, tabId):
             handle(searchURL: url, tabId: tabId)
 
-        case let .sharesheet(url, title):
-            showShareSheet(with: url, title: title)
+        case let .sharesheet(shareType, shareMessage):
+            handleShareRoute(shareType: shareType, shareMessage: shareMessage)
 
         case let .glean(url):
             glean.handleDeeplinkUrl(url: url)
@@ -375,6 +408,22 @@ class BrowserCoordinator: BaseCoordinator,
         browserViewController.presentSignInViewController(fxaParams)
     }
 
+    /// Starts the share sheet coordinator for the deep link `.sharesheet` route (share content via Nimbus Messaging).
+    /// - Parameters:
+    ///   - shareType: The content to share.
+    ///   - shareMessage: An optional textual message to accompany the shared content. May contain a Mail subject line.
+    private func handleShareRoute(shareType: ShareType, shareMessage: ShareMessage?) {
+        // FIXME: FXIOS-10829 Deep link shares should set a reasonable sourceView for iPad... or sourceView could be optional
+        startShareSheetCoordinator(
+            shareType: shareType,
+            shareMessage: shareMessage,
+            sourceView: browserViewController.addressToolbarContainer,
+            sourceRect: nil,
+            toastContainer: browserViewController.contentContainer,
+            popoverArrowDirection: .any
+        )
+    }
+
     private func canHandleSettings(with section: Route.SettingsSection) -> Bool {
         guard !childCoordinators.contains(where: { $0 is SettingsCoordinator }) else {
             return false // route is handled with existing child coordinator
@@ -453,10 +502,6 @@ class BrowserCoordinator: BaseCoordinator,
 
     // MARK: - LibraryCoordinatorDelegate
 
-    func openRecentlyClosedSiteInSameTab(_ url: URL) {
-        browserViewController.openRecentlyClosedSiteInSameTab(url)
-    }
-
     func openRecentlyClosedSiteInNewTab(_ url: URL, isPrivate: Bool) {
         browserViewController.openRecentlyClosedSiteInNewTab(url, isPrivate: isPrivate)
     }
@@ -475,7 +520,7 @@ class BrowserCoordinator: BaseCoordinator,
         return windowUUID
     }
 
-    func didFinishLibrary(from coordinator: LibraryCoordinator) {
+    func didFinishLibrary(from coordinator: Coordinator) {
         router.dismiss(animated: true, completion: nil)
         remove(child: coordinator)
     }
@@ -533,39 +578,24 @@ class BrowserCoordinator: BaseCoordinator,
         browserViewController.updateZoomPageBarVisibility(visible: true)
     }
 
-    func showShareSheet(with url: URL?) {
-        showShareSheet(with: url, title: nil)
-    }
-
-    func showShareSheet(with url: URL?, title: String?) {
-        guard let url else { return }
-
-        let showShareSheet = { url in
-            self.showShareExtension(
-                url: url,
-                title: title,
-                sourceView: self.browserViewController.addressToolbarContainer,
-                toastContainer: self.browserViewController.contentContainer,
-                popoverArrowDirection: .any
-            )
-        }
-
-        guard let temporaryDocument = browserViewController.tabManager.selectedTab?.temporaryDocument else {
-            showShareSheet(url)
+    /// Share the currently selected tab using the share sheet.
+    ///
+    /// Part of the MainMenuCoordinatorDelegate implementation, called from the New Menu > Tools > Share.
+    func showShareSheetForCurrentlySelectedTab() {
+        // We share the tab's displayURL to make sure we don't share reader mode localhost URLs
+        guard let selectedTab = tabManager.selectedTab,
+              let url = selectedTab.canonicalURL?.displayURL else {
             return
         }
 
-        temporaryDocument.getURL { tempDocURL in
-            DispatchQueue.main.async {
-                // If we successfully got a temp file URL, share it like a downloaded file,
-                // otherwise present the ordinary share menu for the web URL.
-                if let tempDocURL = tempDocURL, tempDocURL.isFileURL {
-                    showShareSheet(tempDocURL)
-                } else {
-                    showShareSheet(url)
-                }
-            }
-        }
+        startShareSheetCoordinator(
+            shareType: .tab(url: url, tab: selectedTab),
+            shareMessage: nil,
+            sourceView: self.browserViewController.addressToolbarContainer,
+            sourceRect: nil,
+            toastContainer: self.browserViewController.contentContainer,
+            popoverArrowDirection: .any
+        )
     }
 
     private func makeMenuNavViewController() -> DismissableNavigationViewController? {
@@ -638,6 +668,30 @@ class BrowserCoordinator: BaseCoordinator,
     }
 
     // MARK: - BrowserNavigationHandler
+    func openInNewTab(url: URL, isPrivate: Bool, selectNewTab: Bool) {
+        browserViewController.homePanelDidRequestToOpenInNewTab(
+            url,
+            isPrivate: isPrivate,
+            selectNewTab: selectNewTab
+        )
+    }
+    func showShareSheet(
+        shareType: ShareType,
+        shareMessage: ShareMessage?,
+        sourceView: UIView,
+        sourceRect: CGRect?,
+        toastContainer: UIView,
+        popoverArrowDirection: UIPopoverArrowDirection
+    ) {
+        startShareSheetCoordinator(
+            shareType: shareType,
+            shareMessage: shareMessage,
+            sourceView: sourceView,
+            sourceRect: sourceRect,
+            toastContainer: toastContainer,
+            popoverArrowDirection: popoverArrowDirection
+        )
+    }
 
     func show(settings: Route.SettingsSection, onDismiss: (() -> Void)? = nil) {
         presentWithModalDismissIfNeeded {
@@ -722,35 +776,78 @@ class BrowserCoordinator: BaseCoordinator,
         return coordinator
     }
 
-    func showShareExtension(
-        url: URL,
-        title: String?,
+    /// Starts the ShareSheetCoordinator, which initiates opening the iOS share sheet using an `UIActivityViewController`.
+    ///
+    /// For shared tabs where the user is currently on a non-HTML page (e.g. viewing a PDF), this method will initiate a
+    /// file download, and then share the file instead. This currently blocks without any UI indication, which is less
+    /// than ideal but has been the existing behaviour for a long time (task to address this: FXIOS-10823).
+    ///
+    /// - Parameters:
+    ///   - shareType: The type of content to share.
+    ///   - shareMessage: An optional accompanying message to share (with optional email subject line).
+    ///   - sourceView: The view tapped to initiate share. iPad share sheet popovers will point to this element.
+    ///   - sourceRect: The source rect for the view tapped to initiate share. iPad share sheet popovers will point to this
+    ///                 element.
+    ///   - toastContainer: The container for displaying toast information.
+    ///   - popoverArrowDirection: The arrow direction for iPad share sheet popovers.
+    ///
+    /// There are many ways to share many types of content from various areas of the app. Code paths that go through this
+    /// method include:
+    /// * Sharing content from a long press on Home screen tiles (e.g. long press Jump Back In context menu)
+    /// * From the old Menu > Share and the new Menu > Tools > Share
+    /// * From the new toolbar share button beside the address bar
+    /// * From long pressing a link in the WKWebView and sharing from the context menu (via ActionProviderBuilder > addShare)
+    /// * Via the sharesheet deeplink path in `RouteBuilder` (e.g. tapping home cards that initiate sharing content)
+    ///     * Currently this is the only path that is using the ShareMessage param (Info Card Referral experiment FXE-1090)
+    func startShareSheetCoordinator(
+        shareType: ShareType,
+        shareMessage: ShareMessage?,
         sourceView: UIView,
         sourceRect: CGRect?,
         toastContainer: UIView,
         popoverArrowDirection: UIPopoverArrowDirection
     ) {
-        guard childCoordinators.first(where: { $0 is ShareExtensionCoordinator }) as? ShareExtensionCoordinator == nil
-        else {
-            // If this case is hitted it means the share extension coordinator wasn't removed
-            // correctly in the previous session.
-            return
+        if let coordinator = childCoordinators.first(where: { $0 is ShareSheetCoordinator }) as? ShareSheetCoordinator {
+            // The share sheet extension coordinator wasn't correctly removed in the last share session. Attempt to recover.
+            logger.log(
+                "ShareSheetCoordinator already exists when it shouldn't. Removing and recreating it to access share sheet",
+                level: .info,
+                category: .shareSheet,
+                extra: ["existing ShareSheetCoordinator UUID": "\(coordinator.windowUUID)",
+                        "BrowserCoordinator windowUUID": "\(windowUUID)"]
+            )
+
+            coordinator.dismiss()
         }
-        let shareExtensionCoordinator = ShareExtensionCoordinator(
-            alertContainer: toastContainer,
-            router: router,
-            profile: profile,
-            parentCoordinator: self,
-            tabManager: tabManager
-        )
-        add(child: shareExtensionCoordinator)
-        shareExtensionCoordinator.start(
-            url: url,
-            title: title,
-            sourceView: sourceView,
-            sourceRect: sourceRect,
-            popoverArrowDirection: popoverArrowDirection
-        )
+
+        Task {
+            // FXIOS-10824 It's strange if the user has to wait a long time to download files that are literally already
+            // being shown in the webview.
+            var overrideShareType = shareType
+            if case ShareType.tab = shareType {
+                overrideShareType = await tryDownloadingTabFileToShare(shareType: shareType)
+            }
+
+            await MainActor.run { [weak self, overrideShareType] in
+                guard let self else { return }
+
+                let shareSheetCoordinator = ShareSheetCoordinator(
+                    alertContainer: toastContainer,
+                    router: router,
+                    profile: profile,
+                    parentCoordinator: self,
+                    tabManager: tabManager
+                )
+                add(child: shareSheetCoordinator)
+                shareSheetCoordinator.start(
+                    shareType: overrideShareType,
+                    shareMessage: shareMessage,
+                    sourceView: sourceView,
+                    sourceRect: sourceRect,
+                    popoverArrowDirection: popoverArrowDirection
+                )
+            }
+        }
     }
 
     func showCreditCardAutofill(creditCard: CreditCard?,
@@ -924,9 +1021,7 @@ class BrowserCoordinator: BaseCoordinator,
         controller.sheetPresentationController?.selectedDetentIdentifier = .large
     }
 
-    private func present(_ viewController: UIViewController,
-                         animated: Bool = true,
-                         completion: (() -> Void)? = nil) {
+    private func present(_ viewController: UIViewController) {
         browserViewController.willNavigateAway()
         router.present(viewController)
     }
@@ -1034,6 +1129,24 @@ class BrowserCoordinator: BaseCoordinator,
                 remove(child: childCoordinators.first(where: { $0 is QRCodeCoordinator }))
             }
         }
+    }
+
+    // MARK: - Private helpers
+
+    private func tryDownloadingTabFileToShare(shareType: ShareType) async -> ShareType {
+        // We can only try to download files for `.tab` type shares that have a TemporaryDocument
+        guard case let ShareType.tab(_, tab) = shareType,
+              let temporaryDocument = tab.temporaryDocument else {
+            return shareType
+        }
+
+        guard let fileURL = await temporaryDocument.getDownloadedURL() else {
+            // If no file was downloaded, simply share the tab as usual with a web URL
+            return shareType
+        }
+
+        // If we successfully got a temp file URL, share it like a downloaded file
+        return .file(url: fileURL)
     }
 
     /// Utility. Performs the supplied action if a coordinator of the indicated type

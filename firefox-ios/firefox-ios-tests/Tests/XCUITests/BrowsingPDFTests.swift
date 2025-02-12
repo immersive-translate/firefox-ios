@@ -58,7 +58,7 @@ class BrowsingPDFTests: BaseTestCase {
         navigator.openURL(PDF_website["url"]!)
         waitUntilPageLoad()
         // Long press on a link on the pdf and check the options shown
-        app.webViews.links.element(boundBy: 0).pressAtPoint(CGPoint(x: 10, y: 0), forDuration: 3)
+        longPressOnPdfLink()
 
         waitForElementsToExist(
             [
@@ -80,7 +80,7 @@ class BrowsingPDFTests: BaseTestCase {
         navigator.openURL(PDF_website["url"]!)
         waitUntilPageLoad()
         // Long press on a link on the pdf and check the options shown
-        app.webViews.links.element(boundBy: 0).pressAtPoint(CGPoint(x: 10, y: 0), forDuration: 3)
+        longPressOnPdfLink()
 
         mozWaitForElementToExist(app.staticTexts[PDF_website["longUrlValue"]!])
         app.buttons["Add to Reading List"].tap()
@@ -101,7 +101,7 @@ class BrowsingPDFTests: BaseTestCase {
         navigator.performAction(Action.OpenNewTabFromTabTray)
         waitForElementsToExist(
             [
-                app.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell],
+                app.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell],
                 app.collectionViews.cells.staticTexts[PDF_website["bookmarkLabel"]!]
             ]
         )
@@ -109,7 +109,7 @@ class BrowsingPDFTests: BaseTestCase {
         // Open pdf from pinned site
         let pdfTopSite = app
             .collectionViews[AccessibilityIdentifiers.FirefoxHomepage.collectionView]
-            .cells[PDF_website["bookmarkLabel"]!]
+            .links[PDF_website["bookmarkLabel"]!]
             .children(matching: .other)
             .element
             .children(matching: .other)
@@ -126,7 +126,7 @@ class BrowsingPDFTests: BaseTestCase {
         app.tables.cells.otherElements[StandardImageIdentifiers.Large.pinSlash].tap()
         waitForElementsToExist(
             [
-            app.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell],
+            app.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell],
             app.collectionViews.cells.staticTexts[PDF_website["bookmarkLabel"]!]
             ]
         )
@@ -146,5 +146,12 @@ class BrowsingPDFTests: BaseTestCase {
                 app.tables["Bookmarks List"].staticTexts[PDF_website["bookmarkLabel"]!]
             ]
         )
+    }
+
+    private func longPressOnPdfLink() {
+        let link = app.webViews.links.element(boundBy: 0)
+        let startCoordinate = link.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let endCoordinate = link.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+        startCoordinate.press(forDuration: 3, thenDragTo: endCoordinate)
     }
 }

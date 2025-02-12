@@ -56,6 +56,8 @@
 	<string>12f64b0848e953d71f94f6dca577fb36</string>
 	<key>FacebookDisplayName</key>
 	<string>$(MOZ_BUNDLE_DISPLAY_NAME)</string>
+	<key>CHANNEL</key>
+	<string>$(CHANNEL)</string>
 	<key>INIntentsSupported</key>
 	<array>
 		<string>QuickActionIntent</string>

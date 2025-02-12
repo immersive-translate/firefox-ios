@@ -5,14 +5,13 @@
 import Common
 import UIKit
 import Shared
-import Storage
 
 /// Each scene has it's own scene coordinator, which is the root coordinator for a scene.
 class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinishedLoadingDelegate {
     var window: UIWindow?
     var windowUUID: WindowUUID { reservedWindowUUID.uuid }
     private let screenshotService: ScreenshotService
-    private let sceneContainer: SceneContainer
+    let sceneContainer: SceneContainer
     private let windowManager: WindowManager
     private let reservedWindowUUID: ReservedWindowUUID
 
@@ -44,6 +43,7 @@ class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinish
         window?.makeKeyAndVisible()
     }
 
+    dynamic
     func start() {
         router.setRootViewController(sceneContainer, hideBar: true)
 
@@ -100,6 +100,9 @@ class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinish
         startBrowser(with: nil)
     }
 
+    // No implementation needed as LaunchScreenViewController is not calling this coordinator method
+    func finishedLoadingLaunchOrder() { }
+
     // MARK: - Helper methods
 
     private func startLaunch(with launchType: LaunchType) {
@@ -138,6 +141,10 @@ class SceneCoordinator: BaseCoordinator, LaunchCoordinatorDelegate, LaunchFinish
     }
 
     // MARK: - LaunchCoordinatorDelegate
+    func didFinishTermsOfService(from coordinator: LaunchCoordinator) {
+        router.dismiss(animated: true)
+        remove(child: coordinator)
+    }
 
     func didFinishLaunch(from coordinator: LaunchCoordinator) {
         router.dismiss(animated: true)

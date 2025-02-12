@@ -6,7 +6,7 @@ import Foundation
 import CoreSpotlight
 import Shared
 
-final class RouteBuilder {
+final class RouteBuilder: FeatureFlaggable {
     private var isPrivate = false
     private var prefs: Prefs?
 
@@ -123,13 +123,22 @@ final class RouteBuilder {
                 return nil
 
             case .sharesheet:
-                let linkString = urlScanner.value(query: "url")
-                let titleText = urlScanner.value(query: "title")
-                if let link = linkString, let url = URL(string: link) {
-                  return .sharesheet(url: url, title: titleText)
-                } else {
+                guard let shareURLString = urlScanner.value(query: "url"),
+                      let shareURL = URL(string: shareURLString) else {
+                    assertionFailure("Should not be trying to share a bad URL")
                     return nil
                 }
+
+                // Pass optional share message and subtitle here
+                var shareMessage: ShareMessage?
+                if let titleText = urlScanner.value(query: "title") {
+                    let subtitleText: String? = urlScanner.value(query: "subtitle")
+
+                    shareMessage = ShareMessage(message: titleText, subtitle: subtitleText)
+                }
+
+                // Deeplinks cannot have an associated tab or file, so this must be a website URL `.site` share
+                return .sharesheet(shareType: .site(url: shareURL), shareMessage: shareMessage)
             }
         } else if urlScanner.isHTTPScheme {
             TelemetryWrapper.gleanRecordEvent(category: .action, method: .open, object: .asDefaultBrowser)
@@ -149,7 +158,8 @@ final class RouteBuilder {
 
         // If the user activity has a webpageURL, it's a deep link or an old history item.
         // Use the URL to create a new search tab.
-        if let url = userActivity.webpageURL {
+        if let url = userActivity.webpageURL,
+           isBrowsingActivity(userActivity) {
             return .search(url: url, isPrivate: false)
         }
 
@@ -194,6 +204,15 @@ final class RouteBuilder {
             }
         case .qrCode:
             return .action(action: .showQRCode)
+        }
+    }
+
+    private func isBrowsingActivity(_ userActivity: NSUserActivity) -> Bool {
+        if featureFlags.isFeatureEnabled(.universalLinks, checking: .buildOnly) {
+            return userActivity.activityType == NSUserActivityTypeBrowsingWeb ||
+            userActivity.activityType == browsingActivityType
+        } else {
+            return true
         }
     }
 

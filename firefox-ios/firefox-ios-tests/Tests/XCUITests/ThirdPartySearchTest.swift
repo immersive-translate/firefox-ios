@@ -74,22 +74,19 @@ class ThirdPartySearchTest: BaseTestCase {
 
         // Need to go step by step to Search Settings. The ScreenGraph will fail to go to the Search Settings Screen
         app.buttons[AccessibilityIdentifiers.Browser.UrlBar.cancelButton].waitAndTap()
-        app.buttons[AccessibilityIdentifiers.Toolbar.settingsMenuButton].waitAndTap()
-        app.tables["Context Menu"].otherElements["Settings"].tap()
-        app.tables.staticTexts["Google"].waitAndTap()
+        navigator.nowAt(BrowserTab)
+        navigator.goto(SettingsScreen)
+        navigator.goto(SearchSettings)
 
-        // Action.RemoveCustomSearchEngine does not work on iOS 15
-        if #available(iOS 16, *) {
-            navigator.performAction(Action.RemoveCustomSearchEngine)
-            dismissSearchScreen()
+        navigator.performAction(Action.RemoveCustomSearchEngine)
+        dismissSearchScreen()
 
-            // Perform a search to check
-            app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField].waitAndTap()
-            mozWaitForElementToExist(app.buttons[AccessibilityIdentifiers.Browser.UrlBar.cancelButton])
-            app.textFields.firstMatch.waitAndTap()
-            app.textFields.firstMatch.typeText("window")
-            mozWaitForElementToNotExist(app.scrollViews.otherElements.buttons["Mozilla Engine search"])
-        }
+        // Perform a search to check
+        app.textFields[AccessibilityIdentifiers.Browser.AddressToolbar.searchTextField].waitAndTap()
+        mozWaitForElementToExist(app.buttons[AccessibilityIdentifiers.Browser.UrlBar.cancelButton])
+        app.textFields.firstMatch.waitAndTap()
+        app.textFields.firstMatch.typeText("window")
+        mozWaitForElementToNotExist(app.scrollViews.otherElements.buttons["Mozilla Engine search"])
     }
 
     private func addCustomSearchEngine() {

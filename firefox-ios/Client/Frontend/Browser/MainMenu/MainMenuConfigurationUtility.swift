@@ -70,7 +70,8 @@ struct MainMenuConfigurationUtility: Equatable, FeatureFlaggable {
 
     // MARK: - Main Menu
 
-    private func getMainMenuElements(
+    dynamic
+    func getMainMenuElements(
         with uuid: WindowUUID,
         and tabInfo: MainMenuTabInfo
     ) -> [MenuSection] {
@@ -587,7 +588,7 @@ struct MainMenuConfigurationUtility: Equatable, FeatureFlaggable {
     }
 
     // MARK: - Libraries Section
-    private func getLibrariesSection(with uuid: WindowUUID, tabInfo: MainMenuTabInfo) -> MenuSection {
+    func getLibrariesSection(with uuid: WindowUUID, tabInfo: MainMenuTabInfo) -> MenuSection {
         return MenuSection(options: [
             MenuElement(
                 title: .MainMenu.PanelLinkSection.Bookmarks,
@@ -670,7 +671,8 @@ struct MainMenuConfigurationUtility: Equatable, FeatureFlaggable {
 
     // MARK: - Other Tools Section
 
-    private func getOtherToolsSection(
+    dynamic
+    func getOtherToolsSection(
         with uuid: WindowUUID,
         isHomepage: Bool,
         tabInfo: MainMenuTabInfo

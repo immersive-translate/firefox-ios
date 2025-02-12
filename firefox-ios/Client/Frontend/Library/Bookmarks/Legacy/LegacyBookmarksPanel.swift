@@ -61,6 +61,7 @@ class LegacyBookmarksPanel: SiteTableViewController,
             return [flexibleSpace, bottomRightButton]
         case .bookmarks(state: .inFolderEditMode):
             bottomRightButton.title = String.AppSettingsDone
+            bottomRightButton.isEnabled = true
             return [bottomLeftButton, flexibleSpace, bottomRightButton]
         case .bookmarks(state: .itemEditMode):
             bottomRightButton.title = String.AppSettingsDone
@@ -149,8 +150,9 @@ class LegacyBookmarksPanel: SiteTableViewController,
 
     override func reloadData() {
         viewModel.reloadData { [weak self] in
-            self?.tableView.reloadData()
-
+            ensureMainThread {
+                self?.tableView.reloadData()
+            }
             if self?.viewModel.shouldFlashRow ?? false {
                 self?.flashRow()
             }

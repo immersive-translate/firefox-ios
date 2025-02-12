@@ -25,14 +25,14 @@ public final class HeaderView: UIView, ThemeApplicable {
     public var closeButtonCallback: (() -> Void)?
     public var mainButtonCallback: (() -> Void)?
 
-    private lazy var headerLabelsContainer: UIStackView = .build { stack in
+    public lazy var headerLabelsContainer: UIStackView = .build { stack in
         stack.backgroundColor = .clear
         stack.alignment = .leading
         stack.axis = .vertical
         stack.spacing = UX.headerLabelDistance
     }
 
-    private var favicon: FaviconImageView = .build { favicon in
+    public var favicon: FaviconImageView = .build { favicon in
         favicon.manuallySetImage(
             UIImage(named: StandardImageIdentifiers.Large.globe)?.withRenderingMode(.alwaysTemplate) ?? UIImage())
     }
@@ -55,12 +55,12 @@ public final class HeaderView: UIView, ThemeApplicable {
         button.addTarget(self, action: #selector(self.closeButtonTapped), for: .touchUpInside)
     }
 
-    private lazy var mainButton: UIButton = .build { button in
+    public lazy var mainButton: UIButton = .build { button in
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(self.mainButtonTapped), for: .touchUpInside)
     }
 
-    private var iconMask: UIView = .build { view in
+    public var iconMask: UIView = .build { view in
         view.backgroundColor = .clear
     }
 
@@ -77,7 +77,8 @@ public final class HeaderView: UIView, ThemeApplicable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupViews() {
+    dynamic
+    public func setupViews() {
         headerLabelsContainer.addArrangedSubview(titleLabel)
         headerLabelsContainer.addArrangedSubview(subtitleLabel)
         addSubviews(iconMask, favicon, headerLabelsContainer, mainButton, closeButton, warningIconView, horizontalLine)
@@ -181,7 +182,6 @@ public final class HeaderView: UIView, ThemeApplicable {
     }
 
     public func setupDetails(subtitle: String, title: String, icon: FaviconImageViewModel) {
-        titleLabel.font = FXFontStyles.Regular.headline.scaledFont()
         favicon.setFavicon(icon)
         subtitleLabel.text = subtitle
         titleLabel.text = title

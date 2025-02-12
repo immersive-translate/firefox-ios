@@ -18,10 +18,12 @@ struct ProSubscriptionPopverTipIcon: View {
         }
         .customPopover(isPresented: $showPopover, content: {
             Text(tipMessage)
+                .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                 .foregroundColor(Color.white)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
                 .background(Color.black)
+                .frame(maxWidth: 250)
         })
     }
 }

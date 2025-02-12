@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import XCTest
+import Shared
 
 class OnboardingTests: BaseTestCase {
     var currentScreen = 0
@@ -19,7 +20,9 @@ class OnboardingTests: BaseTestCase {
     }
 
     override func tearDown() {
-        switchThemeToDarkOrLight(theme: "Light")
+        if #available(iOS 17.0, *) {
+            switchThemeToDarkOrLight(theme: "Light")
+        }
         app.terminate()
         super.tearDown()
     }
@@ -92,7 +95,7 @@ class OnboardingTests: BaseTestCase {
 
         // Finish onboarding
         app.buttons["\(rootA11yId)PrimaryButton"].tap()
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         mozWaitForElementToExist(topSites)
     }
 
@@ -159,7 +162,7 @@ class OnboardingTests: BaseTestCase {
         XCTAssertTrue(app.buttons["\(rootA11yId)SecondaryButton"].exists)
 
         // Finish onboarding
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         app.buttons["\(rootA11yId)PrimaryButton"].tap()
         mozWaitForElementToExist(topSites)
     }
@@ -173,6 +176,10 @@ class OnboardingTests: BaseTestCase {
         currentScreen += 1
         mozWaitForElementToExist(app.staticTexts["\(rootA11yId)TitleLabel"])
         XCTAssertEqual("Stay encrypted when you hop between devices", app.staticTexts["\(rootA11yId)TitleLabel"].label)
+        XCTAssertEqual("Firefox encrypts your passwords, bookmarks, and more when you’re synced.",
+                       app.staticTexts["\(rootA11yId)DescriptionLabel"].label)
+        XCTAssertEqual("Sign In", app.buttons["\(rootA11yId)PrimaryButton"].label)
+        XCTAssertEqual("Skip", app.buttons["\(rootA11yId)SecondaryButton"].label)
         // Tap on Sign In
         app.buttons["\(rootA11yId)PrimaryButton"].tap()
         mozWaitForElementToExist(app.navigationBars["Sync and Save Data"])
@@ -188,7 +195,7 @@ class OnboardingTests: BaseTestCase {
     // https://mozilla.testrail.io/index.php?/cases/view/2306816
     func testCloseTour() {
         app.buttons["\(AccessibilityIdentifiers.Onboarding.closeButton)"].tap()
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         mozWaitForElementToExist(topSites)
     }
 
@@ -255,7 +262,7 @@ class OnboardingTests: BaseTestCase {
         }
 
         app.buttons["Save and Start Browsing"].waitAndTap()
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         mozWaitForElementToExist(topSites)
 
         // Check if the toolbar exists
@@ -299,7 +306,7 @@ class OnboardingTests: BaseTestCase {
         }
 
         app.buttons["Save and Start Browsing"].waitAndTap()
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         mozWaitForElementToExist(topSites)
 
         // Check if the toolbar exists
@@ -327,7 +334,7 @@ class OnboardingTests: BaseTestCase {
         mozWaitForElementToExist(app.staticTexts["\(rootA11yId)TitleLabel"])
         app.buttons["\(rootA11yId)PrimaryButton"].tap()
         app.buttons["CloseButton"].waitAndTap()
-        let topSites = app.collectionViews.cells[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
+        let topSites = app.collectionViews.links[AccessibilityIdentifiers.FirefoxHomepage.TopSites.itemCell]
         mozWaitForElementToExist(topSites)
     }
 }

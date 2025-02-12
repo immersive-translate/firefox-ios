@@ -17,13 +17,14 @@ struct TPMenuUX {
         static let headerLabelDistance: CGFloat = 2.0
         static let iconSize: CGFloat = 24
         static let connectionDetailsHeaderMargins: CGFloat = 8
-        static let faviconCornerRadius: CGFloat = 5
+        static let faviconCornerRadius: CGFloat = 16
+        static let clearDataButtonTopDistance: CGFloat = 32
         static let clearDataButtonCornerRadius: CGFloat = 12
-        static let clearDataButtonBorderWidth: CGFloat = 1
-        static let settingsLinkButtonBottomSpacing: CGFloat = 32
+        static let clearDataButtonBorderWidth: CGFloat = 0
+        static let settingsLinkButtonBottomSpacing: CGFloat = 16
         static let modalMenuCornerRadius: CGFloat = 12
         struct Line {
-            static let height: CGFloat = 1
+            static let height: CGFloat = 0.5
         }
     }
 }
@@ -150,7 +151,7 @@ class TrackingProtectionViewController: UIViewController,
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.view.invalidateIntrinsicContentSize() // Adjusts size based on content.
+        self.view.invalidateIntrinsicContentSize()
         if !hasSetPointOrigin {
             hasSetPointOrigin = true
             pointOrigin = self.view.frame.origin
@@ -168,7 +169,6 @@ class TrackingProtectionViewController: UIViewController,
                 }
             }
         }
-        resetReduxStoreState()
     }
 
     private func setupView() {
@@ -190,20 +190,36 @@ class TrackingProtectionViewController: UIViewController,
     // MARK: Redux
     func newState(state: TrackingProtectionState) {
         trackingProtectionState = state
-        if trackingProtectionState.showTrackingProtectionSettings {
-            enhancedTrackingProtectionMenuDelegate?.settingsOpenPage(settings: .contentBlocker)
-        } else if trackingProtectionState.showDetails {
-            showTrackersDetailsController()
-        } else if trackingProtectionState.showBlockedTrackers {
-            showBlockedTrackersController()
-        } else if trackingProtectionState.showsClearCookiesAlert {
-            onTapClearCookiesAndSiteData()
-        } else if trackingProtectionState.shouldClearCookies {
+        if let navDestination = state.navigateTo {
+            switch navDestination {
+            case .home:
+                navigationController?.popToRootViewController(animated: true)
+            case .back:
+                navigationController?.popViewController(animated: true)
+            case .close:
+                enhancedTrackingProtectionMenuDelegate?.didFinish()
+            case .settings:
+                showSettings()
+            }
+        }
+        if let displayView = state.displayView {
+            switch displayView {
+            case .blockedTrackersDetails:
+                showBlockedTrackersController()
+            case .trackingProtectionDetails:
+                showTrackersDetailsController()
+            case .certificatesDetails:
+                break
+            case .clearCookiesAlert:
+                onTapClearCookiesAndSiteData()
+            }
+        }
+        if trackingProtectionState.shouldClearCookies {
             clearCookies()
         } else if trackingProtectionState.shouldUpdateBlockedTrackerStats {
             updateBlockedTrackersCount()
-        } else if trackingProtectionState.shouldDismiss {
-            enhancedTrackingProtectionMenuDelegate?.didFinish()
+        } else if trackingProtectionState.shouldUpdateConnectionStatus {
+            updateConnectionStatus()
         }
     }
 
@@ -218,13 +234,6 @@ class TrackingProtectionViewController: UIViewController,
                 return TrackingProtectionState(appState: appState, uuid: uuid)
             })
         })
-    }
-
-    func resetReduxStoreState() {
-        store.dispatch(
-            TrackingProtectionAction(windowUUID: windowUUID,
-                                     actionType: TrackingProtectionActionType.goBack)
-        )
     }
 
     func unsubscribeFromRedux() {
@@ -274,6 +283,11 @@ class TrackingProtectionViewController: UIViewController,
         headerContainer.closeButtonCallback = { [weak self] in
             self?.enhancedTrackingProtectionMenuDelegate?.didFinish()
         }
+        headerContainer.setupAccessibility(
+            closeButtonA11yLabel: model.closeButtonA11yLabel,
+            closeButtonA11yId: model.closeButtonA11yId
+        )
+        headerContainer.updateHeaderLineView(isHidden: true)
     }
 
     // MARK: Connection Status Header Setup
@@ -374,7 +388,7 @@ class TrackingProtectionViewController: UIViewController,
             ),
             clearCookiesButton.topAnchor.constraint(
                 equalTo: toggleView.bottomAnchor,
-                constant: TPMenuUX.UX.horizontalMargin
+                constant: TPMenuUX.UX.clearDataButtonTopDistance
             )
         ]
         constraints.append(contentsOf: clearCookiesButtonConstraints)
@@ -382,8 +396,11 @@ class TrackingProtectionViewController: UIViewController,
 
     // MARK: Settings View Setup
     private func configureProtectionSettingsView() {
-        let settingsButtonViewModel = LinkButtonViewModel(title: model.settingsButtonTitle,
-                                                          a11yIdentifier: model.settingsA11yId)
+        let settingsButtonViewModel = LinkButtonViewModel(
+            title: model.settingsButtonTitle,
+            a11yIdentifier: model.settingsA11yId,
+            font: FXFontStyles.Regular.footnote.scaledFont()
+        )
         settingsLinkButton.configure(viewModel: settingsButtonViewModel)
     }
 
@@ -392,10 +409,17 @@ class TrackingProtectionViewController: UIViewController,
         baseView.addSubviews(settingsLinkButton)
 
         let protectionConstraints = [
-            settingsLinkButton.leadingAnchor.constraint(equalTo: baseView.leadingAnchor),
-            settingsLinkButton.trailingAnchor.constraint(equalTo: baseView.trailingAnchor),
-            settingsLinkButton.topAnchor.constraint(equalTo: clearCookiesButton.bottomAnchor,
-                                                    constant: TPMenuUX.UX.horizontalMargin),
+            settingsLinkButton.leadingAnchor.constraint(
+                equalTo: baseView.leadingAnchor,
+                constant: TPMenuUX.UX.horizontalMargin
+            ),
+            settingsLinkButton.trailingAnchor.constraint(
+                equalTo: baseView.trailingAnchor
+            ),
+            settingsLinkButton.topAnchor.constraint(
+                equalTo: clearCookiesButton.bottomAnchor,
+                constant: TPMenuUX.UX.horizontalMargin
+            ),
             settingsLinkButton.bottomAnchor.constraint(
                 equalTo: baseView.bottomAnchor,
                 constant: -TPMenuUX.UX.settingsLinkButtonBottomSpacing
@@ -412,13 +436,8 @@ class TrackingProtectionViewController: UIViewController,
                                      title: model.displayTitle,
                                      icon: headerIcon)
 
-        connectionDetailsHeaderView.setupDetails(title: model.connectionDetailsTitle,
-                                                 status: model.connectionDetailsHeader,
-                                                 image: model.connectionDetailsImage)
-
         updateBlockedTrackersCount()
-        connectionStatusView.setupDetails(image: model.getConnectionStatusImage(themeType: currentTheme().type),
-                                          text: model.connectionStatusString)
+        updateConnectionStatus()
 
         toggleView.setupDetails(isOn: !model.isURLSafelisted())
         model.isProtectionEnabled = toggleView.toggleIsOn
@@ -430,6 +449,18 @@ class TrackingProtectionViewController: UIViewController,
         blockedTrackersVC?.model.contentBlockerStats = model.selectedTab?.contentBlocker?.stats
         blockedTrackersVC?.applySnapshot()
         trackersView.setupDetails(for: model.contentBlockerStats?.total)
+        updateConnectionStatus()
+    }
+
+    private func updateConnectionStatus() {
+        model.connectionSecure = model.selectedTab?.webView?.hasOnlySecureContent ?? false
+        connectionStatusView.setConnectionStatus(image: model.getConnectionStatusImage(themeType: currentTheme().type),
+                                                 text: model.connectionStatusString,
+                                                 isConnectionSecure: model.connectionSecure,
+                                                 theme: currentTheme())
+        connectionDetailsHeaderView.setupDetails(title: model.connectionDetailsTitle,
+                                                 status: model.connectionDetailsHeader,
+                                                 image: model.connectionDetailsImage)
     }
 
     private func setupViewActions() {
@@ -538,9 +569,18 @@ class TrackingProtectionViewController: UIViewController,
         self.navigationController?.pushViewController(detailsVC, animated: true)
     }
 
+    private func showSettings() {
+        store.dispatch(
+            NavigationBrowserAction(
+                navigationDestination: NavigationDestination(.trackingProtectionSettings),
+                windowUUID: self.windowUUID,
+                actionType: NavigationBrowserActionType.tapOnTrackingProtection
+            )
+        )
+    }
+
     // MARK: Clear Cookies Alert
     func onTapClearCookiesAndSiteData() {
-        resetReduxStoreState()
         model.onTapClearCookiesAndSiteData(controller: self)
     }
 
@@ -609,18 +649,14 @@ extension TrackingProtectionViewController {
     func applyTheme() {
         let theme = currentTheme()
         overrideUserInterfaceStyle = theme.type.getInterfaceStyle()
-        view.backgroundColor = theme.colors.layer1
+        view.backgroundColor = theme.colors.layer3
         headerContainer.applyTheme(theme: theme)
-        connectionDetailsHeaderView.backgroundColor = theme.colors.layer2
+        connectionDetailsHeaderView.applyTheme(theme: theme)
         trackersView.applyTheme(theme: theme)
         connectionStatusView.applyTheme(theme: theme)
-        connectionStatusView.setConnectionStatus(image: model.getConnectionStatusImage(themeType: theme.type),
-                                                 isConnectionSecure: model.connectionSecure,
-                                                 theme: theme)
         connectionHorizontalLine.backgroundColor = theme.colors.borderPrimary
         toggleView.applyTheme(theme: theme)
         clearCookiesButton.applyTheme(theme: theme)
-        clearCookiesButton.layer.borderColor = theme.colors.borderPrimary.cgColor
         settingsLinkButton.applyTheme(theme: theme)
         setNeedsStatusBarAppearanceUpdate()
     }

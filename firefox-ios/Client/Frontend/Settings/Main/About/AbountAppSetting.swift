@@ -5,6 +5,7 @@ import Foundation
 class AbountAppSetting: Setting {
     private weak var settingsDelegate: AboutSettingsDelegate?
     override var accessoryView: UIImageView? {
+        guard let theme else { return nil }
         return SettingDisclosureUtility.buildDisclosureIndicator(theme: theme)
     }
     override var accessibilityIdentifier: String? {
@@ -12,6 +13,7 @@ class AbountAppSetting: Setting {
     }
     override var style: UITableViewCell.CellStyle { return .value1 }
     override var title: NSAttributedString? {
+        guard let theme else { return nil }
         return NSAttributedString(string: .SettingsAbountAppSectionName,
                                   attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary])
     }

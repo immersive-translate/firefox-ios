@@ -10,11 +10,11 @@ struct MonthProSubscriptionListSwiftUIView: View {
             ScrollView(.vertical, showsIndicators: false){
                 VStack(spacing: 0) {
                     HStack {
-                        Text("Pro专属全球顶尖AI翻译服务")
+                        Text("\(String.IMS.IAP.proExclusiveAITranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         
-                        ProSubscriptionPopverTipIcon(tipMessage: "Pro专属全球顶尖AI翻译服务")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.proExclusiveAITranslationtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -27,7 +27,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("DeepL 翻译")
+                        Text("\(String.IMS.IAP.deeplTranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         Spacer()
@@ -40,7 +40,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("OpenAI 翻译")
+                        Text("\(String.IMS.IAP.openAITranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         Spacer()
@@ -53,7 +53,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("Claude 翻译")
+                        Text("\(String.IMS.IAP.claudeTranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         Spacer()
@@ -66,7 +66,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("Gemini 翻译")
+                        Text("\(String.IMS.IAP.geminiTranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         Spacer()
@@ -74,7 +74,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                     Spacer()
                         .frame(height: 24)
                     HStack {
-                        Text("Pro专属高级功能")
+                        Text("\(String.IMS.IAP.proExclusiveFeatures)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         Spacer()
@@ -88,11 +88,11 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("PDF Pro")
+                        Text("\(String.IMS.IAP.pdfPro)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                 
-                        ProSubscriptionPopverTipIcon(tipMessage: "PDF Pro")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.pdfProtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -106,11 +106,11 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("漫画翻译")
+                        Text("\(String.IMS.IAP.mangaTranslation)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         
-                        ProSubscriptionPopverTipIcon(tipMessage: "漫画翻译")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.mangaTranslationtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         
@@ -123,7 +123,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("Youtube 双语字幕下载")
+                        Text("\(String.IMS.IAP.youtubeBilingualSubtitle)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         
@@ -138,7 +138,7 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("多设备同步配置")
+                        Text("\(String.IMS.IAP.multiDeviceSync)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                         
@@ -153,11 +153,11 @@ struct MonthProSubscriptionListSwiftUIView: View {
                             .resizable()
                             .frame(width: 18, height: 18)
                         
-                        Text("优先的电子邮件支持")
+                        Text("\(String.IMS.IAP.priorityEmailSupport)")
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                        
-                        ProSubscriptionPopverTipIcon(tipMessage: "优先的电子邮件支持")
+                        ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.priorityEmailSupporttip)")
                             .frame(width: 16, height: 16)
                         Spacer()
                         

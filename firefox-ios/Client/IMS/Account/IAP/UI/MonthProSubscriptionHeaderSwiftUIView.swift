@@ -5,6 +5,7 @@
 import SwiftUI
 
 struct MonthProSubscriptionHeaderSwiftUIView: View {
+    let info: ProSubscriptionInfo
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
@@ -33,7 +34,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                     ZStack(alignment: .bottom) {
                         VStack {
                             HStack {
-                                Text("月费Pro会员")
+                                Text("\(String.IMS.IAP.monthlyProMembership)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
@@ -46,7 +47,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                             .padding(.top, 24)
 
                             HStack {
-                                Text("¥48.3")
+                                Text(IMSIAPAppleService.formatPrice(product: info.appleProduct))
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 48)
@@ -55,7 +56,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
-                                Text("/月")
+                                Text("/\(String.IMS.IAP.month)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 24)
@@ -69,27 +70,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                             .padding(.leading, 24)
                             .padding(.top, 16)
 
-                            HStack {
-                                Text("¥579.6/年")
-                                    .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 16)
-                                    )
-                                    .foregroundColor(
-                                        Color(red: 0.2, green: 0.2, blue: 0.2))
-                                Text("¥828/年")
-                                    .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 16)
-                                    )
-                                    .strikethrough()
-                                    .foregroundColor(
-                                        Color(red: 0.6, green: 0.6, blue: 0.6))
-                                Spacer()
-                            }
-                            .padding(.leading, 24)
-                            .padding(.top, 8)
-                            .padding(.bottom, 20)
+                            Spacer()
 
                         }
                         .foregroundColor(.clear)
@@ -137,11 +118,3 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
     }
 }
 
-#Preview {
-    VStack {
-        MonthProSubscriptionHeaderSwiftUIView()
-
-        Spacer()
-    }
-    .ignoresSafeArea()
-}

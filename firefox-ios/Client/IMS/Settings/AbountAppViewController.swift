@@ -6,10 +6,12 @@ import UIKit
 import Common
 import Shared
 
-class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
+class AbountAppViewController: SettingsTableViewController, AppSettingsScreen, FeatureFlaggable {
     var parentCoordinator: SettingsFlowDelegate?
+    var prefs: Prefs
     
     init(prefs: Prefs, windowUUID: WindowUUID) {
+        self.prefs = prefs
         super.init(style: .plain, windowUUID: windowUUID)
         self.title = .SettingsAbountAppSectionName
     }
@@ -19,18 +21,48 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen {
     }
 
     override func generateSettings() -> [SettingSection] {
+        let isTermsOfServiceFeatureEnabled = featureFlags.isFeatureEnabled(.tosFeature, checking: .buildOnly)
+        
         var settings = [Setting]()
         let currentTheme = themeManager.getCurrentTheme(for: windowUUID)
+        
+        let studiesSetting = StudiesToggleSetting(
+            prefs: prefs,
+            delegate: settingsDelegate,
+            theme: themeManager.getCurrentTheme(for: windowUUID),
+            settingsDelegate: parentCoordinator,
+            title: isTermsOfServiceFeatureEnabled ? .StudiesSettingTitleV2 : .SettingsStudiesToggleTitle,
+            message: isTermsOfServiceFeatureEnabled ? .StudiesSettingMessageV2 : .SettingsStudiesToggleMessage,
+            linkedText: isTermsOfServiceFeatureEnabled ? .StudiesSettingLinkV2 : .SettingsStudiesToggleLink,
+            isToSEnabled: isTermsOfServiceFeatureEnabled
+        )
+        
+        let sendAnonymousUsageDataSettings = SendDataSetting(
+            prefs: prefs,
+            delegate: settingsDelegate,
+            theme: themeManager.getCurrentTheme(for: windowUUID),
+            settingsDelegate: parentCoordinator,
+            title: .SendUsageSettingTitle,
+            message: String(format: .SendUsageSettingMessage,
+                            MozillaName.shortName.rawValue,
+                            AppName.shortName.rawValue),
+            linkedText: .SendUsageSettingLink,
+            prefKey: AppConstants.prefSendUsageData,
+            a11yId: AccessibilityIdentifiers.Settings.SendData.sendAnonymousUsageDataTitle,
+            learnMoreURL: SupportUtils.URLForTopic("adjust"),
+            isToSEnabled: isTermsOfServiceFeatureEnabled
+        )
+
+        sendAnonymousUsageDataSettings.shouldSendData = { [weak self] value in
+            guard let self, let profile = self.profile else { return }
+            TermsOfServiceManager(prefs: profile.prefs).shouldSendTechnicalData(value: value)
+            studiesSetting.updateSetting(for: value)
+        }
+        
         settings += [
             PrivacyPolicySetting(theme: currentTheme, settingsDelegate: parentCoordinator),
-            SendAnonymousUsageDataSetting(prefs: profile.prefs,
-                                          delegate: settingsDelegate,
-                                          theme: currentTheme,
-                                          settingsDelegate: parentCoordinator),
-            StudiesToggleSetting(prefs: profile.prefs,
-                                 delegate: settingsDelegate,
-                                 theme: currentTheme,
-                                 settingsDelegate: parentCoordinator),
+            sendAnonymousUsageDataSettings,
+            studiesSetting,
             OpenSupportPageSetting(delegate: settingsDelegate,
                                    theme: currentTheme,
                                    settingsDelegate: parentCoordinator),
