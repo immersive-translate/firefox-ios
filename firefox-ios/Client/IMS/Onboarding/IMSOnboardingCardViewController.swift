@@ -72,6 +72,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         IMSGridItem(icon: "document-intro", title: .ImtLocalizableIntroDocument),
         IMSGridItem(icon: "cartoon-intro", title: .ImtLocalizableComicTranslation),
         IMSGridItem(icon: "xiaohongshu-intro", title: .ImtLocalizableXiaohongshu),
+        IMSGridItem(icon: "BiLinSearch-intro", title: .ImtLocalizableBiLinSearch),
     ]
 
 
