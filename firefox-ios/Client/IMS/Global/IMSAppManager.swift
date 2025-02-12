@@ -4,24 +4,49 @@
 
 struct IMSAppUrlConfig {
     
+    enum IMSAppENV {
+        case product
+        case dev
+    }
+    
     static let immersiveTranslateUser = "https://download.immersivetranslate.com/immersive-translate.user.js"
     
     static let dash = "https://dash.immersivetranslate.com/"
     
-    static let usage = "https://immersivetranslate.com/docs/usage/"
+    static let baseAPIURL = {
+        switch IMSAppManager.shared.currentEnv {
+        case .dev:
+            return "https://test-api2.immersivetranslate.com"
+        case .product:
+            return "https://api2.immersivetranslate.com"
+        }
+    }()
     
-    static let changelog  = "https://immersivetranslate.com/docs/CHANGELOG/"
+    static let baseHomeURL = {
+        switch IMSAppManager.shared.currentEnv {
+        case .product:
+            return "https://immersivetranslate.com"
+        case .dev:
+            return "https://test.immersivetranslate.com"
+        }
+    }()
     
-    static let terms = "https://immersivetranslate.com/docs/TERMS/"
+    static let usage = baseHomeURL + "/docs/usage/"
     
-    static let privacy = "https://immersivetranslate.com/docs/PRIVACY/"
-    static let baseURL =  "https://test-api2.immersivetranslate.com"
+    static let changelog  = baseHomeURL + "/docs/CHANGELOG/"
     
-    static let login = "https://test.immersivetranslate.com/accounts/login"
+    static let terms = baseHomeURL + "/docs/TERMS/"
     
-    static let purchaseSuccess = "https://test.immersivetranslate.com/accounts/success"
+    static let privacy = baseHomeURL + "/docs/PRIVACY/"
+    
+    static let login = baseHomeURL + "/accounts/login"
+    
+    static let purchaseSuccess = baseHomeURL + "/accounts/success"
 }
 
 struct IMSAppManager {
     static let shared = IMSAppManager()
+    
+    var currentEnv: IMSAppUrlConfig.IMSAppENV = .dev
+    
 }

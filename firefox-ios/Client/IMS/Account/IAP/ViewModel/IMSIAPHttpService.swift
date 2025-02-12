@@ -13,7 +13,7 @@ struct IMSIAPHttpService {
     
     // 配置
     private struct Config {
-        static let baseURL = IMSAppUrlConfig.baseURL  
+        static let baseURL = IMSAppUrlConfig.baseAPIURL  
         static let checkoutPath = "/v1/user/ios-pay-checkout-sessions"
         static let configPath = "/v1/payments/ios-pay-config"
         static let userPath = "/v1/user"

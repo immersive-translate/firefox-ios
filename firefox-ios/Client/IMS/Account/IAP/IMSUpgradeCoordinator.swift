@@ -43,7 +43,7 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
     }
     
     func showLoginModalWebView() {
-        guard let url = URL(string: IMSAppUrlConfig.login + "?from=ios_upgrade") else { return }
+        guard let url = URL(string: IMSAppUrlConfig.login + "?app_action=gotoUpgrade") else { return }
         let navigationController = DismissableNavigationViewController()
         let coordinator = ModalBrowserCoordinator(
             url: url,
