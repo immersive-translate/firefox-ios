@@ -8,7 +8,7 @@ import Shared
 import UIKit
 
 class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
-    private struct UX {
+    struct UX {
         struct Logo {
             static let iPhoneImageSize: CGFloat = 40
             static let iPadImageSize: CGFloat = 75
@@ -38,17 +38,17 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
     typealias a11y = AccessibilityIdentifiers.FirefoxHomepage.OtherButtons
 
     // MARK: - UI Elements
-    private lazy var logoImage: UIImageView = .build { imageView in
+    lazy var logoImage: UIImageView = .build { imageView in
         imageView.image = UIImage(imageLiteralResourceName: ImageIdentifiers.homeHeaderLogoBall)
         imageView.contentMode = .scaleAspectFit
     }
 
-    private lazy var logoText: UILabel = .build { label in
+    lazy var logoText: UILabel = .build { label in
         label.font = UIFont.systemFont(ofSize: 14);
         label.text = AppInfo.displayName;
     }
 
-    private lazy var containerView: UIStackView = .build { view in
+    lazy var containerView: UIStackView = .build { view in
         view.backgroundColor = .clear
         view.accessibilityIdentifier = a11y.logoID
         view.accessibilityLabel = AppName.shortName.rawValue
@@ -70,7 +70,8 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
         setupView(with: showiPadSetup)
     }
 
-    private func setupView(with showiPadSetup: Bool) {
+    dynamic
+    func setupView(with showiPadSetup: Bool) {
         contentView.backgroundColor = .clear
         containerView.addArrangedSubview(logoImage)
         containerView.addArrangedSubview(logoText)
@@ -86,7 +87,7 @@ class HomeLogoHeaderCell: UICollectionViewCell, ReusableCell {
         setupConstraints(for: showiPadSetup)
     }
 
-    private var logoConstraints = [NSLayoutConstraint]()
+    var logoConstraints = [NSLayoutConstraint]()
 
     private func setupConstraints(for iPadSetup: Bool) {
         NSLayoutConstraint.deactivate(logoConstraints)

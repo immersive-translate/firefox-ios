@@ -38,16 +38,16 @@ class LegacyHomepageHeaderCell: UICollectionViewCell, ReusableCell, ThemeApplica
 
     var viewModel: HomepageHeaderCellViewModel?
 
-    private lazy var stackContainer: UIStackView = .build { stackView in
+    lazy var stackContainer: UIStackView = .build { stackView in
         stackView.axis = .horizontal
     }
 
-    private lazy var logoHeaderCell: HomeLogoHeaderCell = {
+    lazy var logoHeaderCell: HomeLogoHeaderCell = {
         let logoHeader = HomeLogoHeaderCell()
         return logoHeader
     }()
 
-    private lazy var privateModeButton: UIButton = .build { [weak self] button in
+    lazy var privateModeButton: UIButton = .build { [weak self] button in
         let maskImage = UIImage(named: StandardImageIdentifiers.Large.privateMode)?.withRenderingMode(.alwaysTemplate)
         button.setImage(maskImage, for: .normal)
         button.frame = UX.circleSize
@@ -76,9 +76,10 @@ class LegacyHomepageHeaderCell: UICollectionViewCell, ReusableCell, ThemeApplica
         setupConstraints(for: showiPadSetup)
     }
 
-    private var logoConstraints = [NSLayoutConstraint]()
+    var logoConstraints = [NSLayoutConstraint]()
 
-    private func setupConstraints(for iPadSetup: Bool) {
+    dynamic
+    func setupConstraints(for iPadSetup: Bool) {
         NSLayoutConstraint.deactivate(logoConstraints)
         let topAnchorConstant = iPadSetup ? UX.iPadTopConstant : UX.iPhoneTopConstant
         logoConstraints = [
@@ -95,6 +96,7 @@ class LegacyHomepageHeaderCell: UICollectionViewCell, ReusableCell, ThemeApplica
         NSLayoutConstraint.activate(logoConstraints)
     }
 
+    dynamic
     func configure(with viewModel: HomepageHeaderCellViewModel) {
         self.viewModel = viewModel
         setupView(with: viewModel.showiPadSetup)

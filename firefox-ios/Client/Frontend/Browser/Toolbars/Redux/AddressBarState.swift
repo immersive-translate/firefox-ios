@@ -219,7 +219,8 @@ struct AddressBarState: StateType, Equatable {
         }
     }
 
-    private static func handleDidLoadToolbarsAction(state: Self, action: Action) -> Self {
+    dynamic
+    static func handleDidLoadToolbarsAction(state: Self, action: Action) -> Self {
         guard let borderPosition = (action as? ToolbarAction)?.addressBorderPosition else {
             return defaultState(from: state)
         }
@@ -858,7 +859,8 @@ struct AddressBarState: StateType, Equatable {
         return actions
     }
 
-    private static func pageActions(
+    dynamic
+    static func pageActions(
         action: ToolbarAction,
         addressBarState: AddressBarState,
         isEditing: Bool,
