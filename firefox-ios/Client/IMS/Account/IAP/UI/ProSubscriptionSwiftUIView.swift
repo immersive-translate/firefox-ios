@@ -121,6 +121,43 @@ struct ProSubscriptionSwiftUIView: View {
     }
     
     
+    func theAnnualPlanSavesView(monthProduct: StoreKit.Product, yearProduct: StoreKit.Product) -> some View {
+        let format = String.IMS.IAP.theAnnualPlanSaves
+        
+        let percentageText = getUpgradeSavePercentString(monthProduct: monthProduct, yearProduct: yearProduct)
+        
+        let fullText = String(format: format, percentageText)
+        var attributedString = AttributedString(fullText)
+        attributedString.foregroundColor = .black
+        attributedString.font = Font.custom("Alibaba PuHuiTi 3.0", size: 14)
+        
+        if let range = attributedString.range(of: percentageText) {
+            attributedString[range].foregroundColor = Color(red: 0.92, green: 0.3, blue: 0.54)
+            attributedString[range].font = .system(size: 24, weight: .bold)
+        }
+        
+        return Text(attributedString)
+    }
+    
+    func upgradingNowWillAutomaticallyDeduct(monthProduct: StoreKit.Product, yearProduct: StoreKit.Product) -> some View {
+        let format = String.IMS.IAP.upgradingNowWillAutomaticallyDeduct
+        
+        let percentageText = getYearCurrentPriceString(yearProduct: yearProduct)
+        
+        let fullText = String(format: format, percentageText)
+        var attributedString = AttributedString(fullText)
+        attributedString.foregroundColor = .black
+        attributedString.font = Font.custom("Alibaba PuHuiTi 3.0", size: 14)
+        
+        if let range = attributedString.range(of: percentageText) {
+            attributedString[range].foregroundColor = Color(red: 0.92, green: 0.3, blue: 0.54)
+            attributedString[range].font = Font.custom("Alibaba PuHuiTi 3.0", size: 14)
+        }
+        
+        return Text(attributedString)
+    }
+    
+    
     var upgradeMessageView: some View {
         if let monthProduct = viewModel.infos.first(where: { $0.serverProduct.goodType == .monthly })?.appleProduct,
            let yearProduct = viewModel.infos.first(where: { $0.serverProduct.goodType == .yearly })?.appleProduct {
@@ -141,41 +178,16 @@ struct ProSubscriptionSwiftUIView: View {
                             Spacer().frame(height: 29)
                             
                             HStack(spacing: 0) {
-                                Text("\(String.IMS.IAP.theAnnualPlanSaves)")
-                                    .font(
-                                        Font.custom("Alibaba PuHuiTi 3.0", size: 14)
-                                    )
-                                    .foregroundColor(.black)
-                                
-                                Text("\(getUpgradeSavePercentString(monthProduct: monthProduct, yearProduct: yearProduct))")
-                                    .font(
-                                        Font.custom("Alibaba PuHuiTi 3.0", size: 24)
-                                    )
-                                    .foregroundColor(
-                                        Color(red: 0.92, green: 0.3, blue: 0.54))
-                                
+                                theAnnualPlanSavesView(monthProduct: monthProduct, yearProduct: yearProduct)
+
                                 Spacer()
                             }
                             
                             Spacer().frame(height: 21)
                             
                             HStack(spacing: 0) {
-                                Text("\(String.IMS.IAP.upgradingNowWillAutomaticallyDeduct)")
-                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
-                                    .foregroundColor(.black)
-                                Text(" \(getYearCurrentPriceString(yearProduct: yearProduct))")
-                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
-                                    .foregroundColor(Color(red: 0.92, green: 0.3, blue: 0.54))
-                                
-                                
-                                Spacer()
-                            }
-                            HStack(spacing: 0) {
-                                Text("\(String.IMS.IAP.theUnusedTimeOfTheCurrentPackage)")
-                                    .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
-                                    .foregroundColor(.black)
-                                
-                                
+                                upgradingNowWillAutomaticallyDeduct(monthProduct: monthProduct, yearProduct: yearProduct)
+
                                 Spacer()
                             }
                             

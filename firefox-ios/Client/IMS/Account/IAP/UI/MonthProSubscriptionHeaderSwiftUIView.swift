@@ -32,21 +32,31 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
 
                 ZStack(alignment: .top) {
                     ZStack(alignment: .bottom) {
-                        VStack {
-                            HStack {
+                        VStack(spacing: 0){
+                            Spacer()
+                                .frame(height: 24)
+                            
+                            HStack(spacing: 0){
+                                Spacer().frame(width: 24)
+                                
                                 Text("\(String.IMS.IAP.monthlyProMembership)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
+                                
+                                Spacer().frame(width: 12)
+                                
                                 Image("iap_year_pro_icon")
                                     .resizable()
                                     .frame(width: 32, height: 32)
                                 Spacer()
                             }
-                            .padding(.leading, 24)
-                            .padding(.top, 24)
+                            
+                            Spacer()
+                                .frame(height: 16)
 
-                            HStack {
+                            HStack(alignment: .lastTextBaseline, spacing: 0) {
+                                Spacer().frame(width: 24)
                                 Text(IMSIAPAppleService.formatPrice(product: info.appleProduct))
                                     .font(
                                         Font.custom(
@@ -67,8 +77,6 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                                 Spacer()
 
                             }
-                            .padding(.leading, 24)
-                            .padding(.top, 16)
 
                             Spacer()
 
