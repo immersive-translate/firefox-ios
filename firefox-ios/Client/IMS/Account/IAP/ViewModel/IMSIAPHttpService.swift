@@ -112,17 +112,17 @@ struct IMSIAPHttpService {
             let (data, response) = try await URLSession.shared.data(for: urlRequest)
             
             guard let httpResponse = response as? HTTPURLResponse else {
-                throw NetworkError.invalidResponse
+                return nil
             }
             
             guard (200...299).contains(httpResponse.statusCode) else {
-                throw NetworkError.invalidResponse
+                return nil
             }
             
             let decoder = JSONDecoder()
             return try decoder.decode(IMSHttpResponse<IMSAccountInfoResp>.self, from: data)
         } catch {
-            throw NetworkError.requestFailed(error)
+            return nil
         }
     }
 }

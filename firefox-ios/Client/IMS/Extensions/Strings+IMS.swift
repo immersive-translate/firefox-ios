@@ -463,6 +463,12 @@ extension String {
                             tableName: "IMSAccount",
                             value: "downgradingIsNotSupported",
                             comment: "")
+            
+            public static let upgradeToPc = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade on the PC",
+                            tableName: "IMSAccount",
+                            value: "downgradingIsNotSupported",
+                            comment: "")
         }
     }
 }

@@ -11,6 +11,7 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
     let windowUUID: WindowUUID
     let profile: Profile
     weak var parentCoordinator: ParentCoordinatorDelegate?
+    weak var navigationHandler: MainMenuCoordinatorDelegate?
     
     var rootViewController: IMSAccountUpgradeViewController?
     
@@ -65,21 +66,11 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
     
     func showPurchaseSuccess() {
         SVProgressHUD.show()
-        let windowUUID = windowUUID
+        let navigationHandler = self.navigationHandler
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {[weak self] in
             SVProgressHUD.dismiss()
             self?.router.dismiss(animated: true, completion: {
-                store.dispatch(
-                    MainMenuAction(
-                        windowUUID: windowUUID,
-                        actionType: MainMenuActionType.tapNavigateToDestination,
-                        navigationDestination: MenuNavigationDestination(
-                            .goToURL,
-                            url: URL(string: IMSAppUrlConfig.purchaseSuccess)
-                        ),
-                        telemetryInfo: TelemetryInfo(isHomepage: false)
-                    )
-                )
+                navigationHandler?.openURLInNewTab(URL(string: IMSAppUrlConfig.purchaseSuccess))
             })
         }
     }
