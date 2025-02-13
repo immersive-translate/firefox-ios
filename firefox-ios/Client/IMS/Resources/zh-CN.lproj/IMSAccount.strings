@@ -35,8 +35,8 @@
 "Settings.IMSAccount.IAP.You have successfully subscribed" = "您已成功订阅";
 "Settings.IMSAccount.IAP.You have fail subscribed" = "您订阅失败";
 "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "升级为年费Pro会员";
-"Settings.IMSAccount.IAP.The annual plan saves" = "年度套餐每年会比月度套餐节省";
-"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "现在升级将会立即自动扣款";
+"Settings.IMSAccount.IAP.The annual plan saves" = "年度套餐每年会比月度套餐节省 %@";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "现在升级将会立即自动扣款 %@ (已按比例扣除当前套餐未使用的时间)";
 "Settings.IMSAccount.IAP.the unused time of the current package" = "(已按比例扣除当前套餐未使用的时间)";
 "Settings.IMSAccount.IAP.New expiration date" = "新的到期日期为 %@";
 "Settings.IMSAccount.IAP.Upgrade Now" = "立刻升级";

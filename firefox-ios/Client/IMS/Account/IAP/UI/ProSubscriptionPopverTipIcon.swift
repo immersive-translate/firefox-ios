@@ -22,8 +22,12 @@ struct ProSubscriptionPopverTipIcon: View {
                 .foregroundColor(Color.white)
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-                .background(Color.black)
                 .frame(maxWidth: 250)
+                .background {
+                        Rectangle()
+                        .fill(.black)
+                        .scaleEffect(1.5)
+                    }
         })
     }
 }

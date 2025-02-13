@@ -26,6 +26,7 @@ struct PopoverController: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIViewController {
         let controller = UIViewController()
+        controller.view.backgroundColor = .clear
         return controller
     }
     

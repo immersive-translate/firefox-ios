@@ -363,6 +363,7 @@
 		29B9C9B22D3F3CA800365400 /* AppLaunchUtil+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B12D3F3CA400365400 /* AppLaunchUtil+IMS.swift */; };
 		29B9C9B42D3F3D3300365400 /* SendAnonymousUsageDataSetting+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */; };
 		29B9C9B62D3F420000365400 /* AdjustWrapper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */; };
+		29D52D4D2D5DABBC00728FB2 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605122D2D359D006585C7 /* en.json */; };
 		29D6DFC32D2D67DD0094E832 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC22D2D67DD0094E832 /* FacebookAEM */; };
 		29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC42D2D67DD0094E832 /* FacebookBasics */; };
 		29D6DFC72D2D67DD0094E832 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC62D2D67DD0094E832 /* FacebookCore */; };
@@ -10686,6 +10687,7 @@
 				E1BDAC832B9F65780063E6BF /* reportSiteIssueOff.json in Resources */,
 				1D91C17F2CF11EA500B24960 /* disconnect-block-cookies-content.json in Resources */,
 				E1AF3563286DE5F800960045 /* FullFunctionalTestPlan.xctestplan in Resources */,
+				29D52D4D2D5DABBC00728FB2 /* en.json in Resources */,
 				E1AF3567286DE5F800960045 /* PerformanceTestPlan.xctestplan in Resources */,
 				8A1A935A2B757C7C0069C190 /* portrait.json in Resources */,
 				29909E982D37DD80005C0328 /* Imt.strings in Resources */,
@@ -14475,7 +14477,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14905,7 +14907,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15186,7 +15188,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15479,7 +15481,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -16001,7 +16003,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

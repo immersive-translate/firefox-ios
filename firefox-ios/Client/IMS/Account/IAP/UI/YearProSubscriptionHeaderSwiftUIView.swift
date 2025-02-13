@@ -82,11 +82,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                 ZStack(alignment: .top) {
                     VStack {
                         Spacer()
-                        HStack {
+                        HStack(spacing: 0){
                             Image("iap_year_discount_alerm")
                                 .resizable()
                                 .frame(width: 24, height: 24)
                             
+                            Spacer().frame(width: 12)
                             Text("\(String.IMS.IAP.limitedTimeOffer)")
                                 .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                                 .foregroundColor(
@@ -119,21 +120,29 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                     .offset(y: 191 - 64 + 44)
                     
                     ZStack(alignment: .bottom) {
-                        VStack {
-                            HStack {
+                        VStack(spacing: 0){
+                            Spacer()
+                                .frame(height: 24)
+                            
+                            HStack(spacing: 0){
+                                Spacer().frame(width: 24)
                                 Text("\(String.IMS.IAP.yearPro)")
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
+                                
+                                Spacer().frame(width: 12)
+                                
                                 Image("iap_year_pro_icon")
                                     .resizable()
                                     .frame(width: 32, height: 32)
                                 Spacer()
                             }
-                            .padding(.leading, 24)
-                            .padding(.top, 24)
+                            Spacer()
+                                .frame(height: 16)
                             
-                            HStack {
+                            HStack(alignment: .lastTextBaseline, spacing: 0) {
+                                Spacer().frame(width: 24)
                                 Text(getYearMonthPriceString)
                                     .font(
                                         Font.custom(
@@ -154,10 +163,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 Spacer()
                                 
                             }
-                            .padding(.leading, 24)
-                            .padding(.top, 16)
                             
-                            HStack {
+                            Spacer()
+                            
+                            HStack(alignment: .lastTextBaseline, spacing: 0) {
+                                Spacer().frame(width: 24)
+                                
                                 Text("\(getYearCurrentPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
@@ -165,6 +176,9 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     )
                                     .foregroundColor(
                                         Color(red: 0.2, green: 0.2, blue: 0.2))
+                                
+                                Spacer().frame(width: 13)
+                                
                                 Text("\(getYearOriginPriceString)/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
@@ -175,11 +189,9 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                         Color(red: 0.6, green: 0.6, blue: 0.6))
                                 Spacer()
                             }
-                            .padding(.leading, 24)
-                            .padding(.top, 8)
                             
                             Spacer()
-                                .frame(height: 30)
+                                .frame(height: 20)
                             
                         }
                         .foregroundColor(.clear)
