@@ -321,6 +321,7 @@
 		291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */; };
 		291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */; };
 		291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */; };
+		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -2618,6 +2619,7 @@
 		291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageHeaderCell+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarMiddleware+IMS.swift"; sourceTree = "<group>"; };
 		291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressBarState+IMS.swift"; sourceTree = "<group>"; };
+		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -5402,6 +5404,14 @@
 			path = Toolbar;
 			sourceTree = "<group>";
 		};
+		291C6DDD2D5E4F5D002274F6 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		294090F62D5B0D3000C23DD6 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -5588,6 +5598,7 @@
 		29EF1DF82D392E6C0066018B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				291C6DDD2D5E4F5D002274F6 /* SwiftUI */,
 				29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */,
 				29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */,
 				29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */,
@@ -11639,6 +11650,7 @@
 				C8610DAA2A0EBF7100B79FF1 /* OnboardingCardDelegate.swift in Sources */,
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
+				291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */,
 				292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
