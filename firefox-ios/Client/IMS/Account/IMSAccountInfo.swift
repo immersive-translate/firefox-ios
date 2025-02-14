@@ -18,5 +18,6 @@ struct IMSAccountInfoResp: Codable {
 struct IMSAccountSubscription: Codable {
     let subscriptionType: IMSResponseConfiGoodType?
     let subscriptionTo: String?
+    let paymentChannel: String?
     
 }

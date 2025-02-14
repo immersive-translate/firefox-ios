@@ -317,6 +317,11 @@
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
 		291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */; };
+		291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */; };
+		291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */; };
+		291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */; };
+		291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */; };
+		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -2610,6 +2615,11 @@
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppName+IMS.swift"; sourceTree = "<group>"; };
+		291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeLogoHeaderCell+IMS.swift"; sourceTree = "<group>"; };
+		291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageHeaderCell+IMS.swift"; sourceTree = "<group>"; };
+		291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarMiddleware+IMS.swift"; sourceTree = "<group>"; };
+		291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressBarState+IMS.swift"; sourceTree = "<group>"; };
+		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -5385,6 +5395,23 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		291C6DBE2D5E3827002274F6 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */,
+				291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		291C6DDD2D5E4F5D002274F6 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		294090F62D5B0D3000C23DD6 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
@@ -5447,6 +5474,7 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				291C6DBE2D5E3827002274F6 /* Toolbar */,
 				29F87B422D5B6E470013C044 /* Global */,
 				294090F62D5B0D3000C23DD6 /* Browser */,
 				291AADC42D5AED580046DB22 /* State */,
@@ -5503,6 +5531,8 @@
 		29909E942D37DC98005C0328 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */,
+				291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */,
 				29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */,
 				29EF1DED2D37EA270066018B /* HomepageViewModel+IMS.swift */,
 				29EF1DE82D37E75B0066018B /* TopSite */,
@@ -5568,6 +5598,7 @@
 		29EF1DF82D392E6C0066018B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				291C6DDD2D5E4F5D002274F6 /* SwiftUI */,
 				29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */,
 				29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */,
 				29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */,
@@ -11619,6 +11650,7 @@
 				C8610DAA2A0EBF7100B79FF1 /* OnboardingCardDelegate.swift in Sources */,
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
+				291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */,
 				292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
@@ -11795,6 +11827,7 @@
 				8A285B08294A5D4C00149B0F /* HomepageHeroImageViewModel.swift in Sources */,
 				ED9FD5DB2CEBB5EA00E906A3 /* SentFromFirefoxSetting.swift in Sources */,
 				8C92DE8B2A711ED60090BD28 /* FakespotClient.swift in Sources */,
+				291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */,
 				8AC1065F28D0CD700013263A /* OpenQLPreviewHelper.swift in Sources */,
 				8AE9FD262CF66301001053EE /* UnifiedAdsProvider.swift in Sources */,
 				EBA3B2C32268F16300728BDB /* PhotonActionSheetView.swift in Sources */,
@@ -11950,7 +11983,9 @@
 				D51EA5CF26406D8300334331 /* ExperimentsViewController.swift in Sources */,
 				ED7A08DB2CF674730035EC8F /* ShareMessage.swift in Sources */,
 				1DFE57FB27B2CB870025DE58 /* HighlightItem.swift in Sources */,
+				291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */,
 				CA77ABFD24773C92005079F9 /* BreachAlertsManager.swift in Sources */,
+				291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */,
 				8AB8572727D93AEC0075C173 /* TopSiteHistoryManager.swift in Sources */,
 				C81A8F2526D3ED1900EBA539 /* UIWindow+Extension.swift in Sources */,
 				EBC4869E2195F58300CDA48D /* AboutHomeHandler.swift in Sources */,
@@ -12218,6 +12253,7 @@
 				E18EA57128AD46D3003F97FC /* WallpaperCollectionType.swift in Sources */,
 				C84655E42887394B00861B4A /* WallpaperMetadata.swift in Sources */,
 				8AB8572E27D94A1A0075C173 /* UXSizeClass.swift in Sources */,
+				291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */,
 				965C3C8F29313A1B006499ED /* AppSessionManager.swift in Sources */,
 				ED07C0EF2CCAE856006C0627 /* SearchEngineSelectionMiddleware.swift in Sources */,
 				45D5EDA729269F7500311934 /* DataObserver.swift in Sources */,
@@ -14477,7 +14513,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14907,7 +14943,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15188,7 +15224,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15481,7 +15517,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -16003,7 +16039,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

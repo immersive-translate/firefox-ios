@@ -80,7 +80,8 @@ class ProSubscriptionViewModel: ObservableObject {
                     SVProgressHUD.dismiss()
                     self.infos = infos
                     if let userInfo = userInfo, let token = localUserInfo?.token {
-                        self.userInfo = IMSAccountInfo(subscription: userInfo.data.subscription, token: token, email: userInfo.data.email)
+                        var subscription = userInfo.data.subscription
+                        self.userInfo = IMSAccountInfo(subscription: subscription, token: token, email: userInfo.data.email)
                     } else {
                         self.userInfo = nil
                     }
@@ -89,7 +90,7 @@ class ProSubscriptionViewModel: ObservableObject {
             } catch {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "获取数据失败")
+                    SVProgressHUD.showError(withStatus: "Data Fetch Error")
                 }
             }
         }
@@ -122,12 +123,6 @@ class ProSubscriptionViewModel: ObservableObject {
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     self.coordinator?.showPurchaseSuccess()
-//                    switch info.serverProduct.goodType {
-//                    case .monthly:
-//                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.monthlyProMembership)!")
-//                    case .yearly:
-//                        self.messageType = .title("\(String.IMS.IAP.subscriptionSuccess)\n\(String.IMS.IAP.yearPro)!")
-//                    }
                 }
             } catch {
                 await MainActor.run {

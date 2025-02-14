@@ -221,6 +221,11 @@ extension String {
         tableName: "Imt",
         value: "Comic translation",
         comment: "")
+    public static let ImtLocalizableBiLinSearch = MZLocalizedString(
+        key: "Imt.Localizable.BiLin.Search",
+        tableName: "Imt",
+        value: "Comic translation",
+        comment: "")
     
     public static let ImtLocalizableXiaohongshu = MZLocalizedString(
         key: "Imt.Localizable.Xiaohongshu",
@@ -455,6 +460,12 @@ extension String {
            
             public static let downgradingIsNotSupported = MZLocalizedString(
                             key: "Settings.IMSAccount.IAP.Downgrading is not supported",
+                            tableName: "IMSAccount",
+                            value: "downgradingIsNotSupported",
+                            comment: "")
+            
+            public static let upgradeToPc = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Upgrade on the PC",
                             tableName: "IMSAccount",
                             value: "downgradingIsNotSupported",
                             comment: "")

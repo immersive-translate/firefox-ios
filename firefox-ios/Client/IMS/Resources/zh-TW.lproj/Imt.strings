@@ -5,3 +5,38 @@
   Created by jaly on 2025/1/15.
   Copyright © 2025 Mozilla. All rights reserved.
 */
+"Imt.Localizable.App.Info" = "沉浸式翻譯是一款基於火狐瀏覽器技術的定制產品，由沉浸式翻譯團隊獨立開發。火狐瀏覽器是Mozilla的一個開源項目。";
+"Imt.Localizable.App.Version" = "版本號";
+"Imt.Localizable.App" = "應用";
+"Imt.Localizable.Reminder" = "溫馨提示";
+"Imt.Localizable.User.Agreement" = "《用戶協議》";
+"Imt.Localizable.User.Agreement.Title" = "用戶協議";
+"Imt.Localizable.App.Privacy.Policy" = "《沉浸式翻譯瀏覽器隱私政策》";
+"Imt.Localizable.App.Privacy.Policy.Title" = "隱私政策";
+"Imt.Localizable.Reminder.Pre" = "歡迎使用沉浸式翻譯。在使用沉浸式翻譯前，請認真閱讀";
+"Imt.Localizable.Reminder.Middle" = "和";
+"Imt.Localizable.Reminder.Post" = "。根據《常見類型移動互聯網應用程序必要個人信息範圍規定》，沉浸式翻譯的主要功能為網址瀏覽、搜索、文件處理、文件管理等，擴展功能包括沉浸式翻譯賬號等。同意基本功能隱私政策僅代表同意使用網址瀏覽、搜索、文件處理、文件管理等主要功能時收集、處理相關必要信息，沉浸式翻譯賬號等拓展功能收集個人信息將在您使用具體功能時單獨徵求您的同意。";
+"Imt.Localizable.Reminder.Disagree" = "不同意";
+"Imt.Localizable.Reminder.Agree" = "同意並繼續";
+"Imt.Localizable.Reminder.Need.Agree" = "本產品需要同意相關協議後才能使用哦";
+"Imt.Localizable.Reminder.Quit.App" = "退出應用";
+"Imt.Localizable.Reminder.I.See" = "我知道了";
+"Imt.Localizable.Intro.Default.Browser" = "將沉浸式翻譯設置為默認瀏覽器";
+"Imt.Localizable.Intro.Auto.Translated" = "任何外文網頁默認用沉浸式翻譯瀏覽器打開並自動翻譯；\n搜索結果自動翻譯為母語。";
+"Imt.Localizable.Intro.Native.language" = "您的母語";
+"Imt.Localizable.Intro.Set.Default.Browser" = "設為默認瀏覽器";
+"Imt.Localizable.Intro.Set.Later" = "稍後再設置";
+"Imt.Localizable.Intro.Accessible.Reading" = "無障礙閱讀外語內容：";
+"Imt.Localizable.Intro.Web.page" = "網頁";
+"Imt.Localizable.Intro.Video" = "視頻";
+"Imt.Localizable.Intro.Document" = "文檔";
+"Imt.Localizable.Intro.All.Translated" = "全部一鍵翻譯，\n閱讀再無障礙！";
+"Imt.Localizable.Intro.Bigger.World" = "消除語言障礙\n看見更大的世界";
+"Imt.Localizable.Intro.Break.Barriers" = "開啟無語言障礙的世界！";
+"Imt.Localizable.Web.Translation" = "網頁翻譯";
+"Imt.Localizable.Video.Translation" = "視頻翻譯";
+"Imt.Localizable.Doc.Translation" = "文檔翻譯";
+"Imt.Localizable.Comic.Translation" = "漫畫翻譯";
+"Imt.Localizable.Xiaohongshu.Translation" = "小紅書翻譯";
+"Imt.Localizable.BiLin.Search" = "跨語言搜尋";
+"Imt.Localizable.Xiaohongshu" = "小紅書";
