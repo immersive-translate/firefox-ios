@@ -5,7 +5,7 @@
   Created by jaly on 2025/1/14.
   Copyright © 2025 Mozilla. All rights reserved.
 */
-"Settings.IMSAccount.Upgrade.Title" = "升级";
+"Settings.IMSAccount.Upgrade.Title" = "升級";
 "Settings.IMSAccount.IAP.Save" = "節省";
 "Settings.IMSAccount.IAP.YearPro" = "年度會員";
 "Settings.IMSAccount.IAP.Month" = "月";
@@ -25,7 +25,7 @@
 "Settings.IMSAccount.IAP.Multi-device sync configuration" = "多設備同步配置";
 "Settings.IMSAccount.IAP.Priority email support" = "優先的電子郵件支持";
 "Settings.IMSAccount.IAP.Priority email support tip" = "若您遇到問題，請聯繫客戶支援團隊 support@immersivetranslate.com";
-"Settings.IMSAccount.IAP.Consecut ive annual subscription" = "連續包年";
+"Settings.IMSAccount.IAP.Consecutive annual subscription" = "連續包年";
 "Settings.IMSAccount.IAP.Consecutive monthly subscription" = "連續包月";
 "Settings.IMSAccount.IAP.Subscribe now" = "立即訂閱";
 "Settings.IMSAccount.IAP.Monthly Pro Membership" = "月度會員";
@@ -43,3 +43,4 @@
 "Settings.IMSAccount.IAP.Current Plan" = "目前套餐";
 "Settings.IMSAccount.IAP.Downgrading is not supported" = "目前暫不支援降級";
 "Settings.IMSAccount.IAP.Upgrade on the PC" = "需要到電腦上升級";
+"Settings.IMSAccount.IAP.Not Need Now" = "暫時不需要";

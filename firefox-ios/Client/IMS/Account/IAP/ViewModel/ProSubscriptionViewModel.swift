@@ -17,10 +17,23 @@ enum ProSubscriptionMessageType {
     case title(String)
 }
 
+protocol ProSubscriptionDelegate: AnyObject {
+    func showLoginModalWebView()
+    func showPurchaseSuccess()
+    func handleNotNeedNow()
+}
+
+
+enum ProSubscriptionFromSource {
+    case upgrade
+    case onboarding
+}
 
 class ProSubscriptionViewModel: ObservableObject {
     
-    weak var coordinator: IMSUpgradeCoordinator?
+    weak var coordinator: ProSubscriptionDelegate?
+    
+    let fromSource: ProSubscriptionFromSource
     
     @Published
     var infos: [ProSubscriptionInfo] = []
@@ -37,8 +50,8 @@ class ProSubscriptionViewModel: ObservableObject {
     @Published
     var showUpgradeAlert: Bool = false
     
-    init() {
-        
+    init(fromSource: ProSubscriptionFromSource = .upgrade) {
+        self.fromSource = fromSource
     }
     
     deinit {
@@ -88,6 +101,7 @@ class ProSubscriptionViewModel: ObservableObject {
                     
                 }
             } catch {
+                print("fetchProductInfo: \(error)")
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     SVProgressHUD.showError(withStatus: "Data Fetch Error")

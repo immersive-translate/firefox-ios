@@ -521,7 +521,6 @@ struct ProSubscriptionSwiftUIView: View {
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
                 .background(.white)
-
                 .cornerRadius(28)
                 .overlay(
                     RoundedRectangle(cornerRadius: 28)
@@ -630,6 +629,24 @@ struct ProSubscriptionSwiftUIView: View {
                 .background(subscriptionButtonBgView)
                 .cornerRadius(12)
                 .padding(.horizontal, 20)
+                
+                if viewModel.fromSource == .onboarding {
+                    Spacer().frame(height: 8)
+                    
+                    Button {
+                        self.viewModel.coordinator?.handleNotNeedNow()
+                    } label: {
+                        Text("\(String.IMS.IAP.notNeedNow)")
+                            .font(Font.custom("PingFang SC", size: 14))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                    }
+                    .frame(height: 48)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(12)
+                    .padding(.horizontal, 20)
+                }
+
 
             }
             .frame(maxWidth: .infinity)

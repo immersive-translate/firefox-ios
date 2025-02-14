@@ -7,7 +7,7 @@ import MenuKit
 import Shared
 import SVProgressHUD
 
-class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
+class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable, ProSubscriptionDelegate {
     let windowUUID: WindowUUID
     let profile: Profile
     weak var parentCoordinator: ParentCoordinatorDelegate?
@@ -73,5 +73,9 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable {
                 navigationHandler?.openURLInNewTab(URL(string: IMSAppUrlConfig.purchaseSuccess))
             })
         }
+    }
+    
+    func handleNotNeedNow() {
+        
     }
 }

@@ -322,6 +322,8 @@
 		291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */; };
 		291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */; };
 		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
+		291C6DE42D5F5FB0002274F6 /* OnboardingLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */; };
+		291C6DE62D5F5FD9002274F6 /* OnboardingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -2620,6 +2622,8 @@
 		291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarMiddleware+IMS.swift"; sourceTree = "<group>"; };
 		291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressBarState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
+		291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewModel.swift; sourceTree = "<group>"; };
+		291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewController.swift; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -5407,6 +5411,8 @@
 		291C6DDD2D5E4F5D002274F6 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */,
+				291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */,
 				291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */,
 			);
 			path = SwiftUI;
@@ -11889,6 +11895,7 @@
 				8AED23C527AC1F9500DE7E97 /* BaseAlphaStackView.swift in Sources */,
 				C8699131289176A5007ACC5C /* WallpaperNetworking.swift in Sources */,
 				5A271ABD2860B0D700471CE4 /* WebServerUtil.swift in Sources */,
+				291C6DE42D5F5FB0002274F6 /* OnboardingLoginViewModel.swift in Sources */,
 				964FA97528A1A8F20024BB3B /* ContextualHintEligibilityUtility.swift in Sources */,
 				439C489C29760575007C3DCD /* CreditCardValidator.swift in Sources */,
 				8ADC2A122A3375B900543DAA /* FxAEntryPoint.swift in Sources */,
@@ -12317,6 +12324,7 @@
 				43AB6FA225DC53D30016B015 /* GoogleTopSiteManager.swift in Sources */,
 				8A5D1CB62A30DBB0005AD35C /* DefaultBrowserSetting.swift in Sources */,
 				4393932029AC6CE900DC5A85 /* EnvironmentValues+Extension.swift in Sources */,
+				291C6DE62D5F5FD9002274F6 /* OnboardingLoginViewController.swift in Sources */,
 				ABEF80D12A24D2BE003F52C4 /* CreditCardBottomSheetViewModel.swift in Sources */,
 				21AFCFF02AE80D370027E9CE /* RemoteTabsCoordinator.swift in Sources */,
 				7ADC1D192C27D35B003ED924 /* ActionProviderBuilder.swift in Sources */,
@@ -14513,7 +14521,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14943,7 +14951,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15224,7 +15232,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15517,7 +15525,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -16039,7 +16047,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

@@ -427,6 +427,8 @@
 /* Toggle history syncing setting */
 "History" = "紀錄";
 
+"Immersive Translate Settings" = "沉浸式翻譯設置";
+
 /* Title for button in the history panel to clear recent history */
 "HistoryPanel.ClearHistoryButtonTitle" = "清除最近的歷史紀錄…";
 
