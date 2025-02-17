@@ -214,6 +214,7 @@ struct OnboardingLoginView: View {
             Spacer()
             
         }
+        .background(Color.white)
 
     }
 }

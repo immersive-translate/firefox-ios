@@ -289,23 +289,7 @@ features:
                   action: forward-one-card
               onboarding-type: fresh-install
               prerequisites:
-                - ALWAYS 
-            login:
-              card-type: ims-basic
-              order: 5
-              title: Onboarding/Onboarding.Notification.Title.v120
-              body: Onboarding/Onboarding.Notification.Description.v120
-              image: notifications
-              buttons:
-                primary:
-                  title: Onboarding/Onboarding.Notification.TurnOnNotifications.Action.v114
-                  action: forward-one-card
-                secondary:
-                  title: Onboarding/Onboarding.Notification.Skip.Action.v115
-                  action: forward-one-card
-              onboarding-type: fresh-install
-              prerequisites:
-                - ALWAYS          
+                - ALWAYS         
 
           dismissable: true
 

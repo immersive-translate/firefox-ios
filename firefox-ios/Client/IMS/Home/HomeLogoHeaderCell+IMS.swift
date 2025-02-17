@@ -12,7 +12,7 @@ extension HomeLogoHeaderCell {
     @_dynamicReplacement(for: setupView(with:))
     func ims_setupView(with showiPadSetup: Bool) {
         contentView.backgroundColor = .clear
-        logoText.text = "看见更大的世界"
+        logoText.text = String.IMS.IAP.seeABigerWorld
         logoText.font = .systemFont(ofSize: 20, weight: .bold)
 //        logoText.setContentCompressionResistancePriority(.required, for: .horizontal)
         containerView.addArrangedSubview(logoImage)

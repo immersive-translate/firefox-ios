@@ -475,6 +475,13 @@ extension String {
                             tableName: "IMSAccount",
                             value: "Not Need Now",
                             comment: "")
+            
+            public static let seeABigerWorld = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.See A Biger World",
+                            tableName: "IMSAccount",
+                            value: "Not Need Now",
+                            comment: "")
+            
         }
     }
 }

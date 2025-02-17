@@ -73,7 +73,8 @@ extension MainMenuConfigurationUtility {
         
         let imsUpgradeSettingAction = MenuElement(
             title: .IMS.Settings.Upgrade,
-            iconName: StandardImageIdentifiers.Large.settings,
+            // replace this iconName,
+            iconName: "upgrade-menu-icon",
             isEnabled: true,
             isActive: false,
             a11yLabel: "",
