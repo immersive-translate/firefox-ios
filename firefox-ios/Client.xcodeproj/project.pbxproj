@@ -349,6 +349,7 @@
 		295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166272D2C10A300CAD566 /* DSCallInfo.m */; };
 		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
+		298774A42D64A3FC0051FE58 /* MenuCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298774A32D64A3FA0051FE58 /* MenuCell+IMS.swift */; };
 		29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
@@ -2654,6 +2655,7 @@
 		2951662F2D2C10A300CAD566 /* HttpClientJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientJSObject.swift; sourceTree = "<group>"; };
 		295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageJSObject.swift; sourceTree = "<group>"; };
 		2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		298774A32D64A3FA0051FE58 /* MenuCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuCell+IMS.swift"; sourceTree = "<group>"; };
 		29909E722D36A0CE005C0328 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IMSAccount.strings; sourceTree = "<group>"; };
 		29909E752D36A0D4005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
 		29909E762D36A0D6005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
@@ -5434,6 +5436,7 @@
 		294666B62D55AAA200BB9196 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				298774A32D64A3FA0051FE58 /* MenuCell+IMS.swift */,
 				29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */,
 				294666B92D55B96500BB9196 /* HeaderView+IMS.swift */,
 				294666B72D55AABA00BB9196 /* MainMenuActionHelper+IMS.swift */,
@@ -11721,6 +11724,7 @@
 				8A8D277B2CBFFD710076AD3A /* BrowserNavigationType.swift in Sources */,
 				96C11E9B2864C2DD00840E7C /* DependencyHelper.swift in Sources */,
 				8CE1E4382B8C76C80026530B /* LoginListViewModel.swift in Sources */,
+				298774A42D64A3FC0051FE58 /* MenuCell+IMS.swift in Sources */,
 				0B8BF3722CA2DA4600E9812D /* EditBookmarkViewController.swift in Sources */,
 				F18859502A3E454E0004AA7B /* EnhancedTrackingProtectionCoordinator.swift in Sources */,
 				2386E4E624F8358E0072EF17 /* HomepageMessageCard.swift in Sources */,

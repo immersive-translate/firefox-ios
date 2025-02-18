@@ -50,7 +50,7 @@ extension MainMenuConfigurationUtility {
         var menuSections = self.getMainMenuElements(with: uuid, and: tabInfo)
         let imtSettingAction = MenuElement(
             title: .LegacyAppMenu.IMTSetting,
-            iconName: StandardImageIdentifiers.Large.settings,
+            iconName: "ims-settings-menu-icon",
             isEnabled: true,
             isActive: false,
             a11yLabel: "",

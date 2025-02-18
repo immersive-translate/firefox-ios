@@ -112,14 +112,14 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         return viewController
     }()
     
-    let items = [
-        IMSGridItem(icon: "web-intro", title: .ImtLocalizableIntroWebPage),
-        IMSGridItem(icon: "video-intro", title: .ImtLocalizableIntroVideo),
-        IMSGridItem(icon: "document-intro", title: .ImtLocalizableIntroDocument),
-        IMSGridItem(icon: "cartoon-intro", title: .ImtLocalizableComicTranslation),
-        IMSGridItem(icon: "xiaohongshu-intro", title: .ImtLocalizableXiaohongshu),
-        IMSGridItem(icon: "BiLinSearch-intro", title: .ImtLocalizableBiLinSearch),
-    ]
+//    let items = [
+//        IMSGridItem(icon: "web-intro", title: .ImtLocalizableIntroWebPage),
+//        IMSGridItem(icon: "video-intro", title: .ImtLocalizableIntroVideo),
+//        IMSGridItem(icon: "document-intro", title: .ImtLocalizableIntroDocument),
+//        IMSGridItem(icon: "cartoon-intro", title: .ImtLocalizableComicTranslation),
+//        IMSGridItem(icon: "xiaohongshu-intro", title: .ImtLocalizableXiaohongshu),
+//        IMSGridItem(icon: "BiLinSearch-intro", title: .ImtLocalizableBiLinSearch),
+//    ]
     
     var modalBrowserCoordinator: ModalBrowserCoordinator?
 
