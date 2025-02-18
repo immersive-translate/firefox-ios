@@ -145,6 +145,11 @@ class IMSTopSiteItemCell: UICollectionViewCell, ReusableCell {
             if case .bundleAsset(let name, _) = imageResource,
             let image = UIImage(named: name) {
                 imageView.manuallySetImage(image)
+            } else if case .remoteURL(let url) = imageResource {
+                let siteURLString = topSite.site.url
+                let viewModel = FaviconImageViewModel(siteURLString: siteURLString,
+                                                      siteResource: imageResource)
+                imageView.setFavicon(viewModel)
             }
         }
 

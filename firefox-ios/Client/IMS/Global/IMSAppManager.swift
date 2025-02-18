@@ -49,4 +49,6 @@ struct IMSAppManager {
     
     var currentEnv: IMSAppUrlConfig.IMSAppENV = .dev
     
+    var topSiteService = IMSAPPTopSiteService()
+    
 }

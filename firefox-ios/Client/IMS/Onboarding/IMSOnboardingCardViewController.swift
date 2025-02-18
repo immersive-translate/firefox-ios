@@ -243,8 +243,8 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         label.textColor = UIColor(colorString: "222222")
         contentView.addSubview(label);
 
-        let gridView = IMSGridView(columns: 3, config: .init(horizontalSpacing: 0, verticalSpacing: 28, imageSize: .init(width: 67, height: 67), titleFont: .systemFont(ofSize: 16)))
-        
+        let gridView = IMSOnboardingGridView(columns: 3, config: .init(horizontalSpacing: 0, verticalSpacing: 28, imageSize: .init(width: 67, height: 67), titleFont: .systemFont(ofSize: 16)))
+        let items = IMSAppManager.shared.topSiteService.getTopSites()
         gridView.configure(with: items)
         
         gridView.translatesAutoresizingMaskIntoConstraints = false
