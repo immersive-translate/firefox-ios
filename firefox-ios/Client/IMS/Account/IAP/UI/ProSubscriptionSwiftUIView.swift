@@ -310,30 +310,54 @@ struct ProSubscriptionSwiftUIView: View {
 
             )
         } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
-            AnyView(
-                LinearGradient(
-                    stops: [
-                        Gradient.Stop(
-                            color: Color(
-                                red: 0.13, green: 0.13, blue: 0.13),
-                            location: 0.00),
-                        Gradient.Stop(
-                            color: Color(
-                                red: 0.41, green: 0.41, blue: 0.41),
-                            location: 1.00),
-                    ],
-                    startPoint: UnitPoint(x: 0.31, y: 1.08),
-                    endPoint: UnitPoint(x: 0.92, y: 0)
+            if viewModel.userInfo?.subscription?.paymentChannel == "stripe" {
+                AnyView(
+                    LinearGradient(
+                        stops: [
+                            Gradient.Stop(
+                                color: Color.clear, location: 0.00),
+                            Gradient.Stop(
+                                color: Color.clear, location: 1.00),
+                        ],
+                        startPoint: UnitPoint(x: 0.31, y: 1.08),
+                        endPoint: UnitPoint(x: 0.92, y: 0)
+                    )
                 )
-            )
-            .cornerRadius(12)
-            .overlay(
-                RoundedRectangle(cornerRadius: 12)
-                    .inset(by: 0.5)
-                    .stroke(
-                        Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .inset(by: 0.5)
+                        .stroke(
+                            Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
 
-            )
+                )
+            
+            } else {
+                AnyView(
+                    LinearGradient(
+                        stops: [
+                            Gradient.Stop(
+                                color: Color(
+                                    red: 0.13, green: 0.13, blue: 0.13),
+                                location: 0.00),
+                            Gradient.Stop(
+                                color: Color(
+                                    red: 0.41, green: 0.41, blue: 0.41),
+                                location: 1.00),
+                        ],
+                        startPoint: UnitPoint(x: 0.31, y: 1.08),
+                        endPoint: UnitPoint(x: 0.92, y: 0)
+                    )
+                )
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .inset(by: 0.5)
+                        .stroke(
+                            Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+                    
+                )
+            }
         } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
             AnyView(
                 LinearGradient(
@@ -497,7 +521,6 @@ struct ProSubscriptionSwiftUIView: View {
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
                 .background(.white)
-
                 .cornerRadius(28)
                 .overlay(
                     RoundedRectangle(cornerRadius: 28)
@@ -513,18 +536,22 @@ struct ProSubscriptionSwiftUIView: View {
                     .frame(height: 20)
 
                 Button {
-                    if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
-                        // 当前月付，选择月付，不处理
-                    } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
-                        // 当前月付，选择年付，升级, 显示弹窗
-                        viewModel.showUpgradeAlert = true
-                    } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
-                        // 当前年付，选择月付，不处理
-                        
-                    } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
-                        // 当前年付，选择年付，不处理
+                    if viewModel.userInfo?.subscription?.paymentChannel == "stripe" {
+                        // 当前stripe
                     } else {
-                        viewModel.purchaseProduct()
+                        if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+                            // 当前月付，选择月付，不处理
+                        } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+                            // 当前月付，选择年付，升级, 显示弹窗
+                            viewModel.showUpgradeAlert = true
+                        } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+                            // 当前年付，选择月付，不处理
+                            
+                        } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+                            // 当前年付，选择年付，不处理
+                        } else {
+                            viewModel.purchaseProduct()
+                        }
                     }
                 } label: {
 
@@ -551,21 +578,33 @@ struct ProSubscriptionSwiftUIView: View {
                                 .frame(maxHeight: .infinity)
 
                         } else if subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
-                            HStack {
-                                Image("iap_upgrade_bt_icon")
-                                    .resizable()
-                                    .frame(width: 20, height: 20)
-
-                                Text("\(String.IMS.Settings.Upgrade)")
+                            if viewModel.userInfo?.subscription?.paymentChannel == "stripe" {
+                                Text("\(String.IMS.IAP.upgradeToPc)")
                                     .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 16)
+                                        Font.custom("Alibaba PuHuiTi 3.0", size: 16)
                                     )
                                     .foregroundColor(
-                                        Color(red: 1, green: 0.78, blue: 0.21))
+                                        Color(red: 0.6, green: 0.6, blue: 0.6))
+                                    .frame(maxWidth: .infinity)
+                                    .frame(maxHeight: .infinity)
+                                
+                            } else {
+                                HStack {
+                                    Image("iap_upgrade_bt_icon")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                    
+                                    Text("\(String.IMS.Settings.Upgrade)")
+                                        .font(
+                                            Font.custom(
+                                                "Alibaba PuHuiTi 3.0", size: 16)
+                                        )
+                                        .foregroundColor(
+                                            Color(red: 1, green: 0.78, blue: 0.21))
+                                }
+                                .frame(maxWidth: .infinity)
+                                .frame(maxHeight: .infinity)
                             }
-                            .frame(maxWidth: .infinity)
-                            .frame(maxHeight: .infinity)
                         } else if subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
                             Text("\(String.IMS.IAP.downgradingIsNotSupported)")
                               .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
@@ -590,6 +629,24 @@ struct ProSubscriptionSwiftUIView: View {
                 .background(subscriptionButtonBgView)
                 .cornerRadius(12)
                 .padding(.horizontal, 20)
+                
+                if viewModel.fromSource == .onboarding {
+                    Spacer().frame(height: 8)
+                    
+                    Button {
+                        self.viewModel.coordinator?.handleNotNeedNow()
+                    } label: {
+                        Text("\(String.IMS.IAP.notNeedNow)")
+                            .font(Font.custom("PingFang SC", size: 14))
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                    }
+                    .frame(height: 48)
+                    .frame(maxWidth: .infinity)
+                    .cornerRadius(12)
+                    .padding(.horizontal, 20)
+                }
+
 
             }
             .frame(maxWidth: .infinity)

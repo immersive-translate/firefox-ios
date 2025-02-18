@@ -66,6 +66,62 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         return imageView
     }()
     
+    private lazy var subscriptionViewController: IMSAccountUpgradeViewController = {
+        let viewController = IMSAccountUpgradeViewController(windowUUID: windowUUID, fromSource: .onboarding)
+        viewController.viewModel.coordinator = self
+        return viewController
+    }()
+    
+    private lazy var loginViewController: OnboardingLoginViewController = {
+        let viewController = OnboardingLoginViewController {[weak self] type in
+            switch type {
+            case .google, .email, .apple, .facebook:
+                guard let windowUUID = self?.windowUUID,
+                      let url = URL(string: IMSAppUrlConfig.login),
+                      let buttonAction = self?.viewModel.buttons.secondary?.action,
+                      let viewModel = self?.viewModel
+                else { return }
+                self?.delegate?.handleBottomButtonActions(
+                    for: buttonAction,
+                    from: viewModel.name,
+                    isPrimaryButton: false)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    store.dispatch(
+                        NavigationBrowserAction(
+                            navigationDestination: NavigationDestination(
+                                .link,
+                                url: url,
+                                isPrivate: false,
+                                selectNewTab: false
+                            ),
+                            windowUUID: windowUUID,
+                            actionType: NavigationBrowserActionType.tapOnOpenInNewTab
+                        )
+                    )
+                }
+            case .other:
+                guard let buttonAction = self?.viewModel.buttons.secondary?.action,
+                        let viewModel = self?.viewModel else { return }
+
+                self?.delegate?.handleBottomButtonActions(
+                    for: buttonAction,
+                    from: viewModel.name,
+                    isPrimaryButton: false)
+            }
+        }
+        return viewController
+    }()
+    
+    let items = [
+        IMSGridItem(icon: "web-intro", title: .ImtLocalizableIntroWebPage),
+        IMSGridItem(icon: "video-intro", title: .ImtLocalizableIntroVideo),
+        IMSGridItem(icon: "document-intro", title: .ImtLocalizableIntroDocument),
+        IMSGridItem(icon: "cartoon-intro", title: .ImtLocalizableComicTranslation),
+        IMSGridItem(icon: "xiaohongshu-intro", title: .ImtLocalizableXiaohongshu),
+        IMSGridItem(icon: "BiLinSearch-intro", title: .ImtLocalizableBiLinSearch),
+    ]
+    
+    var modalBrowserCoordinator: ModalBrowserCoordinator?
 
 
     // MARK: - Initializers
@@ -92,6 +148,10 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             setupSecondaryIntroView()
         } else if (viewModel.name == "welcome-intro") {
             setupThirdIntroView()
+        } else if (viewModel.name == "subscription") {
+            setupSubscriptionView()
+        } else if (viewModel.name == "login") {
+            setupLoginView()
         }
     }
 
@@ -256,6 +316,30 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         ])
     }
     
+    func setupSubscriptionView() {
+        let subscriptionView = self.subscriptionViewController.view!
+        subscriptionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(subscriptionView)
+        NSLayoutConstraint.activate([
+            subscriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UX.titleLabelTopMargin),
+            subscriptionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            subscriptionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            subscriptionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        ])
+    }
+    
+    func setupLoginView() {
+        let subCurrentView = self.loginViewController.view!
+        subCurrentView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(subCurrentView)
+        NSLayoutConstraint.activate([
+            subCurrentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UX.titleLabelTopMargin),
+            subCurrentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            subCurrentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            subCurrentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+        ])
+    }
+    
     func createLogoAndDescView(imageName: String, desc: String) -> UIView {
         let itemView = UIView();
         itemView.translatesAutoresizingMaskIntoConstraints = false;
@@ -318,5 +402,60 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     // MARK: - Themeable
     override func applyTheme() {
 
+    }
+}
+
+
+extension IMSOnboardingCardViewController: ProSubscriptionDelegate {
+    
+    func showLoginModalWebView() {
+        guard let url = URL(string: IMSAppUrlConfig.login + "?app_action=gotoUpgrade") else { return }
+        let navigationController = DismissableNavigationViewController()
+        let coordinator = ModalBrowserCoordinator(
+            url: url,
+            router: DefaultRouter(navigationController: navigationController),
+            windowUUID: windowUUID,
+            profile: BrowserProfile(localName: "profile")
+        )
+        navigationController.onViewDismissed = { [weak self] in
+            self?.subscriptionViewController.viewModel.fetchProductInfos()
+        }
+        
+        coordinator.start()
+        
+        modalBrowserCoordinator = coordinator
+        
+        self.present(navigationController, animated: true)
+    }
+    
+    func showPurchaseSuccess() {
+        guard let buttonAction = viewModel.buttons.secondary?.action,
+            let url = URL(string: IMSAppUrlConfig.purchaseSuccess)
+        else { return }
+        self.delegate?.handleBottomButtonActions(for: .endOnboarding, from: viewModel.name, isPrimaryButton: false)
+        let windowUUID = self.windowUUID
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            store.dispatch(
+                NavigationBrowserAction(
+                    navigationDestination: NavigationDestination(
+                        .link,
+                        url: url,
+                        isPrivate: false,
+                        selectNewTab: false
+                    ),
+                    windowUUID: windowUUID,
+                    actionType: NavigationBrowserActionType.tapOnOpenInNewTab
+                )
+            )
+        }
+    }
+    
+    func handleNotNeedNow() {
+        guard let buttonAction = viewModel.buttons.secondary?.action else { return }
+
+        delegate?.handleBottomButtonActions(
+            for: buttonAction,
+            from: viewModel.name,
+            isPrimaryButton: false)
     }
 }

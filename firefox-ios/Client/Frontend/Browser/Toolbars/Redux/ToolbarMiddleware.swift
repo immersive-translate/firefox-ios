@@ -144,7 +144,8 @@ final class ToolbarMiddleware: FeatureFlaggable {
         }
     }
 
-    private func handleToolbarButtonTapActions(action: ToolbarMiddlewareAction, state: AppState) {
+    dynamic
+    func handleToolbarButtonTapActions(action: ToolbarMiddlewareAction, state: AppState) {
         guard let toolbarState = state.screenState(ToolbarState.self, for: .toolbar, window: action.windowUUID)
         else { return }
 

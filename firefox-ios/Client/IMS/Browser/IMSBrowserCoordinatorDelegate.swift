@@ -16,6 +16,7 @@ extension BrowserCoordinator: IMSBrowserCoordinatorDelegate {
             profile: profile
         )
         coordinator.parentCoordinator = self
+        coordinator.navigationHandler = self
         add(child: coordinator)
         
         navigationController.onViewDismissed = {[weak self] in
