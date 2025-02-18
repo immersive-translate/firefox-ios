@@ -364,6 +364,7 @@
 		29B9C9B42D3F3D3300365400 /* SendAnonymousUsageDataSetting+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */; };
 		29B9C9B62D3F420000365400 /* AdjustWrapper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */; };
 		29D52D4D2D5DABBC00728FB2 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605122D2D359D006585C7 /* en.json */; };
+		29D52D4F2D5DBB4F00728FB2 /* IMSAPPTopSiteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */; };
 		29D6DFC32D2D67DD0094E832 /* FacebookAEM in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC22D2D67DD0094E832 /* FacebookAEM */; };
 		29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC42D2D67DD0094E832 /* FacebookBasics */; };
 		29D6DFC72D2D67DD0094E832 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 29D6DFC62D2D67DD0094E832 /* FacebookCore */; };
@@ -2663,6 +2664,7 @@
 		29B9C9B12D3F3CA400365400 /* AppLaunchUtil+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppLaunchUtil+IMS.swift"; sourceTree = "<group>"; };
 		29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SendAnonymousUsageDataSetting+IMS.swift"; sourceTree = "<group>"; };
 		29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdjustWrapper+IMS.swift"; sourceTree = "<group>"; };
+		29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPPTopSiteService.swift; sourceTree = "<group>"; };
 		29EF1DE32D37E3390066018B /* IMSImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IMSImages.xcassets; sourceTree = "<group>"; };
 		29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTopSiteItemCell.swift; sourceTree = "<group>"; };
 		29EF1DE92D37E7660066018B /* IMSTopSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTopSitesViewModel.swift; sourceTree = "<group>"; };
@@ -5614,6 +5616,7 @@
 		29F87B422D5B6E470013C044 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */,
 				291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */,
 				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
 			);
@@ -12161,6 +12164,7 @@
 				C4E398601D22C409004E89BA /* TopTabsLayout.swift in Sources */,
 				29EF1DFE2D3939240066018B /* IntroViewController+IMS.swift in Sources */,
 				E1A102D62AC19B30007B617A /* FakespotUtils.swift in Sources */,
+				29D52D4F2D5DBB4F00728FB2 /* IMSAPPTopSiteService.swift in Sources */,
 				5A2918CB2B522338002B197E /* GeneralBrowserAction.swift in Sources */,
 				8A5D1CC12A30DCA4005AD35C /* SettingDisclosureUtility.swift in Sources */,
 				E1442FD5294782D9003680B0 /* UIView+SnapKit.swift in Sources */,
