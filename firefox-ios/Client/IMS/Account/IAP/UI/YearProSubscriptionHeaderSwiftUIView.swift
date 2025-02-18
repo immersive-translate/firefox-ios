@@ -117,7 +117,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                         )
                     )
                     .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
-                    .offset(y: 191 - 64 + 44)
+                    .offset(y: 201 - 64 + 44)
                     
                     ZStack(alignment: .bottom) {
                         VStack(spacing: 0){
@@ -191,12 +191,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             }
                             
                             Spacer()
-                                .frame(height: 20)
+                                .frame(height: 30)
                             
                         }
                         .foregroundColor(.clear)
                         .frame(maxWidth: .infinity)
-                        .frame(height: 191)
+                        .frame(height: 201)
                         .background(
                             LinearGradient(
                                 stops: [
@@ -265,7 +265,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                     }
                     .foregroundColor(.clear)
                     .frame(maxWidth: .infinity)
-                    .frame(height: 191)
+                    .frame(height: 201)
                     
                     
                 }
