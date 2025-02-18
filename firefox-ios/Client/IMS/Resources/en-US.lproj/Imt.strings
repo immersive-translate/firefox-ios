@@ -1,0 +1,44 @@
+/*
+  Imt.strings
+  Client
+
+  Created by jaly on 2025/1/15.
+  Copyright © 2025 Mozilla. All rights reserved.
+*/
+"Imt.Localizable.App.Info" = "Immersive Translate Browser is a customized product developed independently by Immersive Translate team, based on the technology of the Firefox browser, an open-source project by Mozilla.";
+"Imt.Localizable.App.Version" = "Version";
+"Imt.Localizable.App" = "App";
+"Imt.Localizable.Reminder" = "Reminder";
+"Imt.Localizable.User.Agreement" = "\"User Agreement\"";
+"Imt.Localizable.User.Agreement.Title" = "User Agreement";
+"Imt.Localizable.App.Privacy.Policy" = "\"Immersive Translation Browser Privacy Policy\"";
+"Imt.Localizable.App.Privacy.Policy.Title" = "Privacy Policy";
+"Imt.Localizable.Reminder.Pre" = "Welcome to Immersive Translation. Before using Immersive Translation, please carefully read the";
+"Imt.Localizable.Reminder.Middle" = "and";
+"Imt.Localizable.Reminder.Post" = ". According to the \"Regulations on the Scope of Necessary Personal Information for Common Types of Mobile Internet Applications\", the main functions of Immersive Translation are website browsing, search, file processing, file management, etc. The extended functions include Immersive Translation account, etc. Agreeing to the basic functions privacy policy only means agreeing to the collection and processing of relevant necessary information when using main functions such as website browsing, search, file processing, and file management. The collection of personal information by extended functions such as immersive translation accounts will be separately solicited from you when you use specific functions.";
+"Imt.Localizable.Reminder.Disagree" = "Disagree";
+"Imt.Localizable.Reminder.Agree" = "Agree";
+"Imt.Localizable.Reminder.Need.Agree" = "This product needs to agree to the relevant agreement before it can be used.";
+"Imt.Localizable.Reminder.Quit.App" = "Quit APP";
+"Imt.Localizable.Reminder.I.See" = "I see";
+"Imt.Localizable.Intro.Default.Browser" = "Set Immersive Translate as your default browser";
+"Imt.Localizable.Intro.Auto.Translated" = "Any foreign language webpage is opened by default with the immersive translation browser and automatically translated; \nSearch results are automatically translated into the native language.";
+"Imt.Localizable.Intro.Native.language" = "Your native language";
+"Imt.Localizable.Intro.Set.Default.Browser" = "Set as default browser";
+"Imt.Localizable.Intro.Set.Later" = "Set up later";
+"Imt.Localizable.Intro.Accessible.Reading" = "Accessible reading of foreign language content:";
+"Imt.Localizable.Intro.Web.page" = "Web page";
+"Imt.Localizable.Intro.Video" = "Video";
+"Imt.Localizable.Intro.Document" = "Document";
+"Imt.Localizable.Intro.All.Translated" = "All translated with one click, \nmaking reading hassle-free!";
+"Imt.Localizable.Intro.Bigger.World" = "Eliminate language barriers\nSee a bigger world";
+"Imt.Localizable.Intro.Break.Barriers" = "Break language barriers!";
+"Imt.Localizable.Web.Translation" = "Web translation";
+"Imt.Localizable.Video.Translation" = "Video translation";
+"Imt.Localizable.Doc.Translation" = "Doc translation";
+"Imt.Localizable.Comic.Translation" = "Comic translation";
+"Imt.Localizable.Xiaohongshu.Translation" = "Rednote translation";
+"Imt.Localizable.BiLin.Search" = "Multi-Lingual Search";
+"Imt.Localizable.Xiaohongshu" = "Rednote";
+"Immersive Translate Tutorials" = "Immersive Translate Tutorials";
+"Immersive Translate Settings" = "Immersive Translate Settings";

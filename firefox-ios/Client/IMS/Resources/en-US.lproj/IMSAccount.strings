@@ -1,0 +1,48 @@
+/*
+  IMSAccount.strings
+  Client
+
+  Created by jaly on 2025/1/14.
+  Copyright © 2025 Mozilla. All rights reserved.
+*/
+
+"Settings.IMSAccount.Upgrade.Title" = "Upgrade";
+"Settings.IMSAccount.IAP.Save" = "Save";
+"Settings.IMSAccount.IAP.YearPro" = "Annual";
+"Settings.IMSAccount.IAP.Month" = "Month";
+"Settings.IMSAccount.IAP.Year" = "Year";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro AI Translation Services";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip" = "The free plan requires custom API tokens, which are expensive, complicated to set up, and come with strict rate limits. After upgrading to Pro, you can instantly access Immersive Translate's built-in services including DeepL, OpenAI, Claude, and Gemini - no configuration needed, works right out of the box, with a generous monthly allowance of up to 20 million tokens.";
+"Settings.IMSAccount.IAP.DeepL Translation" = "DeepL translate";
+"Settings.IMSAccount.IAP.OpenAI Translation" = "OpenAI translate";
+"Settings.IMSAccount.IAP.Claude Translation" = "Claude translate";
+"Settings.IMSAccount.IAP.Gemini Translation" = "Gemini translate";
+"Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro exclusive advanced features";
+"Settings.IMSAccount.IAP.PDF Pro" = "PDF Pro";
+"Settings.IMSAccount.IAP.PDF Pro tip" = "Includes 500 pages of AI-driven PDF document translation per month, supporting complex formula recognition, table recognition, and scanned document";
+"Settings.IMSAccount.IAP.Manga Translation" = "Comic translation";
+"Settings.IMSAccount.IAP.Manga Translation tip" = "Monthly includes 1000 AI-driven comic translations";
+"Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "Youtube Subtitles Export";
+"Settings.IMSAccount.IAP.Multi-device sync configuration" = "Cloud Sync Settings";
+"Settings.IMSAccount.IAP.Priority email support" = "Priority email support";
+"Settings.IMSAccount.IAP.Priority email support tip" = "If you encounter any problems, please contact the customer support team support@immersivetranslate.com";
+"Settings.IMSAccount.IAP.Consecutive annual subscription" = "Annual";
+"Settings.IMSAccount.IAP.Consecutive monthly subscription" = "Monthly";
+"Settings.IMSAccount.IAP.Subscribe now" = "Subscribe now";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "Monthly";
+"Settings.IMSAccount.IAP.Limited Time Offer" = "Limited Time Offer";
+"Settings.IMSAccount.IAP.Aler Confirm" = "OK";
+"Settings.IMSAccount.IAP.You have successfully subscribed" = "You have successfully subscribed";
+"Settings.IMSAccount.IAP.You have fail subscribed" = "Your subscription has failed";
+"Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "Upgrade to Annual Pro Membership";
+"Settings.IMSAccount.IAP.The annual plan saves" = "The annual plan saves %@ per year compared to the monthly plan";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "Upgrading now will automatically deduct %@ immediately (the unused time of the current package has been deducted in proportion)";
+"Settings.IMSAccount.IAP.the unused time of the current package" = "(the unused time of the current package has been deducted in proportion)";
+"Settings.IMSAccount.IAP.New expiration date" = "New expiration date is %@";
+"Settings.IMSAccount.IAP.Upgrade Now" = "Upgrade Now";
+"Settings.IMSAccount.IAP.Cancel" = "Cancel";
+"Settings.IMSAccount.IAP.Current Plan" = "Current Plan";
+"Settings.IMSAccount.IAP.Downgrading is not supported" = "Downgrading is not supported";
+"Settings.IMSAccount.IAP.Upgrade on the PC" = "Upgrade on the PC";
+"Settings.IMSAccount.IAP.Not Need Now" = "Not Need Now";
+"Settings.IMSAccount.IAP.See A Biger World" = "See A Biger World";

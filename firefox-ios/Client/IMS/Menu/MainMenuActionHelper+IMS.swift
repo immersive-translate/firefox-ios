@@ -20,7 +20,7 @@ extension MainMenuActionHelper {
     }
     
     private func getImtSettingAction() -> PhotonRowActions {
-        return SingleActionViewModel(title: .LegacyAppMenu.IMTSetting,
+        return SingleActionViewModel(title: .IMS.IMTSetting,
                                      iconString: StandardImageIdentifiers.Large.settings) { _ in
             if let url = URL(string: IMSAppUrlConfig.dash) {
                 self.delegate?.openURLInNewTab(url, isPrivate: false)
@@ -49,7 +49,7 @@ extension MainMenuConfigurationUtility {
     ) -> [MenuSection] {
         var menuSections = self.getMainMenuElements(with: uuid, and: tabInfo)
         let imtSettingAction = MenuElement(
-            title: .LegacyAppMenu.IMTSetting,
+            title: .IMS.IMTSetting,
             iconName: "ims-settings-menu-icon",
             isEnabled: true,
             isActive: false,

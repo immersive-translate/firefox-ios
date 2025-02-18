@@ -236,7 +236,20 @@ extension String {
 
 
 extension String {
+   
     public struct IMS {
+        public static let IMTSetting = MZLocalizedString(
+            key: "Immersive Translate Settings",
+            tableName: "Imt",
+            value: nil,
+            comment: "Label for the help button in the menu page. Pressing this button opens the support page https://dash.immersivetranslate.com/")
+        
+        public static let ImmersiveTranslateTutorials = MZLocalizedString(
+            key: "Immersive Translate Tutorials",
+            tableName: "Imt",
+            value: nil,
+            comment: "Show Immersive Translate Tutorials page from the Tutorials section in the settings. See https://immersivetranslate.com/docs/usage")
+        
         public struct Settings {
             public static let Upgrade = MZLocalizedString(
                 key: "Settings.IMSAccount.Upgrade.Title",

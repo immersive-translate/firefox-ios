@@ -11,7 +11,7 @@ extension MenuCell {
     public func ims_configureCellWith(model: MenuElement) {
         self.configureCellWith(model: model)
         guard model.title == .IMS.Settings.Upgrade ||
-              model.title == .LegacyAppMenu.IMTSetting
+              model.title == .IMS.IMTSetting
         else {
             return
         }

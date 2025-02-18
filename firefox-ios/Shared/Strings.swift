@@ -4765,11 +4765,7 @@ extension String {
             tableName: nil,
             value: "Help",
             comment: "Label for the help button in the menu page. Pressing this button opens the support page https://support.mozilla.org/en-US/products/ios")
-        public static let IMTSetting = MZLocalizedString(
-            key: "Immersive Translate Settings",
-            tableName: nil,
-            value: nil,
-            comment: "Label for the help button in the menu page. Pressing this button opens the support page https://dash.immersivetranslate.com/")
+        
         public static let Share = MZLocalizedString(
             key: "Menu.Share.v99",
             tableName: nil,
@@ -7126,11 +7122,7 @@ extension String {
         tableName: nil,
         value: nil,
         comment: "Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/")
-    public static let ImmersiveTranslateTutorials = MZLocalizedString(
-        key: "Immersive Translate Tutorials",
-        tableName: nil,
-        value: nil,
-        comment: "Show Immersive Translate Tutorials page from the Tutorials section in the settings. See https://immersivetranslate.com/docs/usage")
+    
     public static let AppSettingsTitle = MZLocalizedString(
         key: "Settings",
         tableName: nil,

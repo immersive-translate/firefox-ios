@@ -329,7 +329,7 @@
 "Facebook" = "Facebook";
 
 /* Title for firefox about:home page in tab history list */
-"Firefox.HomePage.Title" = "Firefox 首頁";
+"Firefox.HomePage.Title" = "沉浸式翻譯 首頁";
 
 /* A button at bottom of the Firefox homepage that, when clicked, takes users straight to the settings options, where they can customize the Firefox Home page */
 "FirefoxHome.CustomizeHomeButton.Title" = "自訂首頁";
@@ -427,7 +427,7 @@
 /* Toggle history syncing setting */
 "History" = "紀錄";
 
-"Immersive Translate Settings" = "沉浸式翻譯設置";
+
 
 /* Title for button in the history panel to clear recent history */
 "HistoryPanel.ClearHistoryButtonTitle" = "清除最近的歷史紀錄…";
@@ -1402,7 +1402,7 @@
 "Settings.NoImageModeBlockImages.Label.v99" = "封鎖圖片";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349 */
-"Settings.OfferClipboardBar.Status" = "開啟 Firefox 時";
+"Settings.OfferClipboardBar.Status" = "開啟 沉浸式翻譯 時";
 
 /* Description displayed under the ”Offer to Open Copied Link” option. See https://bug1223660.bmoattachments.org/attachment.cgi?id=8898349. Placeholder is for the app name. */
 "Settings.OfferClipboardBar.Status.v128" = "開啟 %@ 時";

@@ -1,0 +1,44 @@
+/*
+  Imt.strings
+  Client
+
+  Created by jaly on 2025/1/15.
+  Copyright © 2025 Mozilla. All rights reserved.
+*/
+"Imt.Localizable.App.Info" = "Immersive Translate 브라우저는 Mozilla의 오픈 소스 프로젝트인 Firefox 브라우저 기술을 기반으로 Immersive Translate 팀이 독립적으로 개발한 맞춤형 제품입니다.";
+"Imt.Localizable.App.Version" = "버전";
+"Imt.Localizable.App" = "앱";
+"Imt.Localizable.Reminder" = "알림";
+"Imt.Localizable.User.Agreement" = "\"사용자 약관\"";
+"Imt.Localizable.User.Agreement.Title" = "사용자 약관";
+"Imt.Localizable.App.Privacy.Policy" = "\"Immersive Translate 브라우저 개인정보 보호 정책\"";
+"Imt.Localizable.App.Privacy.Policy.Title" = "개인정보 보호 정책";
+"Imt.Localizable.Reminder.Pre" = "Immersive Translate에 오신 것을 환영합니다. Immersive Translate를 사용하기 전에, 아래 내용을 주의 깊게 읽어주세요.";
+"Imt.Localizable.Reminder.Middle" = "및";
+"Imt.Localizable.Reminder.Post" = "를 읽어주세요. \"모바일 인터넷 애플리케이션의 일반 유형에 대한 필수 개인 정보의 범위 규정\"에 따라, Immersive Translate의 주요 기능은 웹사이트 탐색, 검색, 파일 처리, 파일 관리 등을 포함합니다. 확장 기능에는 Immersive Translate 계정 등이 포함됩니다. 기본 기능 개인정보 보호 정책에 동의하는 것은 웹사이트 탐색, 검색, 파일 처리 및 파일 관리와 같은 주요 기능을 사용할 때 관련 필수 정보를 수집 및 처리하는 데 동의하는 것을 의미합니다. Immersive Translate 계정과 같은 확장 기능에 의한 개인 정보 수집은 특정 기능을 사용할 때 별도로 동의를 요청받습니다.";
+"Imt.Localizable.Reminder.Disagree" = "동의하지 않음";
+"Imt.Localizable.Reminder.Agree" = "동의";
+"Imt.Localizable.Reminder.Need.Agree" = "이 제품은 관련 약관에 동의해야 사용할 수 있습니다.";
+"Imt.Localizable.Reminder.Quit.App" = "앱 종료";
+"Imt.Localizable.Reminder.I.See" = "알겠습니다";
+"Imt.Localizable.Intro.Default.Browser" = "Immersive Translate를 기본 브라우저로 설정";
+"Imt.Localizable.Intro.Auto.Translated" = "모든 외국어 웹페이지는 Immersive Translate 브라우저로 기본 열리며 자동 번역됩니다.\n검색 결과도 자동으로 모국어로 번역됩니다.";
+"Imt.Localizable.Intro.Native.language" = "사용자의 모국어";
+"Imt.Localizable.Intro.Set.Default.Browser" = "기본 브라우저로 설정";
+"Imt.Localizable.Intro.Set.Later" = "나중에 설정";
+"Imt.Localizable.Intro.Accessible.Reading" = "외국어 콘텐츠의 접근 가능한 읽기:";
+"Imt.Localizable.Intro.Web.page" = "웹 페이지";
+"Imt.Localizable.Intro.Video" = "비디오";
+"Imt.Localizable.Intro.Document" = "문서";
+"Imt.Localizable.Intro.All.Translated" = "한 번의 클릭으로 모든 번역,\n번거로움 없이 읽기 가능!";
+"Imt.Localizable.Intro.Bigger.World" = "언어 장벽을 없애고\n더 넓은 세상을 보세요";
+"Imt.Localizable.Intro.Break.Barriers" = "언어 장벽을 허물다!";
+"Imt.Localizable.Web.Translation" = "웹 번역";
+"Imt.Localizable.Video.Translation" = "비디오 번역";
+"Imt.Localizable.Doc.Translation" = "문서 번역";
+"Imt.Localizable.Comic.Translation" = "만화 번역";
+"Imt.Localizable.Xiaohongshu.Translation" = "Rednote 번역";
+"Imt.Localizable.BiLin.Search" = "다국어 검색";
+"Imt.Localizable.Xiaohongshu" = "Rednote";
+"Immersive Translate Tutorials" = "Immersive Translate 튜토리얼";
+"Immersive Translate Settings" = "Immersive Translate 설정";
