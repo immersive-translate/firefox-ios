@@ -8,10 +8,10 @@
 "DefaultBrowserCard.Button.v2" = "방법 알아보기";
 
 /* Description for small home tab banner shown that allows user to switch their default browser to Firefox. */
-"DefaultBrowserCard.Description" = "Immersive Translation에서 자동으로 열리도록 웹 사이트, 이메일 및 메시지의 링크를 설정합니다.";
+"DefaultBrowserCard.Description" = "몰입형번역 에서 자동으로 열리도록 웹 사이트, 이메일 및 메시지의 링크를 설정합니다.";
 
 /* Description for small home tab banner shown that allows the user to switch their default browser to Firefox. */
-"DefaultBrowserCard.NextLevel.Description.v108" = "Firefox를 기본 브라우저로 선택하고 자동으로 속도, 안전 및 개인 정보를 지키세요.";
+"DefaultBrowserCard.NextLevel.Description.v108" = "몰입형번역 를 기본 브라우저로 선택하고 자동으로 속도, 안전 및 개인 정보를 지키세요.";
 
 /* Title for small home tab banner shown that allows the user to switch their default browser to Firefox. */
 "DefaultBrowserCard.NextLevel.Title.v108" = "일상적인 브라우징 향상";

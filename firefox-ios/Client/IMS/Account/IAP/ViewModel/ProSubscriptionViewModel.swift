@@ -94,7 +94,7 @@ class ProSubscriptionViewModel: ObservableObject {
                     self.infos = infos
                     if let userInfo = userInfo, let token = localUserInfo?.token {
                         var subscription = userInfo.data.subscription
-                        self.userInfo = IMSAccountInfo(subscription: subscription, token: token, email: userInfo.data.email)
+                        self.userInfo = IMSAccountInfo.from(token: token, resp: userInfo.data)
                     } else {
                         self.userInfo = nil
                     }

@@ -12,7 +12,7 @@
 "Settings.IMSAccount.IAP.Month" = "월간";
 "Settings.IMSAccount.IAP.Year" = "연도";
 "Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro 전용 세계적 수준의 AI 번역 서비스";
-"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip" = "무료 플랜은 비싼 맞춤형 API 토큰이 필요하며, 설정이 복잡하고 엄격한 속도 제한이 있습니다. Pro로 업그레이드하면 DeepL, OpenAI, Claude, Gemini와 같은 Immersive Translate의 내장 서비스를 즉시 사용할 수 있습니다. 별도의 설정 없이 바로 작동하며, 월 최대 2천만 토큰의 관대한 할당량을 제공합니다.";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip" = "무료 플랜은 비싼 맞춤형 API 토큰이 필요하며, 설정이 복잡하고 엄격한 속도 제한이 있습니다. Pro로 업그레이드하면 DeepL, OpenAI, Claude, Gemini와 같은 몰입형번역 의 내장 서비스를 즉시 사용할 수 있습니다. 별도의 설정 없이 바로 작동하며, 월 최대 2천만 토큰의 관대한 할당량을 제공합니다.";
 "Settings.IMSAccount.IAP.DeepL Translation" = "DeepL 번역";
 "Settings.IMSAccount.IAP.OpenAI Translation" = "OpenAI 번역";
 "Settings.IMSAccount.IAP.Claude Translation" = "Claude 번역";

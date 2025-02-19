@@ -13,6 +13,7 @@ struct IMSTopLink: Codable {
     let titleZh: String
     let titleTr: String
     let titleEn: String
+    let titleKo: String
     
     // 自定义编码键，处理 JSON 中的下划线命名
     enum CodingKeys: String, CodingKey {
@@ -22,6 +23,27 @@ struct IMSTopLink: Codable {
         case titleZh = "title_zh"
         case titleTr = "title_tr"
         case titleEn = "title_en"
+        case titleKo = "title_ko"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        // 解码必需的字段
+        id = try container.decode(Int.self, forKey: .id)
+        iconUrl = try container.decode(String.self, forKey: .iconUrl)
+        linkUrl = try container.decode(String.self, forKey: .linkUrl)
+        titleZh = try container.decode(String.self, forKey: .titleZh)
+        titleTr = try container.decode(String.self, forKey: .titleTr)
+        titleEn = try container.decode(String.self, forKey: .titleEn)
+        
+        // 自定义解码 titleKo
+        if let koreanTitle = try container.decodeIfPresent(String.self, forKey: .titleKo),
+           !koreanTitle.isEmpty {
+            titleKo = koreanTitle
+        } else {
+            titleKo = titleEn
+        }
     }
 }
 
@@ -74,6 +96,8 @@ class IMSAPPTopSiteService {
                 jsonName = "zh-CN"
             } else if (preferredLocalizations.contains("zh-Hant")) {
                 jsonName = "zh-TW"
+            } else if (preferredLocalizations.contains("ko")) {
+                jsonName = "ko"
             }
         }
         for topLinks in content.topLinks {
@@ -81,6 +105,8 @@ class IMSAPPTopSiteService {
                 topLinks.titleZh
             } else if jsonName == "zh-TW" {
                 topLinks.titleTr
+            } else if jsonName == "ko" {
+                topLinks.titleKo
             } else {
                 topLinks.titleEn
             }

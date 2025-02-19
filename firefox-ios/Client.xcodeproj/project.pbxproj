@@ -350,6 +350,7 @@
 		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		298774A42D64A3FC0051FE58 /* MenuCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298774A32D64A3FA0051FE58 /* MenuCell+IMS.swift */; };
+		2987759B2D661BAE0051FE58 /* ko.json in Resources */ = {isa = PBXBuildFile; fileRef = 2987759A2D661BAE0051FE58 /* ko.json */; };
 		29909E732D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29909E712D36A0CE005C0328 /* IMSAccount.strings */; };
 		29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 29909E7C2D36BB68005C0328 /* SVProgressHUD */; };
@@ -393,6 +394,7 @@
 		29EF1E012D3940870066018B /* IMSGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E002D3940840066018B /* IMSGridView.swift */; };
 		29EF1E032D395E1F0066018B /* TabTrayCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */; };
 		29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */; };
+		29F044B32D6628C400C89C1C /* ProSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */; };
 		29F4D6982D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */; };
 		29F4D6992D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6922D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift */; };
 		29F4D69A2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */; };
@@ -2893,6 +2895,7 @@
 		298775932D64DB860051FE58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ZoomPageBar.strings; sourceTree = "<group>"; };
 		298775942D64DB8C0051FE58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Today.strings; sourceTree = "<group>"; };
 		298775952D64DB910051FE58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2987759A2D661BAE0051FE58 /* ko.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ko.json; sourceTree = "<group>"; };
 		29909E752D36A0D4005C0328 /* zh-CN */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-CN"; path = "zh-CN.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
 		29909E762D36A0D6005C0328 /* zh-TW */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-TW"; path = "zh-TW.lproj/IMSAccount.strings"; sourceTree = "<group>"; };
 		29909E832D37D9D8005C0328 /* IMSAccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAccountInfo.swift; sourceTree = "<group>"; };
@@ -2930,6 +2933,7 @@
 		29EF1E002D3940840066018B /* IMSGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSGridView.swift; sourceTree = "<group>"; };
 		29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayCoordinator+IMS.swift"; sourceTree = "<group>"; };
 		29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayViewController+IMS.swift"; sourceTree = "<group>"; };
+		29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionButton.swift; sourceTree = "<group>"; };
 		29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionHeaderSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6902D41302800BA6F44 /* MonthProSubscriptionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionListSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6912D41302800BA6F44 /* MonthProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
@@ -5620,6 +5624,7 @@
 				29F4D6952D41302800BA6F44 /* YearProSubscriptionHeaderSwiftUIView.swift */,
 				29F4D6962D41302800BA6F44 /* YearProSubscriptionListSwiftUIView.swift */,
 				29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */,
+				29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -9591,6 +9596,7 @@
 		F84B21EB1A0910F600AAB793 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2987759A2D661BAE0051FE58 /* ko.json */,
 				292E28CE2D2D54410096B370 /* set-language.js */,
 				29B605162D2D4110006585C7 /* zh-TW.json */,
 				29B605142D2D40F2006585C7 /* zh-CN.json */,
@@ -10624,6 +10630,7 @@
 				39D056382665235700FBEE59 /* initial_experiments.json in Resources */,
 				C8B0F5F8283B7D38007AE65D /* pocketsponsoredfeed.json in Resources */,
 				D38A1EE01CB458EC0080C842 /* CertError.html in Resources */,
+				2987759B2D661BAE0051FE58 /* ko.json in Resources */,
 				1D91C1852CF11EA500B24960 /* disconnect-block-fingerprinting.json in Resources */,
 				8AEE62CB2756BA34003207D1 /* DownloadHelper.js in Resources */,
 				8AEE62CA2756BA34003207D1 /* TrackingProtectionStats.js in Resources */,
@@ -11778,6 +11785,7 @@
 				2F44FCC71A9E8CF500FD20CC /* SearchSettingsTableViewController.swift in Sources */,
 				29EF1DEA2D37E76A0066018B /* IMSTopSitesViewModel.swift in Sources */,
 				0AFF7F682C78989000265214 /* CertificatesHeaderItem.swift in Sources */,
+				29F044B32D6628C400C89C1C /* ProSubscriptionButton.swift in Sources */,
 				8AD3271527E3B45D00EAF033 /* SponsoredTile.swift in Sources */,
 				B2999FF32B194A8300F0FEC1 /* FillCreditCardForm.swift in Sources */,
 				5A64225129CB506500EEC3E5 /* LegacyTabManager.swift in Sources */,
@@ -14417,7 +14425,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 18;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14847,7 +14855,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 18;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15128,7 +15136,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 18;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15421,7 +15429,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 18;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15943,7 +15951,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 15;
+				CURRENT_PROJECT_VERSION = 18;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
