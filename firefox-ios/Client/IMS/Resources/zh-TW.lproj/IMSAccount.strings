@@ -5,6 +5,7 @@
   Created by jaly on 2025/1/14.
   Copyright © 2025 Mozilla. All rights reserved.
 */
+
 "Settings.IMSAccount.Upgrade.Title" = "升級";
 "Settings.IMSAccount.IAP.Save" = "節省";
 "Settings.IMSAccount.IAP.YearPro" = "年度會員";
@@ -45,4 +46,4 @@
 "Settings.IMSAccount.IAP.Upgrade on the PC" = "需要到電腦上升級";
 "Settings.IMSAccount.IAP.Not Need Now" = "暫時不需要";
 "Settings.IMSAccount.IAP.See A Biger World" = "看見更大的世界";
-
+"Settings.IMSAccount.IAP.Free 3 Day" = "免費試用3天";

@@ -62,12 +62,11 @@ struct ProSubscriptionButton: View {
             Button {
                 viewModel.purchaseProduct()
             } label: {
-                Text("免费试用 3 天")
-                    .font(
-                        Font.custom("Alibaba PuHuiTi 3.0", size: 16)
-                    )
+                Text("\(String.IMS.IAP.free3day)")
+                    .font(.system(size: 16, weight: .bold))
                     .foregroundColor(
-                        Color(red: 0.6, green: 0.6, blue: 0.6))
+                        Color(red: 1, green: 0.78, blue: 0.21)
+                    )
                     .frame(maxWidth: .infinity)
                     .frame(maxHeight: .infinity)
             }

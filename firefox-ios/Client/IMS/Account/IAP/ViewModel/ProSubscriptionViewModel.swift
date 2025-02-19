@@ -93,7 +93,7 @@ class ProSubscriptionViewModel: ObservableObject {
                     SVProgressHUD.dismiss()
                     self.infos = infos
                     if let userInfo = userInfo, let token = localUserInfo?.token {
-                        var subscription = userInfo.data.subscription
+                        
                         self.userInfo = IMSAccountInfo.from(token: token, resp: userInfo.data)
                     } else {
                         self.userInfo = nil

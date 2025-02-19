@@ -470,7 +470,14 @@ extension String {
                             tableName: "IMSAccount",
                             value: "currentPlan",
                             comment: "")
+            
+            public static let free3day = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Free 3 Day",
+                            tableName: "IMSAccount",
+                            value: "3-Day Free Trial",
+                            comment: "")
            
+            
             public static let downgradingIsNotSupported = MZLocalizedString(
                             key: "Settings.IMSAccount.IAP.Downgrading is not supported",
                             tableName: "IMSAccount",
