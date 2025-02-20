@@ -36,7 +36,7 @@
 "Settings.IMSAccount.IAP.You have fail subscribed" = "Your subscription has failed";
 "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "Upgrade to Annual Pro Membership";
 "Settings.IMSAccount.IAP.The annual plan saves" = "The annual plan saves %@ per year compared to the monthly plan";
-"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "Upgrading now will automatically deduct %@ immediately (the unused time of the current package has been deducted in proportion)";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "Upgrading now will automatically deduct %@ immediately";
 "Settings.IMSAccount.IAP.the unused time of the current package" = "(the unused time of the current package has been deducted in proportion)";
 "Settings.IMSAccount.IAP.New expiration date" = "New expiration date is %@";
 "Settings.IMSAccount.IAP.Upgrade Now" = "Upgrade Now";

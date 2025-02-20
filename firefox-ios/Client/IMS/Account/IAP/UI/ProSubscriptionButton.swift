@@ -57,7 +57,7 @@ struct ProSubscriptionButton: View {
     }
     
     var body: some View {
-        if viewModel.userInfo?.iosPlanTier == "trial" {
+        if viewModel.userInfo?.iosPlanTier != "upgrade" {
             // 试用
             Button {
                 viewModel.purchaseProduct()

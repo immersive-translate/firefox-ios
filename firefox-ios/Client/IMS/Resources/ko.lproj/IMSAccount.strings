@@ -36,7 +36,7 @@
 "Settings.IMSAccount.IAP.You have fail subscribed" = "구독에 실패했습니다";
 "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "연간 Pro 멤버십으로 업그레이드";
 "Settings.IMSAccount.IAP.The annual plan saves" = "연간 플랜은 월간 플랜에 비해 연간 %@를 절약합니다.";
-"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "지금 업그레이드하면 %@가 즉시 차감됩니다 (현재 패키지의 사용되지 않은 시간이 비례적으로 차감되었습니다).";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "지금 업그레이드하면 %@ 가 즉시 차감됩니다 ";
 "Settings.IMSAccount.IAP.the unused time of the current package" = "(현재 패키지의 사용되지 않은 시간이 비례적으로 차감되었습니다)";
 "Settings.IMSAccount.IAP.New expiration date" = "새 만료일은 %@입니다.";
 "Settings.IMSAccount.IAP.Upgrade Now" = "지금 업그레이드";
