@@ -395,6 +395,9 @@
 		29EF1E032D395E1F0066018B /* TabTrayCoordinator+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */; };
 		29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */; };
 		29F044B32D6628C400C89C1C /* ProSubscriptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */; };
+		29F044B72D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */; };
+		29F044B92D689D6700C89C1C /* IMSTermsofServiceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */; };
+		29F044C82D68A23E00C89C1C /* ProSubscritionBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */; };
 		29F4D6982D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */; };
 		29F4D6992D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6922D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift */; };
 		29F4D69A2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */; };
@@ -2934,6 +2937,9 @@
 		29EF1E022D395E1C0066018B /* TabTrayCoordinator+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayCoordinator+IMS.swift"; sourceTree = "<group>"; };
 		29EF1E042D3960090066018B /* TabTrayViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabTrayViewController+IMS.swift"; sourceTree = "<group>"; };
 		29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionButton.swift; sourceTree = "<group>"; };
+		29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSPrivacyPolicySetting.swift; sourceTree = "<group>"; };
+		29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTermsofServiceSetting.swift; sourceTree = "<group>"; };
+		29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscritionBottom.swift; sourceTree = "<group>"; };
 		29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionHeaderSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6902D41302800BA6F44 /* MonthProSubscriptionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionListSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6912D41302800BA6F44 /* MonthProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
@@ -5553,6 +5559,8 @@
 		29909E9C2D37DEA5005C0328 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */,
+				29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */,
 				29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */,
 				292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */,
 				292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */,
@@ -5625,6 +5633,7 @@
 				29F4D6962D41302800BA6F44 /* YearProSubscriptionListSwiftUIView.swift */,
 				29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */,
 				29F044B22D6628C400C89C1C /* ProSubscriptionButton.swift */,
+				29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -11660,6 +11669,7 @@
 				39F4C10A2045DB2E00746155 /* FocusHelper.swift in Sources */,
 				E4CD9F2D1A6DC91200318571 /* TabLocationView.swift in Sources */,
 				81CAE4DB2B1A2C220040C78A /* BrowserViewControllerState.swift in Sources */,
+				29F044B92D689D6700C89C1C /* IMSTermsofServiceSetting.swift in Sources */,
 				C8BD87602A0C248000CD803A /* OnboardingButtonsModel.swift in Sources */,
 				0BB5B2881AC0A2B90052877D /* SnackBar.swift in Sources */,
 				E1442FCF294782D9003680B0 /* UIView+Screenshot.swift in Sources */,
@@ -12294,6 +12304,7 @@
 				290863C62D53DF310080F05D /* Tab+IMS.swift in Sources */,
 				219935E72B05447C00E5966F /* TabDisplayModel.swift in Sources */,
 				0A76936B2C82018700103A6D /* TrackingProtectionBlockedTrackersView.swift in Sources */,
+				29F044C82D68A23E00C89C1C /* ProSubscritionBottom.swift in Sources */,
 				E1463D022981DA190074E16E /* NotificationManager.swift in Sources */,
 				219A0FD92ACC8C0F009A6D1A /* InactiveTabsFooterView.swift in Sources */,
 				884CA7492344A301002E4711 /* TextContentDetector.swift in Sources */,
@@ -12353,6 +12364,7 @@
 				0B8BF3702CA2D60B00E9812D /* BookmarksViewController.swift in Sources */,
 				21420EF72ABA338D00B28550 /* TabTrayCoordinator.swift in Sources */,
 				5A70EF1F295E3DFC00790249 /* UnitTestAppDelegate.swift in Sources */,
+				29F044B72D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift in Sources */,
 				2128E27E2934F78600FB91BE /* CustomAppActivity.swift in Sources */,
 				81A3F6F22C2DB00900BDD86B /* MainMenuViewController.swift in Sources */,
 				E16E1C9828C25F1D00EE2EF5 /* SiteTableViewHeader.swift in Sources */,
@@ -14425,7 +14437,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
@@ -14855,7 +14867,7 @@
 			baseConfigurationReference = E60961891B62B8C800DD640F /* Firefox.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15136,7 +15148,7 @@
 			baseConfigurationReference = E6DCC1ED1DCBB6AA00CEC4B7 /* Fennec.enterprise.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15429,7 +15441,7 @@
 			baseConfigurationReference = E6FCC43C1C40565200DF6113 /* FirefoxBeta.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -15951,7 +15963,7 @@
 			baseConfigurationReference = E60961861B62B8A700DD640F /* Fennec.xcconfig */;
 			buildSettings = {
 				ADJUST_APP_TOKEN = yrf6oviwfshs;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 21;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				EAGER_LINKING = YES;
 				FUSE_BUILD_SCRIPT_PHASES = YES;

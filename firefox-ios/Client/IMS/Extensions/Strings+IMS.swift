@@ -502,6 +502,24 @@ extension String {
                             value: "Not Need Now",
                             comment: "")
             
+            public static let termsOfService = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Terms of Service",
+                            tableName: "IMSAccount",
+                            value: "Terms of Service",
+                            comment: "")
+            
+            public static let privacyPolicy = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Privacy Policy",
+                            tableName: "IMSAccount",
+                            value: "Privacy Policy",
+                            comment: "")
+            
+            public static let restorePurchases = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Restore Purchases",
+                            tableName: "IMSAccount",
+                            value: "Restore Purchases",
+                            comment: "")
+            
         }
     }
 }

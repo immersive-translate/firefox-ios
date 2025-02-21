@@ -75,6 +75,26 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable, ProSubscriptionD
         }
     }
     
+    func showTerms() {
+        SVProgressHUD.dismiss()
+        let navigationHandler = self.navigationHandler
+        DispatchQueue.main.async {[weak self] in
+            self?.router.dismiss(animated: true, completion: {
+                navigationHandler?.openURLInNewTab(URL(string: IMSAppUrlConfig.terms))
+            })
+        }
+    }
+    
+    func showPrivacy() {
+        SVProgressHUD.dismiss()
+        let navigationHandler = self.navigationHandler
+        DispatchQueue.main.async {[weak self] in
+            self?.router.dismiss(animated: true, completion: {
+                navigationHandler?.openURLInNewTab(URL(string: IMSAppUrlConfig.privacy))
+            })
+        }
+    }
+    
     func handleNotNeedNow() {
         
     }

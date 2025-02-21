@@ -21,6 +21,8 @@ protocol ProSubscriptionDelegate: AnyObject {
     func showLoginModalWebView()
     func showPurchaseSuccess()
     func handleNotNeedNow()
+    func showTerms()
+    func showPrivacy()
 }
 
 
@@ -109,6 +111,37 @@ class ProSubscriptionViewModel: ObservableObject {
             }
         }
     }
+    
+    func showTerms() {
+        coordinator?.showTerms()
+    }
+    
+    func showPrivacy() {
+        coordinator?.showPrivacy()
+    }
+    
+    func restorePurchases() {
+        guard let token = userInfo?.token else {
+            coordinator?.showLoginModalWebView()
+            return
+        }
+        SVProgressHUD.show()
+        Task {
+            do {
+                try await IMSAccountManager.shard.iap.restorePurchases()
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.coordinator?.showPurchaseSuccess()
+                }
+            } catch {
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.messageType = .title(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     
     @MainActor
     func purchaseProduct() {

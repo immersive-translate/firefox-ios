@@ -414,7 +414,10 @@ struct ProSubscriptionSwiftUIView: View {
                     .padding(.horizontal, 20)
                 }
 
-
+                Spacer().frame(height: 8)
+                
+                ProSubscritionBottom(viewModel: viewModel)
+                Spacer().frame(height: 8)
             }
             .frame(maxWidth: .infinity)
             .padding(.bottom, 20)

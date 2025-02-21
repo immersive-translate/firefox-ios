@@ -408,6 +408,8 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
 
 extension IMSOnboardingCardViewController: ProSubscriptionDelegate {
     
+    
+    
     func showLoginModalWebView() {
         guard let url = URL(string: IMSAppUrlConfig.login + "?app_action=gotoUpgrade") else { return }
         let navigationController = DismissableNavigationViewController()
@@ -431,6 +433,50 @@ extension IMSOnboardingCardViewController: ProSubscriptionDelegate {
     func showPurchaseSuccess() {
         guard let buttonAction = viewModel.buttons.secondary?.action,
             let url = URL(string: IMSAppUrlConfig.purchaseSuccess)
+        else { return }
+        self.delegate?.handleBottomButtonActions(for: .endOnboarding, from: viewModel.name, isPrimaryButton: false)
+        let windowUUID = self.windowUUID
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            store.dispatch(
+                NavigationBrowserAction(
+                    navigationDestination: NavigationDestination(
+                        .link,
+                        url: url,
+                        isPrivate: false,
+                        selectNewTab: false
+                    ),
+                    windowUUID: windowUUID,
+                    actionType: NavigationBrowserActionType.tapOnOpenInNewTab
+                )
+            )
+        }
+    }
+    
+    func showTerms() {
+        guard let _ = viewModel.buttons.secondary?.action,
+              let url = URL(string: IMSAppUrlConfig.terms)
+        else { return }
+        self.delegate?.handleBottomButtonActions(for: .endOnboarding, from: viewModel.name, isPrimaryButton: false)
+        let windowUUID = self.windowUUID
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            store.dispatch(
+                NavigationBrowserAction(
+                    navigationDestination: NavigationDestination(
+                        .link,
+                        url: url,
+                        isPrivate: false,
+                        selectNewTab: false
+                    ),
+                    windowUUID: windowUUID,
+                    actionType: NavigationBrowserActionType.tapOnOpenInNewTab
+                )
+            )
+        }
+    }
+    
+    func showPrivacy() {
+        guard let _ = viewModel.buttons.secondary?.action,
+              let url = URL(string: IMSAppUrlConfig.privacy)
         else { return }
         self.delegate?.handleBottomButtonActions(for: .endOnboarding, from: viewModel.name, isPrimaryButton: false)
         let windowUUID = self.windowUUID
