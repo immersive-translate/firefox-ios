@@ -56,132 +56,158 @@ struct ProSubscriptionButton: View {
         )
     }
     
+    var upgradeToPc: some View {
+        Button {
+            
+        } label: {
+            Text("\(String.IMS.IAP.upgradeToPc)")
+                .font(
+                    Font.custom("Alibaba PuHuiTi 3.0", size: 16)
+                )
+                .foregroundColor(
+                    Color(red: 0.6, green: 0.6, blue: 0.6))
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(disableButtonBgView)
+    }
+    
+    var free3day: some View {
+        Button {
+            viewModel.purchaseProduct()
+        } label: {
+            Text("\(String.IMS.IAP.free3day)")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(
+                    Color(red: 1, green: 0.78, blue: 0.21)
+                )
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(enableButtonBgView)
+    }
+    
+    var currentPlan: some View {
+        Button {
+            
+        } label: {
+            Text("\(String.IMS.IAP.currentPlan)")
+                .font(
+                    Font.custom("Alibaba PuHuiTi 3.0", size: 16)
+                )
+                .foregroundColor(
+                    Color(red: 0.6, green: 0.6, blue: 0.6))
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(disableButtonBgView)
+    }
+    
+    var upgrade: some View {
+        Button {
+            viewModel.showUpgradeAlert = true
+        } label: {
+            HStack {
+                Image("iap_upgrade_bt_icon")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                
+                Text("\(String.IMS.Settings.Upgrade)")
+                    .font(
+                        Font.custom(
+                            "Alibaba PuHuiTi 3.0", size: 16)
+                    )
+                    .foregroundColor(
+                        Color(red: 1, green: 0.78, blue: 0.21))
+            }
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(enableButtonBgView)
+    }
+    
+    var downgradingIsNotSupported: some View {
+        Button {
+            
+        } label: {
+            Text("\(String.IMS.IAP.downgradingIsNotSupported)")
+              .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
+              .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
+              .frame(maxWidth: .infinity)
+              .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(disableButtonBgView)
+    }
+    
+    var subscribeNow: some View {
+        Button {
+            viewModel.purchaseProduct()
+        } label: {
+            Text("\(String.IMS.IAP.subscribeNow)")
+                .font(.system(size: 16, weight: .bold))
+                .foregroundColor(
+                    Color(red: 1, green: 0.78, blue: 0.21)
+                )
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
+        }
+        .frame(height: 48)
+        .frame(maxWidth: .infinity)
+        .background(enableButtonBgView)
+    }
+    
     var body: some View {
         if viewModel.userInfo?.subscription?.paymentChannel == "stripe" {
             // stripe
-            Button {
+            if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
+                /// 当前月付，选择月付
+                currentPlan
                 
-            } label: {
-                Text("\(String.IMS.IAP.upgradeToPc)")
-                    .font(
-                        Font.custom("Alibaba PuHuiTi 3.0", size: 16)
-                    )
-                    .foregroundColor(
-                        Color(red: 0.6, green: 0.6, blue: 0.6))
-                    .frame(maxWidth: .infinity)
-                    .frame(maxHeight: .infinity)
+            } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
+                /// 当前年付，选择年付
+                currentPlan
+            } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
+                /// 当前月付，选择年付
+                upgradeToPc
+            } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
+                /// 当前年付，选择月付
+                downgradingIsNotSupported
+            } else {
+                /// 其他
+                upgradeToPc
             }
-            .frame(height: 48)
-            .frame(maxWidth: .infinity)
-            .background(disableButtonBgView)
         } else {
             if viewModel.userInfo?.iosPlanTier != "upgrade" {
                 // 试用
-                Button {
-                    viewModel.purchaseProduct()
-                } label: {
-                    Text("\(String.IMS.IAP.free3day)")
-                        .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(
-                            Color(red: 1, green: 0.78, blue: 0.21)
-                        )
-                        .frame(maxWidth: .infinity)
-                        .frame(maxHeight: .infinity)
-                }
-                .frame(height: 48)
-                .frame(maxWidth: .infinity)
-                .background(enableButtonBgView)
+                free3day
                 
             } else {
                 if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .monthly {
                     /// 当前月付，选择月付
-                    Button {
-                        
-                    } label: {
-                        Text("\(String.IMS.IAP.currentPlan)")
-                            .font(
-                                Font.custom("Alibaba PuHuiTi 3.0", size: 16)
-                            )
-                            .foregroundColor(
-                                Color(red: 0.6, green: 0.6, blue: 0.6))
-                            .frame(maxWidth: .infinity)
-                            .frame(maxHeight: .infinity)
-                    }
-                    .frame(height: 48)
-                    .frame(maxWidth: .infinity)
-                    .background(disableButtonBgView)
+                    currentPlan
                     
                 } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .yearly {
                     /// 当前年付，选择年付
-                    Button {
-                        
-                    } label: {
-                        Text("\(String.IMS.IAP.currentPlan)")
-                            .font(
-                                Font.custom("Alibaba PuHuiTi 3.0", size: 16)
-                            )
-                            .foregroundColor(
-                                Color(red: 0.6, green: 0.6, blue: 0.6))
-                            .frame(maxWidth: .infinity)
-                            .frame(maxHeight: .infinity)
-                    }
-                    .frame(height: 48)
-                    .frame(maxWidth: .infinity)
-                    .background(disableButtonBgView)
+                    currentPlan
                 } else if viewModel.userInfo?.subscription?.subscriptionType == .monthly, viewModel.selectedConfiGoodType == .yearly {
                     /// 当前月付，选择年付
-                    Button {
-                        viewModel.showUpgradeAlert = true
-                    } label: {
-                        HStack {
-                            Image("iap_upgrade_bt_icon")
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                            
-                            Text("\(String.IMS.Settings.Upgrade)")
-                                .font(
-                                    Font.custom(
-                                        "Alibaba PuHuiTi 3.0", size: 16)
-                                )
-                                .foregroundColor(
-                                    Color(red: 1, green: 0.78, blue: 0.21))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .frame(maxHeight: .infinity)
-                    }
-                    .frame(height: 48)
-                    .frame(maxWidth: .infinity)
-                    .background(enableButtonBgView)
+                    upgrade
                 } else if viewModel.userInfo?.subscription?.subscriptionType == .yearly, viewModel.selectedConfiGoodType == .monthly {
                     /// 当前年付，选择月付
-                    Button {
-                        
-                    } label: {
-                        Text("\(String.IMS.IAP.downgradingIsNotSupported)")
-                          .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
-                          .foregroundColor(Color(red: 0.6, green: 0.6, blue: 0.6))
-                          .frame(maxWidth: .infinity)
-                          .frame(maxHeight: .infinity)
-                    }
-                    .frame(height: 48)
-                    .frame(maxWidth: .infinity)
-                    .background(disableButtonBgView)
+                    downgradingIsNotSupported
                 } else {
                     /// 其他
-                    Button {
-                        viewModel.purchaseProduct()
-                    } label: {
-                        Text("\(String.IMS.IAP.subscribeNow)")
-                            .font(.system(size: 16, weight: .bold))
-                            .foregroundColor(
-                                Color(red: 1, green: 0.78, blue: 0.21)
-                            )
-                            .frame(maxWidth: .infinity)
-                            .frame(maxHeight: .infinity)
-                    }
-                    .frame(height: 48)
-                    .frame(maxWidth: .infinity)
-                    .background(enableButtonBgView)
+                    subscribeNow
                 }
                 
             }
