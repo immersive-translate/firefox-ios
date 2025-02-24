@@ -19,12 +19,13 @@ class IMSIAPAppleService {
             }
         }
     }
-    
-    func getProducts(_ productIds: [String]) async throws -> [StoreKit.Product] {
+
+    func getProducts(_ productIds: [String]) async throws -> [StoreKit.Product]
+    {
         let products = try await StoreKit.Product.products(for: Set(productIds))
         return products
     }
-    
+
     func getProduct(productId: String) async throws -> StoreKit.Product {
         let products = try await getProducts([productId])
         guard let product = products.first else {
@@ -32,20 +33,43 @@ class IMSIAPAppleService {
         }
         return product
     }
-    
+
+    @MainActor
+    func restorePurchases() async throws {
+        // 开始恢复
+        var restoredPurchases: [StoreKit.Product.ID: Transaction] = [:]
+
+        // 获取所有交易
+        for await result in Transaction.currentEntitlements {
+            let transaction =
+                switch result {
+                case .unverified:
+                    throw StoreKit.Product.PurchaseError.ineligibleForOffer
+                case .verified(let safe):
+                    safe
+                }
+
+            // 存储恢复的交易
+            restoredPurchases[transaction.productID] = transaction
+
+            // 处理交易
+            await transaction.finish()
+        }
+    }
+
     func purchase(productId: String, orderNo: String) async throws {
         guard let accountToken = UUID(uuidString: orderNo) else {
             throw StoreKit.Product.PurchaseError.missingOfferParameters
         }
         // Get product using existing method
         let product = try await getProduct(productId: productId)
-        
+
         // Create purchase options with outTradeNo as appAccountToken
         let options: Set<StoreKit.Product.PurchaseOption> = [
             .appAccountToken(accountToken),
             .simulatesAskToBuyInSandbox(false),
         ]
-        
+
         let result = try await product.purchase(options: options)
         switch result {
         case .success(let verificationResult):
@@ -64,21 +88,23 @@ class IMSIAPAppleService {
             break
         }
     }
-    
+
     func handleSuccessfulPurchase(_ transaction: Transaction) async throws {
         await transaction.finish()
     }
-    
-    static func formatPrice(product: StoreKit.Product, price: Decimal? = nil) -> String {
+
+    static func formatPrice(product: StoreKit.Product, price: Decimal? = nil)
+        -> String
+    {
         let price = (price ?? product.price) as NSDecimalNumber
         let locale = product.priceFormatStyle.locale
-        
+
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = locale
         formatter.currencyCode = locale.currencyCode
         formatter.currencySymbol = locale.currencySymbol
-        
+
         return formatter.string(from: price) ?? ""
     }
 }

@@ -16,7 +16,7 @@ class TutorialsSetting: Setting {
     init(theme: Theme,
          settingsDelegate: AboutSettingsDelegate?) {
         self.settingsDelegate = settingsDelegate
-        super.init(title: NSAttributedString(string: .ImmersiveTranslateTutorials,
+        super.init(title: NSAttributedString(string: .IMS.ImmersiveTranslateTutorials,
                                              attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary]))
     }
 

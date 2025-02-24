@@ -70,6 +70,8 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen, F
             AppStoreReviewSetting(settingsDelegate: parentCoordinator),
             LicenseAndAcknowledgementsSetting(settingsDelegate: parentCoordinator),
             YourRightsSetting(settingsDelegate: parentCoordinator),
+            IMSTermsofServiceSetting(theme: currentTheme, settingsDelegate: parentCoordinator),
+            IMSPrivacyPolicySetting(theme: currentTheme, settingsDelegate: parentCoordinator),
         ]
         let section = SettingSection(
             title: nil,

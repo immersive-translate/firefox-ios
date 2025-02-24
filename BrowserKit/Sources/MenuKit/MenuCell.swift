@@ -29,7 +29,7 @@ public class MenuCell: UITableViewCell, ReusableCell, ThemeApplicable {
         label.font = FXFontStyles.Regular.caption1.scaledFont()
     }
 
-    private var icon: UIImageView = .build()
+    public var icon: UIImageView = .build()
 
     private var contentStackView: UIStackView = .build { stackView in
         stackView.axis = .vertical
@@ -50,6 +50,7 @@ public class MenuCell: UITableViewCell, ReusableCell, ThemeApplicable {
         fatalError("init(coder:) has not been implemented")
     }
 
+    dynamic
     public func configureCellWith(model: MenuElement) {
         self.model = model
         self.titleLabel.text = model.title

@@ -427,7 +427,7 @@
 /* Toggle history syncing setting */
 "History" = "历史记录";
 
-"Immersive Translate Settings" = "沉浸式翻译设置";
+
 
 /* Title for button in the history panel to clear recent history */
 "HistoryPanel.ClearHistoryButtonTitle" = "清除最近的历史记录…";
@@ -927,7 +927,7 @@
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
 "Privacy Policy" = "Firefox隐私政策";
 
-"Immersive Translate Tutorials" = "沉浸式翻译教程";
+
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "连接不安全";

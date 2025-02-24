@@ -17,6 +17,10 @@ final class AdjustHelper: NSObject, FeatureFlaggable {
         self.profile = profile
         self.telemetryHelper = telemetryHelper
         let sendUsageData = profile.prefs.boolForKey(AppConstants.prefSendUsageData) ?? true
+        super.init()
+        if let config = self.getConfig() {
+            Adjust.appDidLaunch(config)
+        }
 
         // This is required for adjust to work properly with ASA and we avoid directly disabling
         // third-party sharing as there is a specific method provided to us by adjust for that.

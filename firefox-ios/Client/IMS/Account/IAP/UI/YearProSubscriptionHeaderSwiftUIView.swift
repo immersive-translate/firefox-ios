@@ -117,7 +117,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                         )
                     )
                     .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
-                    .offset(y: 191 - 64 + 44)
+                    .offset(y: 201 - 64 + 44)
                     
                     ZStack(alignment: .bottom) {
                         VStack(spacing: 0){
@@ -143,7 +143,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             
                             HStack(alignment: .lastTextBaseline, spacing: 0) {
                                 Spacer().frame(width: 24)
-                                Text(getYearMonthPriceString)
+                                Text(getYearCurrentPriceString)
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 48)
@@ -152,7 +152,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
-                                Text("/\(String.IMS.IAP.month)")
+                                Text("/\(String.IMS.IAP.year)")
                                     .font(
                                         Font.custom(
                                             "Alibaba PuHuiTi 3.0", size: 24)
@@ -160,6 +160,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )
+                                Spacer().frame(width: 10)
+                                
+                                Text("\(getYearMonthPriceString)/\(String.IMS.IAP.month)")
+                                    .font(Font.custom("PingFang SC", size: 16))
+                                    .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                                
                                 Spacer()
                                 
                             }
@@ -169,15 +175,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             HStack(alignment: .lastTextBaseline, spacing: 0) {
                                 Spacer().frame(width: 24)
                                 
-                                Text("\(getYearCurrentPriceString)/\(String.IMS.IAP.year)")
-                                    .font(
-                                        Font.custom(
-                                            "Alibaba PuHuiTi 3.0", size: 16)
-                                    )
-                                    .foregroundColor(
-                                        Color(red: 0.2, green: 0.2, blue: 0.2))
                                 
-                                Spacer().frame(width: 13)
                                 
                                 Text("\(getYearOriginPriceString)/\(String.IMS.IAP.year)")
                                     .font(
@@ -191,12 +189,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             }
                             
                             Spacer()
-                                .frame(height: 20)
+                                .frame(height: 30)
                             
                         }
                         .foregroundColor(.clear)
                         .frame(maxWidth: .infinity)
-                        .frame(height: 191)
+                        .frame(height: 201)
                         .background(
                             LinearGradient(
                                 stops: [
@@ -265,7 +263,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                     }
                     .foregroundColor(.clear)
                     .frame(maxWidth: .infinity)
-                    .frame(height: 191)
+                    .frame(height: 201)
                     
                     
                 }

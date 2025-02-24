@@ -1,0 +1,52 @@
+/*
+  IMSAccount.strings
+  Client
+
+  Created by jaly on 2025/1/14.
+  Copyright © 2025 Mozilla. All rights reserved.
+*/
+
+"Settings.IMSAccount.Upgrade.Title" = "업그레이드";
+"Settings.IMSAccount.IAP.Save" = "저장";
+"Settings.IMSAccount.IAP.YearPro" = "연간";
+"Settings.IMSAccount.IAP.Month" = "월간";
+"Settings.IMSAccount.IAP.Year" = "연도";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service" = "Pro 전용 세계적 수준의 AI 번역 서비스";
+"Settings.IMSAccount.IAP.Pro-exclusive world-class AI translation service tip" = "무료 플랜은 비싼 맞춤형 API 토큰이 필요하며, 설정이 복잡하고 엄격한 속도 제한이 있습니다. Pro로 업그레이드하면 DeepL, OpenAI, Claude, Gemini와 같은 몰입형번역 의 내장 서비스를 즉시 사용할 수 있습니다. 별도의 설정 없이 바로 작동하며, 월 최대 2천만 토큰의 관대한 할당량을 제공합니다.";
+"Settings.IMSAccount.IAP.DeepL Translation" = "DeepL 번역";
+"Settings.IMSAccount.IAP.OpenAI Translation" = "OpenAI 번역";
+"Settings.IMSAccount.IAP.Claude Translation" = "Claude 번역";
+"Settings.IMSAccount.IAP.Gemini Translation" = "Gemini 번역";
+"Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro 전용 고급 기능";
+"Settings.IMSAccount.IAP.PDF Pro" = "PDF Pro";
+"Settings.IMSAccount.IAP.PDF Pro tip" = "매월 AI로 구동되는 PDF 문서 번역 500페이지가 포함되며, 복잡한 수식 인식, 표 인식 및 스캔된 문서를 지원합니다.";
+"Settings.IMSAccount.IAP.Manga Translation" = "만화 번역";
+"Settings.IMSAccount.IAP.Manga Translation tip" = "매월 AI로 구동되는 만화 번역 1000페이지가 포함됩니다.";
+"Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "유튜브 자막 내보내기";
+"Settings.IMSAccount.IAP.Multi-device sync configuration" = "클라우드 동기화 설정";
+"Settings.IMSAccount.IAP.Priority email support" = "우선 이메일 지원";
+"Settings.IMSAccount.IAP.Priority email support tip" = "문제가 발생하면 고객 지원팀 support@immersivetranslate.com으로 문의하십시오.";
+"Settings.IMSAccount.IAP.Consecutive annual subscription" = "연간";
+"Settings.IMSAccount.IAP.Consecutive monthly subscription" = "월간";
+"Settings.IMSAccount.IAP.Subscribe now" = "지금 구독";
+"Settings.IMSAccount.IAP.Monthly Pro Membership" = "월간";
+"Settings.IMSAccount.IAP.Limited Time Offer" = "한정 시간 제공";
+"Settings.IMSAccount.IAP.Aler Confirm" = "확인";
+"Settings.IMSAccount.IAP.You have successfully subscribed" = "구독에 성공했습니다";
+"Settings.IMSAccount.IAP.You have fail subscribed" = "구독에 실패했습니다";
+"Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "연간 Pro 멤버십으로 업그레이드";
+"Settings.IMSAccount.IAP.The annual plan saves" = "연간 플랜은 월간 플랜에 비해 연간 %@를 절약합니다.";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "지금 업그레이드하면 %@ 가 즉시 차감됩니다 ";
+"Settings.IMSAccount.IAP.the unused time of the current package" = "(현재 패키지의 사용되지 않은 시간이 비례적으로 차감되었습니다)";
+"Settings.IMSAccount.IAP.New expiration date" = "새 만료일은 %@입니다.";
+"Settings.IMSAccount.IAP.Upgrade Now" = "지금 업그레이드";
+"Settings.IMSAccount.IAP.Cancel" = "취소";
+"Settings.IMSAccount.IAP.Current Plan" = "현재 플랜";
+"Settings.IMSAccount.IAP.Downgrading is not supported" = "다운그레이드는 지원되지 않습니다.";
+"Settings.IMSAccount.IAP.Upgrade on the PC" = "PC에서 업그레이드";
+"Settings.IMSAccount.IAP.Not Need Now" = "지금은 필요 없음";
+"Settings.IMSAccount.IAP.See A Biger World" = "더 넓은 세상을 보세요";
+"Settings.IMSAccount.IAP.Free 3 Day" = "3일 무료 체험";
+"Settings.IMSAccount.IAP.Terms of Service" = "서비스 약관";
+"Settings.IMSAccount.IAP.Privacy Policy" = "개인정보 처리방침";
+"Settings.IMSAccount.IAP.Restore Purchases" = "구매 복원";

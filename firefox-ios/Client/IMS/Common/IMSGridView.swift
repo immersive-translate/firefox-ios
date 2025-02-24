@@ -1,29 +1,29 @@
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
+import Common
+import Foundation
+import Shared
+import SiteImageView
+import Storage
 import UIKit
 
 
-struct IMSGridItem {
-    let icon: String
-    let title: String
-}
-
-struct IMSGridConfig {
+struct IMSOnboardingGridConfig {
     let horizontalSpacing: CGFloat
     let verticalSpacing: CGFloat
     let imageSize: CGSize
     let titleFont: UIFont
 }
 
-class IMSGridView: UIView {
+class IMSOnboardingGridView: UIView {
     // MARK: - Properties
     private let columns: Int
-    private let config: IMSGridConfig
+    private let config: IMSOnboardingGridConfig
     private var mainStackView: UIStackView!
     
     // MARK: - Initialization
-    init(columns: Int = 3, config: IMSGridConfig) {
+    init(columns: Int = 3, config: IMSOnboardingGridConfig) {
         self.columns = columns
         self.config = config
         super.init(frame: .zero)
@@ -53,7 +53,7 @@ class IMSGridView: UIView {
     }
     
     // MARK: - Public Methods
-    func configure(with items: [IMSGridItem]) {
+    func configure(with items: [TopSite]) {
         mainStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         let numberOfRows = Int(ceil(Double(items.count) / Double(columns)))
@@ -112,15 +112,28 @@ class IMSGridView: UIView {
         return stackView
     }
     
-    private func createItemStackView(item: IMSGridItem) -> UIStackView {
+    private func createItemStackView(item: TopSite) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.alignment = .center
         
-        let imageView = UIImageView(image: UIImage(named: item.icon))
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .systemBlue
+//        let imageView = UIImageView(image: UIImage(named: item.icon))
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.tintColor = .systemBlue
+        
+        let imageView: FaviconImageView = .build { _ in }
+        if let imageResource: SiteResource = item.site.faviconResource {
+            if case .bundleAsset(let name, _) = imageResource,
+            let image = UIImage(named: name) {
+                imageView.manuallySetImage(image)
+            } else if case .remoteURL(let url) = imageResource {
+                let siteURLString = item.site.url
+                let viewModel = FaviconImageViewModel(siteURLString: siteURLString,
+                                                      siteResource: imageResource)
+                imageView.setFavicon(viewModel)
+            }
+        }
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

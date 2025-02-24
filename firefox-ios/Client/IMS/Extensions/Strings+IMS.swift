@@ -236,7 +236,20 @@ extension String {
 
 
 extension String {
+   
     public struct IMS {
+        public static let IMTSetting = MZLocalizedString(
+            key: "Immersive Translate Settings",
+            tableName: "Imt",
+            value: nil,
+            comment: "Label for the help button in the menu page. Pressing this button opens the support page https://dash.immersivetranslate.com/")
+        
+        public static let ImmersiveTranslateTutorials = MZLocalizedString(
+            key: "Immersive Translate Tutorials",
+            tableName: "Imt",
+            value: nil,
+            comment: "Show Immersive Translate Tutorials page from the Tutorials section in the settings. See https://immersivetranslate.com/docs/usage")
+        
         public struct Settings {
             public static let Upgrade = MZLocalizedString(
                 key: "Settings.IMSAccount.Upgrade.Title",
@@ -457,7 +470,14 @@ extension String {
                             tableName: "IMSAccount",
                             value: "currentPlan",
                             comment: "")
+            
+            public static let free3day = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Free 3 Day",
+                            tableName: "IMSAccount",
+                            value: "3-Day Free Trial",
+                            comment: "")
            
+            
             public static let downgradingIsNotSupported = MZLocalizedString(
                             key: "Settings.IMSAccount.IAP.Downgrading is not supported",
                             tableName: "IMSAccount",
@@ -469,6 +489,37 @@ extension String {
                             tableName: "IMSAccount",
                             value: "downgradingIsNotSupported",
                             comment: "")
+            
+            public static let notNeedNow = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Not Need Now",
+                            tableName: "IMSAccount",
+                            value: "Not Need Now",
+                            comment: "")
+            
+            public static let seeABigerWorld = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.See A Biger World",
+                            tableName: "IMSAccount",
+                            value: "Not Need Now",
+                            comment: "")
+            
+            public static let termsOfService = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Terms of Service",
+                            tableName: "IMSAccount",
+                            value: "Terms of Service",
+                            comment: "")
+            
+            public static let privacyPolicy = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Privacy Policy",
+                            tableName: "IMSAccount",
+                            value: "Privacy Policy",
+                            comment: "")
+            
+            public static let restorePurchases = MZLocalizedString(
+                            key: "Settings.IMSAccount.IAP.Restore Purchases",
+                            tableName: "IMSAccount",
+                            value: "Restore Purchases",
+                            comment: "")
+            
         }
     }
 }

@@ -47,6 +47,8 @@ struct IMSAppUrlConfig {
 struct IMSAppManager {
     static let shared = IMSAppManager()
     
-    var currentEnv: IMSAppUrlConfig.IMSAppENV = .dev
+    var currentEnv: IMSAppUrlConfig.IMSAppENV = .product
+    
+    var topSiteService = IMSAPPTopSiteService()
     
 }

@@ -17,10 +17,25 @@ enum ProSubscriptionMessageType {
     case title(String)
 }
 
+protocol ProSubscriptionDelegate: AnyObject {
+    func showLoginModalWebView()
+    func showPurchaseSuccess()
+    func handleNotNeedNow()
+    func showTerms()
+    func showPrivacy()
+}
+
+
+enum ProSubscriptionFromSource {
+    case upgrade
+    case onboarding
+}
 
 class ProSubscriptionViewModel: ObservableObject {
     
-    weak var coordinator: IMSUpgradeCoordinator?
+    weak var coordinator: ProSubscriptionDelegate?
+    
+    let fromSource: ProSubscriptionFromSource
     
     @Published
     var infos: [ProSubscriptionInfo] = []
@@ -37,8 +52,8 @@ class ProSubscriptionViewModel: ObservableObject {
     @Published
     var showUpgradeAlert: Bool = false
     
-    init() {
-        
+    init(fromSource: ProSubscriptionFromSource = .upgrade) {
+        self.fromSource = fromSource
     }
     
     deinit {
@@ -80,14 +95,15 @@ class ProSubscriptionViewModel: ObservableObject {
                     SVProgressHUD.dismiss()
                     self.infos = infos
                     if let userInfo = userInfo, let token = localUserInfo?.token {
-                        var subscription = userInfo.data.subscription
-                        self.userInfo = IMSAccountInfo(subscription: subscription, token: token, email: userInfo.data.email)
+                        
+                        self.userInfo = IMSAccountInfo.from(token: token, resp: userInfo.data)
                     } else {
                         self.userInfo = nil
                     }
                     
                 }
             } catch {
+                print("fetchProductInfo: \(error)")
                 await MainActor.run {
                     SVProgressHUD.dismiss()
                     SVProgressHUD.showError(withStatus: "Data Fetch Error")
@@ -95,6 +111,37 @@ class ProSubscriptionViewModel: ObservableObject {
             }
         }
     }
+    
+    func showTerms() {
+        coordinator?.showTerms()
+    }
+    
+    func showPrivacy() {
+        coordinator?.showPrivacy()
+    }
+    
+    func restorePurchases() {
+        guard let token = userInfo?.token else {
+            coordinator?.showLoginModalWebView()
+            return
+        }
+        SVProgressHUD.show()
+        Task {
+            do {
+                try await IMSAccountManager.shard.iap.restorePurchases()
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.coordinator?.showPurchaseSuccess()
+                }
+            } catch {
+                await MainActor.run {
+                    SVProgressHUD.dismiss()
+                    self.messageType = .title(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     
     @MainActor
     func purchaseProduct() {

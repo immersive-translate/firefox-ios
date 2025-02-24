@@ -149,6 +149,8 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, U
                 jsonName = "zh-CN"
             } else if (preferredLocalizations.contains("zh-Hant")) {
                 jsonName = "zh-TW"
+            } else if (preferredLocalizations.contains("ko")) {
+                jsonName = "ko"
             }
         }
         if let text = try? NSString(

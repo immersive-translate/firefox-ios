@@ -8,7 +8,7 @@
 "DefaultBrowserCard.Button.v2" = "更多資訊";
 
 /* Description for small home tab banner shown that allows user to switch their default browser to Firefox. */
-"DefaultBrowserCard.Description" = "設定使用 Firefox 自動開啟網站、郵件、簡訊當中的鏈結。";
+"DefaultBrowserCard.Description" = "設定使用 沉浸式翻譯 自動開啟網站、郵件、簡訊當中的鏈結。";
 
 /* Description for small home tab banner shown that allows the user to switch their default browser to Firefox. */
 "DefaultBrowserCard.NextLevel.Description.v108" = "讓 Firefox 成為您的預設瀏覽器，自動加速、保護安全，鞏固隱私。";

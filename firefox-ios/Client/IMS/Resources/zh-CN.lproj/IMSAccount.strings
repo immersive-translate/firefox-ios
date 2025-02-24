@@ -36,7 +36,7 @@
 "Settings.IMSAccount.IAP.You have fail subscribed" = "您订阅失败";
 "Settings.IMSAccount.IAP.Upgrade to Annual Pro Membership" = "升级为年费Pro会员";
 "Settings.IMSAccount.IAP.The annual plan saves" = "年度套餐每年会比月度套餐节省 %@";
-"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "现在升级将会立即自动扣款 %@ (已按比例扣除当前套餐未使用的时间)";
+"Settings.IMSAccount.IAP.Upgrading now will automatically deduct" = "现在升级将会立即自动扣款 %@";
 "Settings.IMSAccount.IAP.the unused time of the current package" = "(已按比例扣除当前套餐未使用的时间)";
 "Settings.IMSAccount.IAP.New expiration date" = "新的到期日期为 %@";
 "Settings.IMSAccount.IAP.Upgrade Now" = "立刻升级";
@@ -44,3 +44,9 @@
 "Settings.IMSAccount.IAP.Current Plan" = "当前套餐";
 "Settings.IMSAccount.IAP.Downgrading is not supported" = "目前暂不支持降级";
 "Settings.IMSAccount.IAP.Upgrade on the PC" = "需到电脑上升级";
+"Settings.IMSAccount.IAP.Not Need Now" = "暂时不需要";
+"Settings.IMSAccount.IAP.See A Biger World" = "看见更大的世界";
+"Settings.IMSAccount.IAP.Free 3 Day" = "免费试用3天";
+"Settings.IMSAccount.IAP.Terms of Service" = "服务协议";
+"Settings.IMSAccount.IAP.Privacy Policy" = "隐私政策";
+"Settings.IMSAccount.IAP.Restore Purchases" = "恢复购买";

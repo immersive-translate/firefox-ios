@@ -8,11 +8,23 @@ struct IMSAccountInfo: Codable {
 
     let token: String
     let email: String?
+    let iosPlanTier: String?
+    
+    static func from(token: String, resp: IMSAccountInfoResp) -> IMSAccountInfo {
+        return IMSAccountInfo(
+            subscription: resp.subscription,
+            token: token,
+            email: resp.email,
+            iosPlanTier: resp.iosPlanTier
+        )
+    }
 }
 
 struct IMSAccountInfoResp: Codable {
     let subscription: IMSAccountSubscription?
     let email: String?
+    //  "trial"表示还未进行过试用， "upgrade" 表示已经使用过试用
+    let iosPlanTier: String?
 }
 
 struct IMSAccountSubscription: Codable {

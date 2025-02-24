@@ -4,7 +4,17 @@
 
 import SwiftUI
 
+enum OnboardingLoginButtonType {
+    case google
+    case email
+    case apple
+    case facebook
+    case other
+}
+
 struct OnboardingLoginView: View {
+    var onButtonTap: ((OnboardingLoginButtonType) -> Void)?
+    
     var body: some View {
         VStack(spacing: 0) {
             Text("注册并登录")
@@ -23,14 +33,14 @@ struct OnboardingLoginView: View {
             Spacer().frame(height: 40)
 
             Button {
-                print("ok")
+                onButtonTap?(.google)
 
             } label: {
                 HStack(spacing: 0) {
-                    Image("Frame")
+                    Image("google-icon")
                         .resizable()
                         .frame(width: 24, height: 24)
-                        .background(Color.red)
+                        
 
                     Spacer().frame(width: 10)
 
@@ -79,14 +89,14 @@ struct OnboardingLoginView: View {
             Spacer().frame(height: 24)
 
             Button {
-                print("ok")
+                onButtonTap?(.email)
 
             } label: {
                 HStack(spacing: 0) {
-                    Image("Frame")
+                    Image("email-icom")
                         .resizable()
                         .frame(width: 24, height: 24)
-                        .background(Color.red)
+                       
 
                     Spacer().frame(width: 10)
 
@@ -114,13 +124,13 @@ struct OnboardingLoginView: View {
             Spacer().frame(height: 16)
 
             Button {
-                print("ok")
+                onButtonTap?(.apple)
             } label: {
                 HStack(spacing: 0) {
-                    Image("Frame")
+                    Image("apple-icom")
                         .resizable()
                         .frame(width: 24, height: 24)
-                        .background(Color.red)
+                       
 
                     Spacer().frame(width: 10)
 
@@ -147,14 +157,14 @@ struct OnboardingLoginView: View {
             Spacer().frame(height: 16)
 
             Button {
-                print("FaceBook")
+                onButtonTap?(.facebook)
 
             } label: {
                 HStack(spacing: 0) {
-                    Image("Frame")
+                    Image("facebook-icom")
                         .resizable()
                         .frame(width: 24, height: 24)
-                        .background(Color.red)
+                        
 
                     Spacer().frame(width: 10)
 
@@ -181,7 +191,7 @@ struct OnboardingLoginView: View {
             Spacer().frame(height: 16)
 
             Button {
-                print("other")
+                onButtonTap?(.other)
 
             } label: {
                 HStack(spacing: 0) {
@@ -204,6 +214,11 @@ struct OnboardingLoginView: View {
             Spacer()
             
         }
+        .background(Color.white)
 
     }
+}
+
+#Preview {
+    OnboardingLoginView()
 }
