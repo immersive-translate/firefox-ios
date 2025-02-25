@@ -17,5 +17,25 @@ import Redux
 import ToolbarKit
 
 extension BrowserViewController: IMSScriptDelegate {
-    
+    func onPageStatusAsync(status: String) {
+        switch status {
+        case "Translated":
+            imsStore.dispatch(
+                IMSToolbarTranslateAction(
+                    windowUUID: windowUUID,
+                    actionType: IMSToolbarTranslateActionType.translated
+                )
+            )
+        case "Original":
+            imsStore.dispatch(
+                IMSToolbarTranslateAction(
+                    windowUUID: windowUUID,
+                    actionType: IMSToolbarTranslateActionType.origin
+                )
+            )
+        default:
+            break
+        }
+        
+    }
 }

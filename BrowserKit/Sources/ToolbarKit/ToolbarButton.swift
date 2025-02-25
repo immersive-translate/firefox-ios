@@ -10,7 +10,7 @@ public enum ToolbarButtonGesture {
     case longPress
 }
 
-class ToolbarButton: UIButton, ThemeApplicable {
+public class ToolbarButton: UIButton, ThemeApplicable {
     private struct UX {
         static let verticalInset: CGFloat = 10
         static let horizontalInset: CGFloat = 10
@@ -157,7 +157,8 @@ class ToolbarButton: UIButton, ThemeApplicable {
         accessibilityCustomActions = [a11yAction]
     }
 
-    private func imageConfiguredForRTL(for element: ToolbarElement) -> UIImage? {
+    dynamic
+    public func imageConfiguredForRTL(for element: ToolbarElement) -> UIImage? {
         let image = UIImage(named: element.iconName)?.withRenderingMode(.alwaysTemplate)
         return element.isFlippedForRTL ? image?.imageFlippedForRightToLeftLayoutDirection() : image
     }
@@ -180,6 +181,7 @@ class ToolbarButton: UIButton, ThemeApplicable {
     }
 
     // MARK: - ThemeApplicable
+    dynamic
     public func applyTheme(theme: Theme) {
         let colors = theme.colors
         foregroundColorNormal = colors.iconPrimary

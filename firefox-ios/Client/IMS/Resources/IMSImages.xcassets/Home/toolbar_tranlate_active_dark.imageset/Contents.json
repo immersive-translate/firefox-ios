@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "toolbar_tranlate_active_dark.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

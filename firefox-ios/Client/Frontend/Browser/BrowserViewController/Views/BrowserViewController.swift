@@ -2746,6 +2746,7 @@ class BrowserViewController: UIViewController,
         case finishedNavigation
     }
 
+    dynamic
     func navigateInTab(tab: Tab, to navigation: WKNavigation? = nil, webViewStatus: WebViewUpdateStatus) {
         tabManager.expireSnackbars()
 
@@ -3864,6 +3865,7 @@ extension BrowserViewController: SearchViewControllerDelegate {
 }
 
 extension BrowserViewController: TabManagerDelegate {
+    dynamic
     func tabManager(_ tabManager: TabManager, didSelectedTabChange selectedTab: Tab, previousTab: Tab?, isRestoring: Bool) {
         // Failing to have a non-nil webView by this point will cause the toolbar scrolling behaviour to regress,
         // back/forward buttons never to become enabled, etc. on tab restore after launch. [FXIOS-9785, FXIOS-9781]

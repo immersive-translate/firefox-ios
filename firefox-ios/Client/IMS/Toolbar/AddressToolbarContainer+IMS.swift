@@ -26,7 +26,8 @@ extension AddressToolbarContainer {
         self.subscribeToRedux()
         guard let windowUUID else { return }
         if (imsController == nil) {
-            imsController = AddressToolbarContainerController(windowUUID: windowUUID)
+            imsController = AddressToolbarContainerController(windowUUID: windowUUID, parent: self)
+            imsController?.subscribeToRedux()
         }
     }
     
@@ -58,9 +59,12 @@ extension AddressToolbarContainer {
     class AddressToolbarContainerController: StoreSubscriber {
         
         let windowUUID: WindowUUID
+        weak var parent: AddressToolbarContainer?
+        var pageStatus: IMSToolbarTranslateActionType?
         
-        init(windowUUID: WindowUUID) {
+        init(windowUUID: WindowUUID, parent: AddressToolbarContainer) {
             self.windowUUID = windowUUID
+            self.parent = parent
         }
         
         func subscribeToRedux() {
@@ -80,7 +84,24 @@ extension AddressToolbarContainer {
         }
         
         func newState(state: IMSToolbarState) {
+            self.pageStatus = state.pageStatus
+            guard let _ = state.pageStatus,
+                  let parent = parent,
+                  let newModel = parent.model
+            else { return }
             
+            let addressToolbarState = self.getAddressToolbarState(model: newModel)
+            
+            parent.compactToolbar.configure(state: addressToolbarState,
+                                     toolbarDelegate: parent,
+                                            leadingSpace: parent.calculateToolbarSpace(),
+                                            trailingSpace: parent.calculateToolbarSpace(),
+                                            isUnifiedSearchEnabled: parent.isUnifiedSearchEnabled)
+            parent.regularToolbar.configure(state: addressToolbarState,
+                                     toolbarDelegate: parent,
+                                            leadingSpace: parent.calculateToolbarSpace(),
+                                            trailingSpace: parent.calculateToolbarSpace(),
+                                            isUnifiedSearchEnabled: parent.isUnifiedSearchEnabled)
         }
         
         func unsubscribeFromRedux() {
@@ -111,22 +132,35 @@ extension AddressToolbarContainer {
                         )
                     }))
                 } else {
-                    pageActions.append(ToolbarElement(iconName: StandardImageIdentifiers.Large.privateMode, isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: AccessibilityIdentifiers.FirefoxHomepage.OtherButtons.privateModeToggleButton, hasLongPressAction: false, onSelected: { btn in
-                        
-                        imsStore.dispatch(
-                            IMSTranslatePageBrowserAction(
-                                selectedTabURL: currentState.locationViewState.url,
-                                windowUUID: model.windowUUID,
-                                actionType: IMSTranslatePageBrowserActionType.translatePage
+                    if self.pageStatus == .translated {
+                        pageActions.append(ToolbarElement(iconName: "toolbar_tranlate_active", isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: "toolbar_tranlate_active", hasLongPressAction: false, onSelected: { btn in
+                            
+                            imsStore.dispatch(
+                                IMSTranslatePageBrowserAction(
+                                    selectedTabURL: currentState.locationViewState.url,
+                                    windowUUID: model.windowUUID,
+                                    actionType: IMSTranslatePageBrowserActionType.restorePage
+                                )
                             )
-                        )
-                    }))
-                    pageActions.append(ToolbarElement(iconName: StandardImageIdentifiers.Large.qrCode, isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: AccessibilityIdentifiers.Browser.ToolbarButtons.qrCode, hasLongPressAction: false, onSelected: { btn in
+                        }))
+                    } else {
+                        pageActions.append(ToolbarElement(iconName: "toolbar_tranlate_normal", isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: "toolbar_tranlate_normal", hasLongPressAction: false, onSelected: { btn in
+                            
+                            imsStore.dispatch(
+                                IMSTranslatePageBrowserAction(
+                                    selectedTabURL: currentState.locationViewState.url,
+                                    windowUUID: model.windowUUID,
+                                    actionType: IMSTranslatePageBrowserActionType.translatePage
+                                )
+                            )
+                        }))
+                    }
+                    pageActions.append(ToolbarElement(iconName: "toolbar_tranlate_setting", isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: "toolbar_tranlate_setting", hasLongPressAction: false, onSelected: { btn in
                         imsStore.dispatch(
                             IMSTranslatePageBrowserAction(
                                 selectedTabURL: currentState.locationViewState.url,
                                 windowUUID: model.windowUUID,
-                                actionType: IMSTranslatePageBrowserActionType.openPopup
+                                actionType: IMSTranslatePageBrowserActionType.togglePopup
                             )
                         )
                     }))

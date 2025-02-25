@@ -6,9 +6,18 @@ import Common
 import Redux
 import ToolbarKit
 
+enum IMSToolbarTranslateActionType: ActionType {
+    case origin
+    case translated
+}
+
+class IMSToolbarTranslateAction: Action {
+    
+}
+
 struct IMSToolbarState: IMSScreenState, Equatable {
     var windowUUID: WindowUUID
-    var pageStatus: String?
+    var pageStatus: IMSToolbarTranslateActionType?
     
     init(appState: IMSAppState, uuid: WindowUUID) {
         guard let toolbarState = imsStore.state.screenState(
@@ -23,7 +32,7 @@ struct IMSToolbarState: IMSScreenState, Equatable {
         
     }
     
-    init(windowUUID: WindowUUID, pageStatus: String? = nil) {
+    init(windowUUID: WindowUUID, pageStatus: IMSToolbarTranslateActionType? = nil) {
         self.windowUUID = windowUUID
         self.pageStatus = pageStatus
     }
@@ -34,11 +43,15 @@ struct IMSToolbarState: IMSScreenState, Equatable {
             return defaultState(from: state)
         }
         
+        if let action = action as? IMSToolbarTranslateAction, let actionType = action.actionType as?  IMSToolbarTranslateActionType {
+            return .init(windowUUID: state.windowUUID, pageStatus: actionType)
+        }
+        
         return defaultState(from: state)
     }
     
     static func defaultState(from state: IMSToolbarState) -> IMSToolbarState {
-        return .init(windowUUID: state.windowUUID, pageStatus: state.pageStatus)
+        return .init(windowUUID: state.windowUUID, pageStatus: nil)
     }
     
 }

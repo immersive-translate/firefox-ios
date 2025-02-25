@@ -65,6 +65,6 @@ struct IMSBrowserViewControllerState: IMSScreenState, Equatable {
     }
     
     static func defaultState(from state: IMSBrowserViewControllerState) -> IMSBrowserViewControllerState {
-        return .init(windowUUID: state.windowUUID, pageStatus: state.pageStatus, actionType: state.actionType)
+        return .init(windowUUID: state.windowUUID, pageStatus: nil, actionType: nil)
     }
 }

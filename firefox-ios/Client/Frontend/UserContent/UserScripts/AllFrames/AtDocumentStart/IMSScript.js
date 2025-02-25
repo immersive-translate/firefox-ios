@@ -3,7 +3,8 @@
 window.__firefox__.includeOnce("IMSScript", function () {
   function IMSScript() {
     const documentMessageTypeIdentifierForThirdPartyTell = "immersiveTranslateDocumentMessageThirdPartyTell";
-      
+    const documentMessageTypeIdentifierForTellThirdParty = "immersiveTranslateDocumentMessageTellThirdParty";
+    
     this.translatePage = function () {
       this.sendMessage("translatePage", {});
     };
@@ -12,9 +13,15 @@ window.__firefox__.includeOnce("IMSScript", function () {
       this.sendMessage("restorePage", {});
     };
 
-    this.getPageStatusAsync = async function () {
-      const status = await this.sendAsyncMessage("getPageStatusAsync", {});
-      return status;
+    this.getPageStatusAsync = function () {
+      this.sendAsyncMessage("getPageStatusAsync", {}).then((ret) => {
+        webkit.messageHandlers.imsScriptMessageHandler.postMessage({
+          type: "getPageStatusAsync",
+          value: ret
+        });
+      }).catch((e) => {
+          console.error(e);
+      })
     };
 
     this.setConfigLanguage = async function (targetLanguage) {

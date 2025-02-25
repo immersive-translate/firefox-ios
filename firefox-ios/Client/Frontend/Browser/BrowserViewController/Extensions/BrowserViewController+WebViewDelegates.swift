@@ -440,6 +440,7 @@ extension BrowserViewController: WKNavigationDelegate {
         }
     }
 
+    dynamic
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation?) {
         if tabManager.selectedTab?.webView !== webView { return }
 

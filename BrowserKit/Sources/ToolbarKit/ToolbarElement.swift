@@ -21,7 +21,7 @@ public struct ToolbarElement: Equatable {
     let isEnabled: Bool
 
     /// Indicates whether the toolbar element's image should be flipped for right-to-left layout direction
-    let isFlippedForRTL: Bool
+    public let isFlippedForRTL: Bool
 
     /// Indicates if the element is in the selected state and should be displayed as highlighted.
     let isSelected: Bool

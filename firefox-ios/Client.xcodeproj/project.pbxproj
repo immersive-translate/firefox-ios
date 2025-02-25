@@ -402,6 +402,7 @@
 		29F044B72D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */; };
 		29F044B92D689D6700C89C1C /* IMSTermsofServiceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */; };
 		29F044C82D68A23E00C89C1C /* ProSubscritionBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */; };
+		29F044DD2D6DF60000C89C1C /* ToolbarButton+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */; };
 		29F4D6982D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */; };
 		29F4D6992D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6922D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift */; };
 		29F4D69A2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */; };
@@ -2948,6 +2949,7 @@
 		29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSPrivacyPolicySetting.swift; sourceTree = "<group>"; };
 		29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTermsofServiceSetting.swift; sourceTree = "<group>"; };
 		29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscritionBottom.swift; sourceTree = "<group>"; };
+		29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarButton+IMS.swift"; sourceTree = "<group>"; };
 		29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionHeaderSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6902D41302800BA6F44 /* MonthProSubscriptionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionListSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6912D41302800BA6F44 /* MonthProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
@@ -5414,6 +5416,7 @@
 		291C6DBE2D5E3827002274F6 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */,
 				2911B7502D6D958500872A58 /* IMSToolbarState.swift */,
 				2911B74E2D6D93BD00872A58 /* AddressToolbarContainer+IMS.swift */,
 			);
@@ -11740,6 +11743,7 @@
 				E15DE7C4293A7B0F00B32667 /* PhotonActionSheetTitleHeaderView.swift in Sources */,
 				392ED7E61D0AEFEF009D9B62 /* HomePageAccessors.swift in Sources */,
 				8A0017C128A3FF6100FEFC8B /* MessageCardDataAdaptor.swift in Sources */,
+				29F044DD2D6DF60000C89C1C /* ToolbarButton+IMS.swift in Sources */,
 				7BA8D1C71BA037F500C8AE9E /* DownloadHelper.swift in Sources */,
 				8AE938192CD91D5A0020E6CF /* TopSiteState.swift in Sources */,
 				8A0D32842A61E1CC007D976D /* StatusBarOverlay.swift in Sources */,

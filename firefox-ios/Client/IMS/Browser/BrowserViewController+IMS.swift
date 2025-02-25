@@ -94,6 +94,57 @@ extension BrowserViewController {
         }
     }
     
+    @_dynamicReplacement(for: tabManager(_:didSelectedTabChange:previousTab:isRestoring:))
+    func ims_tabManager(_ tabManager: TabManager, didSelectedTabChange selectedTab: Tab, previousTab: Tab?, isRestoring: Bool) {
+        self.tabManager(tabManager, didSelectedTabChange: selectedTab, previousTab: previousTab, isRestoring: isRestoring)
+        if let url = selectedTab.webView?.url, InternalURL.scheme != url.scheme,
+           let imsScript = selectedTab.getContentScript(name: IMSScript.name()) as? IMSScript {
+            updateTranslatePageStatus(for: selectedTab, pageStatus: imsScript.pageStatus)
+        } else {
+            updateTranslatePageStatus(for: selectedTab, pageStatus: IMSScript.defaultPageStatus)
+        }
+    }
+    
+    @_dynamicReplacement(for: navigateInTab(tab:to:webViewStatus:))
+    func ims_navigateInTab(tab: Tab, to navigation: WKNavigation? = nil, webViewStatus: WebViewUpdateStatus) {
+        self.navigateInTab(tab: tab, to: navigation, webViewStatus: webViewStatus)
+        guard let webView = tab.webView else { return }
+        if let url = webView.url {
+            if (!InternalURL.isValid(url: url)) && !url.isFileURL {
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()")
+            }
+        }
+    }
+    
+    @_dynamicReplacement(for: webView(_:didStartProvisionalNavigation:))
+    func ims_webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation?) {
+        self.webView(webView, didStartProvisionalNavigation: navigation)
+        if let url = webView.url {
+            updateTranslatePageStatus(for: tabManager.selectedTab, pageStatus: "Original")
+        }
+    }
+    
+    func updateTranslatePageStatus(for tab: Tab?, pageStatus: String) {
+        switch pageStatus {
+        case "Translated":
+            imsStore.dispatch(
+                IMSToolbarTranslateAction(
+                    windowUUID: windowUUID,
+                    actionType: IMSToolbarTranslateActionType.translated
+                )
+            )
+        case "Original":
+            imsStore.dispatch(
+                IMSToolbarTranslateAction(
+                    windowUUID: windowUUID,
+                    actionType: IMSToolbarTranslateActionType.origin
+                )
+            )
+        default:
+            break
+        }
+    }
+    
     
     class IMSBrowserController: StoreSubscriber {
         
@@ -123,16 +174,18 @@ extension BrowserViewController {
         func translatePageAction() {
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
             webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
-                print("")
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()") {_,_ in
+                    
+                }
             }
         }
         
         func restorePageAction() {
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
-            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
-                
-                print("")
-                
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).restorePage()") { object, error in
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()") {_,_ in
+                    
+                }
             }
         }
         

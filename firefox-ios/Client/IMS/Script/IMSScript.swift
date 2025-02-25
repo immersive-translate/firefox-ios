@@ -10,7 +10,7 @@ import WebKit
 
 
 protocol IMSScriptDelegate: AnyObject {
-    
+    func onPageStatusAsync(status: String)
 }
 
 let IMSScriptNamespace = "window.__firefox__.IMSScript"
@@ -18,9 +18,12 @@ let IMSScriptNamespace = "window.__firefox__.IMSScript"
 class IMSScript: TabContentScript {
     weak var delegate: IMSScriptDelegate?
     
+    static let defaultPageStatus = "Original"
+    
     private var logger: Logger
     fileprivate weak var tab: Tab?
     var pageStatus = "Original"
+    
     fileprivate var originalURL: URL?
     
     class func name() -> String {
@@ -41,7 +44,17 @@ class IMSScript: TabContentScript {
         _ userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage
     ) {
-        
-        
+        guard let res = message.body as? [String: Any],
+              let type = res["type"] as? String
+        else { return }
+        switch type {
+        case "getPageStatusAsync":
+            if let value = res["value"] as? String {
+                pageStatus = value
+                self.delegate?.onPageStatusAsync(status: value)
+            }
+        default:
+            break
+        }
     }
 }
