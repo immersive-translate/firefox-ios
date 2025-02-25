@@ -40,6 +40,7 @@ class ModalBrowserViewController: UIViewController, WKUIDelegate {
         webViewTab.createWebview(configuration: WKWebViewConfiguration())
         if let webView = webViewTab.webView {
             webView.DSUIDelegate = self
+            webView.navigationDelegate = self
             webView.frame = self.view.bounds
             webView.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview(webView)
@@ -58,4 +59,27 @@ class ModalBrowserViewController: UIViewController, WKUIDelegate {
     }
     
     
+}
+
+extension ModalBrowserViewController: WKNavigationDelegate {
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        
+        guard let url = navigationAction.request.url
+        else {
+            decisionHandler(.cancel)
+            return
+        }
+        
+        if ["http", "https", "blob", "file"].contains(url.scheme) {
+            webView.customUserAgent = UserAgent.getUserAgent(domain: url.baseDomain ?? "")
+
+            decisionHandler(.allow)
+            return
+        }
+        decisionHandler(.cancel)
+    }
 }
