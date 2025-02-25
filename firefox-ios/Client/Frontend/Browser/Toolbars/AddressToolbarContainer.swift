@@ -34,9 +34,9 @@ final class AddressToolbarContainer: UIView,
 
     typealias SubscriberStateType = ToolbarState
 
-    private var windowUUID: WindowUUID?
-    private var profile: Profile?
-    private var model: AddressToolbarContainerModel?
+    var windowUUID: WindowUUID?
+    var profile: Profile?
+    var model: AddressToolbarContainerModel?
     private(set) weak var delegate: AddressToolbarContainerDelegate?
 
     // FXIOS-10210 Temporary to support updating the Unified Search feature flag during runtime
@@ -66,8 +66,8 @@ final class AddressToolbarContainer: UIView,
     }
 
     var parent: UIStackView?
-    private lazy var compactToolbar: CompactBrowserAddressToolbar = .build()
-    private lazy var regularToolbar: RegularBrowserAddressToolbar = .build()
+    lazy var compactToolbar: CompactBrowserAddressToolbar = .build()
+    lazy var regularToolbar: RegularBrowserAddressToolbar = .build()
     private lazy var progressBar: GradientProgressBar = .build { bar in
         bar.clipsToBounds = false
     }
@@ -75,7 +75,7 @@ final class AddressToolbarContainer: UIView,
     private var progressBarTopConstraint: NSLayoutConstraint?
     private var progressBarBottomConstraint: NSLayoutConstraint?
 
-    private func calculateToolbarSpace() -> CGFloat {
+    func calculateToolbarSpace() -> CGFloat {
         // Provide 0 padding in iPhone landscape due to safe area insets
         return shouldDisplayCompact || UIDevice.current.userInterfaceIdiom == .pad ? UX.toolbarHorizontalPadding : 0
     }
@@ -131,6 +131,7 @@ final class AddressToolbarContainer: UIView,
 
     // MARK: - Redux
 
+    dynamic
     func subscribeToRedux() {
         guard let windowUUID else { return }
 
@@ -169,7 +170,8 @@ final class AddressToolbarContainer: UIView,
         regularToolbar.alpha = alpha
     }
 
-    private func updateModel(toolbarState: ToolbarState) {
+    dynamic
+    func updateModel(toolbarState: ToolbarState) {
         guard let windowUUID, let profile else { return }
         let newModel = AddressToolbarContainerModel(state: toolbarState,
                                                     profile: profile,

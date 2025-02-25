@@ -314,13 +314,17 @@
 		290863C92D552E300080F05D /* SplashScreenAnimation+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863C82D552E2C0080F05D /* SplashScreenAnimation+IMS.swift */; };
 		290863CB2D5621D40080F05D /* LaunchScreenViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863CA2D5621CC0080F05D /* LaunchScreenViewController+IMS.swift */; };
 		290863CF2D5625FD0080F05D /* FxAWebViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */; };
+		2911B74F2D6D93C000872A58 /* AddressToolbarContainer+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B74E2D6D93BD00872A58 /* AddressToolbarContainer+IMS.swift */; };
+		2911B7512D6D958800872A58 /* IMSToolbarState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B7502D6D958500872A58 /* IMSToolbarState.swift */; };
+		2911B7592D6DA8E500872A58 /* IMSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B7582D6DA8E000872A58 /* IMSScript.swift */; };
+		2911B75B2D6DAA4500872A58 /* BrowserViewController+IMSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B75A2D6DAA3A00872A58 /* BrowserViewController+IMSScript.swift */; };
+		2911B75D2D6DAA8C00872A58 /* IMSBrowserViewControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B75C2D6DAA8900872A58 /* IMSBrowserViewControllerState.swift */; };
+		2911B75F2D6DB73200872A58 /* IMSScript.js in Resources */ = {isa = PBXBuildFile; fileRef = 2911B75E2D6DB73200872A58 /* IMSScript.js */; };
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
 		291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */; };
 		291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */; };
 		291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */; };
-		291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */; };
-		291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */; };
 		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
 		291C6DE42D5F5FB0002274F6 /* OnboardingLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */; };
 		291C6DE62D5F5FD9002274F6 /* OnboardingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */; };
@@ -2617,13 +2621,17 @@
 		290863C82D552E2C0080F05D /* SplashScreenAnimation+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreenAnimation+IMS.swift"; sourceTree = "<group>"; };
 		290863CA2D5621CC0080F05D /* LaunchScreenViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LaunchScreenViewController+IMS.swift"; sourceTree = "<group>"; };
 		290863CE2D5625E90080F05D /* FxAWebViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FxAWebViewController+IMS.swift"; sourceTree = "<group>"; };
+		2911B74E2D6D93BD00872A58 /* AddressToolbarContainer+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressToolbarContainer+IMS.swift"; sourceTree = "<group>"; };
+		2911B7502D6D958500872A58 /* IMSToolbarState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSToolbarState.swift; sourceTree = "<group>"; };
+		2911B7582D6DA8E000872A58 /* IMSScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSScript.swift; sourceTree = "<group>"; };
+		2911B75A2D6DAA3A00872A58 /* BrowserViewController+IMSScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMSScript.swift"; sourceTree = "<group>"; };
+		2911B75C2D6DAA8900872A58 /* IMSBrowserViewControllerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBrowserViewControllerState.swift; sourceTree = "<group>"; };
+		2911B75E2D6DB73200872A58 /* IMSScript.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = IMSScript.js; path = AllFrames/AtDocumentStart/IMSScript.js; sourceTree = "<group>"; };
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppName+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeLogoHeaderCell+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageHeaderCell+IMS.swift"; sourceTree = "<group>"; };
-		291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarMiddleware+IMS.swift"; sourceTree = "<group>"; };
-		291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressBarState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
 		291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewModel.swift; sourceTree = "<group>"; };
 		291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewController.swift; sourceTree = "<group>"; };
@@ -5387,6 +5395,14 @@
 			path = RustFxA;
 			sourceTree = "<group>";
 		};
+		2911B7572D6DA8D900872A58 /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				2911B7582D6DA8E000872A58 /* IMSScript.swift */,
+			);
+			path = Script;
+			sourceTree = "<group>";
+		};
 		291AADC42D5AED580046DB22 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -5398,8 +5414,8 @@
 		291C6DBE2D5E3827002274F6 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				291C6DC12D5E3A03002274F6 /* AddressBarState+IMS.swift */,
-				291C6DBF2D5E3831002274F6 /* ToolbarMiddleware+IMS.swift */,
+				2911B7502D6D958500872A58 /* IMSToolbarState.swift */,
+				2911B74E2D6D93BD00872A58 /* AddressToolbarContainer+IMS.swift */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -5417,6 +5433,8 @@
 		294090F62D5B0D3000C23DD6 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				2911B75C2D6DAA8900872A58 /* IMSBrowserViewControllerState.swift */,
+				2911B75A2D6DAA3A00872A58 /* BrowserViewController+IMSScript.swift */,
 				294090FF2D5C4D1E00C23DD6 /* IMSBrowserCoordinatorDelegate.swift */,
 				294090FD2D5C46B400C23DD6 /* ModalBrowserCoordinator.swift */,
 				294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */,
@@ -5477,6 +5495,7 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				2911B7572D6DA8D900872A58 /* Script */,
 				291C6DBE2D5E3827002274F6 /* Toolbar */,
 				29F87B422D5B6E470013C044 /* Global */,
 				294090F62D5B0D3000C23DD6 /* Browser */,
@@ -8424,6 +8443,7 @@
 				D0FCF7E81FE44D8F004A7995 /* AllFrames */,
 				8AEE62C82756BA34003207D1 /* DownloadHelper.js */,
 				8AEE62C62756BA34003207D1 /* LoginsHelper.js */,
+				2911B75E2D6DB73200872A58 /* IMSScript.js */,
 				D0FCF7E91FE44DA2004A7995 /* MainFrame */,
 				8AEE62C72756BA34003207D1 /* TrackingProtectionStats.js */,
 			);
@@ -10650,6 +10670,7 @@
 				23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */,
 				E4CD9F541A71506400318571 /* Reader.html in Resources */,
 				E1BDAC832B9F65780063E6BF /* reportSiteIssueOff.json in Resources */,
+				2911B75F2D6DB73200872A58 /* IMSScript.js in Resources */,
 				1D91C17F2CF11EA500B24960 /* disconnect-block-cookies-content.json in Resources */,
 				E1AF3563286DE5F800960045 /* FullFunctionalTestPlan.xctestplan in Resources */,
 				29D52D4D2D5DABBC00728FB2 /* en.json in Resources */,
@@ -11568,6 +11589,7 @@
 				21BFEEF52A040EF40033048D /* TabMigrationUtility.swift in Sources */,
 				8AEAD9F52C3D7BA9001A2C5A /* FeatureFlagsDebugViewController.swift in Sources */,
 				810CD9C12BB346D800E290C2 /* OnboardingCardViewController.swift in Sources */,
+				2911B7512D6D958800872A58 /* IMSToolbarState.swift in Sources */,
 				8AD3AFC32D143EF600CFC887 /* TopSitesDimensionImplementation.swift in Sources */,
 				29EF1DEC2D37E7A10066018B /* HomepageSectionType+IMS.swift in Sources */,
 				C8A012F126AB07D70096A7A7 /* JumpBackInViewModel.swift in Sources */,
@@ -11644,6 +11666,7 @@
 				CEFA977E1FAA6B490016F365 /* SyncContentSettingsViewController.swift in Sources */,
 				C8CD80DC2A1E8C970097C3AE /* OnboardingTelemetryUtility.swift in Sources */,
 				8A8D277B2CBFFD710076AD3A /* BrowserNavigationType.swift in Sources */,
+				2911B74F2D6D93C000872A58 /* AddressToolbarContainer+IMS.swift in Sources */,
 				96C11E9B2864C2DD00840E7C /* DependencyHelper.swift in Sources */,
 				8CE1E4382B8C76C80026530B /* LoginListViewModel.swift in Sources */,
 				298774A42D64A3FC0051FE58 /* MenuCell+IMS.swift in Sources */,
@@ -11763,7 +11786,6 @@
 				8A285B08294A5D4C00149B0F /* HomepageHeroImageViewModel.swift in Sources */,
 				ED9FD5DB2CEBB5EA00E906A3 /* SentFromFirefoxSetting.swift in Sources */,
 				8C92DE8B2A711ED60090BD28 /* FakespotClient.swift in Sources */,
-				291C6DC02D5E3834002274F6 /* ToolbarMiddleware+IMS.swift in Sources */,
 				8AC1065F28D0CD700013263A /* OpenQLPreviewHelper.swift in Sources */,
 				8AE9FD262CF66301001053EE /* UnifiedAdsProvider.swift in Sources */,
 				EBA3B2C32268F16300728BDB /* PhotonActionSheetView.swift in Sources */,
@@ -11923,7 +11945,6 @@
 				1DFE57FB27B2CB870025DE58 /* HighlightItem.swift in Sources */,
 				291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */,
 				CA77ABFD24773C92005079F9 /* BreachAlertsManager.swift in Sources */,
-				291C6DC22D5E3A06002274F6 /* AddressBarState+IMS.swift in Sources */,
 				8AB8572727D93AEC0075C173 /* TopSiteHistoryManager.swift in Sources */,
 				C81A8F2526D3ED1900EBA539 /* UIWindow+Extension.swift in Sources */,
 				EBC4869E2195F58300CDA48D /* AboutHomeHandler.swift in Sources */,
@@ -12155,6 +12176,7 @@
 				4347B398298D6D7B0045F677 /* CreditCardTableViewModel.swift in Sources */,
 				1DFE57FD27BADD7D0025DE58 /* HomepageViewModel.swift in Sources */,
 				D3A9949D1A3686BD008AD1AC /* Tab.swift in Sources */,
+				2911B75D2D6DAA8C00872A58 /* IMSBrowserViewControllerState.swift in Sources */,
 				8AD40FD127BADCBA00672675 /* ToolbarButton.swift in Sources */,
 				A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */,
 				742BD99E2A13AC9000BA6B15 /* OnboardingInstructionPopupViewController.swift in Sources */,
@@ -12235,6 +12257,7 @@
 				B2FEA68B2B460D1D0058E616 /* AddressAutofillSettingsView.swift in Sources */,
 				E4A961181AC041C40069AD6F /* ReadabilityService.swift in Sources */,
 				AB42CC752A1F5240003C9594 /* CreditCardBottomSheetHeaderView.swift in Sources */,
+				2911B75B2D6DAA4500872A58 /* BrowserViewController+IMSScript.swift in Sources */,
 				21371FA428AA7A8D00BC3F37 /* OnboardingViewModelProtocol.swift in Sources */,
 				8ABCFEA32B45C36100C2988A /* PrivateBrowsingTelemetry.swift in Sources */,
 				8ADC2A1F2A3399BD00543DAA /* LicenseAndAcknowledgementsSetting.swift in Sources */,
@@ -12313,6 +12336,7 @@
 				43A5643823CD1E1C00B6857D /* UpdateViewController.swift in Sources */,
 				ED28DAC92C45A95F00D2641C /* TabScrollBehaviorModel.swift in Sources */,
 				8AD248F12C0F735200500AB7 /* BehavioralTargetingEvent.swift in Sources */,
+				2911B7592D6DA8E500872A58 /* IMSScript.swift in Sources */,
 				E192C1412B57DC860003BC0B /* FakespotMessageCardButton.swift in Sources */,
 				1D69FF8D27B17286001F660E /* HomeLogoHeaderCell.swift in Sources */,
 				E4C358551AF144BA00299F7E /* FSReadingList.m in Sources */,

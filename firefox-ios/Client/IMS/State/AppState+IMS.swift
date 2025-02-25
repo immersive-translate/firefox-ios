@@ -20,6 +20,8 @@ class IMSScreenAction: Action {
 
 enum IMSAppScreen {
     case mainMenu
+    case browserViewController
+    case toolbar
 }
 
 protocol IMSScreenState: StateType {
@@ -28,10 +30,16 @@ protocol IMSScreenState: StateType {
 
 
 enum IMSAppScreenState: Equatable {
+    case toolbar(IMSToolbarState)
+    case browserViewController(IMSBrowserViewControllerState)
     case mainMenu(IMSMainMenuState)
     
     static let reducer: Reducer<Self> = { state, action in
         switch state {
+        case .toolbar(let state):
+            return .toolbar(IMSToolbarState.reducer(state, action))
+        case .browserViewController(let state):
+            return .browserViewController(IMSBrowserViewControllerState.reducer(state, action))
         case .mainMenu(let state):
             return .mainMenu(IMSMainMenuState.reducer(state, action))
         }
@@ -40,6 +48,10 @@ enum IMSAppScreenState: Equatable {
     
     var associatedAppScreen: IMSAppScreen {
         switch self {
+        case .toolbar(_):
+            return .toolbar
+        case .browserViewController(_):
+            return .browserViewController
         case .mainMenu(_):
             return .mainMenu
         }
@@ -47,6 +59,10 @@ enum IMSAppScreenState: Equatable {
     
     var windowUUID: WindowUUID? {
         switch self {
+        case .toolbar(let state):
+            return state.windowUUID
+        case .browserViewController(let state):
+            return state.windowUUID
         case .mainMenu(let state):
             return state.windowUUID
         }
@@ -70,7 +86,10 @@ struct IMSAppState: StateType {
         return screens
             .compactMap {
                 switch ($0, screen) {
+                case (.toolbar(let state), .toolbar): return state as? S
+                case (.browserViewController(let state), .browserViewController): return state as? S
                 case (.mainMenu(let state), .mainMenu): return state as? S
+                default: return nil
                 }
             }.first(where: {
                 // Most screens should be filtered based on the specific identifying UUID.
@@ -111,6 +130,10 @@ struct IMSAppState: StateType {
         case ScreenActionType.showScreen:
             let uuid = action.windowUUID
             switch action.screen {
+            case .toolbar:
+                screens.append(.toolbar(IMSToolbarState(windowUUID: uuid)))
+            case .browserViewController:
+                screens.append(.browserViewController(IMSBrowserViewControllerState(windowUUID: uuid)))
             case .mainMenu:
                 screens.append(.mainMenu(IMSMainMenuState(windowUUID: uuid)))
             }

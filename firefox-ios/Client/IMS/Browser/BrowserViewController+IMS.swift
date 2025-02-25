@@ -31,6 +31,10 @@ extension BrowserViewController {
         } else {
             webView.uiDelegate = self
         }
+        
+        let imsScript = IMSScript(tab: tab)
+        imsScript.delegate = self
+        tab.addContentScript(imsScript, name: IMSScript.name())
     }
     
     @_dynamicReplacement(for: tab(_:willDeleteWebView:))
@@ -65,6 +69,104 @@ extension BrowserViewController {
             webView.customUserAgent = platformSpecificUserAgent
         } else {
             webView.customUserAgent = UserAgent.ims_getUserAgent(url: url)
+        }
+    }
+    
+    struct IMSAssociatedKeys {
+        static var controllerKey: UInt8 = 0
+    }
+    
+    var imsController: IMSBrowserController? {
+        get {
+            objc_getAssociatedObject(self, &IMSAssociatedKeys.controllerKey) as? IMSBrowserController
+        }
+        set {
+            objc_setAssociatedObject(self, &IMSAssociatedKeys.controllerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    @_dynamicReplacement(for: subscribeToRedux)
+    func ims_subscribeToRedux() {
+        self.subscribeToRedux()
+        if (imsController == nil) {
+            self.imsController = IMSBrowserController(windowUUID: windowUUID, parent: self)
+            self.imsController?.subscribeToRedux()
+        }
+    }
+    
+    
+    class IMSBrowserController: StoreSubscriber {
+        
+        let windowUUID: WindowUUID
+        weak var parent: BrowserViewController?
+        
+        init(windowUUID: WindowUUID, parent: BrowserViewController) {
+            self.windowUUID = windowUUID
+            self.parent = parent
+        }
+        
+        
+        func newState(state: IMSBrowserViewControllerState) {
+            guard let actionType = state.actionType else { return }
+            switch actionType {
+            case .none:
+                break
+            case .translatePage:
+                translatePageAction()
+            case .restorePage:
+                restorePageAction()
+            case .togglePopup:
+                togglePopupAction()
+            }
+        }
+        
+        func translatePageAction() {
+            guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
+                print("")
+            }
+        }
+        
+        func restorePageAction() {
+            guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
+                
+                print("")
+                
+            }
+        }
+        
+        func togglePopupAction() {
+            guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).togglePopup(\"right: unset; bottom: unset; left: 50%; top: 0; transform: translateX(-50%);\", false)") { object, error in
+                
+            }
+        }
+        
+        func subscribeToRedux() {
+            imsStore.dispatch(
+                IMSScreenAction(
+                    windowUUID: windowUUID,
+                    actionType: ScreenActionType.showScreen,
+                    screen: .browserViewController
+                )
+            )
+            let uuid = windowUUID
+            imsStore.subscribe(self, transform: {
+                return $0.select({ appState in
+                    return IMSBrowserViewControllerState(appState: appState, uuid: uuid)
+                })
+            })
+        }
+        
+        func unsubscribeFromRedux() {
+            imsStore.dispatch(
+                IMSScreenAction(
+                    windowUUID: windowUUID,
+                    actionType: ScreenActionType.closeScreen,
+                    screen: .browserViewController
+                )
+            )
         }
     }
 }

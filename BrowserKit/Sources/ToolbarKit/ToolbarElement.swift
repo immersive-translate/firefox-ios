@@ -6,7 +6,7 @@ import UIKit
 
 public struct ToolbarElement: Equatable {
     /// Icon name of the toolbar element
-    let iconName: String
+    public let iconName: String
 
     /// Badge name of the toolbar element
     let badgeImageName: String?

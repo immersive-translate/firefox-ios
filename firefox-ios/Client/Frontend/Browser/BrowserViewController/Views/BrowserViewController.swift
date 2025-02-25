@@ -620,6 +620,7 @@ class BrowserViewController: UIViewController,
 
     // MARK: - Redux
 
+    dynamic
     func subscribeToRedux() {
         let action = ScreenAction(windowUUID: windowUUID,
                                   actionType: ScreenActionType.showScreen,
