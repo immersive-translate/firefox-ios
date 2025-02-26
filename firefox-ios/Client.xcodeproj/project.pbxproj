@@ -403,6 +403,9 @@
 		29F044B92D689D6700C89C1C /* IMSTermsofServiceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */; };
 		29F044C82D68A23E00C89C1C /* ProSubscritionBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */; };
 		29F044DD2D6DF60000C89C1C /* ToolbarButton+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */; };
+		29F044E02D6E172D00C89C1C /* UIView+Popover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044DF2D6E172200C89C1C /* UIView+Popover.swift */; };
+		29F044E22D6E18A300C89C1C /* TextPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044E12D6E18A300C89C1C /* TextPopoverViewController.swift */; };
+		29F044EF2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F044EE2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift */; };
 		29F4D6982D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6972D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift */; };
 		29F4D6992D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6922D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift */; };
 		29F4D69A2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */; };
@@ -2950,6 +2953,9 @@
 		29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSTermsofServiceSetting.swift; sourceTree = "<group>"; };
 		29F044C72D68A23E00C89C1C /* ProSubscritionBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscritionBottom.swift; sourceTree = "<group>"; };
 		29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToolbarButton+IMS.swift"; sourceTree = "<group>"; };
+		29F044DF2D6E172200C89C1C /* UIView+Popover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Popover.swift"; sourceTree = "<group>"; };
+		29F044E12D6E18A300C89C1C /* TextPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPopoverViewController.swift; sourceTree = "<group>"; };
+		29F044EE2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarTipSwiftUI.swift; sourceTree = "<group>"; };
 		29F4D68F2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionHeaderSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6902D41302800BA6F44 /* MonthProSubscriptionListSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionListSwiftUIView.swift; sourceTree = "<group>"; };
 		29F4D6912D41302800BA6F44 /* MonthProSubscriptionSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProSubscriptionSwiftUIView.swift; sourceTree = "<group>"; };
@@ -5419,6 +5425,7 @@
 				29F044DC2D6DF5FC00C89C1C /* ToolbarButton+IMS.swift */,
 				2911B7502D6D958500872A58 /* IMSToolbarState.swift */,
 				2911B74E2D6D93BD00872A58 /* AddressToolbarContainer+IMS.swift */,
+				29F044EE2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift */,
 			);
 			path = Toolbar;
 			sourceTree = "<group>";
@@ -5460,6 +5467,7 @@
 		294666BB2D55BB2D00BB9196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				29F044DE2D6E170A00C89C1C /* Popover */,
 				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
 				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				295166312D2C10A300CAD566 /* JSObject */,
@@ -5639,6 +5647,15 @@
 				29EF1E002D3940840066018B /* IMSGridView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		29F044DE2D6E170A00C89C1C /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				29F044E12D6E18A300C89C1C /* TextPopoverViewController.swift */,
+				29F044DF2D6E172200C89C1C /* UIView+Popover.swift */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		29F4D6812D41287000BA6F44 /* UI */ = {
@@ -11469,6 +11486,7 @@
 				8AF347DE2CADD1B200624036 /* HomepageState.swift in Sources */,
 				C8DC90C92A0675E70008832B /* MarkupParsingUtility.swift in Sources */,
 				CA03B26A247F1D9E00382B62 /* BreachAlertsClient.swift in Sources */,
+				29F044EF2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift in Sources */,
 				8A3EF8072A2FCFF700796E3A /* SentryIDSetting.swift in Sources */,
 				ED390D202CF4DE2E00A775F9 /* URLActivityItemProvider.swift in Sources */,
 				8A03294E288F1F0800AD9B89 /* TopSitesDimension.swift in Sources */,
@@ -11528,6 +11546,7 @@
 				29F4D6982D41302800BA6F44 /* YearProSubscriptionSwiftUIView.swift in Sources */,
 				29F4D6992D41302800BA6F44 /* ProSubscriptionSwiftUIView.swift in Sources */,
 				29F4D69A2D41302800BA6F44 /* MonthProSubscriptionHeaderSwiftUIView.swift in Sources */,
+				29F044E02D6E172D00C89C1C /* UIView+Popover.swift in Sources */,
 				29F4D69B2D41302800BA6F44 /* RoundedCorner.swift in Sources */,
 				29F4D69C2D41302800BA6F44 /* YearProSubscriptionListSwiftUIView.swift in Sources */,
 				29F4D69D2D41302800BA6F44 /* MonthProSubscriptionListSwiftUIView.swift in Sources */,
@@ -12169,6 +12188,7 @@
 				EBB89508219398E500EB91A0 /* ContentBlocker+Safelist.swift in Sources */,
 				C838FD5E289981240068F60B /* WallpaperURLProvider.swift in Sources */,
 				E18259DB29AEB34900E6BE76 /* OnboardingNotificationCardHelper.swift in Sources */,
+				29F044E22D6E18A300C89C1C /* TextPopoverViewController.swift in Sources */,
 				0B3F8C5E2CA4471C00DB5367 /* EditBookmarkViewModel.swift in Sources */,
 				8AD0110D2CB42FE700368BF3 /* HeaderState.swift in Sources */,
 				968BD7EB27DFF0F8003148B3 /* ASGroup.swift in Sources */,

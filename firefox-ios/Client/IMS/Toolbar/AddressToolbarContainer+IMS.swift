@@ -8,6 +8,8 @@ import UIKit
 
 extension AddressToolbarContainer {
     
+    static let haveShowToolbarTranslateTipStoreKey = "haveShowToolbarTranslateTipStoreKey"
+    
     struct IMSAssociatedKeys {
         static var controllerKey: UInt8 = 0
     }
@@ -51,9 +53,29 @@ extension AddressToolbarContainer {
                                      leadingSpace: calculateToolbarSpace(),
                                      trailingSpace: calculateToolbarSpace(),
                                      isUnifiedSearchEnabled: isUnifiedSearchEnabled)
+            
+            checkShowTipIfNeed(addressToolbarState: addressToolbarState)
         }
     }
     
+    
+    func checkShowTipIfNeed(addressToolbarState: AddressToolbarState) {
+        guard addressToolbarState.pageActions.count == 3 else { return }
+        guard let host = addressToolbarState.locationViewState.url?.host,
+              !host.contains("immersivetranslate.com")
+        else {
+            return
+        }
+        guard !UserDefaults.standard.bool(forKey: Self.haveShowToolbarTranslateTipStoreKey) else { return }
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showToolbarTipIfNeed), object: nil)
+        self.perform(#selector(showToolbarTipIfNeed), with: nil, afterDelay: 1)
+    }
+    
+    @objc
+    func showToolbarTipIfNeed() {
+        UserDefaults.standard.set(true, forKey: Self.haveShowToolbarTranslateTipStoreKey)
+        NotificationCenter.default.post(name: .imsShowToolbarTranslateTip, object: nil)
+    }
     
     
     class AddressToolbarContainerController: StoreSubscriber {

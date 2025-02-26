@@ -5,6 +5,11 @@ import Common
 import UIKit
 import ToolbarKit
 
+extension Notification.Name {
+    static let imsShowToolbarTranslateTip: Notification.Name = .init("imsShowToolbarTranslateTip")
+    static let imsShowToolbarTranslateSettingTip: Notification.Name = .init("imsShowToolbarTranslateSettingTip")
+}
+
 extension ToolbarKit.ToolbarButton {
     struct IMSAssociatedKeys {
         static var controllerKey: UInt8 = 0
@@ -16,6 +21,26 @@ extension ToolbarKit.ToolbarButton {
         }
         set {
             objc_setAssociatedObject(self, &IMSAssociatedKeys.controllerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    @_dynamicReplacement(for: configure(element:))
+    func ims_configure(element: ToolbarElement) {
+        self.configure(element: element)
+        if element.iconName == "toolbar_tranlate_normal" {
+            NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateTip, object: nil, queue: .main) {[weak self] ntf in
+                self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPage, btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        NotificationCenter.default.post(name: .imsShowToolbarTranslateSettingTip, object: nil)
+                    }
+                })
+            }
+        } else if element.iconName == "toolbar_tranlate_setting" {
+            NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateSettingTip, object: nil, queue: .main) {[weak self] ntf in
+                self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPanel, btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
+                    print("关闭了")
+                })
+            }
         }
     }
     

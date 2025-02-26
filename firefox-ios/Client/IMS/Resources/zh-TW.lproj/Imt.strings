@@ -42,3 +42,6 @@
 "Imt.Localizable.Xiaohongshu" = "小紅書";
 "Immersive Translate Settings" = "沉浸式翻譯設置";
 "Immersive Translate Tutorials" = "沉浸式翻譯教程";
+"Imt.Toolbar.Tip.ihadKnown" = "我知道了";
+"Imt.Toolbar.Tip.clickTranslateCurrentPage" = "點擊這裡\n立即翻譯當前網頁";
+"Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "點擊這裡\n打開翻譯功能面板";

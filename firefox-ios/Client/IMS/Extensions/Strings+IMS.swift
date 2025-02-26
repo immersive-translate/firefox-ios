@@ -521,5 +521,25 @@ extension String {
                             comment: "")
             
         }
+        
+        public struct ToolbarTip {
+            public static let ihadKnown = MZLocalizedString(
+                            key: "Imt.Toolbar.Tip.ihadKnown",
+                            tableName: "Imt",
+                            value: "OK",
+                            comment: "")
+            
+            public static let clickTranslateCurrentPage = MZLocalizedString(
+                            key: "Imt.Toolbar.Tip.clickTranslateCurrentPage",
+                            tableName: "Imt",
+                            value: "clickTranslateCurrentPage",
+                            comment: "")
+            
+            public static let clickTranslateCurrentPanel = MZLocalizedString(
+                            key: "Imt.Toolbar.Tip.clickTranslateCurrentPanel",
+                            tableName: "Imt",
+                            value: "clickTranslateCurrentPanel",
+                            comment: "")
+        }
     }
 }

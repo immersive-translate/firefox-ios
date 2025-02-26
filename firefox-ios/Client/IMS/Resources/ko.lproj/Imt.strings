@@ -42,3 +42,6 @@
 "Imt.Localizable.Xiaohongshu" = "Rednote";
 "Immersive Translate Tutorials" = "몰입형번역 튜토리얼";
 "Immersive Translate Settings" = "몰입형번역 설정";
+"Imt.Toolbar.Tip.ihadKnown" = "알겠습니다";
+"Imt.Toolbar.Tip.clickTranslateCurrentPage" = "여기를 클릭하여\n현재 웹페이지를 즉시 번역하세요";
+"Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "여기를 클릭하여\n번역 기능 패널을 열어보세요";

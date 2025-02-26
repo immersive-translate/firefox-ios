@@ -37,6 +37,7 @@ public class ToolbarButton: UIButton, ThemeApplicable {
                                                                trailing: UX.horizontalInset)
     }
 
+    dynamic
     open func configure(element: ToolbarElement) {
         guard var config = configuration else { return }
         removeAllGestureRecognizers()

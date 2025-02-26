@@ -43,3 +43,6 @@
 "Imt.Localizable.Xiaohongshu" = "小红书";
 "Immersive Translate Tutorials" = "沉浸式翻译教程";
 "Immersive Translate Settings" = "沉浸式翻译设置";
+"Imt.Toolbar.Tip.ihadKnown" = "我知道了";
+"Imt.Toolbar.Tip.clickTranslateCurrentPage" = "点击这里\n立即翻译当前网页";
+"Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "点击这里\n打开翻译功能面板";

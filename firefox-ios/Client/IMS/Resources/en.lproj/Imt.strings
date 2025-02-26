@@ -42,3 +42,6 @@
 "Imt.Localizable.Xiaohongshu" = "Rednote";
 "Immersive Translate Tutorials" = "Immersive Translate Tutorials";
 "Immersive Translate Settings" = "Immersive Translate Settings";
+"Imt.Toolbar.Tip.ihadKnown" = "I had Known";
+"Imt.Toolbar.Tip.clickTranslateCurrentPage" = "Click here\n to instantly translate the current webpage";
+"Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "Click here\n to open the translation feature panel";
