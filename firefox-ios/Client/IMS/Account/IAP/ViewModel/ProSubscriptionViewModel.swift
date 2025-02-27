@@ -188,7 +188,7 @@ class ProSubscriptionViewModel: ObservableObject {
     }
     
     func trackPurchaseEvent(info: ProSubscriptionInfo) {
-        let event = ADJEvent(eventToken: "purchase_ios")
+        let event = ADJEvent(eventToken: "8ae2y6")
         let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
         let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
         event?.setRevenue(amount, currency: currencyCode)
