@@ -5,6 +5,7 @@
 import Foundation
 import StoreKit
 import SVProgressHUD
+import Adjust
 
 struct ProSubscriptionInfo: Identifiable {
     let id = UUID()
@@ -169,6 +170,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
+                    self.trackPurchaseEvent(info: info)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {
@@ -183,5 +185,31 @@ class ProSubscriptionViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func trackPurchaseEvent(info: ProSubscriptionInfo) {
+        let event = ADJEvent(eventToken: "purchase_ios")
+        let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
+        let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
+        event?.setRevenue(amount, currency: currencyCode)
+        let payType = if userInfo?.iosPlanTier == "trial" {
+            "1"
+        } else {
+            if info.serverProduct.goodType == .monthly {
+                "2"
+            } else if info.serverProduct.goodType == .yearly {
+                if userInfo?.subscription?.subscriptionType == .monthly {
+                    "4"
+                } else {
+                    "3"
+                }
+            } else {
+                "0"
+            }
+        }
+        event?.addPartnerParameter("pay_type", value: payType)
+        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+        Adjust.trackEvent(event)
+        
     }
 }

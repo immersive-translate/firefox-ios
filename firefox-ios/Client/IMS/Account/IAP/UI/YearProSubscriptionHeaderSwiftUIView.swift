@@ -149,6 +149,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                             "Alibaba PuHuiTi 3.0", size: 48)
                                     )
                                     .multilineTextAlignment(.trailing)
+                                    .minimumScaleFactor(0.5)
                                     .foregroundColor(
                                         Color(red: 0.92, green: 0.3, blue: 0.54)
                                     )

@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import ObjectiveC.runtime
+import Adjust
 
 extension AppLaunchUtil {
     
@@ -29,5 +30,10 @@ extension AppLaunchUtil {
     func ims_setUpPostLaunchDependencies() {
         self.setUpPostLaunchDependencies()
         adjustHelper?.setupAdjust()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            Adjust.requestTrackingAuthorization { status in
+                print("requestTrackingAuthorization: \(status)")
+            }
+        }
     }
 }
