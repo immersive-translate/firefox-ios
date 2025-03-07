@@ -47,3 +47,5 @@
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "点击这里\n立即翻译当前网页";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "点击这里\n打开翻译功能面板";
 "Imt.Common.API.Error.Message" = "出現錯誤";
+"Imt.Home.login.action" = "立即登录";
+"Imt.Home.login.desc" = "享受最佳体验";

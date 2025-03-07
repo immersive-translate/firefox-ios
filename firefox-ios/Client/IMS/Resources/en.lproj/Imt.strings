@@ -46,3 +46,5 @@
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "Click here\n to instantly translate the current webpage";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "Click here\n to open the translation feature panel";
 "Imt.Common.API.Error.Message" = "An error occurred";
+"Imt.Home.login.action" = "Login Now";
+"Imt.Home.login.desc" = "Enjoy the best experience";

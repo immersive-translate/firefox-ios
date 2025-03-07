@@ -332,8 +332,6 @@
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
 		292E28CD2D2C3AF30096B370 /* AbountAppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CC2D2C3AE80096B370 /* AbountAppSetting.swift */; };
 		292E28CF2D2D54460096B370 /* set-language.js in Resources */ = {isa = PBXBuildFile; fileRef = 292E28CE2D2D54410096B370 /* set-language.js */; };
-		292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D22D2D56B00096B370 /* ImtSitesCell.swift */; };
-		292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */; };
 		294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */; };
 		294090F82D5B0D3C00C23DD6 /* BrowserViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */; };
 		294090FC2D5C3E9700C23DD6 /* ModalBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */; };
@@ -430,6 +428,9 @@
 		2BB810662D7FAADC009C4EA6 /* IMSBaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */; };
 		2BB810672D7FAADC009C4EA6 /* APIValidateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */; };
 		2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */; };
+		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
+		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
+		2B42C8C62D7B348800B88246 /* AttributedString in Frameworks */ = {isa = PBXBuildFile; productRef = 2B42C8C52D7B348800B88246 /* AttributedString */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2652,8 +2653,6 @@
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
 		292E28CC2D2C3AE80096B370 /* AbountAppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppSetting.swift; sourceTree = "<group>"; };
 		292E28CE2D2D54410096B370 /* set-language.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "set-language.js"; sourceTree = "<group>"; };
-		292E28D22D2D56B00096B370 /* ImtSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesCell.swift; sourceTree = "<group>"; };
-		292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImtSitesViewModel.swift; sourceTree = "<group>"; };
 		294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUpgradeCoordinator.swift; sourceTree = "<group>"; };
 		294090F72D5B0D3800C23DD6 /* BrowserViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMS.swift"; sourceTree = "<group>"; };
 		294090FB2D5C3E9100C23DD6 /* ModalBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBrowserViewController.swift; sourceTree = "<group>"; };
@@ -2990,6 +2989,8 @@
 		2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPIRequest.swift; sourceTree = "<group>"; };
 		2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBaseResponseModel.swift; sourceTree = "<group>"; };
 		2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPAPI.swift; sourceTree = "<group>"; };
+		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
+		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -4745,6 +4746,7 @@
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
+				2B42C8C62D7B348800B88246 /* AttributedString in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
 				AB2AC6632BCFD0A200022AAB /* X509 in Frameworks */,
 				29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */,
@@ -5594,9 +5596,9 @@
 				291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */,
 				29EF1DEF2D37F0230066018B /* LegacyHomepageViewController+IMS.swift */,
 				29EF1DED2D37EA270066018B /* HomepageViewModel+IMS.swift */,
+				29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */,
 				29EF1DE82D37E75B0066018B /* TopSite */,
-				292E28D42D2D56D80096B370 /* ImtSitesViewModel.swift */,
-				292E28D22D2D56B00096B370 /* ImtSitesCell.swift */,
+				2B42C8252D7B17F100B88246 /* Login */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -5649,7 +5651,6 @@
 		29EF1DE82D37E75B0066018B /* TopSite */ = {
 			isa = PBXGroup;
 			children = (
-				29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */,
 				29EF1DE92D37E7660066018B /* IMSTopSitesViewModel.swift */,
 				29EF1DE62D37E72F0066018B /* IMSTopSiteItemCell.swift */,
 			);
@@ -5748,6 +5749,15 @@
 				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2B42C8252D7B17F100B88246 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
+				2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -10297,6 +10307,7 @@
 				29D6DFCC2D2D67DD0094E832 /* FacebookShare */,
 				29909E7C2D36BB68005C0328 /* SVProgressHUD */,
 				0BF802E12CFF0937005633E5 /* Shared */,
+				2B42C8C52D7B348800B88246 /* AttributedString */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -10532,6 +10543,7 @@
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+				2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -11694,7 +11706,6 @@
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
 				291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */,
-				292E28D32D2D56B80096B370 /* ImtSitesCell.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
 				8A4593C72BF7BECA002758DE /* MicrosurveyTableViewCell.swift in Sources */,
@@ -12180,7 +12191,6 @@
 				0B11AF022CB412D100AD51D5 /* Metrics.swift in Sources */,
 				C4E3984C1D21F2FD004E89BA /* TabTrayButtonExtensions.swift in Sources */,
 				ED07C0E62CCACD7E006C0627 /* Locale+possibilitiesForLanguageIdentifier.swift in Sources */,
-				292E28D52D2D56E00096B370 /* ImtSitesViewModel.swift in Sources */,
 				437A857827E43FE100E42764 /* FxAWebViewTelemetry.swift in Sources */,
 				E13E9AB42AAB0FB5001A0E9D /* FakespotCoordinator.swift in Sources */,
 				E1442FD1294782D9003680B0 /* UIModalPresentationStyle+Photon.swift in Sources */,
@@ -12275,6 +12285,7 @@
 				A93067E81D0FE18E00C49C6E /* NightModeHelper.swift in Sources */,
 				742BD99E2A13AC9000BA6B15 /* OnboardingInstructionPopupViewController.swift in Sources */,
 				29909E932D37DBB7005C0328 /* Strings+IMS.swift in Sources */,
+				2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */,
 				9636D92C27F9E50100771F5E /* GleanPlumbMessageStore.swift in Sources */,
 				213B67A627CE682B000542F5 /* StartAtHomeHelper.swift in Sources */,
 				8A8629E2288096C40096DDB1 /* BookmarksFolderCell.swift in Sources */,
@@ -12309,6 +12320,7 @@
 				C84655E42887394B00861B4A /* WallpaperMetadata.swift in Sources */,
 				8AB8572E27D94A1A0075C173 /* UXSizeClass.swift in Sources */,
 				291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */,
+				2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */,
 				965C3C8F29313A1B006499ED /* AppSessionManager.swift in Sources */,
 				ED07C0EF2CCAE856006C0627 /* SearchEngineSelectionMiddleware.swift in Sources */,
 				45D5EDA729269F7500311934 /* DataObserver.swift in Sources */,
@@ -16480,6 +16492,14 @@
 				version = 17.1.0;
 			};
 		};
+		2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lixiang1994/AttributedString.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.3.5;
+			};
+		};
 		432BD0222790EBD000A0F3C3 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adjust/ios_sdk.git";
@@ -16691,6 +16711,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
+		};
+		2B42C8C52D7B348800B88246 /* AttributedString */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */;
+			productName = AttributedString;
 		};
 		432BD0232790EBD000A0F3C3 /* Adjust */ = {
 			isa = XCSwiftPackageProductDependency;

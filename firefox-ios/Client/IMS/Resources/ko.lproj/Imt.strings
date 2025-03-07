@@ -46,3 +46,5 @@
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "여기를 클릭하여\n현재 웹페이지를 즉시 번역하세요";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "여기를 클릭하여\n번역 기능 패널을 열어보세요";
 "Imt.Common.API.Error.Message" = "오류 발생";
+"Imt.Home.login.action" = "지금 로그인";
+"Imt.Home.login.desc" = "최고의 경험";

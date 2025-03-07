@@ -45,3 +45,5 @@
 "Imt.Toolbar.Tip.ihadKnown" = "我知道了";
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "點擊這裡\n立即翻譯當前網頁";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "點擊這裡\n打開翻譯功能面板";
+"Imt.Home.login.action" = "立即登入";
+"Imt.Home.login.desc" = "享受最佳體驗";

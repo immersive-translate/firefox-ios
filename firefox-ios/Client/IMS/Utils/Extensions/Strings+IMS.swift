@@ -34,8 +34,6 @@ extension String {
     }
 }
 
-
-
 // MARK: - Imt Strings
 extension String {
     public static let ImtLocalizableAppInfo = MZLocalizedString(

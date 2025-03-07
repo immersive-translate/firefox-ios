@@ -10,6 +10,8 @@ extension HomepageSectionType {
         let origin = self.cellIdentifier
         if self == .imsTopSites {
             return ""
+        } else if self == .imsLogin {
+            return IMSHomeLoginCell.cellIdentifier
         }
         return origin
     }
@@ -18,6 +20,7 @@ extension HomepageSectionType {
     static var ims_cellTypes: [ReusableCell.Type] {
         var origin = self.cellTypes
         origin.append(IMSTopSiteItemCell.self)
+        origin.append(IMSHomeLoginCell.self)
         return origin
     }
 }
