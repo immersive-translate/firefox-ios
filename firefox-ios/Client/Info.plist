@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>测试</string>
-	<key>MozBundleVersion</key>
-	<string>$(MOZ_BUNDLE_VERSION)</string>
 	<key>AdjustAppToken</key>
 	<string>$(ADJUST_APP_TOKEN)</string>
 	<key>AppIdentifierPrefix</key>
@@ -52,14 +48,14 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>CHANNEL</key>
+	<string>$(CHANNEL)</string>
 	<key>FacebookAppID</key>
 	<string>534301805718885</string>
 	<key>FacebookClientToken</key>
 	<string>12f64b0848e953d71f94f6dca577fb36</string>
 	<key>FacebookDisplayName</key>
 	<string>$(MOZ_BUNDLE_DISPLAY_NAME)</string>
-	<key>CHANNEL</key>
-	<string>$(CHANNEL)</string>
 	<key>INIntentsSupported</key>
 	<array>
 		<string>QuickActionIntent</string>
@@ -94,6 +90,8 @@
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
+	<key>MozBundleVersion</key>
+	<string>$(MOZ_BUNDLE_VERSION)</string>
 	<key>MozDevelopmentTeam</key>
 	<string>$(DEVELOPMENT_TEAM)</string>
 	<key>MozInternalURLScheme</key>

@@ -30,10 +30,10 @@ extension AppLaunchUtil {
     func ims_setUpPostLaunchDependencies() {
         self.setUpPostLaunchDependencies()
         adjustHelper?.setupAdjust()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            Adjust.requestTrackingAuthorization { status in
-                print("requestTrackingAuthorization: \(status)")
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//            Adjust.requestTrackingAuthorization { status in
+//                print("requestTrackingAuthorization: \(status)")
+//            }
+//        }
     }
 }
