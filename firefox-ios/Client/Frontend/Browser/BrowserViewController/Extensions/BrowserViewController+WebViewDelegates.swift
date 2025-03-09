@@ -623,6 +623,19 @@ extension BrowserViewController: WKNavigationDelegate {
                     return
                 }
             }
+            if let shortDomain = url.shortDomain, IMSCacheUtils.shared.opeAppShortDomainWhiteList.contains(shortDomain) {
+                if navigationAction.request.value(forHTTPHeaderField: "IMS-URL-INTERCEPTED") == "true" {
+                    print("✅ 该请求已被拦截过，直接加载: \(url.absoluteString)")
+                    decisionHandler(.allow) // 避免死循环
+                    return
+                }
+            
+                var request = navigationAction.request
+                request.setValue("true", forHTTPHeaderField: "IMS-URL-INTERCEPTED")
+                webView.load(request)
+                decisionHandler(.cancel)
+                return
+            }
 
             decisionHandler(.allow)
             return
