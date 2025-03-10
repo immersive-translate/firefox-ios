@@ -1,4 +1,34 @@
 PODS:
+  - LTXiOSUtils (0.0.3):
+    - LTXiOSUtils/Component (= 0.0.3)
+    - LTXiOSUtils/Extension (= 0.0.3)
+    - LTXiOSUtils/PropertyWrapper (= 0.0.3)
+    - LTXiOSUtils/Util (= 0.0.3)
+  - LTXiOSUtils/Component (0.0.3):
+    - LTXiOSUtils/Component/Resources (= 0.0.3)
+  - LTXiOSUtils/Component/Resources (0.0.3)
+  - LTXiOSUtils/Extension (0.0.3):
+    - LTXiOSUtils/Extension/Core (= 0.0.3)
+    - LTXiOSUtils/Extension/Dispatch (= 0.0.3)
+    - LTXiOSUtils/Extension/Foundation (= 0.0.3)
+    - LTXiOSUtils/Extension/SwiftStdlib (= 0.0.3)
+    - LTXiOSUtils/Extension/UIKit (= 0.0.3)
+    - LTXiOSUtils/Extension/WebKit (= 0.0.3)
+  - LTXiOSUtils/Extension/Core (0.0.3)
+  - LTXiOSUtils/Extension/Dispatch (0.0.3):
+    - LTXiOSUtils/Extension/Core
+  - LTXiOSUtils/Extension/Foundation (0.0.3):
+    - LTXiOSUtils/Extension/Core
+  - LTXiOSUtils/Extension/SwiftStdlib (0.0.3):
+    - LTXiOSUtils/Extension/Core
+  - LTXiOSUtils/Extension/UIKit (0.0.3):
+    - LTXiOSUtils/Extension/Core
+  - LTXiOSUtils/Extension/WebKit (0.0.3):
+    - LTXiOSUtils/Extension/Core
+  - LTXiOSUtils/PropertyWrapper (0.0.3)
+  - LTXiOSUtils/Util (0.0.3):
+    - LTXiOSUtils/Util/Log (= 0.0.3)
+  - LTXiOSUtils/Util/Log (0.0.3)
   - WCDB.swift (2.0.4):
     - WCDB.swift/no-arc (= 2.0.4)
     - WCDBOptimizedSQLCipher (~> 1.4.2)
@@ -7,6 +37,7 @@ PODS:
   - WCDBOptimizedSQLCipher (1.4.2)
 
 DEPENDENCIES:
+  - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
   - WCDB.swift
 
 SPEC REPOS:
@@ -14,10 +45,21 @@ SPEC REPOS:
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
+EXTERNAL SOURCES:
+  LTXiOSUtils:
+    :branch: master
+    :git: "git@github.com:Coder-Star/LTXiOSUtils.git"
+
+CHECKOUT OPTIONS:
+  LTXiOSUtils:
+    :commit: bb2b0f9d1f36b93f587d37116c9950733a4ed81c
+    :git: "git@github.com:Coder-Star/LTXiOSUtils.git"
+
 SPEC CHECKSUMS:
+  LTXiOSUtils: a620c44fc99379f95eec02a86bfb81f35961036c
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: 07d258a9dd6318b1cd7c3efd74bb0369a90d880e
+PODFILE CHECKSUM: 139471ee2e8b60d90b05403ebbfdce17b438d1b6
 
 COCOAPODS: 1.16.2

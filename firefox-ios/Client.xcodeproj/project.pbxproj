@@ -421,6 +421,11 @@
 		29F4D6AD2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */; };
 		29F87B412D5A545F0013C044 /* MainMenuViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */; };
 		29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B432D5B6E520013C044 /* IMSAppManager.swift */; };
+		2BB810502D7F3649009C4EA6 /* LibExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8104F2D7F3642009C4EA6 /* LibExport.swift */; };
+		2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */; };
+		2BB8105A2D7F3714009C4EA6 /* DebugToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */; };
+		2BB8105B2D7F3714009C4EA6 /* DebugToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */; };
+		2BB8105E2D7F3765009C4EA6 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2971,6 +2976,11 @@
 		29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPopverTipIcon.swift; sourceTree = "<group>"; };
 		29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuViewController+IMS.swift"; sourceTree = "<group>"; };
 		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
+		2BB8104F2D7F3642009C4EA6 /* LibExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibExport.swift; sourceTree = "<group>"; };
+		2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
+		2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolManager.swift; sourceTree = "<group>"; };
+		2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolViewController.swift; sourceTree = "<group>"; };
+		2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5467,11 +5477,14 @@
 		294666BB2D55BB2D00BB9196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2BB8105C2D7F3759009C4EA6 /* Router */,
 				29F044DE2D6E170A00C89C1C /* Popover */,
-				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
-				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				295166312D2C10A300CAD566 /* JSObject */,
 				2951662E2D2C10A300CAD566 /* dsbridge */,
+				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
+				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
+				2BB8104F2D7F3642009C4EA6 /* LibExport.swift */,
+				2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5506,6 +5519,7 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				2BB810532D7F36D6009C4EA6 /* Debug */,
 				2911B7572D6DA8D900872A58 /* Script */,
 				291C6DBE2D5E3827002274F6 /* Toolbar */,
 				29F87B422D5B6E470013C044 /* Global */,
@@ -5696,6 +5710,23 @@
 				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+		2BB810532D7F36D6009C4EA6 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */,
+				2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		2BB8105C2D7F3759009C4EA6 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -10919,11 +10950,13 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 			);
@@ -11411,6 +11444,7 @@
 				E1CD81C5290C6D5800124B27 /* HelpView.swift in Sources */,
 				5A47CFF52860FB8900B2B7BF /* AppLaunchUtil.swift in Sources */,
 				C8B0F5ED283B7C9F007AE65D /* LegacyPocketStandardCell.swift in Sources */,
+				2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */,
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedTableViewController.swift in Sources */,
 				290863C02D53C9B20080F05D /* UserAgent+IMS.swift in Sources */,
@@ -11680,6 +11714,7 @@
 				DA27EEDB28BADF4700DD6F5D /* MenuBuilderHelper.swift in Sources */,
 				E16AD22C2A8A7AE800F0AA58 /* FakespotHighlightsCardView.swift in Sources */,
 				B2999FF12B194A5800F0FEC1 /* CreditCardPayload.swift in Sources */,
+				2BB810502D7F3649009C4EA6 /* LibExport.swift in Sources */,
 				E1877A81286E0EFD00F5BDF2 /* WebViewNavigationHandler.swift in Sources */,
 				274A36CC239EB99400A21587 /* LibraryPanelContextMenu.swift in Sources */,
 				8C2937722BF79F0300146613 /* Address+Encodable.swift in Sources */,
@@ -12069,6 +12104,8 @@
 				E15DE7C0293A670700B32667 /* PhotonActionSheetSeparator.swift in Sources */,
 				F8B7109E2ABE380B0029726E /* RustErrors.swift in Sources */,
 				C8124BB129D6F55400540B79 /* Route.swift in Sources */,
+				2BB8105A2D7F3714009C4EA6 /* DebugToolViewController.swift in Sources */,
+				2BB8105B2D7F3714009C4EA6 /* DebugToolManager.swift in Sources */,
 				8A4EA0DB2C0117CD00E4E4F1 /* MobileMessageSurfaceProtocol.swift in Sources */,
 				63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */,
 				2F44FCCB1A9E972E00FD20CC /* SearchEnginePicker.swift in Sources */,
@@ -12255,6 +12292,7 @@
 				8AE0BF4F2819B10E00F33EC4 /* TopSitesSettingsViewController.swift in Sources */,
 				ED7A08DD2CF6749B0035EC8F /* ShareType.swift in Sources */,
 				8A8DDEBF276259A900E7B97A /* RatingPromptManager.swift in Sources */,
+				2BB8105E2D7F3765009C4EA6 /* RouterManager.swift in Sources */,
 				8AB8571D27D929350075C173 /* TopSitesViewModel.swift in Sources */,
 				E177989A2BD7D44200F6F0EB /* ToolbarState.swift in Sources */,
 				8A93F85E29D36DA9004159D9 /* Coordinator.swift in Sources */,

@@ -145,7 +145,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        AppEvents.shared.flush()
 //        customCocoaDebug();
         IMSAccountManager.shard.setup()
-        
+        DebugToolManager.shared.reload()
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
         return true
     }
 

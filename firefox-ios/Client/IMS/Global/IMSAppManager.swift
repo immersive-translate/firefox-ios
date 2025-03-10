@@ -4,9 +4,18 @@
 
 struct IMSAppUrlConfig {
     
-    enum IMSAppENV {
+    enum IMSAppENV: String {
         case product
         case dev
+        
+        var name: String {
+            switch self {
+            case .dev:
+                return "测试"
+            case .product:
+                return "正式"
+            }
+        }
     }
     
     static let immersiveTranslateUser = "https://download.immersivetranslate.com/immersive-translate.user.js"
@@ -42,12 +51,16 @@ struct IMSAppUrlConfig {
     static let login = baseHomeURL + "/accounts/login"
     
     static let purchaseSuccess = baseHomeURL + "/accounts/success"
+    
+    static let debugPassword = "Qwe13579"
 }
 
 struct IMSAppManager {
     static let shared = IMSAppManager()
     
-    var currentEnv: IMSAppUrlConfig.IMSAppENV = .product
+    var currentEnv: IMSAppUrlConfig.IMSAppENV {
+        IMSAppUrlConfig.IMSAppENV(rawValue: UserDefaultsConfig.networkEnvStr) ?? .product
+    }
     
     var topSiteService = IMSAPPTopSiteService()
     

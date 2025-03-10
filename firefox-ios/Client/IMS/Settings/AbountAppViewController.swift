@@ -5,10 +5,13 @@
 import UIKit
 import Common
 import Shared
+import LTXiOSUtils
 
 class AbountAppViewController: SettingsTableViewController, AppSettingsScreen, FeatureFlaggable {
     var parentCoordinator: SettingsFlowDelegate?
     var prefs: Prefs
+    
+    private var tapCount = 0
     
     init(prefs: Prefs, windowUUID: WindowUUID) {
         self.prefs = prefs
@@ -112,6 +115,11 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen, F
         logoImageView.layer.masksToBounds = true;
         appView.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false;
+        logoImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        tapGesture.numberOfTapsRequired = 1
+        logoImageView.addGestureRecognizer(tapGesture)
+
         
         let nameLabel = UILabel()
         nameLabel.text = AppInfo.displayName;
@@ -195,5 +203,34 @@ class AbountAppViewController: SettingsTableViewController, AppSettingsScreen, F
         let size = containerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         containerView.frame = CGRectMake(0, 0, UIScreen.main.bounds.size.width, size.height)
         return containerView
+    }
+    
+    @objc
+    private func labelTapped() {
+        tapCount += 1
+        if tapCount == 5 {
+            showDebug()
+            tapCount = 0
+        }
+    }
+    
+    private func showDebug() {
+        let alertController = UIAlertController(title: "", message: "请输入调试工具密码", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "请输入..."
+        }
+        let confirmAction = UIAlertAction(title: "确认", style: .default) { _ in
+            if let text = alertController.textFields?.first?.text {
+                if text == IMSAppUrlConfig.debugPassword {
+                    DebugToolManager.shared.show()
+                } else {
+                    SVProgressHUD.showError(withStatus: "密码错误")
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 }
