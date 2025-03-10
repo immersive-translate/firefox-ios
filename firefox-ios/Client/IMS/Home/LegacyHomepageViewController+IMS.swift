@@ -15,7 +15,7 @@ extension LegacyHomepageViewController {
         if let viewModel = self.viewModel.childViewModels[3] as? IMSHomeLoginCellViewModel {
             viewModel.loginHandler = { [weak self] in
                 guard let self = self else { return }
-                guard let url = URL(string: IMSAppUrlConfig.login + "?app_action=gotoUpgrade") else { return }
+                guard let url = URL(string: IMSAppUrlConfig.login) else { return }
                 showSiteWithURLHandler(url, isGoogleTopSite: false)
             }
         }
