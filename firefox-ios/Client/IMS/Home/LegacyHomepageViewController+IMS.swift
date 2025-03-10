@@ -39,12 +39,10 @@ extension LegacyHomepageViewController {
 //                    }
                 } else {
                     WebLocalStorageManager.shared.removeObject(forKey: IMSAccountConfig.localStoreKey)
+                    await MainActor.run {
+                        reloadView()
+                    }
                 }
-            } else {
-                WebLocalStorageManager.shared.removeObject(forKey: IMSAccountConfig.localStoreKey)
-            }
-            await MainActor.run {
-                reloadView()
             }
         }
     }
