@@ -6,6 +6,7 @@ extension LegacyHomepageViewController {
     @_dynamicReplacement(for: setupSectionsAction)
     func ims_setupSectionsAction() {
         self.setupSectionsAction()
+        initNotificationCenter()
         if let viewModel =  self.viewModel.childViewModels[2] as? IMSTopSitesViewModel {
             viewModel.tilePressedHandler = { [weak self] site, isGoogle in
                 guard let url = site.url.asURL else { return }
@@ -17,6 +18,33 @@ extension LegacyHomepageViewController {
                 guard let self = self else { return }
                 guard let url = URL(string: IMSAppUrlConfig.login) else { return }
                 showSiteWithURLHandler(url, isGoogleTopSite: false)
+            }
+        }
+    }
+    
+    private func initNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShowHomepageNotification(_:)), name: .ShowHomepage, object: nil)
+    }
+    
+    @objc
+    private func handleShowHomepageNotification(_ notification: Notification) {
+        Task {
+            let localUserInfo = IMSAccountManager.shard.current()
+            if let token = localUserInfo?.token {
+                if let userInfoAsync = try await IMSIAPHttpService.getUserInfo(token: token) {
+//                    let userInfo = IMSAccountInfo.from(token: token, resp: userInfoAsync.data)
+//                    if let jsonData = try? JSONEncoder().encode(userInfo),
+//                       let jsonString = String(data: jsonData, encoding: .utf8) {
+//                        WebLocalStorageManager.shared.set(jsonString, forKey: IMSAccountConfig.localStoreKey)
+//                    }
+                } else {
+                    WebLocalStorageManager.shared.removeObject(forKey: IMSAccountConfig.localStoreKey)
+                }
+            } else {
+                WebLocalStorageManager.shared.removeObject(forKey: IMSAccountConfig.localStoreKey)
+            }
+            await MainActor.run {
+                reloadView()
             }
         }
     }
