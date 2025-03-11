@@ -623,9 +623,8 @@ extension BrowserViewController: WKNavigationDelegate {
                     return
                 }
             }
-            if let shortDomain = url.shortDomain, IMSCacheUtils.shared.opeAppShortDomainWhiteList.contains(shortDomain) {
+            if let shortDomain = url.shortDomain, !IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(shortDomain) && url != webView.url {
                 if navigationAction.request.value(forHTTPHeaderField: "IMS-URL-INTERCEPTED") == "true" {
-                    print("✅ 该请求已被拦截过，直接加载: \(url.absoluteString)")
                     decisionHandler(.allow) // 避免死循环
                     return
                 }

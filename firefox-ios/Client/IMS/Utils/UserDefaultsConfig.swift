@@ -14,4 +14,7 @@ enum UserDefaultsConfig {
 
     @UserDefaultsWrapper("SHOW_DEBUG_LOG", defaultValue: false)
     static var debugLog: Bool
+    
+    @UserDefaultsWrapper("IMS_APP_CONFIFG", defaultValue: "")
+    static var appConfig: String
 }

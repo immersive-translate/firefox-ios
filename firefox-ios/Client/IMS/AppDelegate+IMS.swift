@@ -10,6 +10,7 @@ extension AppDelegate {
     func didFinishLaunch() {
         IMSAccountManager.shard.setup()
         DebugToolManager.shared.reload()
+        IMSAPPConfigUtils.shared.refresh()
         setupThirdLib()
     }
 }
@@ -20,13 +21,5 @@ extension AppDelegate {
         if UserDefaultsConfig.debugLog {
             Log.enabled = true
         }
-//        APIService.sendRequest(APPAPI.GlobalConfigRequest()) { response in
-//            switch response.result.validateResult {
-//            case let .success(info):
-//                Log.d(JSON(response.data))
-//            case .failure:
-//                ()
-//            }
-//        }
     }
 }

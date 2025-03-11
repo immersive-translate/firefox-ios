@@ -11,7 +11,7 @@ extension WKNavigationAction {
             return false
         }
         
-        if IMSCacheUtils.shared.opeAppShortDomainWhiteList.contains(urlShortDomain) {
+        if !IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(urlShortDomain) {
             return false
         }
         
