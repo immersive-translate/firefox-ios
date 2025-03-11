@@ -5531,6 +5531,7 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
+				2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */,
 				2BB810532D7F36D6009C4EA6 /* Debug */,
 				29909E882D37D9D8005C0328 /* Account */,
 				2BB810682D7FB1E0009C4EA6 /* API */,
@@ -9527,7 +9528,6 @@
 			isa = PBXGroup;
 			children = (
 				29909E822D37D9A9005C0328 /* IMS */,
-				2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */,
 				F84B21E41A0910F600AAB793 /* Application */,
 				F84B21EB1A0910F600AAB793 /* Assets */,
 				E60961841B62B7E100DD640F /* Configuration */,
