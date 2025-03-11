@@ -17,7 +17,9 @@ extension AppDelegate {
 extension AppDelegate {
     private func setupThirdLib() {
         SVProgressHUD.setMinimumDismissTimeInterval(1)
-//        Log.enabled = true
+        if UserDefaultsConfig.debugLog {
+            Log.enabled = true
+        }
 //        APIService.sendRequest(APPAPI.GlobalConfigRequest()) { response in
 //            switch response.result.validateResult {
 //            case let .success(info):

@@ -12,4 +12,6 @@ enum UserDefaultsConfig {
     @UserDefaultsWrapper("NETWORK_ENV_STR", defaultValue: "")
     static var networkEnvStr: String
 
+    @UserDefaultsWrapper("SHOW_DEBUG_LOG", defaultValue: false)
+    static var debugLog: Bool
 }
