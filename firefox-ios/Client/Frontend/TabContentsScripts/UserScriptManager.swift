@@ -172,7 +172,10 @@ class UserScriptManager: FeatureFlaggable {
         
         let setLanguageName = "set-language"
         if let setLanguageUserScript = compiledUserScripts[setLanguageName] {
-            webView?.configuration.userContentController.addUserScript(setLanguageUserScript)
+            if !UserDefaultsConfig.alreadySetLanguage {
+                webView?.configuration.userContentController.addUserScript(setLanguageUserScript)
+                UserDefaultsConfig.alreadySetLanguage = true
+            }
         }
 
         // Inject the Print Helper. This needs to be in the `page` content world in order to hook `window.print()`.

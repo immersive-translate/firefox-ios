@@ -170,7 +170,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    self.trackPurchaseEvent(info: info)
+//                    self.trackPurchaseEvent(info: info)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {

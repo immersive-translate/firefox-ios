@@ -17,4 +17,7 @@ enum UserDefaultsConfig {
     
     @UserDefaultsWrapper("IMS_APP_CONFIFG", defaultValue: "")
     static var appConfig: String
+    
+    @UserDefaultsWrapper("ALREADY_SET_LANGUAGE", defaultValue: false)
+    static var alreadySetLanguage: Bool
 }

@@ -35,23 +35,23 @@ class LocalStorageManager {
 
     
     func set(_ value: String?, forKey key: String) {
+        if key == IMSAccountConfig.localStoreKey && string(forKey: key) != value {
+            NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
+        }
         let item = LocalStorage()
         item.key = key;
         item.value = value;
         try? database.insertOrReplace(item, intoTable: tableName)
         
 //        cacheDic.updateValue(value ?? "", forKey: defaultName);
-        if key == IMSAccountConfig.localStoreKey {
-            NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
-        }
     }
     
     func removeObject(forKey key: String) {
-        try? database.delete(fromTable:  tableName, where: LocalStorage.Properties.key == key)
-//        cacheDic.removeValue(forKey: defaultName);
-        if key == IMSAccountConfig.localStoreKey {
+        if key == IMSAccountConfig.localStoreKey && string(forKey: key) != nil {
             NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
         }
+        try? database.delete(fromTable:  tableName, where: LocalStorage.Properties.key == key)
+//        cacheDic.removeValue(forKey: defaultName);
     }
 
     func string(forKey key: String) -> String? {
@@ -79,8 +79,10 @@ class LocalStorageManager {
     }
     
     func clear() -> Void {
+        if string(forKey: IMSAccountConfig.localStoreKey) != nil {
+            NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
+        }
         try? database.delete(fromTable: tableName);
-        NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
 //        cacheDic.removeAll();
     }
 
