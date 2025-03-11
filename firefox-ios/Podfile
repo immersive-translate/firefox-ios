@@ -5,10 +5,9 @@ target 'Client' do
   use_frameworks!
   pod 'WCDB.swift'
   pod 'LTXiOSUtils', :git => 'git@github.com:Coder-Star/LTXiOSUtils.git', :branch => 'master'
-  pod 'CSAPIService/Core', '0.1.0' #:git => 'git@github.com:Coder-Star/APIService.git', :branch => 'master'
+  pod 'CSAPIService/Core', '0.1.0'
   pod 'BetterCodable', '0.4.0'
   pod 'SwiftyJSON', '4.0.0'
-#  pod 'Alamofire', '4.9.1'
 end
 
 post_install do |installer|
