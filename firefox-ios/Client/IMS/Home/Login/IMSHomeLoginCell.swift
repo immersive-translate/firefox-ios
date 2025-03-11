@@ -24,7 +24,7 @@ class IMSHomeLoginCell: UICollectionViewCell, ReusableCell {
     private lazy var descLabel: UILabel = {
         let label = UILabel()
         label.text = "Imt.Home.login.desc".i18nImt()
-        label.font = FXFontStyles.Regular.caption2.scaledFont()
+        label.font = FXFontStyles.Regular.caption1.scaledFont()
         label.textColor = UIColor(colorString: "333333")
         return label
     }()
