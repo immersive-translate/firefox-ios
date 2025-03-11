@@ -24,6 +24,12 @@ extension LegacyHomepageViewController {
     
     private func initNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleShowHomepageNotification(_:)), name: .ShowHomepage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserInfoChangeNotification(_:)), name: NotificationName.userInfoChange, object: nil)
+    }
+    
+    @objc
+    private func handleUserInfoChangeNotification(_ notification: Notification) {
+        reloadView()
     }
     
     @objc

@@ -41,11 +41,17 @@ class LocalStorageManager {
         try? database.insertOrReplace(item, intoTable: tableName)
         
 //        cacheDic.updateValue(value ?? "", forKey: defaultName);
+        if key == IMSAccountConfig.localStoreKey {
+            NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
+        }
     }
     
     func removeObject(forKey key: String) {
         try? database.delete(fromTable:  tableName, where: LocalStorage.Properties.key == key)
 //        cacheDic.removeValue(forKey: defaultName);
+        if key == IMSAccountConfig.localStoreKey {
+            NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
+        }
     }
 
     func string(forKey key: String) -> String? {
@@ -74,6 +80,7 @@ class LocalStorageManager {
     
     func clear() -> Void {
         try? database.delete(fromTable: tableName);
+        NotificationCenter.default.post(name: NotificationName.userInfoChange, object: nil)
 //        cacheDic.removeAll();
     }
 
