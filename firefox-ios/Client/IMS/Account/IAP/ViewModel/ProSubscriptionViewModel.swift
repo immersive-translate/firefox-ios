@@ -170,7 +170,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-//                    self.trackPurchaseEvent(info: info)
+                    self.trackPurchaseEvent(info: info)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {
@@ -188,28 +188,34 @@ class ProSubscriptionViewModel: ObservableObject {
     }
     
     func trackPurchaseEvent(info: ProSubscriptionInfo) {
-        let event = ADJEvent(eventToken: "8ae2y6")
-        let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
-        let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
-        event?.setRevenue(amount, currency: currencyCode)
+        var eventToken = ""
         let payType = if userInfo?.iosPlanTier == "trial" {
+            /// 还未试用过
+            
             "1"
         } else {
+            // 试用过
+            
             if info.serverProduct.goodType == .monthly {
+                ///  试用 -> 月费会员
                 "2"
             } else if info.serverProduct.goodType == .yearly {
                 if userInfo?.subscription?.subscriptionType == .monthly {
+                    ///  月度 -> 年会员
                     "4"
                 } else {
+                    ///  试用 -> 年会员
                     "3"
                 }
             } else {
                 "0"
             }
         }
-        event?.addPartnerParameter("pay_type", value: payType)
+        let event = ADJEvent(eventToken: eventToken)
+        let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
+        let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
+        event?.setRevenue(amount, currency: currencyCode)
         event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
         Adjust.trackEvent(event)
-        
     }
 }
