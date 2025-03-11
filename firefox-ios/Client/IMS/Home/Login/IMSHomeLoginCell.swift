@@ -16,7 +16,7 @@ class IMSHomeLoginCell: UICollectionViewCell, ReusableCell {
         let userClick = ASAttributedString.Action(.click) { [weak self] _ in
             self?.login()
         }
-        let message: ASAttributedString = "\("Imt.Home.login.action".i18nImt(), .action(press), .action(userClick), .foreground(UIColor(colorString: "EC4C8C")), .font(UIFont.systemFont(ofSize: 14)), .underline(.single))"
+        let message: ASAttributedString = "\("Imt.Home.login.action".i18nImt(), .action(press), .action(userClick), .foreground(UIColor(colorString: "EC4C8C")), .font(FXFontStyles.Regular.caption1.scaledFont()), .underline(.single))"
         label.attributed.text = message
         return label
     }()
@@ -24,7 +24,7 @@ class IMSHomeLoginCell: UICollectionViewCell, ReusableCell {
     private lazy var descLabel: UILabel = {
         let label = UILabel()
         label.text = "Imt.Home.login.desc".i18nImt()
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = FXFontStyles.Regular.caption2.scaledFont()
         label.textColor = UIColor(colorString: "333333")
         return label
     }()

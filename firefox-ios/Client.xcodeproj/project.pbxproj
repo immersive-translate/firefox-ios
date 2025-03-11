@@ -417,6 +417,8 @@
 		29F4D6AD2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */; };
 		29F87B412D5A545F0013C044 /* MainMenuViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */; };
 		29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B432D5B6E520013C044 /* IMSAppManager.swift */; };
+		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
+		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
 		2BB810502D7F3649009C4EA6 /* LibExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8104F2D7F3642009C4EA6 /* LibExport.swift */; };
 		2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */; };
@@ -428,9 +430,6 @@
 		2BB810662D7FAADC009C4EA6 /* IMSBaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */; };
 		2BB810672D7FAADC009C4EA6 /* APIValidateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */; };
 		2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */; };
-		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
-		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
-		2B42C8C62D7B348800B88246 /* AttributedString in Frameworks */ = {isa = PBXBuildFile; productRef = 2B42C8C52D7B348800B88246 /* AttributedString */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -733,7 +732,7 @@
 		5AF6254528A57B6700A90253 /* MockHistoryHighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254428A57B6700A90253 /* MockHistoryHighlightsManager.swift */; };
 		5AF6254728A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254628A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift */; };
 		5AF6254928A58BB400A90253 /* MockHistoryHighlightsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254828A58BB400A90253 /* MockHistoryHighlightsDelegate.swift */; };
-		5BCA3B616005528D04EE32CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F130D2D2483508E00B0F7D0 /* FxAWebViewModel.swift */; };
 		5FA2233C27F74071005B3D87 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA2233B27F74071005B3D87 /* Glean */; };
 		5FC276552894AEFF00AF2721 /* LibraryPanelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B101D1AA7F9C600C01CA3 /* LibraryPanelHelper.swift */; };
@@ -2978,6 +2977,8 @@
 		29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPopverTipIcon.swift; sourceTree = "<group>"; };
 		29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuViewController+IMS.swift"; sourceTree = "<group>"; };
 		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
+		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
+		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
 		2BB8104F2D7F3642009C4EA6 /* LibExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibExport.swift; sourceTree = "<group>"; };
 		2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
@@ -2989,8 +2990,6 @@
 		2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPIRequest.swift; sourceTree = "<group>"; };
 		2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBaseResponseModel.swift; sourceTree = "<group>"; };
 		2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPAPI.swift; sourceTree = "<group>"; };
-		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
-		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -4746,7 +4745,6 @@
 				432BD0242790EBD000A0F3C3 /* Adjust in Frameworks */,
 				0B8E0FF41A932BD500161DC3 /* ImageIO.framework in Frameworks */,
 				29D6DFC52D2D67DD0094E832 /* FacebookBasics in Frameworks */,
-				2B42C8C62D7B348800B88246 /* AttributedString in Frameworks */,
 				435C85F02788F4D00072B526 /* Glean in Frameworks */,
 				AB2AC6632BCFD0A200022AAB /* X509 in Frameworks */,
 				29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */,
@@ -4758,7 +4756,7 @@
 				29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
-				5BCA3B616005528D04EE32CA /* (null) in Frameworks */,
+				5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */,
 				56580B41878993A988A29313 /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5715,6 +5713,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2B42C8252D7B17F100B88246 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
+				2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		2BB810532D7F36D6009C4EA6 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -5749,15 +5756,6 @@
 				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		2B42C8252D7B17F100B88246 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
-				2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -10307,7 +10305,6 @@
 				29D6DFCC2D2D67DD0094E832 /* FacebookShare */,
 				29909E7C2D36BB68005C0328 /* SVProgressHUD */,
 				0BF802E12CFF0937005633E5 /* Shared */,
-				2B42C8C52D7B348800B88246 /* AttributedString */,
 			);
 			productName = Client;
 			productReference = F84B21BE1A090F8100AAB793 /* Client.app */;
@@ -10543,7 +10540,6 @@
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
-				2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */,
 			);
 			productRefGroup = F84B21BF1A090F8100AAB793 /* Products */;
 			projectDirPath = "";
@@ -10982,6 +10978,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AttributedString/AttributedString.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterCodable/BetterCodable.framework",
 				"${BUILT_PRODUCTS_DIR}/CSAPIService/APIService.framework",
 				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
@@ -10992,6 +10989,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AttributedString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterCodable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIService.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
@@ -16492,14 +16490,6 @@
 				version = 17.1.0;
 			};
 		};
-		2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lixiang1994/AttributedString.git";
-			requirement = {
-				kind = exactVersion;
-				version = 3.3.5;
-			};
-		};
 		432BD0222790EBD000A0F3C3 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adjust/ios_sdk.git";
@@ -16711,11 +16701,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookShare;
-		};
-		2B42C8C52D7B348800B88246 /* AttributedString */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2B42C8C42D7B348800B88246 /* XCRemoteSwiftPackageReference "AttributedString" */;
-			productName = AttributedString;
 		};
 		432BD0232790EBD000A0F3C3 /* Adjust */ = {
 			isa = XCSwiftPackageProductDependency;

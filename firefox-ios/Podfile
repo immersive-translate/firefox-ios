@@ -8,6 +8,7 @@ target 'Client' do
   pod 'CSAPIService/Core', '0.1.0'
   pod 'BetterCodable', '0.4.0'
   pod 'SwiftyJSON', '4.0.0'
+  pod 'AttributedString', '3.3.5'
 end
 
 post_install do |installer|

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.8.1)
+  - AttributedString (3.3.5)
   - BetterCodable (0.4.0)
   - CSAPIService/Core (0.1.0):
     - Alamofire (= 5.8.1)
@@ -42,6 +43,7 @@ PODS:
   - WCDBOptimizedSQLCipher (1.4.2)
 
 DEPENDENCIES:
+  - AttributedString (= 3.3.5)
   - BetterCodable (= 0.4.0)
   - CSAPIService/Core (= 0.1.0)
   - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
@@ -51,6 +53,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - AttributedString
     - BetterCodable
     - CSAPIService
     - SwiftyJSON
@@ -69,6 +72,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  AttributedString: 6d2d9d65310119556c3b5c6e4ea8d1ca339b703c
   BetterCodable: 3f2a765c9f4089b19debd2a7b904a69fca0a5fda
   CSAPIService: 210402f9f70b990865fade5c17542b18261a3067
   LTXiOSUtils: a620c44fc99379f95eec02a86bfb81f35961036c
@@ -76,6 +80,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: 7422ad2c0d4ea157534e771625112408f863cf71
+PODFILE CHECKSUM: 37a4179e2679afffc887a671e47c37f79a50bc3c
 
 COCOAPODS: 1.16.2
