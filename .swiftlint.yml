@@ -44,7 +44,7 @@ only_rules: # Only enforce these rules, ignore all others
   - switch_case_alignment
   - syntactic_sugar
   - trailing_newline
-  - trailing_semicolon
+  #- trailing_semicolon
   - trailing_whitespace
   - unavailable_condition
   - unneeded_override
@@ -84,7 +84,7 @@ only_rules: # Only enforce these rules, ignore all others
   - yoda_condition
   - accessibility_label_for_image
   - accessibility_trait_for_button
-  - force_cast
+  # - force_cast
   - closure_body_length
 
 # These rules were originally opted into. Disabling for now to get

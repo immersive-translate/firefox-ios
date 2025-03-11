@@ -21,6 +21,21 @@ private func MZLocalizedString(
                              comment: comment)
 }
 
+extension String {
+    /// 从Imt的国际化
+    /// - Parameter value: 默认值
+    /// - Returns: 国际化语言
+    func i18nImt(value: String = "") -> String {
+        MZLocalizedString(
+            key: self,
+            tableName: "Imt",
+            value: value,
+            comment: "")
+    }
+}
+
+
+
 // MARK: - Imt Strings
 extension String {
     public static let ImtLocalizableAppInfo = MZLocalizedString(

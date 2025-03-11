@@ -144,9 +144,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        AppEvents.shared.logEvent(AppEvents.Name("fb_mobile_activate_app"))
 //        AppEvents.shared.flush()
 //        customCocoaDebug();
-        IMSAccountManager.shard.setup()
-        DebugToolManager.shared.reload()
-        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        didFinishLaunch()
         return true
     }
 

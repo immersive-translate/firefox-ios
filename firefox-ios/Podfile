@@ -5,4 +5,20 @@ target 'Client' do
   use_frameworks!
   pod 'WCDB.swift'
   pod 'LTXiOSUtils', :git => 'git@github.com:Coder-Star/LTXiOSUtils.git', :branch => 'master'
+  pod 'CSAPIService/Core', '0.1.0' #:git => 'git@github.com:Coder-Star/APIService.git', :branch => 'master'
+  pod 'BetterCodable', '0.4.0'
+  pod 'SwiftyJSON', '4.0.0'
+#  pod 'Alamofire', '4.9.1'
+end
+
+post_install do |installer|
+    installer.generated_projects.each do |project|
+        project.targets.each do |target|
+            target.build_configurations.each do |config|
+              if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 15.0
+                config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+              end
+            end
+        end
+    end
 end

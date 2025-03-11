@@ -322,7 +322,6 @@
 		2911B75F2D6DB73200872A58 /* IMSScript.js in Resources */ = {isa = PBXBuildFile; fileRef = 2911B75E2D6DB73200872A58 /* IMSScript.js */; };
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
-		291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */; };
 		291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */; };
 		291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */; };
 		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
@@ -351,7 +350,6 @@
 		295166352D2C10A300CAD566 /* LocalStorageJSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295166302D2C10A300CAD566 /* LocalStorageJSObject.swift */; };
 		295166362D2C10A300CAD566 /* DWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166292D2C10A300CAD566 /* DWKWebView.m */; };
 		295166372D2C10A300CAD566 /* DSCallInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 295166272D2C10A300CAD566 /* DSCallInfo.m */; };
-		2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 295166392D2C12A700CAD566 /* Alamofire */; };
 		2951663C2D2C139E00CAD566 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */; };
 		298774A42D64A3FC0051FE58 /* MenuCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298774A32D64A3FA0051FE58 /* MenuCell+IMS.swift */; };
 		2987759B2D661BAE0051FE58 /* ko.json in Resources */ = {isa = PBXBuildFile; fileRef = 2987759A2D661BAE0051FE58 /* ko.json */; };
@@ -421,11 +419,17 @@
 		29F4D6AD2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */; };
 		29F87B412D5A545F0013C044 /* MainMenuViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */; };
 		29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B432D5B6E520013C044 /* IMSAppManager.swift */; };
+		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
 		2BB810502D7F3649009C4EA6 /* LibExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8104F2D7F3642009C4EA6 /* LibExport.swift */; };
 		2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */; };
 		2BB8105A2D7F3714009C4EA6 /* DebugToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */; };
 		2BB8105B2D7F3714009C4EA6 /* DebugToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */; };
 		2BB8105E2D7F3765009C4EA6 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */; };
+		2BB810642D7FAADC009C4EA6 /* BetterCodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810612D7FAADC009C4EA6 /* BetterCodableExtension.swift */; };
+		2BB810652D7FAADC009C4EA6 /* IMSAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */; };
+		2BB810662D7FAADC009C4EA6 /* IMSBaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */; };
+		2BB810672D7FAADC009C4EA6 /* APIValidateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */; };
+		2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2638,7 +2642,6 @@
 		2911B75E2D6DB73200872A58 /* IMSScript.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = IMSScript.js; path = AllFrames/AtDocumentStart/IMSScript.js; sourceTree = "<group>"; };
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
-		291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppName+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeLogoHeaderCell+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageHeaderCell+IMS.swift"; sourceTree = "<group>"; };
 		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
@@ -2976,11 +2979,17 @@
 		29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPopverTipIcon.swift; sourceTree = "<group>"; };
 		29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuViewController+IMS.swift"; sourceTree = "<group>"; };
 		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
+		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
 		2BB8104F2D7F3642009C4EA6 /* LibExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibExport.swift; sourceTree = "<group>"; };
 		2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
 		2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolManager.swift; sourceTree = "<group>"; };
 		2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolViewController.swift; sourceTree = "<group>"; };
 		2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIValidateResult.swift; sourceTree = "<group>"; };
+		2BB810612D7FAADC009C4EA6 /* BetterCodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterCodableExtension.swift; sourceTree = "<group>"; };
+		2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPIRequest.swift; sourceTree = "<group>"; };
+		2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBaseResponseModel.swift; sourceTree = "<group>"; };
+		2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPAPI.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -4741,7 +4750,6 @@
 				29D6DFCB2D2D67DD0094E832 /* FacebookLogin in Frameworks */,
 				29D6DFC92D2D67DD0094E832 /* FacebookGamingServices in Frameworks */,
 				433F87CE2788EAB600693368 /* GCDWebServers in Frameworks */,
-				2951663A2D2C12A700CAD566 /* Alamofire in Frameworks */,
 				5A06135A29D6052E008F3D38 /* TabDataStore in Frameworks */,
 				EDD2A7F82CDACE7C00ED464C /* UnifiedSearchKit in Frameworks */,
 				216A0D762A40E7AB008077BA /* Redux in Frameworks */,
@@ -5477,6 +5485,8 @@
 		294666BB2D55BB2D00BB9196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				29909E8E2D37DAC0005C0328 /* Extensions */,
+				2BB8105F2D7F50CF009C4EA6 /* Network */,
 				2BB8105C2D7F3759009C4EA6 /* Router */,
 				29F044DE2D6E170A00C89C1C /* Popover */,
 				295166312D2C10A300CAD566 /* JSObject */,
@@ -5485,6 +5495,8 @@
 				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				2BB8104F2D7F3642009C4EA6 /* LibExport.swift */,
 				2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */,
+				29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */,
+				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5520,13 +5532,14 @@
 			isa = PBXGroup;
 			children = (
 				2BB810532D7F36D6009C4EA6 /* Debug */,
+				29909E882D37D9D8005C0328 /* Account */,
+				2BB810682D7FB1E0009C4EA6 /* API */,
+				294666BB2D55BB2D00BB9196 /* Utils */,
 				2911B7572D6DA8D900872A58 /* Script */,
 				291C6DBE2D5E3827002274F6 /* Toolbar */,
-				29F87B422D5B6E470013C044 /* Global */,
 				294090F62D5B0D3000C23DD6 /* Browser */,
 				291AADC42D5AED580046DB22 /* State */,
 				290863CD2D5625A60080F05D /* RustFxA */,
-				294666BB2D55BB2D00BB9196 /* Utils */,
 				294666B62D55AAA200BB9196 /* Menu */,
 				290863C72D552E240080F05D /* Launch */,
 				290863C42D53DEF60080F05D /* Tab */,
@@ -5537,8 +5550,6 @@
 				29909E9C2D37DEA5005C0328 /* Settings */,
 				29909E952D37DCDC005C0328 /* Resources */,
 				29909E942D37DC98005C0328 /* Home */,
-				29909E8E2D37DAC0005C0328 /* Extensions */,
-				29909E882D37D9D8005C0328 /* Account */,
 			);
 			path = IMS;
 			sourceTree = "<group>";
@@ -5568,9 +5579,9 @@
 		29909E912D37DB4F005C0328 /* IAP */ = {
 			isa = PBXGroup;
 			children = (
-				294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */,
 				29F4D6A32D41308500BA6F44 /* ViewModel */,
 				29F4D6812D41287000BA6F44 /* UI */,
+				294090F42D5B0C5100C23DD6 /* IMSUpgradeCoordinator.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -5702,16 +5713,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		29F87B422D5B6E470013C044 /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */,
-				291C6DB82D5B87ED002274F6 /* AppName+IMS.swift */,
-				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
 		2BB810532D7F36D6009C4EA6 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -5727,6 +5728,25 @@
 				2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		2BB8105F2D7F50CF009C4EA6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */,
+				2BB810612D7FAADC009C4EA6 /* BetterCodableExtension.swift */,
+				2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */,
+				2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2BB810682D7FB1E0009C4EA6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -9507,6 +9527,7 @@
 			isa = PBXGroup;
 			children = (
 				29909E822D37D9A9005C0328 /* IMS */,
+				2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */,
 				F84B21E41A0910F600AAB793 /* Application */,
 				F84B21EB1A0910F600AAB793 /* Assets */,
 				E60961841B62B7E100DD640F /* Configuration */,
@@ -10268,7 +10289,6 @@
 				819656162C80C6F300E62323 /* MenuKit */,
 				EDD2A7F72CDACE7C00ED464C /* UnifiedSearchKit */,
 				ED6C8DAB2CE6A4BB00D7F7F3 /* Sentry-Dynamic */,
-				295166392D2C12A700CAD566 /* Alamofire */,
 				29D6DFC22D2D67DD0094E832 /* FacebookAEM */,
 				29D6DFC42D2D67DD0094E832 /* FacebookBasics */,
 				29D6DFC62D2D67DD0094E832 /* FacebookCore */,
@@ -10510,7 +10530,6 @@
 				8AB30EC62B6C038600BD9A9B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				AB2AC6612BCFD0A200022AAB /* XCRemoteSwiftPackageReference "swift-certificates" */,
 				5A984D322C8A31A0007938C9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				29D6DFC12D2D67DD0094E832 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 				29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 			);
@@ -10950,13 +10969,21 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BetterCodable/BetterCodable.framework",
+				"${BUILT_PRODUCTS_DIR}/CSAPIService/APIService.framework",
 				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterCodable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIService.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
 			);
@@ -11450,6 +11477,10 @@
 				290863C02D53C9B20080F05D /* UserAgent+IMS.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
 				E1A6AB4628CA6A4C00EBEBDD /* String+Extension.swift in Sources */,
+				2BB810642D7FAADC009C4EA6 /* BetterCodableExtension.swift in Sources */,
+				2BB810652D7FAADC009C4EA6 /* IMSAPIRequest.swift in Sources */,
+				2BB810662D7FAADC009C4EA6 /* IMSBaseResponseModel.swift in Sources */,
+				2BB810672D7FAADC009C4EA6 /* APIValidateResult.swift in Sources */,
 				1D2F68AF2ACB272500524B92 /* RemoteTabsTableViewController.swift in Sources */,
 				ED07C0ED2CCAE745006C0627 /* SearchEngineSelectionAction.swift in Sources */,
 				29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */,
@@ -11900,6 +11931,7 @@
 				E17496402994302D0096900A /* PreferredFont.swift in Sources */,
 				E1442FD4294782D9003680B0 /* URL+Mail.swift in Sources */,
 				AB4FB4DD2C89FB10005EF0CC /* BlockedTrackersTableView.swift in Sources */,
+				2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */,
 				9636D92827F5D72D00771F5E /* GleanPlumbMessageManager.swift in Sources */,
 				C80685D126A0C93900DCD895 /* UserResearch.swift in Sources */,
 				B2999FF52B194AB200F0FEC1 /* FormAutofillHelperError.swift in Sources */,
@@ -12166,6 +12198,7 @@
 				819656152C80C55300E62323 /* MainMenuState.swift in Sources */,
 				E18F44072A951C330056160F /* FakespotHighlightGroup.swift in Sources */,
 				D5D0532E2645B3A700759F85 /* ExperimentsTableView.swift in Sources */,
+				2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */,
 				8A832A9029DC96C50025D5DD /* LaunchScreenView.swift in Sources */,
 				8AAAB05B2C1B7268008830B3 /* ClientTabsSearchWrapper.swift in Sources */,
 				214EF4152AC5D5D0005BCCDA /* TabDisplayView.swift in Sources */,
@@ -12409,7 +12442,6 @@
 				9609F4CA26B57CE800F81493 /* Calendar+Extension.swift in Sources */,
 				E663D5781BB341C4001EF30E /* ToggleButton.swift in Sources */,
 				ED7A08DF2CF674BA0035EC8F /* ShareTab.swift in Sources */,
-				291C6DB92D5B87F1002274F6 /* AppName+IMS.swift in Sources */,
 				DFA51481275FFEE500266AA0 /* HistoryHighlightsManager.swift in Sources */,
 				81C3E6092C93261A00A19A5A /* MainMenuDetailsViewController.swift in Sources */,
 				8ADC2A182A33775F00543DAA /* FxASignInViewParameters.swift in Sources */,
@@ -16432,14 +16464,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = exactVersion;
-				version = 5.8.1;
-			};
-		};
 		29909E7B2D36BB68005C0328 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SVProgressHUD/SVProgressHUD.git";
@@ -16632,11 +16656,6 @@
 		216A0D752A40E7AB008077BA /* Redux */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Redux;
-		};
-		295166392D2C12A700CAD566 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 295166382D2C12A700CAD566 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		29909E7C2D36BB68005C0328 /* SVProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;

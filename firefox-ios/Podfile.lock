@@ -1,4 +1,8 @@
 PODS:
+  - Alamofire (5.8.1)
+  - BetterCodable (0.4.0)
+  - CSAPIService/Core (0.1.0):
+    - Alamofire (= 5.8.1)
   - LTXiOSUtils (0.0.3):
     - LTXiOSUtils/Component (= 0.0.3)
     - LTXiOSUtils/Extension (= 0.0.3)
@@ -29,6 +33,7 @@ PODS:
   - LTXiOSUtils/Util (0.0.3):
     - LTXiOSUtils/Util/Log (= 0.0.3)
   - LTXiOSUtils/Util/Log (0.0.3)
+  - SwiftyJSON (4.0.0)
   - WCDB.swift (2.0.4):
     - WCDB.swift/no-arc (= 2.0.4)
     - WCDBOptimizedSQLCipher (~> 1.4.2)
@@ -37,11 +42,18 @@ PODS:
   - WCDBOptimizedSQLCipher (1.4.2)
 
 DEPENDENCIES:
+  - BetterCodable (= 0.4.0)
+  - CSAPIService/Core (= 0.1.0)
   - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
+  - SwiftyJSON (= 4.0.0)
   - WCDB.swift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - BetterCodable
+    - CSAPIService
+    - SwiftyJSON
     - WCDB.swift
     - WCDBOptimizedSQLCipher
 
@@ -56,10 +68,14 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:Coder-Star/LTXiOSUtils.git"
 
 SPEC CHECKSUMS:
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  BetterCodable: 3f2a765c9f4089b19debd2a7b904a69fca0a5fda
+  CSAPIService: 210402f9f70b990865fade5c17542b18261a3067
   LTXiOSUtils: a620c44fc99379f95eec02a86bfb81f35961036c
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: 139471ee2e8b60d90b05403ebbfdce17b438d1b6
+PODFILE CHECKSUM: 7422ad2c0d4ea157534e771625112408f863cf71
 
 COCOAPODS: 1.16.2
