@@ -11,6 +11,10 @@ extension WKNavigationAction {
             return false
         }
         
+        if !IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(urlShortDomain) {
+            return false
+        }
+        
         if let url = URL(string: "\(urlShortDomain)://"), UIApplication.shared.canOpenURL(url) {
             return true
         }

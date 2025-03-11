@@ -431,6 +431,7 @@
 		2BB810662D7FAADC009C4EA6 /* IMSBaseResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */; };
 		2BB810672D7FAADC009C4EA6 /* APIValidateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */; };
 		2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */; };
+		2BD810692D7D82A200C648A4 /* IMSAPPConfigUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2992,6 +2993,7 @@
 		2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPIRequest.swift; sourceTree = "<group>"; };
 		2BB810632D7FAADC009C4EA6 /* IMSBaseResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBaseResponseModel.swift; sourceTree = "<group>"; };
 		2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPAPI.swift; sourceTree = "<group>"; };
+		2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPPConfigUtils.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5500,6 +5502,7 @@
 				29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */,
 				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
 				2B2083D42D8025EA00F4402F /* Constants.swift */,
+				2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -11852,6 +11855,7 @@
 				CA90753824929B22005B794D /* NoLoginsView.swift in Sources */,
 				E4B423BE1AB9FE6A007E66C8 /* ReaderModeCache.swift in Sources */,
 				1DF2BDC32BD1BCF300E53C57 /* WindowManager+DebugUtilities.swift in Sources */,
+				2BD810692D7D82A200C648A4 /* IMSAPPConfigUtils.swift in Sources */,
 				C855728629AEA3FB00AF32B0 /* SurveySurfaceViewController.swift in Sources */,
 				AB4FB4DA2C89FB10005EF0CC /* BlockedTrackersModel.swift in Sources */,
 				29B6051B2D2D4389006585C7 /* BusinessJSObject.swift in Sources */,

@@ -7,7 +7,7 @@ import Shared
 
 enum APPAPI {
     struct GlobalConfigRequest: IMSAPIRequest {
-        typealias DataResponse = PlaceholderResponseModel
+        typealias DataResponse = IMSAPPConfig
 
         var path: String {
             return "/v1/app/globalconfig"
