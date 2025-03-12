@@ -53,6 +53,9 @@ extension IMSAPIRequest {
         if needToken, let token = IMSAccountManager.shard.current()?.token, token.isNotEmpty {
             resultURLRequest.setValue(token, forHTTPHeaderField: "token")
         }
+        for (key, value) in IMSAppUrlConfig.getCommonHeader() {
+            resultURLRequest.setValue(value, forHTTPHeaderField: key)
+        }
         return resultURLRequest
     }
 

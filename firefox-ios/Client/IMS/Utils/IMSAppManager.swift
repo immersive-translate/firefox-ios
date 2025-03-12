@@ -2,6 +2,9 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Common
+import Shared
+
 struct IMSAppUrlConfig {
     
     enum IMSAppENV: String {
@@ -53,12 +56,20 @@ struct IMSAppUrlConfig {
     static let purchaseSuccess = baseHomeURL + "/accounts/success"
     
     static let debugPassword = "Qwe13579"
+    
+    static func getCommonHeader() -> [String: String] {
+        return [
+            "platForm": "ios",
+            "appVersion": AppInfo.appVersion,
+        ]
+    }
 }
 
 struct IMSAppManager {
     static let shared = IMSAppManager()
     
     var currentEnv: IMSAppUrlConfig.IMSAppENV {
+//        return .dev
         IMSAppUrlConfig.IMSAppENV(rawValue: UserDefaultsConfig.networkEnvStr) ?? .product
     }
     
