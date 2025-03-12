@@ -170,7 +170,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-//                    self.trackPurchaseEvent(info: info)
+                    self.trackPurchaseEvent(info: info)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {
@@ -189,27 +189,41 @@ class ProSubscriptionViewModel: ObservableObject {
     
     func trackPurchaseEvent(info: ProSubscriptionInfo) {
         var eventToken = ""
-        let payType = if userInfo?.iosPlanTier == "trial" {
+        if userInfo?.iosPlanTier == "trial" {
             /// 还未试用过
-            
-            "1"
+            switch info.serverProduct.goodType {
+            case .monthly:
+                eventToken = "rl8x74"
+            case .yearly:
+                eventToken = "xntvd0"
+            }
         } else {
             // 试用过
-            
-            if info.serverProduct.goodType == .monthly {
-                ///  试用 -> 月费会员
-                "2"
-            } else if info.serverProduct.goodType == .yearly {
+            switch info.serverProduct.goodType {
+            case .monthly:
+                if userInfo?.subscription?.isTrial ?? false {
+                    ///  试用 -> 月费会员
+                    eventToken = "5jiyt7"
+                } else {
+                    eventToken = "lfiher"
+                }
+            case .yearly:
                 if userInfo?.subscription?.subscriptionType == .monthly {
                     ///  月度 -> 年会员
-                    "4"
+                    eventToken = "or0t5r"
                 } else {
-                    ///  试用 -> 年会员
-                    "3"
+                    if userInfo?.subscription?.isTrial ?? false {
+                        ///  试用 -> 年会员
+                        eventToken = "9ytnyf"
+                    } else {
+                        /// 年会员
+                        eventToken = "rtqx61"
+                    }
                 }
-            } else {
-                "0"
             }
+        }
+        if eventToken.isEmpty {
+            return
         }
         let event = ADJEvent(eventToken: eventToken)
         let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue

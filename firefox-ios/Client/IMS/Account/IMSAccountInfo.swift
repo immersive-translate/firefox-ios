@@ -34,5 +34,5 @@ struct IMSAccountSubscription: Codable {
     let subscriptionType: IMSResponseConfiGoodType?
     let subscriptionTo: String?
     let paymentChannel: String?
-    
+    let isTrial: Bool?
 }
