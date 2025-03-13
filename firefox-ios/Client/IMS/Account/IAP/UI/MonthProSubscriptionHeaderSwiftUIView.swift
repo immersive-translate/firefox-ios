@@ -6,29 +6,20 @@ import SwiftUI
 
 struct MonthProSubscriptionHeaderSwiftUIView: View {
     let info: ProSubscriptionInfo
+    let fromSource: ProSubscriptionFromSource
+    
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 241)
-                    .background(
-                        LinearGradient(
-                            stops: [
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 0.16, green: 0.63, blue: 1
-                                    ).opacity(0.4), location: 0.00),
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 0.16, green: 0.63, blue: 1
-                                    ).opacity(0), location: 0.67),
-                            ],
-                            startPoint: UnitPoint(x: 0.41, y: 0),
-                            endPoint: UnitPoint(x: 0.3, y: 1)
+                if fromSource == .upgrade {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 241)
+                        .background(
+                            Image("iap_month_bg")
                         )
-                    )
+                }
 
                 ZStack(alignment: .top) {
                     ZStack(alignment: .bottom) {
@@ -87,28 +78,13 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                         .foregroundColor(.clear)
                         .frame(width: 335, height: 201)
                         .background(
-                            LinearGradient(
-                                stops: [
-                                    Gradient.Stop(
-                                        color: .white, location: 0.39),
-                                    Gradient.Stop(
-                                        color: Color(
-                                            red: 0.75, green: 0.84, blue: 1),
-                                        location: 1.00),
-                                ],
-                                startPoint: UnitPoint(x: 0.03, y: 0.03),
-                                endPoint: UnitPoint(x: 0.94, y: 1.13)
-                            )
+                            Image("iap_month_header_bg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipped()
                         )
                         .cornerRadius(24)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24)
-                                .inset(by: 0.5)
-                                .stroke(
-                                    Color(red: 0.84, green: 0.84, blue: 0.84),
-                                    lineWidth: 1)
-
-                        )
                     }
                     .foregroundColor(.clear)
                     .frame(maxWidth: .infinity)

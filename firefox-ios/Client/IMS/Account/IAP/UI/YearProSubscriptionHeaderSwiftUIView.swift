@@ -6,6 +6,7 @@ import SwiftUI
 
 struct YearProSubscriptionHeaderSwiftUIView: View {
     let info: ProSubscriptionInfo
+    let fromSource: ProSubscriptionFromSource
     
     var getYearMonthPriceString: String {
         IMSIAPAppleService.formatPrice(product: info.appleProduct, price: info.appleProduct.price / 12)
@@ -16,7 +17,6 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
     }
     
     var getYearOriginPriceString: String {
-    
         let discoutRate = 1 - info.serverProduct.discountRate
         let currentPrice = info.appleProduct.price
         let discountDecimal = Decimal(floatLiteral: discoutRate)
@@ -48,41 +48,23 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
         return IMSIAPAppleService.formatPrice(product: info.appleProduct, price: savedMoney)
     }
 
-    
-    
     var body: some View {
         VStack {
             ZStack(alignment: .top) {
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 241)
-                    .background(
-                        LinearGradient(
-                            stops: [
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 1, green: 0.57,
-                                        blue: 0.52
-                                    ).opacity(0.4),
-                                    location: 0.00),
-                                Gradient.Stop(
-                                    color: Color(
-                                        red: 1, green: 0.68,
-                                        blue: 0.52
-                                    ).opacity(0), location: 0.67
-                                ),
-                            ],
-                            startPoint: UnitPoint(
-                                x: 0.41, y: 0),
-                            endPoint: UnitPoint(x: 0.3, y: 1)
+                if fromSource == .upgrade {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 241)
+                        .background(
+                            Image("iap_year_bg")
                         )
-                    )
+                }
                 
                 ZStack(alignment: .top) {
                     VStack {
                         Spacer()
-                        HStack(spacing: 0){
+                        HStack(spacing: 0) {
                             Image("iap_year_discount_alerm")
                                 .resizable()
                                 .frame(width: 24, height: 24)
@@ -113,18 +95,17 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     location: 1.00),
                             ],
                             startPoint: UnitPoint(x: 0.31, y: 1.08),
-                            endPoint: UnitPoint(x: 0.92, y: 0)
-                        )
+                            endPoint: UnitPoint(x: 0.92, y: 0))
                     )
                     .cornerRadius(24, corners: [.bottomLeft, .bottomRight])
                     .offset(y: 201 - 64 + 44)
                     
                     ZStack(alignment: .bottom) {
-                        VStack(spacing: 0){
+                        VStack(spacing: 0) {
                             Spacer()
                                 .frame(height: 24)
                             
-                            HStack(spacing: 0){
+                            HStack(spacing: 0) {
                                 Spacer().frame(width: 24)
                                 Text("\(String.IMS.IAP.yearPro)")
                                     .font(.system(size: 24, weight: .bold))
@@ -168,15 +149,12 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                     .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
                                 
                                 Spacer()
-                                
                             }
                             
                             Spacer()
                             
                             HStack(alignment: .lastTextBaseline, spacing: 0) {
                                 Spacer().frame(width: 24)
-                                
-                                
                                 
                                 Text("\(getYearOriginPriceString)/\(String.IMS.IAP.year)")
                                     .font(
@@ -191,34 +169,19 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                             
                             Spacer()
                                 .frame(height: 30)
-                            
                         }
                         .foregroundColor(.clear)
                         .frame(maxWidth: .infinity)
                         .frame(height: 201)
                         .background(
-                            LinearGradient(
-                                stops: [
-                                    Gradient.Stop(
-                                        color: .white, location: 0.39),
-                                    Gradient.Stop(
-                                        color: Color(
-                                            red: 1, green: 0.82, blue: 0.84),
-                                        location: 1.00),
-                                ],
-                                startPoint: UnitPoint(x: 0.03, y: 0.03),
-                                endPoint: UnitPoint(x: 0.94, y: 1.13)
-                            )
+                            Image("iap_year_header_bg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipped()
                         )
                         .cornerRadius(24)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 24)
-                                .inset(by: 0.5)
-                                .stroke(
-                                    Color(red: 0.84, green: 0.84, blue: 0.84),
-                                    lineWidth: 1)
-                            
-                        )
+
                         if info.serverProduct.discountRate > 0 {
                             HStack {
                                 Spacer()
@@ -230,52 +193,32 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                                 "Alibaba PuHuiTi 3.0", size: 14)
                                         )
                                         .foregroundColor(
-                                            Color(
-                                                red: 0.92, green: 0.3,
-                                                blue: 0.54))
+                                            Color(red: 0.92, green: 0.3, blue: 0.54))
                                 }
                                 .foregroundColor(.clear)
-                                
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 5)
                                 .frame(height: 30)
                                 .background(
-                                    LinearGradient(
-                                        stops: [
-                                            Gradient.Stop(
-                                                color: Color(
-                                                    red: 0.92, green: 0.3,
-                                                    blue: 0.54
-                                                ).opacity(0.15), location: 0.00),
-                                            Gradient.Stop(
-                                                color: Color(
-                                                    red: 0.92, green: 0.3,
-                                                    blue: 0.54
-                                                ).opacity(0.04), location: 1.00),
-                                        ],
-                                        startPoint: UnitPoint(x: 1, y: 0),
-                                        endPoint: UnitPoint(x: 0, y: 1)
-                                    )
+                                    Image("iap_year_hot_icon")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        .clipped()
                                 )
                                 .cornerRadius(24, corners: [.topLeft, .bottomRight])
-                                
                             }
                         }
                     }
                     .foregroundColor(.clear)
                     .frame(maxWidth: .infinity)
                     .frame(height: 201)
-                    
-                    
                 }
                 .frame(maxWidth: .infinity)
-                
                 .padding(.horizontal, 20)
                 .padding(.top, 26)
-                
             }
             .ignoresSafeArea()
         }
     }
 }
-

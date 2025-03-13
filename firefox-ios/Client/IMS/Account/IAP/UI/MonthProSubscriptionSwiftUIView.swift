@@ -6,9 +6,10 @@ import SwiftUI
 
 struct MonthProSubscriptionSwiftUIView: View {
     let info: ProSubscriptionInfo
+    let fromSource: ProSubscriptionFromSource
     var body: some View {
         VStack(spacing: 0) {
-            MonthProSubscriptionHeaderSwiftUIView(info: info)
+            MonthProSubscriptionHeaderSwiftUIView(info: info, fromSource: fromSource)
                 .frame(maxWidth: .infinity)
                 .frame(height: 191 + 26)
             
