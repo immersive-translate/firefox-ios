@@ -22,7 +22,7 @@ extension IMSOnboardingCardViewController {
             attributes: primaryAttribute
         )
         imsprimaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
-        imsprimaryButton.backgroundColor = UIColor(hexString: "#CCCCCC")
+        imsprimaryButton.backgroundColor = UIColor(hexString: "#CCCCCC").withDarkColor("5C5C5C")
         imsprimaryButton.isEnabled = false
         view.addSubview(imsprimaryButton);
         
@@ -39,15 +39,15 @@ extension IMSOnboardingCardViewController {
    
         let bgView = UIView()
         bgView.translatesAutoresizingMaskIntoConstraints = false
-        bgView.backgroundColor = UIColor(hexString: "#FAFBFC")
+        bgView.backgroundColor = UIColor(hexString: "#FAFBFC").withDarkColor("2B2D30")
         bgView.layer.cornerRadius = 12
         bgView.layer.borderWidth = 1
-        bgView.layer.borderColor = UIColor(hexString: "#ECF0F7").cgColor
+        bgView.layer.borderColor = UIColor(hexString: "#ECF0F7").withDarkColor("3E434B").cgColor
         view.addSubview(bgView)
         
         let titleView = UIView()
         titleView.layer.cornerRadius = 7
-        titleView.backgroundColor = UIColor(hexString: "#E0E0E6")
+        titleView.backgroundColor = UIColor(hexString: "#E0E0E6").withDarkColor("43474B")
         bgView.addSubview(titleView)
         titleView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)

@@ -276,7 +276,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated + "🎉", attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
-        label.textColor = UIColor(colorString: "222222")
+        label.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         contentView.addSubview(label);
 
         let gridView = IMSOnboardingGridView(columns: 3, config: .init(horizontalSpacing: 0, verticalSpacing: 28, imageSize: .init(width: 67, height: 67), titleFont: .systemFont(ofSize: 16)))
@@ -328,7 +328,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBiggerWorld, attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
-        label.textColor = UIColor(colorString: "222222")
+        label.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         view.addSubview(label);
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),

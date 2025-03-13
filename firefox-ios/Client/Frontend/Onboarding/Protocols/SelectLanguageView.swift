@@ -13,14 +13,14 @@ class SelectLanguageCell: UITableViewCell {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = UIFont .systemFont(ofSize: 14)
-        titleLabel.textColor =  UIColor(colorString: "222222")
+        titleLabel.textColor =  UIColor(colorString: "222222").withDarkColor("DBDBDB")
         return titleLabel
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.clear;
-        self.contentView.backgroundColor = UIColor(colorString: "FAFBFC")
+        self.contentView.backgroundColor = UIColor(colorString: "FAFBFC").withDarkColor("2B2D30")
         initUI()
     }
     
@@ -63,7 +63,7 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, U
         let selectTextField = UITextField()
         selectTextField.translatesAutoresizingMaskIntoConstraints = false
         selectTextField.font = UIFont .systemFont(ofSize: 14)
-        selectTextField.textColor =  UIColor(colorString: "222222")
+        selectTextField.textColor =  UIColor(colorString: "222222").withDarkColor("DBDBDB")
         selectTextField.delegate = self
         selectTextField.returnKeyType = .done
         selectTextField.addTarget(self, action:  #selector(editingChanged), for: .editingChanged)
@@ -99,15 +99,20 @@ class SelectLanguageView: UIView,  UITableViewDelegate, UITableViewDataSource, U
                                                               attributes: [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
                                                                            NSAttributedString.Key.foregroundColor:  UIColor(colorString: "FF5B5B")])
         let text:String = .ImtLocalizableIntroNativeLanguage
-        labelMutableAttribute.append(NSAttributedString(string: "\(text)：", attributes: [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
-                                                                                      NSAttributedString.Key.foregroundColor:  UIColor(colorString: "666666")]))
+        labelMutableAttribute.append(NSAttributedString(
+            string: "\(text)：",
+            attributes: [
+                NSAttributedString.Key.font: UIFont .systemFont(ofSize: 14),
+                NSAttributedString.Key.foregroundColor:  UIColor(colorString: "666666").withDarkColor("B3B3B3")
+            ]
+        ))
         label.attributedText = labelMutableAttribute
         addSubviews(label)
         
         let selectView = UIView();
         selectView.translatesAutoresizingMaskIntoConstraints = false
-        selectView.backgroundColor = UIColor(colorString: "FAFBFC")
-        selectView.layer.borderColor = UIColor(colorString: "ECF0F7").cgColor
+        selectView.backgroundColor = UIColor(colorString: "FAFBFC").withDarkColor("2B2D30")
+        selectView.layer.borderColor = UIColor(colorString: "ECF0F7").withDarkColor("3E434B").cgColor
         selectView.layer.borderWidth = 1.0
         selectView.layer.cornerRadius = 12.0
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(showAll))
