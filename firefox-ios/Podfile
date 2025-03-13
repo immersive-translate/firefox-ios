@@ -9,7 +9,6 @@ target 'Client' do
   pod 'BetterCodable', '0.4.0'
   pod 'SwiftyJSON', '4.0.0'
   pod 'AttributedString', '3.3.5'
-  pod 'lottie-ios', '4.5.1'
 end
 
 post_install do |installer|

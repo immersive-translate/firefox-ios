@@ -48,3 +48,10 @@
 "Imt.Common.API.Error.Message" = "오류 발생";
 "Imt.Home.login.action" = "지금 로그인";
 "Imt.Home.login.desc" = "최고의 경험";
+"Imt.Onboarding.TranslateExample.before.title" = "다음 페이지를 번역해 보세요.";
+"Imt.Onboarding.TranslateExample.before.desc" = "주소창에 있는 번역아이콘을 클릭해서 번역해보세요";
+"Imt.Onboarding.TranslateExample.after.title" = "🎉축하해요!";
+"Imt.Onboarding.TranslateExample.after.desc" = "당신은 방금 첫 번째 이중 언어 번역을 완료했습니다!";
+"Imt.Onboarding.TranslateExample.button" = "계속하다";
+"Imt.Onboarding.TranslateExample.skip" = "뛰어넘다";
+"Imt.Onboarding.TranslateExample.next" = "이제 다음 단계로 넘어갈 수 있습니다.";
