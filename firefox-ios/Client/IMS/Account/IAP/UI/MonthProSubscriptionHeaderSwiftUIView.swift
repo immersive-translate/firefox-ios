@@ -18,6 +18,10 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                         .frame(height: 241)
                         .background(
                             Image("iap_month_bg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipped()
                         )
                 }
 

@@ -66,7 +66,8 @@ extension IMSOnboardingCardViewController {
             make.left.equalToSuperview().offset(12)
         }
         
-        let imageView = UIImageView(image: UIImage(named: "toolbar_tranlate_setting"))
+        let imageView = UIImageView(image: UIImage(named: "toolbar_tranlate_setting")?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = UIColor(hexString: "#222222").withDarkColor("D8D8D8")
         titleView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()

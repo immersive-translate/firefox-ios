@@ -128,8 +128,9 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     
     lazy var translateButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "toolbar_tranlate_normal"), for: .normal)
-        button.setImage(UIImage(named: "toolbar_tranlate_active"), for: .disabled)
+        button.setImage(UIImage(named: "toolbar_tranlate_normal")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(named: "toolbar_tranlate_active_all")?.withRenderingMode(.alwaysOriginal), for: .disabled)
+        button.tintColor = UIColor(hexString: "#222222").withDarkColor("D8D8D8")
         return button
     }()
     

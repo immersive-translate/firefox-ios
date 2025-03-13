@@ -397,7 +397,7 @@ struct ProSubscriptionSwiftUIView: View {
                     RoundedRectangle(cornerRadius: 28)
                         .inset(by: -0.5)
                         .stroke(
-                            Color(uiColor: UIColor(hexString: "#ECF0F7")),
+                            Color(uiColor: UIColor(hexString: "#ECF0F7").withDarkColor("#666666")),
                             lineWidth: 1)
 
                 )

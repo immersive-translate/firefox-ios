@@ -58,6 +58,10 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                         .frame(height: 241)
                         .background(
                             Image("iap_year_bg")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipped()
                         )
                 }
                 
