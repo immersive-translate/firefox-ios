@@ -138,8 +138,8 @@ extension IMSOnboardingCardViewController {
         APIService.sendRequest(APPAPI.LoadOnboardingTranslationsRequest(language: language)) { response in
             switch response.result.validateResult {
             case let .success(info):
-                self.translateModel = info.first(where: { $0.key == "welcome_message" })
-                self.translateExampleTextView.text = self.translateModel?.english
+                self.translateModelArr = info.filter({ $0.key == "welcome_message" })
+                self.translateExampleTextView.text = self.translateModelArr.compactMap({ $0.english }).joined(separator: "\n\n")
             case .failure:
                 ()
             }
@@ -149,7 +149,7 @@ extension IMSOnboardingCardViewController {
     @objc
     private func translateButtonOnClick() {
         translateExampleFireworksLottieView.isHidden = false
-        translateExampleTextView.text = (translateModel?.english ?? "") + "\n" + (translateModel?.localizedText ?? "")
+        translateExampleTextView.text = self.translateModelArr.compactMap({ $0.english + "\n" + $0.localizedText }).joined(separator: "\n\n")
         translateButton.isEnabled = false
         imsprimaryButton.backgroundColor = UIColor(hexString: "#222222")
         imsprimaryButton.isEnabled = true

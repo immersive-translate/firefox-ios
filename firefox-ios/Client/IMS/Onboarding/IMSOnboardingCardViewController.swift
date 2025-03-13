@@ -152,7 +152,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         return view
     }()
     
-    var translateModel: APPAPI.LoadOnboardingTranslationsModel?
+    var translateModelArr: [APPAPI.LoadOnboardingTranslationsModel] = []
 
     // MARK: - Initializers
     init(
