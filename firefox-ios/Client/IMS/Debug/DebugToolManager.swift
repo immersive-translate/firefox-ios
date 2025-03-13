@@ -31,17 +31,17 @@ final class DebugToolManager {
 
 extension DebugToolManager {
     func show() {
-        UserDefaultsConfig.showDebugTool = true
+        StoreConfig.showDebugTool = true
         reload()
     }
 
     func hide() {
-        UserDefaultsConfig.showDebugTool = false
+        StoreConfig.showDebugTool = false
         reload()
     }
 
     func reload() {
-        if UserDefaultsConfig.showDebugTool {
+        if StoreConfig.showDebugTool {
             DispatchQueue.main.async {
                 let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let window = scene?.windows.first

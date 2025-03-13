@@ -23,8 +23,8 @@ final class IMSAPPConfigUtils {
         if let config = _config {
             return config
         }
-        if UserDefaultsConfig.appConfig.isNotEmpty {
-            guard let data = UserDefaultsConfig.appConfig.data(using: .utf8) else { return IMSAPPConfig() }
+        if StoreConfig.appConfig.isNotEmpty {
+            guard let data = StoreConfig.appConfig.data(using: .utf8) else { return IMSAPPConfig() }
             if let config = try? JSONDecoder().decode(IMSAPPConfig.self, from: data) {
                 _config = config
                 return config
@@ -44,7 +44,7 @@ extension IMSAPPConfigUtils {
             case let .success(info):
                 self._config = info
                 if let data = try? JSONEncoder().encode(info), let jsonString = String(data: data, encoding: .utf8) {
-                    UserDefaultsConfig.appConfig = jsonString
+                    StoreConfig.appConfig = jsonString
                 }
             case .failure:
                 ()

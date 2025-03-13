@@ -75,7 +75,7 @@ extension DebugToolViewController: UITableViewDataSource {
         case .networkEnv:
             cell.detailTextLabel?.text = IMSAppManager.shared.currentEnv.name
         case .deugLog:
-            cell.detailTextLabel?.text = "\(UserDefaultsConfig.debugLog)"
+            cell.detailTextLabel?.text = "\(StoreConfig.debugLog)"
         }
         return cell
     }
@@ -87,13 +87,13 @@ extension DebugToolViewController: UITableViewDelegate {
         switch model {
         case .networkEnv:
             if IMSAppManager.shared.currentEnv == .product {
-                UserDefaultsConfig.networkEnvStr = IMSAppUrlConfig.IMSAppENV.dev.rawValue
+                StoreConfig.networkEnvStr = IMSAppUrlConfig.IMSAppENV.dev.rawValue
             } else {
-                UserDefaultsConfig.networkEnvStr = IMSAppUrlConfig.IMSAppENV.product.rawValue
+                StoreConfig.networkEnvStr = IMSAppUrlConfig.IMSAppENV.product.rawValue
             }
             tableView.reloadData()
         case .deugLog:
-            UserDefaultsConfig.debugLog = !UserDefaultsConfig.debugLog
+            StoreConfig.debugLog = !StoreConfig.debugLog
             tableView.reloadData()
         }
     }

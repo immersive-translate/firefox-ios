@@ -70,7 +70,7 @@ struct IMSAppManager {
     
     var currentEnv: IMSAppUrlConfig.IMSAppENV {
 //        return .dev
-        IMSAppUrlConfig.IMSAppENV(rawValue: UserDefaultsConfig.networkEnvStr) ?? .product
+        IMSAppUrlConfig.IMSAppENV(rawValue: StoreConfig.networkEnvStr) ?? .product
     }
     
     var topSiteService = IMSAPPTopSiteService()
