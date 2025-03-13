@@ -79,6 +79,7 @@ class IMSMainMenuController: StoreSubscriber {
 
 enum IMSMainMenuNavigationDestination: Equatable, CaseIterable {
     case upgrade
+    case feedback
 }
 
 final class IMSMainMenuAction: Action {
@@ -161,6 +162,8 @@ extension MainMenuCoordinator {
             switch destination {
             case .upgrade:
                 self.showIMSUpgrade()
+            case .feedback:
+                showIMSFeedback()
             }
             removeCoordinatorFromParent()
         })
@@ -170,6 +173,11 @@ extension MainMenuCoordinator {
         if let imsBrowserCoordinator = self.navigationHandler as? IMSBrowserCoordinatorDelegate {
             imsBrowserCoordinator.showIMSUpgradeViewController()
         }
-        
+    }
+    
+    private func showIMSFeedback() {
+        if let imsBrowserCoordinator = self.navigationHandler as? IMSBrowserCoordinatorDelegate {
+            imsBrowserCoordinator.showIMSFeedbackViewController()
+        }
     }
 }

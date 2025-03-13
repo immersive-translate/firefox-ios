@@ -16,6 +16,7 @@ enum HomepageSectionType: Int, CaseIterable {
     case historyHighlights
     case pocket
     case customizeHome
+    case imsFeedback
 
     var title: String? {
         switch self {

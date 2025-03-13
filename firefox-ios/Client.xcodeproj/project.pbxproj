@@ -421,6 +421,9 @@
 		2B1BC2DD2D81E4D0008297B7 /* onboarding_fireworks.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */; };
 		2B1BC2E02D81EEF9008297B7 /* onboarding_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */; };
 		2B1BC2E12D81EEF9008297B7 /* onboarding_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */; };
+		2B1BC3812D825A31008297B7 /* IMSFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC3802D825A26008297B7 /* IMSFeedbackViewController.swift */; };
+		2B1BC6D72D829E82008297B7 /* IMSHomeFeedbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */; };
+		2B1BC6D82D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
@@ -2988,6 +2991,9 @@
 		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
 		2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding_fireworks.lottie; sourceTree = "<group>"; };
 		2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = onboarding_arrow.json; sourceTree = "<group>"; };
+		2B1BC3802D825A26008297B7 /* IMSFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSFeedbackViewController.swift; sourceTree = "<group>"; };
+		2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackCell.swift; sourceTree = "<group>"; };
+		2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackCellViewModel.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
@@ -5616,6 +5622,7 @@
 				29EF1DEB2D37E79D0066018B /* HomepageSectionType+IMS.swift */,
 				29EF1DE82D37E75B0066018B /* TopSite */,
 				2B42C8252D7B17F100B88246 /* Login */,
+				2B1BC6D42D829E07008297B7 /* Feedback */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -5635,6 +5642,7 @@
 		29909E9C2D37DEA5005C0328 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				2B1BC3802D825A26008297B7 /* IMSFeedbackViewController.swift */,
 				29F044B62D689CEC00C89C1C /* IMSPrivacyPolicySetting.swift */,
 				29F044B82D689D6700C89C1C /* IMSTermsofServiceSetting.swift */,
 				29EF1DF22D37FF440066018B /* AppSettingsTableViewController+IMS.swift */,
@@ -5741,13 +5749,22 @@
 				2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */,
 			);
 			path = Lottie;
+            sourceTree = "<group>";
+        };
+		2B1BC6D42D829E07008297B7 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */,
+				2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */,
+			);
+			path = Feedback;
 			sourceTree = "<group>";
 		};
 		2B42C8252D7B17F100B88246 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
 				2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */,
+				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -12227,6 +12244,8 @@
 				1DA6F6512B48B42900BB5AD6 /* WindowEventCoordinator.swift in Sources */,
 				0B11AF022CB412D100AD51D5 /* Metrics.swift in Sources */,
 				C4E3984C1D21F2FD004E89BA /* TabTrayButtonExtensions.swift in Sources */,
+				2B1BC6D72D829E82008297B7 /* IMSHomeFeedbackCell.swift in Sources */,
+				2B1BC6D82D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift in Sources */,
 				ED07C0E62CCACD7E006C0627 /* Locale+possibilitiesForLanguageIdentifier.swift in Sources */,
 				437A857827E43FE100E42764 /* FxAWebViewTelemetry.swift in Sources */,
 				E13E9AB42AAB0FB5001A0E9D /* FakespotCoordinator.swift in Sources */,
@@ -12429,6 +12448,7 @@
 				21AFCFF02AE80D370027E9CE /* RemoteTabsCoordinator.swift in Sources */,
 				7ADC1D192C27D35B003ED924 /* ActionProviderBuilder.swift in Sources */,
 				43162A2F2492DB7800F91658 /* EmptyPrivateTabsView.swift in Sources */,
+				2B1BC3812D825A31008297B7 /* IMSFeedbackViewController.swift in Sources */,
 				E1380B8D2AEA897C00630AFA /* SidebarEnabledView.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
 				9636D92E27F9E5D900771F5E /* GleanPlumbMessage.swift in Sources */,

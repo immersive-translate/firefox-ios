@@ -102,6 +102,31 @@ extension MainMenuConfigurationUtility {
             menuSections.append(imsMenuSection)
         }
         
+        let feedbackAction = MenuElement(
+            title: "Imt.Setting.menu.feedback".i18nImt(),
+            iconName: "setting_feedback",
+            isEnabled: true,
+            isActive: false,
+            a11yLabel: "",
+            a11yHint: "",
+            a11yId: "",
+            action: {
+                imsStore.dispatch(
+                    IMSMainMenuAction(
+                        windowUUID: uuid,
+                        actionType: MainMenuActionType.tapNavigateToDestination,
+                        navigationDestination: .feedback,
+                        telemetryInfo: TelemetryInfo(isHomepage: tabInfo.isHomepage)
+                    )
+                )
+            }
+        )
+
+        if var options = menuSections.last?.options, options.count > 1 {
+            options.insert(feedbackAction, at: options.count - 1)
+            let lastMenuSection = MenuSection(options: options)
+            menuSections[menuSections.count - 1] = lastMenuSection
+        }
         return menuSections
         
     }

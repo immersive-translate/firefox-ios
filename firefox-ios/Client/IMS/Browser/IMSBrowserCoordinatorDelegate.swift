@@ -4,6 +4,8 @@
 
 protocol IMSBrowserCoordinatorDelegate: AnyObject {
     func showIMSUpgradeViewController()
+    
+    func showIMSFeedbackViewController()
 }
 
 extension BrowserCoordinator: IMSBrowserCoordinatorDelegate {
@@ -26,4 +28,11 @@ extension BrowserCoordinator: IMSBrowserCoordinatorDelegate {
         
         router.present(navigationController)
     }
+    
+    func showIMSFeedbackViewController() {
+        let viewController = IMSFeedbackViewController()
+        viewController.windowUUID = windowUUID
+        RouterManager.shared.present(DismissableNavigationViewController(rootViewController: viewController), animated: true)
+    }
+    
 }

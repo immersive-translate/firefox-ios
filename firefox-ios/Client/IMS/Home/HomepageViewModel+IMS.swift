@@ -11,5 +11,7 @@ extension HomepageViewModel {
         self.childViewModels.insert(topSiteViewModel, at: 2)
         let loginViewModel = IMSHomeLoginCellViewModel(theme: theme, wallpaperManager: wallpaperManager)
         self.childViewModels.insert(loginViewModel, at: 3)
+        let feedbackModel = IMSHomeFeedbackCellViewModel(theme: theme, wallpaperManager: wallpaperManager)
+        self.childViewModels.append(feedbackModel)
     }
 }

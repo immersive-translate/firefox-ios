@@ -20,6 +20,14 @@ extension LegacyHomepageViewController {
                 showSiteWithURLHandler(url, isGoogleTopSite: false)
             }
         }
+        if let viewModel = self.viewModel.childViewModels[self.viewModel.childViewModels.count - 1] as? IMSHomeFeedbackCellViewModel {
+            viewModel.feedbackHandler = { [weak self] in
+                guard let self = self else { return }
+                let viewController = IMSFeedbackViewController()
+                viewController.windowUUID = self.windowUUID
+                RouterManager.shared.present(DismissableNavigationViewController(rootViewController: viewController), animated: true)
+            }
+        }
     }
     
     private func initNotificationCenter() {
