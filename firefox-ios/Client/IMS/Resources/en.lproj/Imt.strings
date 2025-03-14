@@ -48,3 +48,10 @@
 "Imt.Common.API.Error.Message" = "An error occurred";
 "Imt.Home.login.action" = "Login Now";
 "Imt.Home.login.desc" = "Enjoy the best experience";
+"Imt.Onboarding.TranslateExample.before.title" = "Please try to translate the following page";
+"Imt.Onboarding.TranslateExample.before.desc" = "Click on the translation icon in the address bar to translate";
+"Imt.Onboarding.TranslateExample.after.title" = "🎉Congratulations!";
+"Imt.Onboarding.TranslateExample.after.desc" = "You have just made your first bilingual translation!";
+"Imt.Onboarding.TranslateExample.button" = "Continue";
+"Imt.Onboarding.TranslateExample.skip" = "Skip";
+"Imt.Onboarding.TranslateExample.next" = "Now you can move on to the next step.";

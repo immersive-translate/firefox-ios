@@ -16,6 +16,7 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     let viewModel: ProSubscriptionViewModel
     
+    
     init(profile: Profile? = nil,
          tabManager: TabManager? = nil,
          windowUUID: WindowUUID,
@@ -31,13 +32,16 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let hostingController = UIHostingController(rootView: ProSubscriptionSwiftUIView(viewModel: self.viewModel))
         self.view.addSubview(hostingController.view)
         self.addChild(hostingController)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        if viewModel.fromSource == .onboarding {
+            let theme = themeManager.getCurrentTheme(for: currentWindowUUID)
+            hostingController.view.backgroundColor = theme.colors.layer2
+        }
         NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            hostingController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: viewModel.fromSource == .onboarding ? -20 : 0),
             hostingController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             hostingController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             hostingController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
@@ -64,6 +68,12 @@ class IMSAccountUpgradeViewController: SettingsViewController, AppSettingsScreen
     
     func handle(route: Route.SettingsSection) {
         
+    }
+    
+    override func applyTheme() {
+        super.applyTheme()
+        let theme = themeManager.getCurrentTheme(for: currentWindowUUID)
+        self.subscriptionHostingController?.view.backgroundColor = theme.colors.layer2
     }
     
     

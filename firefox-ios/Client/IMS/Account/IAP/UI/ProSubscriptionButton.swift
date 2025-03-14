@@ -21,12 +21,12 @@ struct ProSubscriptionButton: View {
             )
         )
         .cornerRadius(12)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.5)
-                .stroke(
-                    Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
-            )
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 12)
+//                .inset(by: 0.5)
+//                .stroke(
+//                    Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+//            )
     }
     
     var enableButtonBgView: some View {
@@ -47,13 +47,13 @@ struct ProSubscriptionButton: View {
             )
         )
         .cornerRadius(12)
-        .overlay(
-            RoundedRectangle(cornerRadius: 12)
-                .inset(by: 0.5)
-                .stroke(
-                    Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
-            
-        )
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 12)
+//                .inset(by: 0.5)
+//                .stroke(
+//                    Color(red: 0.6, green: 0.6, blue: 0.6), lineWidth: 1)
+//            
+//        )
     }
     
     var upgradeToPc: some View {

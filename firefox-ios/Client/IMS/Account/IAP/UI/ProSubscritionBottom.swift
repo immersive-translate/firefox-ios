@@ -14,7 +14,7 @@ struct ProSubscritionBottom: View {
             } label: {
                 Text("\(String.IMS.IAP.termsOfService)")
                     .font(Font.custom("PingFang SC", size: 12))
-                    .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
+                    .foregroundColor(Color(uiColor: UIColor(hexString: "#CCCCCC").withDarkColor("#5C5C5C")))
             }
             .frame(maxWidth: .infinity)
 
@@ -23,7 +23,7 @@ struct ProSubscritionBottom: View {
             } label: {
                 Text("\(String.IMS.IAP.privacyPolicy)")
                     .font(Font.custom("PingFang SC", size: 12))
-                    .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
+                    .foregroundColor(Color(uiColor: UIColor(hexString: "#CCCCCC").withDarkColor("#5C5C5C")))
             }
             .frame(maxWidth: .infinity)
             
@@ -32,7 +32,7 @@ struct ProSubscritionBottom: View {
             } label: {
                 Text("\(String.IMS.IAP.restorePurchases)")
                     .font(Font.custom("PingFang SC", size: 12))
-                    .foregroundColor(Color(red: 0.8, green: 0.8, blue: 0.8))
+                    .foregroundColor(Color(uiColor: UIColor(hexString: "#CCCCCC").withDarkColor("#5C5C5C")))
             }
             .frame(maxWidth: .infinity)
         }

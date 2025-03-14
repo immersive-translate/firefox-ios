@@ -172,9 +172,9 @@ class UserScriptManager: FeatureFlaggable {
         
         let setLanguageName = "set-language"
         if let setLanguageUserScript = compiledUserScripts[setLanguageName] {
-            if !UserDefaultsConfig.alreadySetLanguage {
+            if !StoreConfig.alreadySetLanguage {
                 webView?.configuration.userContentController.addUserScript(setLanguageUserScript)
-                UserDefaultsConfig.alreadySetLanguage = true
+                StoreConfig.alreadySetLanguage = true
             }
         }
 

@@ -9,6 +9,8 @@ target 'Client' do
   pod 'BetterCodable', '0.4.0'
   pod 'SwiftyJSON', '4.0.0'
   pod 'AttributedString', '3.3.5'
+  pod 'KeychainAccess', "4.2.2"
+#  pod 'LookinServer', '1.0.4'
 end
 
 post_install do |installer|

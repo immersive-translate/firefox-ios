@@ -20,7 +20,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     // MARK: - Properties
     weak var delegate: OnboardingCardDelegate?
 
-    private lazy var imstitleLabel: UILabel = .build { label in
+    lazy var imstitleLabel: UILabel = .build { label in
         label.numberOfLines = 0
         label.textAlignment = .left
         label.font = DefaultDynamicFontHelper.preferredBoldFont(withTextStyle: .largeTitle,
@@ -30,7 +30,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         label.accessibilityTraits.insert(.header)
     }
 
-    private lazy var imsdescriptionLabel: UILabel = .build { label in
+    lazy var imsdescriptionLabel: UILabel = .build { label in
         label.numberOfLines = 0
         label.textAlignment = .left
         label.font = DefaultDynamicFontHelper.preferredFont(withTextStyle: .body,
@@ -39,7 +39,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         label.accessibilityIdentifier = "\(self.viewModel.a11yIdRoot)DescriptionLabel"
     }
     
-    private lazy var imsprimaryButton: UIButton = {
+    lazy var imsprimaryButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 12.0
@@ -49,7 +49,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         return button
     }()
     
-    private lazy var imssecondaryButton: UIButton = {
+    lazy var imssecondaryButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(self.secondaryAction), for: .touchUpInside)
@@ -123,6 +123,37 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     
     var modalBrowserCoordinator: ModalBrowserCoordinator?
 
+    
+    // MARK: - 翻译示例
+    
+    lazy var translateButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "toolbar_tranlate_normal")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(named: "toolbar_tranlate_active_all")?.withRenderingMode(.alwaysOriginal), for: .disabled)
+        button.tintColor = UIColor(hexString: "#222222").withDarkColor("D8D8D8")
+        return button
+    }()
+    
+    lazy var translateExampleTextView: UITextView = {
+        let view = UITextView()
+        view.backgroundColor = .clear
+        view.isEditable = false
+        view.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        return view
+    }()
+    
+    lazy var translateExampleArrowLottieView: LottieAnimationView = {
+        let view = LottieAnimationView(name: "onboarding_arrow")
+        view.loopMode = .loop
+        return view
+    }()
+    
+    lazy var translateExampleFireworksLottieView: LottieAnimationView = {
+        let view = LottieAnimationView(dotLottieName: "onboarding_fireworks")
+        return view
+    }()
+    
+    var translateModelArr: [APPAPI.LoadOnboardingTranslationsModel] = []
 
     // MARK: - Initializers
     init(
@@ -146,6 +177,9 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             setupFirstIntroView()
         } else if (viewModel.name == "translate-intro") {
             setupSecondaryIntroView()
+        } else if (viewModel.name == "translate-example") {
+            setupExampleView()
+            getExampleData()
         } else if (viewModel.name == "welcome-intro") {
             setupThirdIntroView()
         } else if (viewModel.name == "subscription") {
@@ -163,6 +197,9 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         delegate?.sendCardViewTelemetry(from: viewModel.name)
+        if viewModel.name == "translate-example" && translateExampleArrowLottieView.superview != nil {
+            translateExampleArrowLottieView.play()
+        }
     }
 
     // MARK: - View setup
@@ -240,7 +277,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroAllTranslated + "🎉", attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
-        label.textColor = UIColor(colorString: "222222")
+        label.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         contentView.addSubview(label);
 
         let gridView = IMSOnboardingGridView(columns: 3, config: .init(horizontalSpacing: 0, verticalSpacing: 28, imageSize: .init(width: 67, height: 67), titleFont: .systemFont(ofSize: 16)))
@@ -270,7 +307,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             contentView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 26),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -26),
             
-            imsprimaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            imsprimaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -UX.buttonBottomMargin),
             imsprimaryButton.leftAnchor.constraint(equalTo: imstitleLabel.leftAnchor),
             imsprimaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imsprimaryButton.heightAnchor.constraint(equalToConstant: UX.primaryButtonHeight),
@@ -292,7 +329,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         let labelAttribute = [NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let labelAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroBiggerWorld, attributes: labelAttribute)
         label.attributedText = labelAttributeTitle
-        label.textColor = UIColor(colorString: "222222")
+        label.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         view.addSubview(label);
         
         let primaryAttribute = [NSAttributedString.Key.font: UIFont .systemFont(ofSize: 16),

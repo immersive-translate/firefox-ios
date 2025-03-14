@@ -8,15 +8,45 @@ import Shared
 enum APPAPI {
     struct GlobalConfigRequest: IMSAPIRequest {
         typealias DataResponse = IMSAPPConfig
-
+        
         var path: String {
             return "/v1/app/globalconfig"
         }
         
         var parameters: [String: Any]? {
+            return nil
+        }
+    }
+}
+
+extension APPAPI {
+    
+    struct LoadOnboardingTranslationsModel: Codable {
+
+        @DefaultEmptyString
+        var english: String = ""
+
+        @DefaultEmptyString
+        var key: String = ""
+
+        @DefaultEmptyString
+        var localizedText: String = ""
+    }
+
+    
+    struct LoadOnboardingTranslationsRequest: IMSAPIRequest {
+        typealias DataResponse = [LoadOnboardingTranslationsModel]
+        
+        /// 母语
+        var language: String
+        
+        var path: String {
+            return "/v1/app/load-onboarding-translations"
+        }
+        
+        var parameters: [String: Any]? {
             return [
-                "platForm": "ios",
-                "appVersion": AppInfo.appVersion,
+                "language": language
             ]
         }
     }

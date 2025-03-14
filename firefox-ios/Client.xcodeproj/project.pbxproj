@@ -417,12 +417,19 @@
 		29F4D6AD2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */; };
 		29F87B412D5A545F0013C044 /* MainMenuViewController+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */; };
 		29F87B442D5B6E5B0013C044 /* IMSAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F87B432D5B6E520013C044 /* IMSAppManager.swift */; };
+		2B1BC2DB2D81E4D0008297B7 /* onboarding_fireworks.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */; };
+		2B1BC2DD2D81E4D0008297B7 /* onboarding_fireworks.lottie in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */; };
+		2B1BC2E02D81EEF9008297B7 /* onboarding_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */; };
+		2B1BC2E12D81EEF9008297B7 /* onboarding_arrow.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
+		2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
+		2BAF046E2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */; };
+		2BAF04702D81CA5200D86E21 /* UIColor+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF046F2D81CA5200D86E21 /* UIColor+IMS.swift */; };
 		2BB810502D7F3649009C4EA6 /* LibExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8104F2D7F3642009C4EA6 /* LibExport.swift */; };
-		2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */; };
+		2BB810522D7F367E009C4EA6 /* StoreConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810512D7F367D009C4EA6 /* StoreConfig.swift */; };
 		2BB8105A2D7F3714009C4EA6 /* DebugToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */; };
 		2BB8105B2D7F3714009C4EA6 /* DebugToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */; };
 		2BB8105E2D7F3765009C4EA6 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */; };
@@ -734,7 +741,7 @@
 		5AF6254528A57B6700A90253 /* MockHistoryHighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254428A57B6700A90253 /* MockHistoryHighlightsManager.swift */; };
 		5AF6254728A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254628A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift */; };
 		5AF6254928A58BB400A90253 /* MockHistoryHighlightsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254828A58BB400A90253 /* MockHistoryHighlightsDelegate.swift */; };
-		5BCA3B616005528D04EE32CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F130D2D2483508E00B0F7D0 /* FxAWebViewModel.swift */; };
 		5FA2233C27F74071005B3D87 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA2233B27F74071005B3D87 /* Glean */; };
 		5FC276552894AEFF00AF2721 /* LibraryPanelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B101D1AA7F9C600C01CA3 /* LibraryPanelHelper.swift */; };
@@ -2979,12 +2986,17 @@
 		29F4D6AC2D41419500BA6F44 /* ProSubscriptionPopverTipIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProSubscriptionPopverTipIcon.swift; sourceTree = "<group>"; };
 		29F87B402D5A545B0013C044 /* MainMenuViewController+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainMenuViewController+IMS.swift"; sourceTree = "<group>"; };
 		29F87B432D5B6E520013C044 /* IMSAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAppManager.swift; sourceTree = "<group>"; };
+		2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding_fireworks.lottie; sourceTree = "<group>"; };
+		2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = onboarding_arrow.json; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
+		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
+		2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IMSOnboardingCardViewController+TranslateExample.swift"; sourceTree = "<group>"; };
+		2BAF046F2D81CA5200D86E21 /* UIColor+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+IMS.swift"; sourceTree = "<group>"; };
 		2BB8104F2D7F3642009C4EA6 /* LibExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibExport.swift; sourceTree = "<group>"; };
-		2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsConfig.swift; sourceTree = "<group>"; };
+		2BB810512D7F367D009C4EA6 /* StoreConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreConfig.swift; sourceTree = "<group>"; };
 		2BB810582D7F3714009C4EA6 /* DebugToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolManager.swift; sourceTree = "<group>"; };
 		2BB810592D7F3714009C4EA6 /* DebugToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugToolViewController.swift; sourceTree = "<group>"; };
 		2BB8105D2D7F3764009C4EA6 /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
@@ -4759,7 +4771,7 @@
 				29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
-				5BCA3B616005528D04EE32CA /* (null) in Frameworks */,
+				5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */,
 				56580B41878993A988A29313 /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5497,11 +5509,12 @@
 				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
 				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				2BB8104F2D7F3642009C4EA6 /* LibExport.swift */,
-				2BB810512D7F367D009C4EA6 /* UserDefaultsConfig.swift */,
+				2BB810512D7F367D009C4EA6 /* StoreConfig.swift */,
 				29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */,
 				29F87B432D5B6E520013C044 /* IMSAppManager.swift */,
 				2B2083D42D8025EA00F4402F /* Constants.swift */,
 				2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */,
+				2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5578,6 +5591,7 @@
 				29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */,
 				29909E922D37DBAF005C0328 /* Strings+IMS.swift */,
 				29909E8F2D37DAD1005C0328 /* URL+IMS.swift */,
+				2BAF046F2D81CA5200D86E21 /* UIColor+IMS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -5609,6 +5623,7 @@
 		29909E952D37DCDC005C0328 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B1BC2D82D81E4C3008297B7 /* Lottie */,
 				295166202D2C109000CAD566 /* immersive-translate.user.js */,
 				29909E712D36A0CE005C0328 /* IMSAccount.strings */,
 				29909E962D37DD80005C0328 /* Imt.strings */,
@@ -5667,6 +5682,7 @@
 				29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */,
 				29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */,
 				29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */,
+				2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -5716,6 +5732,15 @@
 				29909E872D37D9D8005C0328 /* IMSIAPAppleService.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B1BC2D82D81E4C3008297B7 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				2B1BC2DF2D81EEF9008297B7 /* onboarding_arrow.json */,
+				2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		2B42C8252D7B17F100B88246 /* Login */ = {
@@ -10605,6 +10630,7 @@
 				43937C2329BA686000074633 /* Onboarding.strings in Resources */,
 				D59643EF25C9B8E000EAB8B9 /* PrivateBrowsing.strings in Resources */,
 				4369B8812B0B75A8003791B9 /* FirefoxHomepage.strings in Resources */,
+				2B1BC2E12D81EEF9008297B7 /* onboarding_arrow.json in Resources */,
 				43C50B532A0BCAA800C6A134 /* Upgrade.strings in Resources */,
 				D59643EB25C9B8E000EAB8B9 /* ClearHistoryConfirm.strings in Resources */,
 				43B966AF2BE8F11D007448EA /* Microsurvey.strings in Resources */,
@@ -10637,6 +10663,7 @@
 				439A221229F69A0C00F120EE /* ZoomPageBar.strings in Resources */,
 				43B296372B305F1E00A5AA9B /* Credentials.strings in Resources */,
 				43B296342B305F1E00A5AA9B /* CredentialProvider.strings in Resources */,
+				2B1BC2DB2D81E4D0008297B7 /* onboarding_fireworks.lottie in Resources */,
 				D59643EE25C9B8E000EAB8B9 /* Search.strings in Resources */,
 				433BADA429C8769800E34991 /* ErrorState.strings in Resources */,
 				43B520E42B55493E00007187 /* TabToolbar.strings in Resources */,
@@ -10767,6 +10794,7 @@
 				29B605172D2D4115006585C7 /* zh-TW.json in Resources */,
 				29909E742D36A0CE005C0328 /* IMSAccount.strings in Resources */,
 				E1AF27442A17BCF700CE5991 /* engagementNotificationWithoutConditions.json in Resources */,
+				2B1BC2DD2D81E4D0008297B7 /* onboarding_fireworks.lottie in Resources */,
 				E69922171B94E3EF007C480D /* Licenses.html in Resources */,
 				29EF1DE52D37E3390066018B /* IMSImages.xcassets in Resources */,
 				8A1F6C2F2BC5A62400DA6F86 /* PrivacyInfo.xcprivacy in Resources */,
@@ -10809,6 +10837,7 @@
 				D0E17FB6201F847600F1FCB5 /* FxASignIn.js in Resources */,
 				8A2B1A5E28216C4D0061216B /* Common.xcconfig in Resources */,
 				1D91C1862CF11EA500B24960 /* disconnect-block-social.json in Resources */,
+				2B1BC2E02D81EEF9008297B7 /* onboarding_arrow.json in Resources */,
 				39A35AED1C0662A3006B9E87 /* SpotlightHelper.js in Resources */,
 				8AF4E7712C45B98F00BAD91C /* RemotePasswordRules.json in Resources */,
 				D0FCF8071FE4772D004A7995 /* MainFrameAtDocumentEnd.js in Resources */,
@@ -10985,6 +11014,7 @@
 				"${BUILT_PRODUCTS_DIR}/AttributedString/AttributedString.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterCodable/BetterCodable.framework",
 				"${BUILT_PRODUCTS_DIR}/CSAPIService/APIService.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
@@ -10996,6 +11026,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AttributedString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterCodable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIService.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
@@ -11485,7 +11516,7 @@
 				E1CD81C5290C6D5800124B27 /* HelpView.swift in Sources */,
 				5A47CFF52860FB8900B2B7BF /* AppLaunchUtil.swift in Sources */,
 				C8B0F5ED283B7C9F007AE65D /* LegacyPocketStandardCell.swift in Sources */,
-				2BB810522D7F367E009C4EA6 /* UserDefaultsConfig.swift in Sources */,
+				2BB810522D7F367E009C4EA6 /* StoreConfig.swift in Sources */,
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedTableViewController.swift in Sources */,
 				290863C02D53C9B20080F05D /* UserAgent+IMS.swift in Sources */,
@@ -11858,6 +11889,7 @@
 				AB4FB4DA2C89FB10005EF0CC /* BlockedTrackersModel.swift in Sources */,
 				29B6051B2D2D4389006585C7 /* BusinessJSObject.swift in Sources */,
 				74E36D781B71323500D69DA1 /* SettingsContentViewController.swift in Sources */,
+				2BAF046E2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift in Sources */,
 				EBB8950C21939E4100EB91A0 /* FirefoxTabContentBlocker.swift in Sources */,
 				21618A632A422A3900A5189E /* ThemeMiddleware.swift in Sources */,
 				0E77DF0F2CB8220000B80BA1 /* GeneratedPasswordStorage.swift in Sources */,
@@ -12049,6 +12081,7 @@
 				ED7A08DB2CF674730035EC8F /* ShareMessage.swift in Sources */,
 				1DFE57FB27B2CB870025DE58 /* HighlightItem.swift in Sources */,
 				291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */,
+				2BAF04702D81CA5200D86E21 /* UIColor+IMS.swift in Sources */,
 				CA77ABFD24773C92005079F9 /* BreachAlertsManager.swift in Sources */,
 				8AB8572727D93AEC0075C173 /* TopSiteHistoryManager.swift in Sources */,
 				C81A8F2526D3ED1900EBA539 /* UIWindow+Extension.swift in Sources */,
@@ -12360,6 +12393,7 @@
 				C8CD80D82A1E31C20097C3AE /* NimbusOnboardingTestingConfigUtility.swift in Sources */,
 				81E1914D2BB8578600543D78 /* OnboardingMultipleChoiceSelectionDelegate.swift in Sources */,
 				8AB8573727D951640075C173 /* HomeLogoHeaderViewModel.swift in Sources */,
+				2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */,
 				D3C744CD1A687D6C004CE85D /* URIFixup.swift in Sources */,
 				43D16B8029831DC5009F8279 /* CreditCardInputView.swift in Sources */,
 				21112968289480630082C08B /* HomepageMessageCardViewModel.swift in Sources */,

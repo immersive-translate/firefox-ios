@@ -4,6 +4,8 @@ import Combine
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 import SwiftUI
 import StoreKit
+import Shared
+import Common
 
 struct ProSubscriptionSwiftUIView: View {
     @ObservedObject var viewModel: ProSubscriptionViewModel
@@ -52,6 +54,15 @@ struct ProSubscriptionSwiftUIView: View {
         }
         return ""
     }
+    
+    var backgroundColor: Color {
+        let themeManager: ThemeManager = AppContainer.shared.resolve()
+        if viewModel.fromSource == .onboarding {
+            return Color(uiColor: themeManager.getCurrentTheme(for: nil).colors.layer2)
+        } else {
+            return Color.clear
+        }
+    }
 
     var body: some View {
         VStack {
@@ -67,7 +78,9 @@ struct ProSubscriptionSwiftUIView: View {
                 }
             }
         }
-        .background(Color.white)
+        .background(
+            Color.clear
+        )
         .onAppear {
             viewModel.fetchProductInfos()
         }
@@ -294,12 +307,12 @@ struct ProSubscriptionSwiftUIView: View {
                     ForEach(viewModel.infos) { info in
                         switch info.serverProduct.goodType {
                         case .monthly:
-                            MonthProSubscriptionSwiftUIView(info: info)
+                            MonthProSubscriptionSwiftUIView(info: info, fromSource: viewModel.fromSource)
                                 .frame(width: geo.size.width)
                                 .frame(height: geo.size.height)
                                 .tag(IMSResponseConfiGoodType.monthly)
                         case .yearly:
-                            YearProSubscriptionSwiftUIView(info: info)
+                            YearProSubscriptionSwiftUIView(info: info, fromSource: viewModel.fromSource)
                                 .frame(width: geo.size.width)
                                 .frame(height: geo.size.height)
                                 .tag(IMSResponseConfiGoodType.yearly)
@@ -335,14 +348,14 @@ struct ProSubscriptionSwiftUIView: View {
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(
                                 viewModel.selectedConfiGoodType == .yearly
-                                    ? .white : .black)
+                                ? Color(uiColor: UIColor(hexString: "#FFFFFF").withDarkColor("#000000")) : Color(uiColor: UIColor(hexString: "#000000").withDarkColor("#FFFFFF")))
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (216.0 / 335.0))
                         .frame(height: 40)
                         .background(
                             viewModel.selectedConfiGoodType == .yearly
-                                ? Color(red: 0.92, green: 0.3, blue: 0.54)
+                            ? Color(uiColor: UIColor(hexString: "#EA4C89").withDarkColor("#E23C7C"))
                                 : .clear
                         )
                         .cornerRadius(28)
@@ -358,14 +371,14 @@ struct ProSubscriptionSwiftUIView: View {
                             .font(.system(size: 14, weight: .bold))
                             .foregroundColor(
                                 viewModel.selectedConfiGoodType == .monthly
-                                    ? .white : .black)
+                                ? Color(uiColor: UIColor(hexString: "#FFFFFF").withDarkColor("#000000")) : Color(uiColor: UIColor(hexString: "#000000").withDarkColor("#FFFFFF")))
                         }
                         .foregroundColor(.clear)
                         .frame(width: geo.size.width * (111.0 / 335.0))
                         .frame(height: 40)
                         .background(
                             viewModel.selectedConfiGoodType == .monthly
-                                ? Color(red: 0.92, green: 0.3, blue: 0.54)
+                                ? Color(uiColor: UIColor(hexString: "#EA4C89").withDarkColor("#E23C7C"))
                                 : .clear
                         )
                         .cornerRadius(28)
@@ -378,13 +391,13 @@ struct ProSubscriptionSwiftUIView: View {
                 .foregroundColor(.clear)
                 .frame(height: 48)
                 .frame(maxWidth: .infinity)
-                .background(.white)
+                .background(.clear)
                 .cornerRadius(28)
                 .overlay(
                     RoundedRectangle(cornerRadius: 28)
                         .inset(by: -0.5)
                         .stroke(
-                            Color(red: 0.93, green: 0.95, blue: 0.96),
+                            Color(uiColor: UIColor(hexString: "#ECF0F7").withDarkColor("#666666")),
                             lineWidth: 1)
 
                 )
@@ -406,7 +419,7 @@ struct ProSubscriptionSwiftUIView: View {
                         Text("\(String.IMS.IAP.notNeedNow)")
                             .font(Font.custom("PingFang SC", size: 14))
                             .multilineTextAlignment(.center)
-                            .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                            .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                     }
                     .frame(height: 48)
                     .frame(maxWidth: .infinity)

@@ -47,3 +47,11 @@
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "點擊這裡\n打開翻譯功能面板";
 "Imt.Home.login.action" = "立即登入";
 "Imt.Home.login.desc" = "享受最佳體驗";
+"Imt.Onboarding.TranslateExample.before.title" = "請嘗試翻譯下方網頁";
+"Imt.Onboarding.TranslateExample.before.desc" = "點擊網址列裡的翻譯圖標，即可翻譯";
+"Imt.Onboarding.TranslateExample.after.title" = "🎉恭喜！";
+"Imt.Onboarding.TranslateExample.after.desc" = "你剛剛進行了第一次雙語翻譯！";
+"Imt.Onboarding.TranslateExample.button" = "繼續";
+"Imt.Onboarding.TranslateExample.skip" = "跳過";
+"Imt.Onboarding.TranslateExample.next" = "您可以繼續下一步了～";
+

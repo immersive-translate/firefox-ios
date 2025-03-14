@@ -4,3 +4,5 @@
 
 @_exported import SVProgressHUD
 @_exported import APIService
+@_exported import SwiftyJSON
+@_exported import Lottie

@@ -7,18 +7,34 @@ import SwiftyJSON
 import LTXiOSUtils
 
 extension AppDelegate {
-    func didFinishLaunch() {
+    func willFinishLaunch() {
+        reloadKeychain()
         IMSAccountManager.shard.setup()
         DebugToolManager.shared.reload()
         IMSAPPConfigUtils.shared.refresh()
         setupThirdLib()
+    }
+    
+    func didFinishLaunch() {
+        reloadKeychain()
+        IMSAccountManager.shard.setup()
+        DebugToolManager.shared.reload()
+        IMSAPPConfigUtils.shared.refresh()
+        setupThirdLib()
+    }
+    
+    /// 绕开之前app第一次启动会删除keychain的逻辑
+    private func reloadKeychain() {
+        StoreConfig.networkEnvStr = StoreConfig.networkEnvStr
+        StoreConfig.debugLog = StoreConfig.debugLog
+        StoreConfig.showDebugTool = StoreConfig.showDebugTool
     }
 }
 
 extension AppDelegate {
     private func setupThirdLib() {
         SVProgressHUD.setMinimumDismissTimeInterval(1)
-        if UserDefaultsConfig.debugLog {
+        if StoreConfig.debugLog {
             Log.enabled = true
         }
     }
