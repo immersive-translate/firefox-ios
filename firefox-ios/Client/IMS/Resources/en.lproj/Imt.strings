@@ -48,7 +48,6 @@
 "Imt.Common.API.Error.Message" = "An error occurred";
 "Imt.Home.login.action" = "Login Now";
 "Imt.Home.login.desc" = "Enjoy the best experience";
-<<<<<<< HEAD
 "Imt.Onboarding.TranslateExample.before.title" = "Please try to translate the following page";
 "Imt.Onboarding.TranslateExample.before.desc" = "Click on the translation icon in the address bar to translate";
 "Imt.Onboarding.TranslateExample.after.title" = "🎉Congratulations!";

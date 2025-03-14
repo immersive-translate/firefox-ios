@@ -49,7 +49,6 @@
 "Imt.Common.API.Error.Message" = "出現錯誤";
 "Imt.Home.login.action" = "立即登录";
 "Imt.Home.login.desc" = "享受最佳体验";
-<<<<<<< HEAD
 "Imt.Onboarding.TranslateExample.before.title" = "请尝试翻译下方网页";
 "Imt.Onboarding.TranslateExample.before.desc" = "点击地址栏里的翻译图标，即可翻译";
 "Imt.Onboarding.TranslateExample.after.title" = "🎉恭喜！";
