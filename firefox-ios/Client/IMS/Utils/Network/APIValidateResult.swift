@@ -17,7 +17,7 @@ public enum IMSDataError: Error {
 /// APIModelWrapper 在这个地方用到了
 extension APIResult where T: APIModelWrapper {
     var validateResult: APIValidateResult<T.DataType> {
-        let message = "Imt.Common.API.Error.Message".i18nImt()
+        let message = "Imt.CommonI.Error.Message".i18nImt()
         switch self {
         case let .success(reponse):
             if reponse.code == IMSBaseResponseModelCode.success.rawValue {

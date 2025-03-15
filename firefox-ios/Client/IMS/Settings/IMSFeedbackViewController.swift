@@ -55,13 +55,13 @@ class IMSFeedbackViewController: UIViewController {
     private lazy var typeView: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: FeedType.allCases.compactMap({ $0.title }))
         segmentedControl.tintColor = UIColor(colorString: "#E6E6E6").withAlphaComponent(0.5)
-        segmentedControl.selectedSegmentTintColor = .white
+        segmentedControl.selectedSegmentTintColor = .white.withDarkColor("191919")
         let normalAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(hexString: "#666666"),
+            .foregroundColor: UIColor(hexString: "#666666").withDarkColor("B3B3B3"),
             .font: UIFont.systemFont(ofSize: 14, weight: .medium)
         ]
         let selectedAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(hexString: "#222222"),
+            .foregroundColor: UIColor(colorString: "222222").withDarkColor("DBDBDB"),
             .font: UIFont.systemFont(ofSize: 14, weight: .medium)
         ]
         
@@ -75,7 +75,7 @@ class IMSFeedbackViewController: UIViewController {
     private lazy var contentLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(hexString: "#222222")
+        label.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         label.text = "Imt.Setting.feedback.desc".i18nImt()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
@@ -85,7 +85,7 @@ class IMSFeedbackViewController: UIViewController {
     private lazy var bugLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(hexString: "#666666")
+        label.textColor = UIColor(hexString: "#666666").withDarkColor("B3B3B3")
         return label
     }()
     
@@ -93,11 +93,11 @@ class IMSFeedbackViewController: UIViewController {
         let view = UITextView()
         view.layer.cornerRadius = 12.0
         view.clipsToBounds = true
-        view.backgroundColor = UIColor(hexString: "#FAFBFC")
+        view.backgroundColor = UIColor(hexString: "#FAFBFC").withDarkColor("2B2D30")
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(hexString: "#ECF0F7").cgColor
+        view.layer.borderColor = UIColor(hexString: "#ECF0F7").withDarkColor("3E434B").cgColor
         view.placeholdFont = UIFont.systemFont(ofSize: 14)
-        view.placeholdColor = UIColor(hexString: "#CCCCCC")
+        view.placeholdColor = UIColor(hexString: "#CCCCCC").withDarkColor("5C5C5C")
         view.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         return view
     }()
@@ -105,7 +105,7 @@ class IMSFeedbackViewController: UIViewController {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(hexString: "#666666")
+        label.textColor = UIColor(hexString: "#666666").withDarkColor("B3B3B3")
         label.text = "Imt.Setting.feedback.email.title".i18nImt()
         return label
     }()
@@ -114,17 +114,17 @@ class IMSFeedbackViewController: UIViewController {
         let view = UITextField()
         view.layer.cornerRadius = 12.0
         view.clipsToBounds = true
-        view.backgroundColor = UIColor(hexString: "#FAFBFC")
+        view.backgroundColor = UIColor(hexString: "#FAFBFC").withDarkColor("2B2D30")
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(hexString: "#ECF0F7").cgColor
+        view.layer.borderColor = UIColor(hexString: "#ECF0F7").withDarkColor("3E434B").cgColor
         view.attributedPlaceholder = NSAttributedString(
             string: "Imt.Setting.feedback.email.placeholder".i18nImt(),
             attributes: [
-                .foregroundColor: UIColor(hexString: "#CCCCCC"),
+                .foregroundColor: UIColor(hexString: "#CCCCCC").withDarkColor("5C5C5C"),
                 .font: UIFont.systemFont(ofSize: 14)
             ]
         )
-        view.textColor = UIColor(hexString: "222222")
+        view.textColor = UIColor(colorString: "222222").withDarkColor("DBDBDB")
         view.font = UIFont.systemFont(ofSize: 14)
         view.leftViewMode = .always
         view.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 0))
@@ -134,7 +134,7 @@ class IMSFeedbackViewController: UIViewController {
     private lazy var imageLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(hexString: "#666666")
+        label.textColor = UIColor(hexString: "#666666").withDarkColor("B3B3B3")
         label.text = "Imt.Setting.feedback.image.title".i18nImt()
         return label
     }()
@@ -258,11 +258,11 @@ class IMSFeedbackViewController: UIViewController {
         APIService.sendFormDataRequest(request) { response in
             SVProgressHUD.dismiss()
             switch response.result.validateResult {
-            case let .success(info):
+            case .success(_):
                 SVProgressHUD.success("Imt.Setting.feedback.submit.success".i18nImt())
                 self.navigationController?.dismiss(animated: true)
             case .failure:
-                SVProgressHUD.error("Imt.Common.API.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
             }
         }
     }
@@ -281,7 +281,7 @@ class IMSFeedbackViewController: UIViewController {
             case let .success(info):
                 self.pickImageView.addImage(imageArr: [PickImageModel(image: UIImage(data: fileInfo.data), id: nil, data: info)])
             case .failure:
-                SVProgressHUD.error("Imt.Common.API.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
             }
         }
     }
@@ -298,7 +298,7 @@ extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
         let ps = ZLPhotoPreviewSheet()
         ps.selectImageBlock = { [weak self] results, _ in
             guard let self = self else { return }
-            if let image = results.first?.image, let asset = results.first?.asset {
+            if let image = results.first?.image {
                 let compressData = image.tx.compressOriginalImage(toBytes: 50 * 1024)
                 let data = compressData != nil ? compressData : image.jpegData(compressionQuality: 0.5)
                 if data == nil {
@@ -306,7 +306,7 @@ extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
                 }
                 self.uploadImage(fileInfo: IMSAPIFile(data: data!, name: "\(Int(Date().timeIntervalSince1970)).JPG"))
             } else {
-                
+                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
             }
         }
         if let viewController = UIViewController.tx.topViewController() {

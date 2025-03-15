@@ -285,7 +285,7 @@ public class IMSImagePickGridViewCell: UICollectionViewCell {
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 12
         contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = UIColor(hexString: "#ECF0F7").cgColor
+        contentView.layer.borderColor = UIColor(hexString: "#ECF0F7").withDarkColor("3E434B").cgColor
         
         contentView.addSubview(imageView)
   
