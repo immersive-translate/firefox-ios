@@ -734,6 +734,7 @@ class BrowserViewController: UIViewController,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = themeManager.getCurrentTheme(for: windowUUID).colors.layer2
         KeyboardHelper.defaultHelper.addDelegate(self)
         trackTelemetry()
         setupNotifications()

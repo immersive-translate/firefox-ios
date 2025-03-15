@@ -36,12 +36,16 @@ PODS:
     - LTXiOSUtils/Util/Log (= 0.0.3)
   - LTXiOSUtils/Util/Log (0.0.3)
   - SwiftyJSON (4.0.0)
+  - Swime (3.0.6)
   - WCDB.swift (2.0.4):
     - WCDB.swift/no-arc (= 2.0.4)
     - WCDBOptimizedSQLCipher (~> 1.4.2)
   - WCDB.swift/no-arc (2.0.4):
     - WCDBOptimizedSQLCipher (~> 1.4.2)
   - WCDBOptimizedSQLCipher (1.4.2)
+  - ZLPhotoBrowser (4.5.7):
+    - ZLPhotoBrowser/Core (= 4.5.7)
+  - ZLPhotoBrowser/Core (4.5.7)
 
 DEPENDENCIES:
   - AttributedString (= 3.3.5)
@@ -50,7 +54,9 @@ DEPENDENCIES:
   - KeychainAccess (= 4.2.2)
   - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
   - SwiftyJSON (= 4.0.0)
+  - Swime (= 3.0.6)
   - WCDB.swift
+  - ZLPhotoBrowser (= 4.5.7)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -60,8 +66,10 @@ SPEC REPOS:
     - CSAPIService
     - KeychainAccess
     - SwiftyJSON
+    - Swime
     - WCDB.swift
     - WCDBOptimizedSQLCipher
+    - ZLPhotoBrowser
 
 EXTERNAL SOURCES:
   LTXiOSUtils:
@@ -81,9 +89,11 @@ SPEC CHECKSUMS:
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   LTXiOSUtils: b2f2a0ab25a055b8327016c7f3f60e65e2e1c218
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  Swime: d7b2c277503b6cea317774aedc2dce05613f8b0b
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
+  ZLPhotoBrowser: 04c8a5c5299a3b5945c60bd0e676c16d1215b14c
 
-PODFILE CHECKSUM: f8aaac75c683f9ff9c2184f4b530ea04457384c0
+PODFILE CHECKSUM: f2e87573244af131b7086bfed1485d51321053b1
 
 COCOAPODS: 1.16.2

@@ -34,6 +34,13 @@ extension AppDelegate {
 extension AppDelegate {
     private func setupThirdLib() {
         SVProgressHUD.setMinimumDismissTimeInterval(1)
+        SVProgressHUD.setDefaultStyle(.custom)
+        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 14))
+        SVProgressHUD.setBackgroundColor(.black.withAlphaComponent(0.5))
+        SVProgressHUD.setInfoImage(UIColor.clear.tx.toImage(size: CGSize(width: 0.1, height: 0.1))!)
+        SVProgressHUD.setForegroundColor(.white)
+        SVProgressHUD.setErrorImage(UIImage(named: "toast_error")!)
+        SVProgressHUD.setSuccessImage(UIImage(named: "toast_success")!)
         if StoreConfig.debugLog {
             Log.enabled = true
         }

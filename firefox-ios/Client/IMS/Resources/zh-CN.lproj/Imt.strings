@@ -59,3 +59,16 @@
 "Imt.Setting.menu.feedback" = "反馈";
 "Imt.Setting.home.feedback.title" = "遇到了问题？请";
 "Imt.Setting.home.feedback.button" = "联系我们";
+
+"Imt.Setting.feedback.type.bug" = "Bug问题";
+"Imt.Setting.feedback.type.feat" = "功能需求";
+"Imt.Setting.feedback.desc" = "我们期待听到您的声音!无论是您的想法, 问题,或者任何心中的疑惑,都请毫不犹豫地与我们分享。您的反馈对我们而言意义重大!";
+"Imt.Setting.feedback.bug.title" = "问题详情";
+"Imt.Setting.feedback.bug.placeholder" = "请详细描述您在使用中遇到的问题";
+"Imt.Setting.feedback.feat.title" = "需求详情";
+"Imt.Setting.feedback.feat.placeholder" = "请详细描述您期待我们增加的新功能";
+"Imt.Setting.feedback.image.title" = "上传图片（可选）";
+"Imt.Setting.feedback.email.title" = "您的电子邮件地址（可选）";
+"Imt.Setting.feedback.email.placeholder" = "请输入有效的电子邮件地址";
+"Imt.Setting.feedback.submit" = "提交";
+"Imt.Setting.feedback.submit.success" = "提交成功";

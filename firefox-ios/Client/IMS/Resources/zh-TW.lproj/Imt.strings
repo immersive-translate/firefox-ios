@@ -54,4 +54,6 @@
 "Imt.Onboarding.TranslateExample.button" = "繼續";
 "Imt.Onboarding.TranslateExample.skip" = "跳過";
 "Imt.Onboarding.TranslateExample.next" = "您可以繼續下一步了～";
-
+"Imt.Setting.menu.feedback" = "回饋";
+"Imt.Setting.home.feedback.title" = "遇到了問題？請";
+"Imt.Setting.home.feedback.button" = "聯繫我們";

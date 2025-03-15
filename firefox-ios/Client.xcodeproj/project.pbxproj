@@ -424,6 +424,10 @@
 		2B1BC3812D825A31008297B7 /* IMSFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC3802D825A26008297B7 /* IMSFeedbackViewController.swift */; };
 		2B1BC6D72D829E82008297B7 /* IMSHomeFeedbackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */; };
 		2B1BC6D82D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */; };
+		2B1FD19E2D84609400B37B8F /* FeedbackAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD19D2D84608D00B37B8F /* FeedbackAPI.swift */; };
+		2B1FD23E2D84640400B37B8F /* IMSFormDataAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD23D2D8463F500B37B8F /* IMSFormDataAPIService.swift */; };
+		2B1FD2412D84812600B37B8F /* IMSImagePickGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */; };
+		2B1FD2432D8513E700B37B8F /* SVProgressHUD+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
@@ -744,7 +748,7 @@
 		5AF6254528A57B6700A90253 /* MockHistoryHighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254428A57B6700A90253 /* MockHistoryHighlightsManager.swift */; };
 		5AF6254728A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254628A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift */; };
 		5AF6254928A58BB400A90253 /* MockHistoryHighlightsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254828A58BB400A90253 /* MockHistoryHighlightsDelegate.swift */; };
-		5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		5BCA3B616005528D04EE32CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F130D2D2483508E00B0F7D0 /* FxAWebViewModel.swift */; };
 		5FA2233C27F74071005B3D87 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA2233B27F74071005B3D87 /* Glean */; };
 		5FC276552894AEFF00AF2721 /* LibraryPanelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B101D1AA7F9C600C01CA3 /* LibraryPanelHelper.swift */; };
@@ -2994,6 +2998,10 @@
 		2B1BC3802D825A26008297B7 /* IMSFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSFeedbackViewController.swift; sourceTree = "<group>"; };
 		2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackCell.swift; sourceTree = "<group>"; };
 		2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackCellViewModel.swift; sourceTree = "<group>"; };
+		2B1FD19D2D84608D00B37B8F /* FeedbackAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackAPI.swift; sourceTree = "<group>"; };
+		2B1FD23D2D8463F500B37B8F /* IMSFormDataAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSFormDataAPIService.swift; sourceTree = "<group>"; };
+		2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSImagePickGridView.swift; sourceTree = "<group>"; };
+		2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+IMS.swift"; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
@@ -4777,7 +4785,7 @@
 				29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
-				5BCA3B616005528D04EE32CA /* BuildFile in Frameworks */,
+				5BCA3B616005528D04EE32CA /* (null) in Frameworks */,
 				56580B41878993A988A29313 /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5556,6 +5564,7 @@
 			isa = PBXGroup;
 			children = (
 				2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */,
+				2B1FD23F2D84810B00B37B8F /* Component */,
 				2BB810532D7F36D6009C4EA6 /* Debug */,
 				29909E882D37D9D8005C0328 /* Account */,
 				2BB810682D7FB1E0009C4EA6 /* API */,
@@ -5593,6 +5602,7 @@
 		29909E8E2D37DAC0005C0328 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */,
 				29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */,
 				29EF1DF42D3801C70066018B /* UserAgent+IMS.swift */,
 				29909E922D37DBAF005C0328 /* Strings+IMS.swift */,
@@ -5749,8 +5759,8 @@
 				2B1BC2D92D81E4D0008297B7 /* onboarding_fireworks.lottie */,
 			);
 			path = Lottie;
-            sourceTree = "<group>";
-        };
+			sourceTree = "<group>";
+		};
 		2B1BC6D42D829E07008297B7 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
@@ -5758,6 +5768,14 @@
 				2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */,
 			);
 			path = Feedback;
+			sourceTree = "<group>";
+		};
+		2B1FD23F2D84810B00B37B8F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		2B42C8252D7B17F100B88246 /* Login */ = {
@@ -5789,6 +5807,7 @@
 		2BB8105F2D7F50CF009C4EA6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD23D2D8463F500B37B8F /* IMSFormDataAPIService.swift */,
 				2BB810602D7FAADC009C4EA6 /* APIValidateResult.swift */,
 				2BB810612D7FAADC009C4EA6 /* BetterCodableExtension.swift */,
 				2BB810622D7FAADC009C4EA6 /* IMSAPIRequest.swift */,
@@ -5800,6 +5819,7 @@
 		2BB810682D7FB1E0009C4EA6 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD19D2D84608D00B37B8F /* FeedbackAPI.swift */,
 				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
 			);
 			path = API;
@@ -11034,8 +11054,10 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Swime/Swime.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
+				"${BUILT_PRODUCTS_DIR}/ZLPhotoBrowser/ZLPhotoBrowser.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -11046,8 +11068,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZLPhotoBrowser.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -12119,6 +12143,7 @@
 				0A3F57F92CEDD4CA0051B001 /* TermsOfServiceViewController.swift in Sources */,
 				8A3EF7F22A2FCF4000796E3A /* DeleteExportedDataSetting.swift in Sources */,
 				8ADC2A142A33762900543DAA /* ReferringPage.swift in Sources */,
+				2B1FD19E2D84609400B37B8F /* FeedbackAPI.swift in Sources */,
 				0E6C1E212C909AD7001A43BB /* PasswordGeneratorAction.swift in Sources */,
 				E1442FBF294782B6003680B0 /* CGRect+Extension.swift in Sources */,
 				96F8DA49280452CA00E53239 /* GleanPlumbContextProvider.swift in Sources */,
@@ -12193,6 +12218,7 @@
 				E660BDD91BB06521009AC090 /* TabsButton.swift in Sources */,
 				8C92DE932A7128DE0090BD28 /* ProductAdsResponse.swift in Sources */,
 				ED390D222CF4DEDB00A775F9 /* TitleSubtitleActivityItemProvider.swift in Sources */,
+				2B1FD23E2D84640400B37B8F /* IMSFormDataAPIService.swift in Sources */,
 				E1A6AB4828CA833000EBEBDD /* WallpaperBaseViewController.swift in Sources */,
 				8A1CBB972BE0182C008BE4D4 /* MicrosurveyPromptMiddleware.swift in Sources */,
 				4331A9BB27193DF0005E8080 /* ContextualHintViewController.swift in Sources */,
@@ -12234,6 +12260,7 @@
 				8AE459922CEFB1DC002D6679 /* InactiveTabsTelemetry.swift in Sources */,
 				1D7B78992ADF328E0011E9F2 /* AppEvent.swift in Sources */,
 				43F7952525795F69005AEE40 /* SearchTelemetry.swift in Sources */,
+				2B1FD2412D84812600B37B8F /* IMSImagePickGridView.swift in Sources */,
 				E65075541E37F6FC006961AC /* LegacyDynamicFontHelper.swift in Sources */,
 				8ADAE4242A33A126007BF926 /* StudiesToggleSetting.swift in Sources */,
 				8A46F5AC2C9E4389005B6422 /* RemoteDataType.swift in Sources */,
@@ -12375,6 +12402,7 @@
 				E18EA57128AD46D3003F97FC /* WallpaperCollectionType.swift in Sources */,
 				C84655E42887394B00861B4A /* WallpaperMetadata.swift in Sources */,
 				8AB8572E27D94A1A0075C173 /* UXSizeClass.swift in Sources */,
+				2B1FD2432D8513E700B37B8F /* SVProgressHUD+IMS.swift in Sources */,
 				291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */,
 				2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */,
 				965C3C8F29313A1B006499ED /* AppSessionManager.swift in Sources */,

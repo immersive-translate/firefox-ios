@@ -4,6 +4,10 @@
 import Foundation
 import APIService
 
+struct IMSAPIFile {
+    var data: Data
+    var name: String
+}
 
 protocol IMSAPIRequest: APIRequest where Response == IMSBaseResponseModel<DataResponse> {
     associatedtype DataResponse: Decodable
@@ -11,6 +15,8 @@ protocol IMSAPIRequest: APIRequest where Response == IMSBaseResponseModel<DataRe
     var needToken: Bool { get }
 
     var needInvalidTokenToast: Bool { get }
+    
+    var file: IMSAPIFile? { get }
 }
 
 extension IMSAPIRequest {
@@ -20,6 +26,10 @@ extension IMSAPIRequest {
 
     var needInvalidTokenToast: Bool {
         return true
+    }
+    
+    var file: IMSAPIFile? {
+        return nil
     }
 
     var baseURL: URL {
