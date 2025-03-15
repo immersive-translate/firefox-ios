@@ -58,3 +58,15 @@
 "Imt.Setting.menu.feedback" = "Feedback";
 "Imt.Setting.home.feedback.title" = "Problem? Please";
 "Imt.Setting.home.feedback.button" = "contact us";
+"Imt.Setting.feedback.type.bug" = "Bug Issue";
+"Imt.Setting.feedback.type.feat" = "Feature Request";
+"Imt.Setting.feedback.desc" = "We look forward to hearing from you! Whether it's your thoughts, questions, or any doubts in your mind, please do not hesitate to share them with us. Your feedback is of great importance to us!";
+"Imt.Setting.feedback.bug.title" = "Problem Details";
+"Imt.Setting.feedback.bug.placeholder" = "Please describe in detail what went wrong";
+"Imt.Setting.feedback.feat.title" = "Feature Request";
+"Imt.Setting.feedback.feat.placeholder" = "Please describe in detail the new features you would like us to add";
+"Imt.Setting.feedback.image.title" = "Upload Image (Optional)";
+"Imt.Setting.feedback.email.title" = "Your Email Address (Optional)";
+"Imt.Setting.feedback.email.placeholder" = "Please enter a valid email address";
+"Imt.Setting.feedback.submit" = "Submit";
+"Imt.Setting.feedback.submit.success" = "Submitted";

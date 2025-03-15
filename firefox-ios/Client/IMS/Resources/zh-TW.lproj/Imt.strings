@@ -57,3 +57,16 @@
 "Imt.Setting.menu.feedback" = "回饋";
 "Imt.Setting.home.feedback.title" = "遇到了問題？請";
 "Imt.Setting.home.feedback.button" = "聯繫我們";
+
+"Imt.Setting.feedback.type.bug" = "程式錯誤（Bug）";
+"Imt.Setting.feedback.type.feat" = "功能需求";
+"Imt.Setting.feedback.desc" = "我們期待聽到您的聲音！無論是您的想法、問題，或任何疑惑，都請毫不猶豫地與我們分享。您的回饋對我們而言意義重大！";
+"Imt.Setting.feedback.bug.title" = "問題詳情";
+"Imt.Setting.feedback.bug.placeholder" = "請詳細描述您在使用中遇到的問題";
+"Imt.Setting.feedback.feat.title" = "功能需求";
+"Imt.Setting.feedback.feat.placeholder" = "請詳細描述您期待我們新增的功能";
+"Imt.Setting.feedback.image.title" = "上傳圖片（選填）";
+"Imt.Setting.feedback.email.title" = "您的電子郵件地址（選填）";
+"Imt.Setting.feedback.email.placeholder" = "請輸入有效的電子郵件地址";
+"Imt.Setting.feedback.submit" = "送出";
+"Imt.Setting.feedback.submit.success" = "送出成功";

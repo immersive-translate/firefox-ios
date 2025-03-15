@@ -58,3 +58,15 @@
 "Imt.Setting.menu.feedback" = "피드백";
 "Imt.Setting.home.feedback.title" = "문제가 있나요? 부디";
 "Imt.Setting.home.feedback.button" = "문의하기";
+"Imt.Setting.feedback.type.bug" = "버그 문제";
+"Imt.Setting.feedback.type.feat" = "기능 요청";
+"Imt.Setting.feedback.desc" = "여러분의 의견을 기다리고 있습니다! 여러분의 생각, 문제, 또는 어떤 의문이든 망설이지 말고 공유해주세요. 여러분의 피드백은 저희에게 매우 중요합니다!";
+"Imt.Setting.feedback.bug.title" = "문제 상세 내용";
+"Imt.Setting.feedback.bug.placeholder" = "사용 중 발생한 문제를 자세히 설명해 주세요";
+"Imt.Setting.feedback.feat.title" = "기능 요청";
+"Imt.Setting.feedback.feat.placeholder" = "추가되기를 원하는 새로운 기능을 자세히 설명해 주세요";
+"Imt.Setting.feedback.image.title" = "이미지 업로드 (선택 사항)";
+"Imt.Setting.feedback.email.title" = "이메일 주소 (선택 사항)";
+"Imt.Setting.feedback.email.placeholder" = "유효한 이메일 주소를 입력해주세요";
+"Imt.Setting.feedback.submit" = "제출";
+"Imt.Setting.feedback.submit.success" = "제출 성공";
