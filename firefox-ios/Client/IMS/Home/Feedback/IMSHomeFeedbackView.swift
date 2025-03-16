@@ -90,7 +90,9 @@ class IMSHomeFeedbackView: UIView {
     private func setupUI() {
         addSubview(bg)
         bg.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.lessThanOrEqualTo(420)
         }
         
         bg.addSubview(evaluateLabel)
