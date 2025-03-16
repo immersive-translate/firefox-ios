@@ -158,20 +158,36 @@ class IMSFeedbackViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.addSubview(typeView)
+        let scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        let baseView = UIView()
+        scrollView.addSubview(baseView)
+        baseView.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.equalTo(min(view.frame.width, 580))
+        }
+        
+        
+        baseView.addSubview(typeView)
         typeView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.height.equalTo(36)
             make.width.equalTo(335)
         }
         
-        view.addSubview(contentLabel)
-        view.addSubview(bugTextView)
-        view.addSubview(bugLabel)
-        view.addSubview(emailLabel)
-        view.addSubview(imageLabel)
-        view.addSubview(emailTextField)
+        baseView.addSubview(contentLabel)
+        baseView.addSubview(bugTextView)
+        baseView.addSubview(bugLabel)
+        baseView.addSubview(emailLabel)
+        baseView.addSubview(imageLabel)
+        baseView.addSubview(emailTextField)
         
         contentLabel.snp.makeConstraints { make in
             make.top.equalTo(typeView.snp.bottom).offset(20)
@@ -183,7 +199,7 @@ class IMSFeedbackViewController: UIViewController {
         asteriskLabel.text = "*"
         asteriskLabel.font = UIFont.systemFont(ofSize: 14)
         asteriskLabel.textColor = UIColor(hexString: "#FF5B5B")
-        view.addSubview(asteriskLabel)
+        baseView.addSubview(asteriskLabel)
         asteriskLabel.snp.makeConstraints { make in
             make.left.equalTo(contentLabel)
             make.top.equalTo(bugLabel.snp.top)
@@ -216,18 +232,19 @@ class IMSFeedbackViewController: UIViewController {
             make.top.equalTo(emailTextField.snp.bottom).offset(20)
         }
         
-        view.addSubview(submitButton)
-        submitButton.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-45)
-            make.height.equalTo(50)
-            make.width.equalTo(335)
-            make.centerX.equalToSuperview()
-        }
-        
-        view.addSubview(pickImageView)
+        baseView.addSubview(pickImageView)
         pickImageView.snp.makeConstraints { make in
             make.top.equalTo(imageLabel.snp.bottom).offset(8)
             make.left.right.equalTo(contentLabel)
+        }
+        
+        baseView.addSubview(submitButton)
+        submitButton.snp.makeConstraints { make in
+            make.top.equalTo(pickImageView.snp.bottom).offset(24)
+            make.bottom.equalToSuperview().offset(-20)
+            make.height.equalTo(50)
+            make.width.equalTo(335)
+            make.centerX.equalToSuperview()
         }
     }
     
@@ -258,7 +275,7 @@ class IMSFeedbackViewController: UIViewController {
         APIService.sendFormDataRequest(request) { response in
             SVProgressHUD.dismiss()
             switch response.result.validateResult {
-            case .success(_):
+            case .success:
                 SVProgressHUD.success("Imt.Setting.feedback.submit.success".i18nImt())
                 self.navigationController?.dismiss(animated: true)
             case .failure:

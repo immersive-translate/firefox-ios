@@ -70,3 +70,8 @@
 "Imt.Setting.feedback.email.placeholder" = "請輸入有效的電子郵件地址";
 "Imt.Setting.feedback.submit" = "送出";
 "Imt.Setting.feedback.submit.success" = "送出成功";
+"Imt.home.feedback.title" = "您對沉浸式翻譯的體驗滿意嗎？";
+"Imt.home.feedback.dissatisfied.title" = "😢對產品不滿意？\n請給我們提供您寶貴的意見吧！";
+"Imt.home.feedback.satisfied.title" = "😄我們會再接再厲！\n請前往應用商店給個好評吧～";
+"Imt.home.feedback.goto" = "立即前往";
+

@@ -10,6 +10,12 @@ enum StoreConfig {
     
     @UserDefaultsWrapper("ALREADY_SET_LANGUAGE", defaultValue: false)
     static var alreadySetLanguage: Bool
+    
+    @UserDefaultsWrapper("TRANSLATE_NUM", defaultValue: 0)
+    static var translateNum: Int
+    
+    @UserDefaultsWrapper("ALREADY_SHOW_FEEDBACK_TIP", defaultValue: false)
+    static var alreadyShowFeedbackTip: Bool
 }
 
 extension StoreConfig {

@@ -70,3 +70,7 @@
 "Imt.Setting.feedback.email.placeholder" = "Please enter a valid email address";
 "Imt.Setting.feedback.submit" = "Submit";
 "Imt.Setting.feedback.submit.success" = "Submitted";
+"Imt.home.feedback.title" = "Are you satisfied with the immersive translation experience?";
+"Imt.home.feedback.dissatisfied.title" = "😢Not satisfied with the product?\nPlease provide us with your valuable feedback!";
+"Imt.home.feedback.satisfied.title" = "😄We will continue to work hard!\nPlease go to the app store and give a good review";
+"Imt.home.feedback.goto" = "Go Now";

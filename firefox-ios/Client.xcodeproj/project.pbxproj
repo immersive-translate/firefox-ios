@@ -428,7 +428,8 @@
 		2B1FD23E2D84640400B37B8F /* IMSFormDataAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD23D2D8463F500B37B8F /* IMSFormDataAPIService.swift */; };
 		2B1FD2412D84812600B37B8F /* IMSImagePickGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */; };
 		2B1FD2432D8513E700B37B8F /* SVProgressHUD+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */; };
-		2B1FD2452D85201000B37B8F /* HomeFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2442D851FBC00B37B8F /* HomeFeedbackView.swift */; };
+		2B1FD2452D85201000B37B8F /* IMSHomeFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */; };
+		2B1FD2E52D853F8900B37B8F /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2E42D853F8900B37B8F /* StarRateView.swift */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
@@ -3003,7 +3004,8 @@
 		2B1FD23D2D8463F500B37B8F /* IMSFormDataAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSFormDataAPIService.swift; sourceTree = "<group>"; };
 		2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSImagePickGridView.swift; sourceTree = "<group>"; };
 		2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+IMS.swift"; sourceTree = "<group>"; };
-		2B1FD2442D851FBC00B37B8F /* HomeFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedbackView.swift; sourceTree = "<group>"; };
+		2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackView.swift; sourceTree = "<group>"; };
+		2B1FD2E42D853F8900B37B8F /* StarRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
@@ -5766,7 +5768,7 @@
 		2B1BC6D42D829E07008297B7 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
-				2B1FD2442D851FBC00B37B8F /* HomeFeedbackView.swift */,
+				2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */,
 				2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */,
 				2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */,
 			);
@@ -5776,6 +5778,7 @@
 		2B1FD23F2D84810B00B37B8F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD2E42D853F8900B37B8F /* StarRateView.swift */,
 				2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */,
 			);
 			path = Component;
@@ -12047,7 +12050,7 @@
 				965C3C942933A860006499ED /* LaunchSessionProvider.swift in Sources */,
 				C8163851268A0899004C7160 /* AddCredentialViewController.swift in Sources */,
 				8A19ACB22A3290AE001C2147 /* ClearPrivateDataSetting.swift in Sources */,
-				2B1FD2452D85201000B37B8F /* HomeFeedbackView.swift in Sources */,
+				2B1FD2452D85201000B37B8F /* IMSHomeFeedbackView.swift in Sources */,
 				8A9B87AF2C1B39EA0042B894 /* SearchListSection.swift in Sources */,
 				294666B82D55AABD00BB9196 /* MainMenuActionHelper+IMS.swift in Sources */,
 				CA520E7A24913C1B00CCAB48 /* PasswordManagerViewModel.swift in Sources */,
@@ -12312,6 +12315,7 @@
 				8A3EF7F02A2FCF3100796E3A /* HiddenSettings.swift in Sources */,
 				1D3822E92BAB99250046BC5E /* UIView+ThemeUUIDIdentifiable.swift in Sources */,
 				B2FEA6912B4661BE0058E616 /* AddressAutofillToggle.swift in Sources */,
+				2B1FD2E52D853F8900B37B8F /* StarRateView.swift in Sources */,
 				B2FEA68F2B460D9E0058E616 /* AddressAutofillSettingsViewModel.swift in Sources */,
 				AB03032B2AB47AF300DCD8EF /* FakespotOptInCardView.swift in Sources */,
 				0BA02DB22942605600C92603 /* FormAutofillHelper.swift in Sources */,

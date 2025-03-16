@@ -10,6 +10,11 @@ class IMSHomeLoginCell: UICollectionViewCell, ReusableCell {
     
     private var textColor: UIColor?
     
+    private lazy var feedbackView: IMSHomeFeedbackView = {
+        let view = IMSHomeFeedbackView()
+        return view
+    }()
+    
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
         let press = ASAttributedString.Action(.press, highlights: [.background(.clear)]) { _ in }
@@ -57,11 +62,22 @@ class IMSHomeLoginCell: UICollectionViewCell, ReusableCell {
             make.centerX.equalToSuperview()
         }
         
+        contentView.addSubview(feedbackView)
+        feedbackView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview().offset(23)
+            make.right.equalToSuperview().offset(-23)
+            make.height.equalTo(140)
+        }
     }
     
     
     private func login() {
         loginHandler?()
+    }
+    
+    func changeFeedback(showFeedback: Bool) {
+        feedbackView.isHidden = !showFeedback
     }
 }
 

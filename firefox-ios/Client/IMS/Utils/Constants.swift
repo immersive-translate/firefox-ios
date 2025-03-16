@@ -6,4 +6,6 @@ import Foundation
 
 struct NotificationName {
     public static let userInfoChange = Notification.Name("USERINFO_CHANGE")
+    
+    public static let homeFeedbackChange = Notification.Name("HOME_FEEDBACK_CHANGE")
 }

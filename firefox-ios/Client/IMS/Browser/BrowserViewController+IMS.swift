@@ -172,6 +172,7 @@ extension BrowserViewController {
         }
         
         func translatePageAction() {
+            StoreConfig.translateNum += 1
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
             webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
                 webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()") {_,_ in

@@ -16,6 +16,10 @@ class IMSHomeLoginCellViewModel {
         self.theme = theme
         self.wallpaperManager = wallpaperManager
     }
+    
+    var showFeedback: Bool {
+        return !StoreConfig.alreadyShowFeedbackTip && StoreConfig.translateNum > 3
+    }
 }
 
 extension IMSHomeLoginCellViewModel: HomepageViewModelProtocol {
@@ -26,7 +30,7 @@ extension IMSHomeLoginCellViewModel: HomepageViewModelProtocol {
     func section(for traitCollection: UITraitCollection, size: CGSize) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(70)
+            heightDimension: .estimated(showFeedback ? 140 + 35 : 50)
         )
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
@@ -47,6 +51,9 @@ extension IMSHomeLoginCellViewModel: HomepageViewModelProtocol {
     }
 
     var isEnabled: Bool {
+        if showFeedback {
+            return true
+        }
         if let _ = IMSAccountManager.shard.current() {
             return false
         } else {
@@ -68,6 +75,7 @@ extension IMSHomeLoginCellViewModel: HomepageSectionHandler {
         let cell = collectionView.dequeueReusableCell(cellType: IMSHomeLoginCell.self, for: indexPath)!
         let textColor = wallpaperManager.currentWallpaper.textColor
         cell.configure(theme: theme, textColor: textColor)
+        cell.changeFeedback(showFeedback: showFeedback)
         cell.loginHandler = loginHandler
         return cell
     }

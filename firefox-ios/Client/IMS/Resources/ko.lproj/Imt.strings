@@ -70,3 +70,7 @@
 "Imt.Setting.feedback.email.placeholder" = "유효한 이메일 주소를 입력해주세요";
 "Imt.Setting.feedback.submit" = "제출";
 "Imt.Setting.feedback.submit.success" = "제출 성공";
+"Imt.home.feedback.title" = "몰입형 번역 경험에 만족하십니까?";
+"Imt.home.feedback.dissatisfied.title" = "😢제품이 마음에 안 드시나요?\n귀중한 의견을 제공해 주십시오.";
+"Imt.home.feedback.satisfied.title" = "😄우리는 더 분발할 것이다!\n 앱스토어를 방문해 좋은 평가를 해주세요~";
+"Imt.home.feedback.goto" = "지금 바로 가기";

@@ -32,6 +32,17 @@ class IMSTopSitesViewModel {
     private var wallpaperManager: WallpaperManager
     private let unifiedAdsTelemetry: UnifiedAdsCallbackTelemetry
 
+    var showLoginOrFeedback: Bool {
+        if !StoreConfig.alreadyShowFeedbackTip && StoreConfig.translateNum > 3 {
+            return true
+        }
+        if let _ = IMSAccountManager.shard.current() {
+            return false
+        } else {
+            return true
+        }
+    }
+
     init(profile: Profile,
          isZeroSearch: Bool = false,
          theme: Theme,
@@ -175,7 +186,7 @@ extension IMSTopSitesViewModel: HomepageViewModelProtocol, FeatureFlaggable {
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: leadingInset,
-            bottom: HomepageViewModel.UX.spacingBetweenSections - TopSiteItemCell.UX.bottomSpace,
+            bottom: showLoginOrFeedback ? HomepageViewModel.UX.spacingBetweenSections - TopSiteItemCell.UX.bottomSpace - 20 : HomepageViewModel.UX.spacingBetweenSections - TopSiteItemCell.UX.bottomSpace,
             trailing: leadingInset
         )
         section.interGroupSpacing = UX.cardSpacing
