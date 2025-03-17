@@ -55,8 +55,6 @@ struct IMSAppUrlConfig {
     
     static let purchaseSuccess = baseHomeURL + "/accounts/success"
     
-    static let appStoreEvaluateURL = "itms-apps://itunes.apple.com/app/id6476744995?action=write-review"
-    
     static let debugPassword = "Qwe13579"
     
     static func getCommonHeader() -> [String: String] {

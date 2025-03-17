@@ -9,6 +9,7 @@ enum HomepageSectionType: Int, CaseIterable {
     case homepageHeader
     case messageCard
     case imsTopSites
+    case imsFeedbackTip
     case imsLogin
     case topSites
     case jumpBackIn

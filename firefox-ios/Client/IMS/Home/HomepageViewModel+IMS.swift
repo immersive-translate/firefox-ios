@@ -9,8 +9,10 @@ extension HomepageViewModel {
     func ims_beforeInit() {
         let topSiteViewModel = IMSTopSitesViewModel(profile: profile, theme: theme, wallpaperManager: wallpaperManager)
         self.childViewModels.insert(topSiteViewModel, at: 2)
+        let feedbackTipModel = IMSHomeFeedbackTipCellViewModel(theme: theme, wallpaperManager: wallpaperManager)
+        self.childViewModels.insert(feedbackTipModel, at: 3)
         let loginViewModel = IMSHomeLoginCellViewModel(theme: theme, wallpaperManager: wallpaperManager)
-        self.childViewModels.insert(loginViewModel, at: 3)
+        self.childViewModels.insert(loginViewModel, at: 4)
         let feedbackModel = IMSHomeFeedbackCellViewModel(theme: theme, wallpaperManager: wallpaperManager)
         self.childViewModels.append(feedbackModel)
     }

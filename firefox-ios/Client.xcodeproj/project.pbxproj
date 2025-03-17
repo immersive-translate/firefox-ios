@@ -430,6 +430,8 @@
 		2B1FD2432D8513E700B37B8F /* SVProgressHUD+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */; };
 		2B1FD2452D85201000B37B8F /* IMSHomeFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */; };
 		2B1FD2E52D853F8900B37B8F /* StarRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD2E42D853F8900B37B8F /* StarRateView.swift */; };
+		2B1FD77C2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */; };
+		2B1FD77D2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
@@ -3006,6 +3008,8 @@
 		2B1FD2422D8513E400B37B8F /* SVProgressHUD+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVProgressHUD+IMS.swift"; sourceTree = "<group>"; };
 		2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackView.swift; sourceTree = "<group>"; };
 		2B1FD2E42D853F8900B37B8F /* StarRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRateView.swift; sourceTree = "<group>"; };
+		2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCell.swift; sourceTree = "<group>"; };
+		2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCellViewModel.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
@@ -5768,6 +5772,8 @@
 		2B1BC6D42D829E07008297B7 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
+				2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */,
+				2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */,
 				2B1FD2442D851FBC00B37B8F /* IMSHomeFeedbackView.swift */,
 				2B1BC6D52D829E82008297B7 /* IMSHomeFeedbackCell.swift */,
 				2B1BC6D62D829E82008297B7 /* IMSHomeFeedbackCellViewModel.swift */,
@@ -12440,6 +12446,7 @@
 				213778632980448C00D01309 /* DownloadFileFetcher.swift in Sources */,
 				F85C7EDF2710B4DD004BDBA4 /* LoginOnboarding.swift in Sources */,
 				C8B0F5F5283B7CCE007AE65D /* PocketSponsoredStory.swift in Sources */,
+				2B1FD77C2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift in Sources */,
 				8AF6D4E12A856B4500B0474B /* ContileNetworking.swift in Sources */,
 				8AB8571F27D931B40075C173 /* EmptyTopSiteCell.swift in Sources */,
 				CAC458F1249429C20042561A /* PasswordManagerSelectionHelper.swift in Sources */,
@@ -12618,6 +12625,7 @@
 				29909E892D37D9D8005C0328 /* IMSIAPAppleService.swift in Sources */,
 				29909E8B2D37D9D8005C0328 /* IMSAccountInfo.swift in Sources */,
 				29B9C9B22D3F3CA800365400 /* AppLaunchUtil+IMS.swift in Sources */,
+				2B1FD77D2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift in Sources */,
 				29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */,
 				29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */,
 				BCFF93F42AAF9879005B5B71 /* FirefoxSuggestSettingsViewController.swift in Sources */,

@@ -14,6 +14,8 @@ extension HomepageSectionType {
             return IMSHomeLoginCell.cellIdentifier
         } else if self == .imsFeedback {
             return IMSHomeFeedbackCell.cellIdentifier
+        } else if self == .imsFeedbackTip {
+            return IMSHomeFeedbackTipCell.cellIdentifier
         }
         return origin
     }
@@ -23,6 +25,7 @@ extension HomepageSectionType {
         var origin = self.cellTypes
         origin.append(IMSTopSiteItemCell.self)
         origin.append(IMSHomeLoginCell.self)
+        origin.append(IMSHomeFeedbackTipCell.self)
         origin.append(IMSHomeFeedbackCell.self)
         return origin
     }

@@ -161,7 +161,7 @@ extension IMSHomeFeedbackView {
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle
         ]
-        if currentStarCount <= 2 {
+        if currentStarCount <= 3 {
             satisfiedLabel.isHidden = false
             gotoButton.isHidden = false
             starView.isHidden = true
@@ -172,7 +172,7 @@ extension IMSHomeFeedbackView {
             satisfiedLabel.setNeedsLayout()
             satisfiedLabel.layoutIfNeeded()
             isOk = false
-        } else if currentStarCount >= 4 {
+        } else {
             satisfiedLabel.isHidden = false
             gotoButton.isHidden = false
             starView.isHidden = true
@@ -190,9 +190,7 @@ extension IMSHomeFeedbackView {
     private func gotoButtonOnClick() {
         if let isOk = isOk {
             if isOk {
-                if let url = URL(string: IMSAppUrlConfig.appStoreEvaluateURL) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                RatingPromptManager.goToAppStoreReview()
             } else {
                 let viewController = IMSFeedbackViewController()
                 viewController.windowUUID = currentWindowUUID
