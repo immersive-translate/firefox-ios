@@ -45,7 +45,7 @@
 "Imt.Toolbar.Tip.ihadKnown" = "I had Known";
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "Click here\n to instantly translate the current webpage";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "Click here\n to open the translation feature panel";
-"Imt.CommonI.Error.Message" = "An error occurred";
+"Imt.Common.Error.Message" = "An error occurred";
 "Imt.Home.login.action" = "Login Now";
 "Imt.Home.login.desc" = "Enjoy the best experience";
 "Imt.Onboarding.TranslateExample.before.title" = "Please try to translate the following page";

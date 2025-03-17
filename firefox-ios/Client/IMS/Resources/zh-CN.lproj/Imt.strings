@@ -46,7 +46,7 @@
 "Imt.Toolbar.Tip.ihadKnown" = "我知道了";
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "点击这里\n立即翻译当前网页";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "点击这里\n打开翻译功能面板";
-"Imt.CommonI.Error.Message" = "出現錯誤";
+"Imt.Common.Error.Message" = "出現錯誤";
 "Imt.Home.login.action" = "立即登录";
 "Imt.Home.login.desc" = "享受最佳体验";
 "Imt.Onboarding.TranslateExample.before.title" = "请尝试翻译下方网页";

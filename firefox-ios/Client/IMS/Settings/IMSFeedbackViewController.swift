@@ -279,7 +279,7 @@ class IMSFeedbackViewController: UIViewController {
                 SVProgressHUD.success("Imt.Setting.feedback.submit.success".i18nImt())
                 self.navigationController?.dismiss(animated: true)
             case .failure:
-                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
             }
         }
     }
@@ -298,7 +298,7 @@ class IMSFeedbackViewController: UIViewController {
             case let .success(info):
                 self.pickImageView.addImage(imageArr: [PickImageModel(image: UIImage(data: fileInfo.data), id: nil, data: info)])
             case .failure:
-                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
             }
         }
     }
@@ -316,14 +316,14 @@ extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
         ps.selectImageBlock = { [weak self] results, _ in
             guard let self = self else { return }
             if let image = results.first?.image {
-                let compressData = image.tx.compressOriginalImage(toBytes: 50 * 1024)
+                let compressData = image.tx.compressOriginalImage(toBytes: 800 * 1024)
                 let data = compressData != nil ? compressData : image.jpegData(compressionQuality: 0.5)
                 if data == nil {
                     return
                 }
                 self.uploadImage(fileInfo: IMSAPIFile(data: data!, name: "\(Int(Date().timeIntervalSince1970)).JPG"))
             } else {
-                SVProgressHUD.error("Imt.CommonI.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
             }
         }
         if let viewController = UIViewController.tx.topViewController() {
