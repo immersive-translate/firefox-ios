@@ -56,7 +56,7 @@
 "Imt.Onboarding.TranslateExample.skip" = "Skip";
 "Imt.Onboarding.TranslateExample.next" = "Now you can move on to the next step.";
 "Imt.Setting.menu.feedback" = "Feedback";
-"Imt.Setting.home.feedback.title" = "Problem? Please";
+"Imt.Setting.home.feedback.title" = "Problem? Please ";
 "Imt.Setting.home.feedback.button" = "contact us";
 "Imt.Setting.feedback.type.bug" = "Bug Issue";
 "Imt.Setting.feedback.type.feat" = "Feature Request";
