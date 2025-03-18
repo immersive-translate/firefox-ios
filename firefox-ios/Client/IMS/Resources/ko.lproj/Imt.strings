@@ -74,3 +74,5 @@
 "Imt.home.feedback.dissatisfied.title" = "😢제품이 마음에 안 드시나요?\n귀중한 의견을 제공해 주십시오.";
 "Imt.home.feedback.satisfied.title" = "😄우리는 더 분발할 것이다!\n 앱스토어를 방문해 좋은 평가를 해주세요~";
 "Imt.home.feedback.goto" = "지금 바로 가기";
+"Imt.Setting.feedback.image.submit.error" = "그림 업로드 실패\n 다시 시도하십시오";
+"Imt.Setting.feedback.submit.error" = "커밋 실패\n 다시 시도하십시오";

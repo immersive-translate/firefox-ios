@@ -74,3 +74,5 @@
 "Imt.home.feedback.dissatisfied.title" = "😢Not satisfied with the product?\nPlease provide us with your valuable feedback!";
 "Imt.home.feedback.satisfied.title" = "😄We will continue to work hard!\nPlease go to the app store and give a good review";
 "Imt.home.feedback.goto" = "Go Now";
+"Imt.Setting.feedback.image.submit.error" = "Picture upload failed\nPlease try again";
+"Imt.Setting.feedback.submit.error" = "Submission failed\nPlease try again";

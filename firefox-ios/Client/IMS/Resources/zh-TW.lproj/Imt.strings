@@ -74,4 +74,6 @@
 "Imt.home.feedback.dissatisfied.title" = "😢對產品不滿意？\n請給我們提供您寶貴的意見吧！";
 "Imt.home.feedback.satisfied.title" = "😄我們會再接再厲！\n請前往應用商店給個好評吧～";
 "Imt.home.feedback.goto" = "立即前往";
+"Imt.Setting.feedback.image.submit.error" = "圖片上傳失敗\n請重試";
+"Imt.Setting.feedback.submit.error" = "提交失敗\n請重試";
 
