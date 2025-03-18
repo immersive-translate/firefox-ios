@@ -6,6 +6,7 @@ import Common
 import Shared
 import LTXiOSUtils
 import ZLPhotoBrowser
+import Photos
 
 enum FeedType: CaseIterable {
     case bug
@@ -216,20 +217,10 @@ class IMSFeedbackViewController: UIViewController {
             make.height.equalTo(140)
         }
         
-        emailLabel.snp.makeConstraints { make in
-            make.left.equalTo(contentLabel)
-            make.height.equalTo(21)
-            make.top.equalTo(bugTextView.snp.bottom).offset(20)
-        }
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(emailLabel.snp.bottom).offset(8)
-            make.left.right.equalTo(contentLabel)
-            make.height.equalTo(44)
-        }
         imageLabel.snp.makeConstraints { make in
             make.left.equalTo(contentLabel)
             make.height.equalTo(21)
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.top.equalTo(bugTextView.snp.bottom).offset(20)
         }
         
         baseView.addSubview(pickImageView)
@@ -238,9 +229,20 @@ class IMSFeedbackViewController: UIViewController {
             make.left.right.equalTo(contentLabel)
         }
         
+        emailLabel.snp.makeConstraints { make in
+            make.left.equalTo(contentLabel)
+            make.height.equalTo(21)
+            make.top.equalTo(pickImageView.snp.bottom).offset(20)
+        }
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailLabel.snp.bottom).offset(8)
+            make.left.right.equalTo(contentLabel)
+            make.height.equalTo(44)
+        }
+        
         baseView.addSubview(submitButton)
         submitButton.snp.makeConstraints { make in
-            make.top.equalTo(pickImageView.snp.bottom).offset(24)
+            make.top.equalTo(emailTextField.snp.bottom).offset(24)
             make.bottom.equalToSuperview().offset(-20)
             make.height.equalTo(50)
             make.width.equalTo(335)
@@ -279,7 +281,7 @@ class IMSFeedbackViewController: UIViewController {
                 SVProgressHUD.success("Imt.Setting.feedback.submit.success".i18nImt())
                 self.navigationController?.dismiss(animated: true)
             case .failure:
-                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
+                SVProgressHUD.error("Imt.Setting.feedback.submit.error".i18nImt())
             }
         }
     }
@@ -289,25 +291,48 @@ class IMSFeedbackViewController: UIViewController {
         type = arr[sender.selectedSegmentIndex]
     }
     
-    private func uploadImage(fileInfo: IMSAPIFile) {
+    private func uploadImage(image: UIImage, name: String, id: String) {
+        let compressData = image.tx.compressOriginalImage(toBytes: 800 * 1024)
+        guard let data = compressData != nil ? compressData : image.jpegData(compressionQuality: 0.5) else {
+            return
+        }
+        let fileInfo = IMSAPIFile(data: data, name: name)
         let request = FeedbackAPI.ImgUploadRequest(fileInfo: fileInfo)
-        SVProgressHUD.show()
         APIService.sendFormDataRequest(request) { response in
-            SVProgressHUD.dismiss()
             switch response.result.validateResult {
             case let .success(info):
-                self.pickImageView.addImage(imageArr: [PickImageModel(image: UIImage(data: fileInfo.data), id: nil, data: info)])
+                if let model = self.pickImageView.imageList.filter({ $0.id == id }).first {
+                    model.state = .success
+                    model.data = info
+                    self.pickImageView.updateImage(model: model)
+                    self.reloadSubmitButton()
+                }
             case .failure:
-                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
+                if let model = self.pickImageView.imageList.filter({ $0.id == id }).first {
+                    model.state = .fail
+                    self.pickImageView.updateImage(model: model)
+                    self.reloadSubmitButton()
+                }
+                SVProgressHUD.error("Imt.Setting.feedback.image.submit.error".i18nImt())
             }
+        }
+    }
+    
+    private func reloadSubmitButton() {
+        if pickImageView.imageList.filter({ $0.state != .success }).isEmpty {
+            submitButton.backgroundColor = UIColor(colorString: "222222")
+            submitButton.isEnabled = true
+        } else {
+            submitButton.backgroundColor = UIColor(colorString: "C7C7C7")
+            submitButton.isEnabled = false
         }
     }
 }
 
 extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
-    func addImage(IMSImagePickGridView: IMSImagePickGridView) {
+    func addImage(imagePickGridView: IMSImagePickGridView) {
         ZLPhotoConfiguration.default()
-            .maxSelectCount(1)
+            .maxSelectCount(pickImageView.canPickResidueMaxCount)
             .allowSelectVideo(false)
             .allowSelectOriginal(false)
             .saveNewImageAfterEdit(false)
@@ -315,19 +340,30 @@ extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
         let ps = ZLPhotoPreviewSheet()
         ps.selectImageBlock = { [weak self] results, _ in
             guard let self = self else { return }
-            if let image = results.first?.image {
-                let compressData = image.tx.compressOriginalImage(toBytes: 800 * 1024)
-                let data = compressData != nil ? compressData : image.jpegData(compressionQuality: 0.5)
-                if data == nil {
-                    return
+            for item in results {
+                let image = item.image
+                if let asset = PHAssetResource.assetResources(for: item.asset).first {
+                    let name = (asset.originalFilename.components(separatedBy: ".").first ?? Date().tx.milliTimeStampStr) + ".jpg"
+                    self.pickImageView.addImage(imageArr: [PickImageModel(image: image, id: asset.assetLocalIdentifier, name: name, state: .ing, data: nil)])
+                    DispatchQueue.global().async {
+                        self.uploadImage(image: image, name: name, id: asset.assetLocalIdentifier)
+                    }
+                    reloadSubmitButton()
                 }
-                self.uploadImage(fileInfo: IMSAPIFile(data: data!, name: "\(Int(Date().timeIntervalSince1970)).JPG"))
-            } else {
-                SVProgressHUD.error("Imt.Common.Error.Message".i18nImt())
             }
         }
         if let viewController = UIViewController.tx.topViewController() {
             ps.showPhotoLibrary(sender: viewController)
+        }
+    }
+    
+    func clickImage(imagePickGridView: IMSImagePickGridView, index: Int) {
+        let model = pickImageView.imageList[index]
+        if model.state == .fail {
+            model.state = .ing
+            self.pickImageView.updateImage(model: model)
+            uploadImage(image: model.image, name: model.name, id: model.id)
+            reloadSubmitButton()
         }
     }
 }
