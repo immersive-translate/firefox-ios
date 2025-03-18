@@ -5,8 +5,8 @@
 import Common
 import Shared
 import LTXiOSUtils
-import ZLPhotoBrowser
 import Photos
+import PhotosUI
 
 enum FeedType: CaseIterable {
     case bug
@@ -319,7 +319,7 @@ class IMSFeedbackViewController: UIViewController {
     }
     
     private func reloadSubmitButton() {
-        if pickImageView.imageList.filter({ $0.state != .success }).isEmpty {
+        if !pickImageView.imageList.contains(where: { $0.state != .success }) {
             submitButton.backgroundColor = UIColor(colorString: "222222")
             submitButton.isEnabled = true
         } else {
@@ -331,30 +331,12 @@ class IMSFeedbackViewController: UIViewController {
 
 extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
     func addImage(imagePickGridView: IMSImagePickGridView) {
-        ZLPhotoConfiguration.default()
-            .maxSelectCount(pickImageView.canPickResidueMaxCount)
-            .allowSelectVideo(false)
-            .allowSelectOriginal(false)
-            .saveNewImageAfterEdit(false)
-
-        let ps = ZLPhotoPreviewSheet()
-        ps.selectImageBlock = { [weak self] results, _ in
-            guard let self = self else { return }
-            for item in results {
-                let image = item.image
-                if let asset = PHAssetResource.assetResources(for: item.asset).first {
-                    let name = (asset.originalFilename.components(separatedBy: ".").first ?? Date().tx.milliTimeStampStr) + ".jpg"
-                    self.pickImageView.addImage(imageArr: [PickImageModel(image: image, id: asset.assetLocalIdentifier, name: name, state: .ing, data: nil)])
-                    DispatchQueue.global().async {
-                        self.uploadImage(image: image, name: name, id: asset.assetLocalIdentifier)
-                    }
-                    reloadSubmitButton()
-                }
-            }
-        }
-        if let viewController = UIViewController.tx.topViewController() {
-            ps.showPhotoLibrary(sender: viewController)
-        }
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = pickImageView.canPickResidueMaxCount
+        configuration.filter = .images
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
     func clickImage(imagePickGridView: IMSImagePickGridView, index: Int) {
@@ -362,8 +344,32 @@ extension IMSFeedbackViewController: IMSImagePickGridViewDelegte {
         if model.state == .fail {
             model.state = .ing
             self.pickImageView.updateImage(model: model)
-            uploadImage(image: model.image, name: model.name, id: model.id)
+            DispatchQueue.global().async {
+                self.uploadImage(image: model.image, name: model.name, id: model.id)
+            }
             reloadSubmitButton()
+        }
+    }
+}
+
+extension IMSFeedbackViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        for result in results {
+            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (object, error) in
+                guard let self = self else { return }
+                if let image = object as? UIImage {
+                    let id = "\(Date().timeIntervalSince1970)".replacingOccurrences(of: ".", with: "")
+                    let name = id + ".jpg"
+                    DispatchQueue.main.async {
+                        self.pickImageView.addImage(imageArr: [PickImageModel(image: image, id: id, name: name, state: .ing, data: nil)])
+                        self.reloadSubmitButton()
+                    }
+                    DispatchQueue.global().async {
+                        self.uploadImage(image: image, name: name, id: id)
+                    }
+                }
+            }
         }
     }
 }
