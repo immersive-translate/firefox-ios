@@ -34,6 +34,7 @@ extension AppDelegate {
 extension AppDelegate {
     private func setupThirdLib() {
         SVProgressHUD.setMinimumDismissTimeInterval(1)
+        SVProgressHUD.setMaximumDismissTimeInterval(2.5)
         SVProgressHUD.setDefaultStyle(.custom)
         SVProgressHUD.setFont(UIFont.systemFont(ofSize: 14))
         SVProgressHUD.setBackgroundColor(.black.withAlphaComponent(0.5))
