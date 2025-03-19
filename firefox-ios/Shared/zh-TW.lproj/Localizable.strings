@@ -925,7 +925,7 @@
 "Privacy" = "隱私";
 
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
-"Privacy Policy" = "隱私權保護政策";
+"Privacy Policy" = "Firefox隱私政策";
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "連線不安全";
@@ -1444,7 +1444,7 @@
 "Settings.SendUsage.Message" = "Mozilla 致力於只收集用來為眾人改善 Firefox 所需的必要資料。";
 
 /* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "傳送使用資料";
+"Settings.SendUsage.Title" = "向 Mozilla 傳送使用數據";
 
 /* Description displayed under the ”Show Link Previews” option */
 "Settings.ShowLinkPreviews.Status" = "長按鏈結時";

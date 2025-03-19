@@ -923,7 +923,7 @@
 "Privacy" = "Privacy";
 
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
-"Privacy Policy" = "Privacy Policy";
+"Privacy Policy" = "Firefox privacy policy";
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "Connection is not secure";
@@ -1442,7 +1442,7 @@
 "Settings.SendUsage.Message" = "Mozilla strives to only collect what we need to provide and improve Firefox for everyone.";
 
 /* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "Send Usage Data";
+"Settings.SendUsage.Title" = "Send usage data to Mozilla";
 
 /* Description displayed under the ”Show Link Previews” option */
 "Settings.ShowLinkPreviews.Status" = "When Long-pressing Links";

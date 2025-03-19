@@ -63,16 +63,19 @@
 "Imt.Setting.feedback.desc" = "We look forward to hearing from you! Whether it's your thoughts, questions, or any doubts in your mind, please do not hesitate to share them with us. Your feedback is of great importance to us!";
 "Imt.Setting.feedback.bug.title" = "Problem Details";
 "Imt.Setting.feedback.bug.placeholder" = "Please describe in detail what went wrong";
-"Imt.Setting.feedback.feat.title" = "Feature Request";
 "Imt.Setting.feedback.feat.placeholder" = "Please describe in detail the new features you would like us to add";
 "Imt.Setting.feedback.image.title" = "Upload Image (Optional)";
 "Imt.Setting.feedback.email.title" = "Your Email Address (Optional)";
 "Imt.Setting.feedback.email.placeholder" = "Please enter a valid email address";
 "Imt.Setting.feedback.submit" = "Submit";
 "Imt.Setting.feedback.submit.success" = "Submitted";
-"Imt.home.feedback.title" = "Are you satisfied with the immersive translation experience?";
-"Imt.home.feedback.dissatisfied.title" = "😢Not satisfied with the product?\nPlease provide us with your valuable feedback!";
-"Imt.home.feedback.satisfied.title" = "😄We will continue to work hard!\nPlease go to the app store and give a good review";
-"Imt.home.feedback.goto" = "Go Now";
+
+"Imt.Setting.feedback.feat.title" = "Requirement Details";
 "Imt.Setting.feedback.image.submit.error" = "Picture upload failed\nPlease try again";
 "Imt.Setting.feedback.submit.error" = "Submission failed\nPlease try again";
+
+"Imt.home.feedback.title" = "Are you satisfied with the Immersive Translation experience?";
+"Imt.home.feedback.dissatisfied.title" = "😢Not satisfied with the product?\nPlease give us your valuable comments!";
+"Imt.home.feedback.satisfied.title" = "😄We'll build on it!\nPlease leave us a positive review in the app store~";
+"Imt.home.feedback.goto" = "Go Now";
+

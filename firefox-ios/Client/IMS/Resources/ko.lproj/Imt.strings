@@ -5,7 +5,7 @@
   Created by jaly on 2025/1/15.
   Copyright © 2025 Mozilla. All rights reserved.
 */
-"Imt.Localizable.App.Info" = "몰입형번역 브라우저는 Mozilla의 오픈 소스 프로젝트인 Firefox 브라우저 기술을 기반으로 몰입형번역 팀이 독립적으로 개발한 맞춤형 제품입니다.";
+"Imt.Localizable.App.Info" = "몰입형 번역은 파이어폭스 브라우저 기술을 기반으로 한 맞춤형 제품으로, 몰입형 번역 팀이 독자적으로 개발했습니다. 파이어폭스 브라우저는 Mozilla의 오픈소스 프로젝트입니다.";
 "Imt.Localizable.App.Version" = "버전";
 "Imt.Localizable.App" = "앱";
 "Imt.Localizable.Reminder" = "알림";
@@ -48,31 +48,34 @@
 "Imt.Common.Error.Message" = "오류 발생";
 "Imt.Home.login.action" = "지금 로그인";
 "Imt.Home.login.desc" = "최고의 경험";
-"Imt.Onboarding.TranslateExample.before.title" = "다음 페이지를 번역해 보세요.";
-"Imt.Onboarding.TranslateExample.before.desc" = "주소창에 있는 번역아이콘을 클릭해서 번역해보세요";
-"Imt.Onboarding.TranslateExample.after.title" = "🎉축하해요!";
-"Imt.Onboarding.TranslateExample.after.desc" = "당신은 방금 첫 번째 이중 언어 번역을 완료했습니다!";
-"Imt.Onboarding.TranslateExample.button" = "계속하다";
-"Imt.Onboarding.TranslateExample.skip" = "뛰어넘다";
-"Imt.Onboarding.TranslateExample.next" = "이제 다음 단계로 넘어갈 수 있습니다.";
+"Imt.Onboarding.TranslateExample.before.title" = "아래 웹페이지를 번역해 보세요";
+"Imt.Onboarding.TranslateExample.before.desc" = "주소창의 번역 아이콘을 클릭하면 번역할 수 있습니다";
+"Imt.Onboarding.TranslateExample.after.title" = "🎉축하합니다!";
+"Imt.Onboarding.TranslateExample.after.desc" = "방금 첫 번째 이중 언어 번역을 완료했어요";
+"Imt.Onboarding.TranslateExample.button" = "계속";
+"Imt.Onboarding.TranslateExample.skip" = "스킵";
+"Imt.Onboarding.TranslateExample.next" = "이제 다음 단계를 진행할 수 있습니다";
 "Imt.Setting.menu.feedback" = "피드백";
-"Imt.Setting.home.feedback.title" = "문제가 있나요? 부디";
-"Imt.Setting.home.feedback.button" = "문의하기";
+"Imt.Setting.home.feedback.title" = "문제가 발생했나요? ";
+"Imt.Setting.home.feedback.button" = "저희에게 문의해주세요";
 "Imt.Setting.feedback.type.bug" = "버그 문제";
 "Imt.Setting.feedback.type.feat" = "기능 요청";
-"Imt.Setting.feedback.desc" = "여러분의 의견을 기다리고 있습니다! 여러분의 생각, 문제, 또는 어떤 의문이든 망설이지 말고 공유해주세요. 여러분의 피드백은 저희에게 매우 중요합니다!";
+"Imt.Setting.feedback.desc" = "여러분의 의견을 기다리고 있습니다! 의견, 문제 또는 질문을 망설이지 말고 저희에게 공유해주세요. 여러분의 피드백은 매우 중요합니다!";
 "Imt.Setting.feedback.bug.title" = "문제 상세 내용";
 "Imt.Setting.feedback.bug.placeholder" = "사용 중 발생한 문제를 자세히 설명해 주세요";
-"Imt.Setting.feedback.feat.title" = "기능 요청";
-"Imt.Setting.feedback.feat.placeholder" = "추가되기를 원하는 새로운 기능을 자세히 설명해 주세요";
+"Imt.Setting.feedback.feat.placeholder" = "추가되었으면 하는 새로운 기능을 자세히 설명해 주세요";
 "Imt.Setting.feedback.image.title" = "이미지 업로드 (선택 사항)";
 "Imt.Setting.feedback.email.title" = "이메일 주소 (선택 사항)";
 "Imt.Setting.feedback.email.placeholder" = "유효한 이메일 주소를 입력해주세요";
 "Imt.Setting.feedback.submit" = "제출";
 "Imt.Setting.feedback.submit.success" = "제출 성공";
-"Imt.home.feedback.title" = "몰입형 번역 경험에 만족하십니까?";
-"Imt.home.feedback.dissatisfied.title" = "😢제품이 마음에 안 드시나요?\n귀중한 의견을 제공해 주십시오.";
-"Imt.home.feedback.satisfied.title" = "😄우리는 더 분발할 것이다!\n 앱스토어를 방문해 좋은 평가를 해주세요~";
-"Imt.home.feedback.goto" = "지금 바로 가기";
+
+"Imt.Setting.feedback.feat.title" = "기능 요청";
 "Imt.Setting.feedback.image.submit.error" = "그림 업로드 실패\n 다시 시도하십시오";
 "Imt.Setting.feedback.submit.error" = "커밋 실패\n 다시 시도하십시오";
+
+"Imt.home.feedback.title" = "몰입형 번역에 만족하시나요?";
+"Imt.home.feedback.dissatisfied.title" = "😢제품에 만족하지 않으셨나요?\n소중한 의견을 보내주세요!";
+"Imt.home.feedback.satisfied.title" = "😄계속 개선해 나가겠습니다!\n앱스토어에 좋은 리뷰를 남겨주세요~";
+"Imt.home.feedback.goto" = "지금 바로 가기";
+

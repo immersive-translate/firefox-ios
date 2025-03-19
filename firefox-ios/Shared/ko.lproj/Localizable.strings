@@ -923,7 +923,7 @@
 "Privacy" = "개인정보";
 
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
-"Privacy Policy" = "개인정보 보호정책";
+"Privacy Policy" = "Firefox 개인정보 보호정책";
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "연결이 안전하지 않음";
@@ -1442,7 +1442,7 @@
 "Settings.SendUsage.Message" = "Mozilla는 Firefox를 개선하기 위한 정보만 수집하기 위해 노력합니다.";
 
 /* The title for the setting to send usage data. */
-"Settings.SendUsage.Title" = "사용현황 데이터 보내기";
+"Settings.SendUsage.Title" = "Mozilla에 사용 데이터 전송";
 
 /* Description displayed under the ”Show Link Previews” option */
 "Settings.ShowLinkPreviews.Status" = "링크를 길게 누를 때";

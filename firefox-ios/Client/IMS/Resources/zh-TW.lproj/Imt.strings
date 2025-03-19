@@ -5,7 +5,7 @@
   Created by jaly on 2025/1/15.
   Copyright © 2025 Mozilla. All rights reserved.
 */
-"Imt.Localizable.App.Info" = "沉浸式翻譯是一款基於火狐瀏覽器技術的定制產品，由沉浸式翻譯團隊獨立開發。火狐瀏覽器是Mozilla的一個開源項目。";
+"Imt.Localizable.App.Info" = "沉浸式翻譯是一款基於Firefox瀏覽器技術的定製產品，由沉浸式翻譯團隊獨立開發。Firefox瀏覽器是 Mozilla 的一個開源專案。";
 "Imt.Localizable.App.Version" = "版本號";
 "Imt.Localizable.App" = "應用";
 "Imt.Localizable.Reminder" = "溫馨提示";
@@ -53,27 +53,29 @@
 "Imt.Onboarding.TranslateExample.after.desc" = "你剛剛進行了第一次雙語翻譯！";
 "Imt.Onboarding.TranslateExample.button" = "繼續";
 "Imt.Onboarding.TranslateExample.skip" = "跳過";
-"Imt.Onboarding.TranslateExample.next" = "您可以繼續下一步了～";
+"Imt.Onboarding.TranslateExample.next" = "您可以繼續下一步了";
 "Imt.Setting.menu.feedback" = "回饋";
-"Imt.Setting.home.feedback.title" = "遇到了問題？請";
+"Imt.Setting.home.feedback.title" = "遇到問題了嗎？請";
 "Imt.Setting.home.feedback.button" = "聯繫我們";
-
 "Imt.Setting.feedback.type.bug" = "程式錯誤（Bug）";
 "Imt.Setting.feedback.type.feat" = "功能需求";
 "Imt.Setting.feedback.desc" = "我們期待聽到您的聲音！無論是您的想法、問題，或任何疑惑，都請毫不猶豫地與我們分享。您的回饋對我們而言意義重大！";
 "Imt.Setting.feedback.bug.title" = "問題詳情";
 "Imt.Setting.feedback.bug.placeholder" = "請詳細描述您在使用中遇到的問題";
-"Imt.Setting.feedback.feat.title" = "功能需求";
 "Imt.Setting.feedback.feat.placeholder" = "請詳細描述您期待我們新增的功能";
 "Imt.Setting.feedback.image.title" = "上傳圖片（選填）";
 "Imt.Setting.feedback.email.title" = "您的電子郵件地址（選填）";
 "Imt.Setting.feedback.email.placeholder" = "請輸入有效的電子郵件地址";
 "Imt.Setting.feedback.submit" = "送出";
 "Imt.Setting.feedback.submit.success" = "送出成功";
-"Imt.home.feedback.title" = "您對沉浸式翻譯的體驗滿意嗎？";
-"Imt.home.feedback.dissatisfied.title" = "😢對產品不滿意？\n請給我們提供您寶貴的意見吧！";
-"Imt.home.feedback.satisfied.title" = "😄我們會再接再厲！\n請前往應用商店給個好評吧～";
-"Imt.home.feedback.goto" = "立即前往";
+
+"Imt.Setting.feedback.feat.title" = "需求詳情";
 "Imt.Setting.feedback.image.submit.error" = "圖片上傳失敗\n請重試";
-"Imt.Setting.feedback.submit.error" = "提交失敗\n請重試";
+"Imt.Setting.feedback.submit.error" = "送出失敗\n請重試";
+
+"Imt.home.feedback.title" = "您對沉浸式翻譯的使用體驗感到滿意嗎？";
+"Imt.home.feedback.dissatisfied.title" = "😢對產品有任何不滿意的地方嗎？\n請提供您寶貴的意見吧！";
+"Imt.home.feedback.satisfied.title" = "😄我們會繼續努力！\n請前往應用程式商店給個好評吧～";
+"Imt.home.feedback.goto" = "立即前往";
+
 
