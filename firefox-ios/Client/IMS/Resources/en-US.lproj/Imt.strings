@@ -69,11 +69,9 @@
 "Imt.Setting.feedback.email.placeholder" = "Please enter a valid email address";
 "Imt.Setting.feedback.submit" = "Submit";
 "Imt.Setting.feedback.submit.success" = "Submitted";
-
 "Imt.Setting.feedback.feat.title" = "Requirement Details";
-"Imt.Setting.feedback.image.submit.error" = "Picture upload failed\nPlease try again";
+"Imt.Setting.feedback.image.submit.error" = "Upload failed\nPlease try again";
 "Imt.Setting.feedback.submit.error" = "Submission failed\nPlease try again";
-
 "Imt.home.feedback.title" = "Are you satisfied with the Immersive Translation experience?";
 "Imt.home.feedback.dissatisfied.title" = "😢Not satisfied with the product?\nPlease give us your valuable comments!";
 "Imt.home.feedback.satisfied.title" = "😄We'll build on it!\nPlease leave us a positive review in the app store~";

@@ -68,11 +68,9 @@
 "Imt.Setting.feedback.email.placeholder" = "請輸入有效的電子郵件地址";
 "Imt.Setting.feedback.submit" = "送出";
 "Imt.Setting.feedback.submit.success" = "送出成功";
-
 "Imt.Setting.feedback.feat.title" = "需求詳情";
 "Imt.Setting.feedback.image.submit.error" = "圖片上傳失敗\n請重試";
 "Imt.Setting.feedback.submit.error" = "送出失敗\n請重試";
-
 "Imt.home.feedback.title" = "您對沉浸式翻譯的使用體驗感到滿意嗎？";
 "Imt.home.feedback.dissatisfied.title" = "😢對產品有任何不滿意的地方嗎？\n請提供您寶貴的意見吧！";
 "Imt.home.feedback.satisfied.title" = "😄我們會繼續努力！\n請前往應用程式商店給個好評吧～";

@@ -69,11 +69,9 @@
 "Imt.Setting.feedback.email.placeholder" = "유효한 이메일 주소를 입력해주세요";
 "Imt.Setting.feedback.submit" = "제출";
 "Imt.Setting.feedback.submit.success" = "제출 성공";
-
-"Imt.Setting.feedback.feat.title" = "기능 요청";
-"Imt.Setting.feedback.image.submit.error" = "그림 업로드 실패\n 다시 시도하십시오";
-"Imt.Setting.feedback.submit.error" = "커밋 실패\n 다시 시도하십시오";
-
+"Imt.Setting.feedback.feat.title" = "요청 상세 내용";
+"Imt.Setting.feedback.image.submit.error" = "이미지 업로드 실패\n다시 시도";
+"Imt.Setting.feedback.submit.error" = "제출 실패\n다시 시도";
 "Imt.home.feedback.title" = "몰입형 번역에 만족하시나요?";
 "Imt.home.feedback.dissatisfied.title" = "😢제품에 만족하지 않으셨나요?\n소중한 의견을 보내주세요!";
 "Imt.home.feedback.satisfied.title" = "😄계속 개선해 나가겠습니다!\n앱스토어에 좋은 리뷰를 남겨주세요~";
