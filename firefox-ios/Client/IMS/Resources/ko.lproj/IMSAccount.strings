@@ -19,9 +19,9 @@
 "Settings.IMSAccount.IAP.Gemini Translation" = "Gemini 번역";
 "Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro 전용 고급 기능";
 "Settings.IMSAccount.IAP.PDF Pro" = "PDF Pro";
-"Settings.IMSAccount.IAP.PDF Pro tip" = "매월 AI로 구동되는 PDF 문서 번역 500페이지가 포함되며, 복잡한 수식 인식, 표 인식 및 스캔된 문서를 지원합니다.";
+"Settings.IMSAccount.IAP.PDF Pro tip" = "매월 AI로 구동되는 PDF 문서 번역 1000페이지가 포함되며, 복잡한 수식 인식, 표 인식 및 스캔된 문서를 지원합니다.";
 "Settings.IMSAccount.IAP.Manga Translation" = "만화 번역";
-"Settings.IMSAccount.IAP.Manga Translation tip" = "매월 AI로 구동되는 만화 번역 1000페이지가 포함됩니다.";
+"Settings.IMSAccount.IAP.Manga Translation tip" = "매월 AI로 구동되는 만화 번역 3000페이지가 포함됩니다.";
 "Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "유튜브 자막 내보내기";
 "Settings.IMSAccount.IAP.Multi-device sync configuration" = "클라우드 동기화 설정";
 "Settings.IMSAccount.IAP.Priority email support" = "우선 이메일 지원";
