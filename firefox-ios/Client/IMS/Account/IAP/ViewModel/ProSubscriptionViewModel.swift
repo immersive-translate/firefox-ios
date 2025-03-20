@@ -188,6 +188,13 @@ class ProSubscriptionViewModel: ObservableObject {
     }
     
     func trackPurchaseEvent(info: ProSubscriptionInfo) {
+        let totalEvent = ADJEvent(eventToken: "8ae2y6")
+        let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
+        let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
+        totalEvent?.setRevenue(amount, currency: currencyCode)
+        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+        Adjust.trackEvent(totalEvent)
+        
         var eventToken = ""
         if userInfo?.iosPlanTier == "trial" {
             /// 还未试用过
@@ -226,8 +233,6 @@ class ProSubscriptionViewModel: ObservableObject {
             return
         }
         let event = ADJEvent(eventToken: eventToken)
-        let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
-        let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
         event?.setRevenue(amount, currency: currencyCode)
         event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
         Adjust.trackEvent(event)
