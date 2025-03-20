@@ -22,7 +22,7 @@ class IMSPrivacyPolicySetting: Setting {
         self.settingsDelegate = settingsDelegate
         super.init(
             title: NSAttributedString(
-                string: "\(AppName.shortName.rawValue)\(String.IMS.IAP.privacyPolicy)",
+                string: "\(AppInfo.displayName)\(String.IMS.IAP.privacyPolicy)",
                 attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary]
             )
         )

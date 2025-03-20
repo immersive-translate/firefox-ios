@@ -422,7 +422,7 @@
 "FxHomepage.Wallpaper.ButtonLabel.v99" = "Firefox 로고, 배경 화면 변경";
 
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
-"Help" = "도움말";
+"Help" = "Firefox 도움말";
 
 /* Toggle history syncing setting */
 "History" = "방문목록";
@@ -623,7 +623,7 @@
 "LibraryPanel.Section.Older" = "이전";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "라이선스";
+"Licenses" = "라이센스 협약";
 
 /* Light theme setting in Reading View settings */
 "Light" = "밝음";
@@ -935,7 +935,7 @@
 "Quick-Search Engines" = "빠른 검색 엔진";
 
 /* A label indicating the action that a user can rate the Firefox app in the App store. */
-"Ratings.Settings.RateOnAppStore" = "App Store에서 평가";
+"Ratings.Settings.RateOnAppStore" = "App Store에서 평가하기";
 
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "읽었음";
@@ -1439,7 +1439,7 @@
 "Settings.SendUsage.Link" = "자세히 알아보기";
 
 /* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "Mozilla는 Firefox를 개선하기 위한 정보만 수집하기 위해 노력합니다.";
+"Settings.SendUsage.Message" = "Mozilla는 Firefox에 제공하고 개선하는 데 필요한 정보만을 수집하기 위해 노력합니다.";
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Mozilla에 사용 데이터 전송";
@@ -1469,7 +1469,7 @@
 "Settings.Studies.Toggle.Link" = "자세히 알아보기";
 
 /* A short description that explains that Mozilla is running studies */
-"Settings.Studies.Toggle.Message" = "Firefox는 때때로 연구를 설치하고 실행할 수 있습니다.";
+"Settings.Studies.Toggle.Message" = "Firefox는 비정기적으로 일부 연구 프로젝트를 설치하고 실행할 수 있습니다.";
 
 /* Label used as a toggle item in Settings. When this is off, the user is opting out of all studies. */
 "Settings.Studies.Toggle.Title" = "연구";
@@ -1790,7 +1790,7 @@
 "You don’t have any tabs open in Firefox on your other devices." = "다른 기기에서 연 탭이 없습니다.";
 
 /* Your Rights settings section title */
-"Your Rights" = "사용자 권리";
+"Your Rights" = "Firefox에 대한 사용자의 권리";
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";

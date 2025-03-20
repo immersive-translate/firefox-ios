@@ -625,7 +625,7 @@
 "LibraryPanel.Section.Older" = "更久之前";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "授權";
+"Licenses" = "授權協議";
 
 /* Light theme setting in Reading View settings */
 "Light" = "亮色";
@@ -937,7 +937,7 @@
 "Quick-Search Engines" = "快速搜尋引擎";
 
 /* A label indicating the action that a user can rate the Firefox app in the App store. */
-"Ratings.Settings.RateOnAppStore" = "到 App Store 評分";
+"Ratings.Settings.RateOnAppStore" = "在 App Store 上評分";
 
 /* Accessibility label for read article in reading list. It's a past participle - functions as an adjective. */
 "read" = "已讀";
@@ -1441,7 +1441,7 @@
 "Settings.SendUsage.Link" = "了解更多。";
 
 /* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "Mozilla 致力於只收集用來為眾人改善 Firefox 所需的必要資料。";
+"Settings.SendUsage.Message" = "Mozilla 只會蒐集必要的資訊，以提供並改進 Firefox，讓更多人受益。";
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "向 Mozilla 傳送使用數據";
@@ -1471,10 +1471,10 @@
 "Settings.Studies.Toggle.Link" = "了解更多。";
 
 /* A short description that explains that Mozilla is running studies */
-"Settings.Studies.Toggle.Message" = "Firefox 會不定時安裝並執行使用者研究。";
+"Settings.Studies.Toggle.Message" = "Firefox 可能會不定期安裝並執行一些研究專案。";
 
 /* Label used as a toggle item in Settings. When this is off, the user is opting out of all studies. */
-"Settings.Studies.Toggle.Title" = "使用者研究";
+"Settings.Studies.Toggle.Title" = "研究";
 
 /* Ddescription that appears in the settings screen to explain what Firefox Sync is useful for. */
 "Settings.Sync.ButtonDescription.v103" = "登入後即可同步分頁、書籤、密碼與其他資料。";
@@ -1792,7 +1792,7 @@
 "You don’t have any tabs open in Firefox on your other devices." = "您其他裝置上的 Firefox 沒有任何開啟的分頁。";
 
 /* Your Rights settings section title */
-"Your Rights" = "您的權利";
+"Your Rights" = "您的 Firefox 使用權利";
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";

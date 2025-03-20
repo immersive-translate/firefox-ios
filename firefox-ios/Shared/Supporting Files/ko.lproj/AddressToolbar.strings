@@ -2,7 +2,7 @@
 "AddressToolbar.Location.A11y.Label.v128" = "검색어 또는 주소 입력";
 
 /* Placeholder for the address field in the address toolbar. */
-"AddressToolbar.Location.Placeholder.v128" = "검색어 또는 주소 입력";
+"AddressToolbar.Location.Placeholder.v128" = "검색 또는 웹사이트 주소 입력";
 
 /* Accessibility label for the lock icon button in the address field of the address toolbar, responsible with Privacy & Security Settings. */
 "AddressToolbar.PrivacyAndSecuriySettings.A11y.Label.v128" = "개인 정보 및 보안 설정";

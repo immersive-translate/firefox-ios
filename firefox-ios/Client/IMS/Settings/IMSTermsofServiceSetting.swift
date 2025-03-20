@@ -27,7 +27,7 @@ class IMSTermsofServiceSetting: Setting {
         self.settingsDelegate = settingsDelegate
         super.init(
             title: NSAttributedString(
-                string: "\(AppName.shortName.rawValue)\(String.IMS.IAP.termsOfService)",
+                string: "\(AppInfo.displayName)\(String.IMS.IAP.termsOfService)",
                 attributes: [NSAttributedString.Key.foregroundColor: theme.colors.textPrimary]
             )
         )

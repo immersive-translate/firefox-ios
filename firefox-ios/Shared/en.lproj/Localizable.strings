@@ -425,7 +425,7 @@
 "FxHomepage.Wallpaper.ButtonLabel.v99" = "Firefox logo, change the wallpaper.";
 
 /* Show the SUMO support page from the Support section in the settings. see http://mzl.la/1dmM8tZ */
-"Help" = "Help";
+"Help" = "Firefox help";
 
 /* Toggle history syncing setting */
 "History" = "History";
@@ -626,7 +626,7 @@
 "LibraryPanel.Section.Older" = "Older";
 
 /* Settings item that opens a tab containing the licenses. See http://mzl.la/1NSAWCG */
-"Licenses" = "Licenses";
+"Licenses" = "License agreement";
 
 /* Light theme setting in Reading View settings */
 "Light" = "Light";
@@ -943,7 +943,7 @@
 /* Show Firefox Browser Privacy Policy page from the Privacy section in the settings. See https://www.mozilla.org/privacy/firefox/ */
 "Privacy Policy" = "Firefox privacy policy";
 
-"Immersive Translate Tutorials" = "Immersive Translate Tutorials";
+"Immersive Translate Tutorials" = "Immersive Translate tutorial";
 
 /* This is the value for a label that indicates if a user is on an unencrypted website. */
 "ProtectionStatus.NotSecure" = "Connection is not secure";
@@ -1467,7 +1467,7 @@
 "Settings.SendUsage.Link" = "Learn More.";
 
 /* A short description that explains why mozilla collects usage data. */
-"Settings.SendUsage.Message" = "Mozilla strives to only collect what we need to provide and improve Firefox for everyone.";
+"Settings.SendUsage.Message" = "Mozilla strives to collect only the information necessary to provide and improve Firefox for everyone.";
 
 /* The title for the setting to send usage data. */
 "Settings.SendUsage.Title" = "Send usage data to Mozilla";
@@ -1494,10 +1494,10 @@
 "Settings.Studies.Toggle.Link" = "Learn More.";
 
 /* A short description that explains that Mozilla is running studies */
-"Settings.Studies.Toggle.Message" = "Firefox may install and run studies from time to time.";
+"Settings.Studies.Toggle.Message" = "Firefox may install and run research projects from time to time.";
 
 /* Label used as a toggle item in Settings. When this is off, the user is opting out of all studies. */
-"Settings.Studies.Toggle.Title" = "Studies";
+"Settings.Studies.Toggle.Title" = "Research";
 
 /* Ddescription that appears in the settings screen to explain what Firefox Sync is useful for. */
 "Settings.Sync.ButtonDescription.v103" = "Sign in to sync tabs, bookmarks, passwords, and more.";
@@ -1815,7 +1815,7 @@
 "You don’t have any tabs open in Firefox on your other devices." = "You don’t have any tabs open in Firefox on your other devices.";
 
 /* Your Rights settings section title */
-"Your Rights" = "Your Rights";
+"Your Rights" = "Your rights to Firefox";
 
 /* Tile title for YouTube */
 "YouTube" = "YouTube";

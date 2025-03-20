@@ -17,14 +17,14 @@
 "Settings.IMSAccount.IAP.OpenAI Translation" = "OpenAI 번역";
 "Settings.IMSAccount.IAP.Claude Translation" = "Claude 번역";
 "Settings.IMSAccount.IAP.Gemini Translation" = "Gemini 번역";
-"Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro 전용 고급 기능";
+"Settings.IMSAccount.IAP.Pro-exclusive advanced features" = "Pro 회원 전용 고급 기능";
 "Settings.IMSAccount.IAP.PDF Pro" = "PDF Pro";
 "Settings.IMSAccount.IAP.PDF Pro tip" = "매월 AI로 구동되는 PDF 문서 번역 1000페이지가 포함되며, 복잡한 수식 인식, 표 인식 및 스캔된 문서를 지원합니다.";
 "Settings.IMSAccount.IAP.Manga Translation" = "만화 번역";
 "Settings.IMSAccount.IAP.Manga Translation tip" = "매월 AI로 구동되는 만화 번역 3000페이지가 포함됩니다.";
-"Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "유튜브 자막 내보내기";
-"Settings.IMSAccount.IAP.Multi-device sync configuration" = "클라우드 동기화 설정";
-"Settings.IMSAccount.IAP.Priority email support" = "우선 이메일 지원";
+"Settings.IMSAccount.IAP.Youtube Bilingual Subtitle Download" = "YouTube 이중 언어 자막 다운로드";
+"Settings.IMSAccount.IAP.Multi-device sync configuration" = "다중 기기 동기화 설정";
+"Settings.IMSAccount.IAP.Priority email support" = "이메일 우선 지원 서비스";
 "Settings.IMSAccount.IAP.Priority email support tip" = "문제가 발생하면 고객 지원팀 support@immersivetranslate.com으로 문의하십시오.";
 "Settings.IMSAccount.IAP.Consecutive annual subscription" = "연간";
 "Settings.IMSAccount.IAP.Consecutive monthly subscription" = "월간";
@@ -45,7 +45,7 @@
 "Settings.IMSAccount.IAP.Downgrading is not supported" = "다운그레이드는 지원되지 않습니다.";
 "Settings.IMSAccount.IAP.Upgrade on the PC" = "PC에서 업그레이드";
 "Settings.IMSAccount.IAP.Not Need Now" = "지금은 필요 없음";
-"Settings.IMSAccount.IAP.See A Biger World" = "더 넓은 세상을 보세요";
+"Settings.IMSAccount.IAP.See A Biger World" = "더 넓은 세상을 만나보세요";
 "Settings.IMSAccount.IAP.Free 3 Day" = "3일 무료 체험";
 "Settings.IMSAccount.IAP.Terms of Service" = "서비스 약관";
 "Settings.IMSAccount.IAP.Privacy Policy" = "개인정보 처리방침";
