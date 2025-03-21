@@ -2,10 +2,6 @@
 
 set -e
 
-cd ../../ 
-
-sh ./bootstrap.sh
-
 echo "开始安装cocoapods"
 brew install cocoapods
 echo "cocoapods安装完毕"
@@ -30,3 +26,8 @@ env
 
 echo "PATH相关"
 echo $PATH
+
+echo "项目初始化环境"
+brew install node@23
+cd ../../ 
+sh ./bootstrap.sh
