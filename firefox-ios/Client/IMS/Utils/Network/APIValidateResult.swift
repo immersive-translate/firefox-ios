@@ -7,7 +7,7 @@ import APIService
 
 public enum APIValidateResult<T> {
     case success(T)
-    case failure(APIError)
+    case failure(String?, APIError)
 }
 
 public enum IMSDataError: Error {
@@ -24,17 +24,17 @@ extension APIResult where T: APIModelWrapper {
                 if let data = reponse.data {
                     return .success(data)
                 } else {
-                    return .failure( APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                    return .failure(reponse.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
                 }
             } else {
-                return .failure(APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                return .failure(reponse.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
             }
         case let .failure(apiError):
 //            if apiError == APIError.networkError {
 //                message = apiError.localizedDescription
 //            }
             Log.d(apiError.localizedDescription)
-            return .failure(apiError)
+            return .failure(nil, apiError)
         }
     }
 }

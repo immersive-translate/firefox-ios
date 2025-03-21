@@ -165,10 +165,8 @@ extension IMSImagePickGridView {
         defer {
             lock.unlock()
         }
-        for item in imageArr {
-            if !imageList.compactMap({ $0.id }).contains(item.id) {
-                imageList.append(item)
-            }
+        for item in imageArr where !imageList.compactMap({ $0.id }).contains(item.id) {
+            imageList.append(item)
         }
 
         if maxImageCount > 0, imageList.count > maxImageCount {
@@ -177,12 +175,14 @@ extension IMSImagePickGridView {
         reloadDataAndFrame()
     }
 
+    
     /// 剩余可选最大数量
     public var canPickResidueMaxCount: Int {
         if maxImageCount <= 0 {
             return -1
         } else {
             let count = maxImageCount - imageList.count
+            // swiftlint:disable empty_count
             return count < 0 ? 0 : count
         }
     }
@@ -222,7 +222,7 @@ extension IMSImagePickGridView: UICollectionViewDataSource {
             case .fail:
                 cell?.maskBGView.isHidden = false
                 cell?.retryImageView.isHidden = false
-                cell?.loadingView.isHidden = false
+                cell?.loadingView.isHidden = true
             case .ing:
                 cell?.maskBGView.isHidden = false
                 cell?.retryImageView.isHidden = true

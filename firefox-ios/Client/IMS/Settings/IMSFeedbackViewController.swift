@@ -280,8 +280,8 @@ class IMSFeedbackViewController: UIViewController {
             case .success:
                 SVProgressHUD.success("Imt.Setting.feedback.submit.success".i18nImt())
                 self.navigationController?.dismiss(animated: true)
-            case .failure:
-                SVProgressHUD.error("Imt.Setting.feedback.submit.error".i18nImt())
+            case let .failure(message, _):
+                SVProgressHUD.error(message ?? "Imt.Setting.feedback.submit.error".i18nImt())
             }
         }
     }
@@ -301,19 +301,19 @@ class IMSFeedbackViewController: UIViewController {
         APIService.sendFormDataRequest(request) { response in
             switch response.result.validateResult {
             case let .success(info):
-                if let model = self.pickImageView.imageList.filter({ $0.id == id }).first {
+                if let model = self.pickImageView.imageList.first(where: { $0.id == id }) {
                     model.state = .success
                     model.data = info
                     self.pickImageView.updateImage(model: model)
                     self.reloadSubmitButton()
                 }
-            case .failure:
-                if let model = self.pickImageView.imageList.filter({ $0.id == id }).first {
+            case let .failure(message, _):
+                if let model = self.pickImageView.imageList.first(where: { $0.id == id }) {
                     model.state = .fail
                     self.pickImageView.updateImage(model: model)
                     self.reloadSubmitButton()
                 }
-                SVProgressHUD.error("Imt.Setting.feedback.image.submit.error".i18nImt())
+                SVProgressHUD.error(message ?? "Imt.Setting.feedback.image.submit.error".i18nImt())
             }
         }
     }

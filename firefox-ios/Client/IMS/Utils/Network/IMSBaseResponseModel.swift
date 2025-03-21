@@ -13,11 +13,14 @@ public protocol APIModelWrapper {
     associatedtype DataType: Decodable
 
     var code: Int { get }
+    
+    var message: String? { get }
 
     var data: DataType? { get }
 }
 
 public struct IMSBaseResponseModel<T>: APIModelWrapper, APIDefaultJSONParsable where T: Decodable {
+    public var message: String?
     public var code: Int
     public var data: T?
 }
