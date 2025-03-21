@@ -9,10 +9,6 @@ import LTXiOSUtils
 extension AppDelegate {
     func willFinishLaunch() {
         reloadKeychain()
-        IMSAccountManager.shard.setup()
-        DebugToolManager.shared.reload()
-        IMSAPPConfigUtils.shared.refresh()
-        setupThirdLib()
     }
     
     func didFinishLaunch() {
