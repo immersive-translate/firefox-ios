@@ -2,6 +2,10 @@
 
 set -e
 
+cd ../../ 
+
+sh ./bootstrap.sh
+
 echo "开始安装cocoapods"
 brew install cocoapods
 echo "cocoapods安装完毕"
