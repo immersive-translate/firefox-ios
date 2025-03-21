@@ -61,6 +61,7 @@ struct IMSAppUrlConfig {
         return [
             "platForm": "ios",
             "appVersion": AppInfo.appVersion,
+            "language": Bundle.main.preferredLocalizations.first ?? "",
         ]
     }
 }

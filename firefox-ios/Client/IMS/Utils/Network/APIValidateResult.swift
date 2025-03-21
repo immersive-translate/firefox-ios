@@ -19,15 +19,15 @@ extension APIResult where T: APIModelWrapper {
     var validateResult: APIValidateResult<T.DataType> {
         let message = "Imt.Common.Error.Message".i18nImt()
         switch self {
-        case let .success(reponse):
-            if reponse.code == IMSBaseResponseModelCode.success.rawValue {
-                if let data = reponse.data {
+        case let .success(response):
+            if response.code == IMSBaseResponseModelCode.success.rawValue {
+                if let data = response.data {
                     return .success(data)
                 } else {
-                    return .failure(reponse.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                    return .failure(response.error ?? response.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
                 }
             } else {
-                return .failure(reponse.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                return .failure(response.error ?? response.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
             }
         case let .failure(apiError):
 //            if apiError == APIError.networkError {
