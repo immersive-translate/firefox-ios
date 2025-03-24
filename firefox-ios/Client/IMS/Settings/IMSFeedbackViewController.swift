@@ -138,7 +138,7 @@ class IMSFeedbackViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor(hexString: "#F53F3F")
-        label.text = "Imt.Setting.feedback.email.tips".i18nImt()
+        label.text = "Imt.Setting.feedback.email.placeholder".i18nImt()
         return label
     }()
     
