@@ -1,5 +1,5 @@
 /* Description for small home tab banner shown that allows the user to switch their default browser to Firefox. */
-"DefaultBrowserCard.BetterInternet.Description.v108" = "Making Firefox your default browser is a vote for an open, accessible internet.";
+"DefaultBrowserCard.BetterInternet.Description.v108" = "Making Immersive Translate your default browser is a vote for an open, accessible internet.";
 
 /* Title for small home tab banner shown that allows the user to switch their default browser to Firefox. */
 "DefaultBrowserCard.BetterInternet.Title.v108" = "Default to a Better Internet";
@@ -11,16 +11,16 @@
 "DefaultBrowserCard.Description" = "Set links from websites, emails, and Messages to open automatically in Immersive Translation.";
 
 /* Description for small home tab banner shown that allows the user to switch their default browser to Firefox. */
-"DefaultBrowserCard.NextLevel.Description.v108" = "Choose Firefox as your default browser to make speed, safety, and privacy automatic.";
+"DefaultBrowserCard.NextLevel.Description.v108" = "Choose Immersive Translate as your default browser to make speed, safety, and privacy automatic.";
 
 /* Title for small home tab banner shown that allows the user to switch their default browser to Firefox. */
 "DefaultBrowserCard.NextLevel.Title.v108" = "Elevate Everyday Browsing";
 
 /* Description for small home tab banner shown that allows the user to switch their default browser to Firefox. */
-"DefaultBrowserCard.PeaceOfMind.Description.v108" = "Firefox blocks 3,000+ trackers per user each month on average. Make us your default browser for privacy peace of mind.";
+"DefaultBrowserCard.PeaceOfMind.Description.v108" = "Immersive Translate blocks 3,000+ trackers per user each month on average. Make us your default browser for privacy peace of mind.";
 
 /* Title for small home tab banner shown that allows the user to switch their default browser to Firefox. */
-"DefaultBrowserCard.PeaceOfMind.Title.v108" = "Firefox Has Privacy Covered";
+"DefaultBrowserCard.PeaceOfMind.Title.v108" = "Immersive Translate Has Privacy Covered";
 
 /* Title for small home tab banner shown that allows user to switch their default browser to Firefox. */
 "DefaultBrowserCard.Title" = "Switch Your Default Browser";
@@ -35,7 +35,7 @@
 "DefaultBrowserOnboarding.Description2" = "2. Tap Default Browser App";
 
 /* Description for default browser onboarding card. */
-"DefaultBrowserOnboarding.Description3" = "3. Select Firefox";
+"DefaultBrowserOnboarding.Description3" = "3. Select Immersive Translate";
 
 /* Text for the screenshot of the iOS system settings page for Firefox. */
 "DefaultBrowserOnboarding.Screenshot" = "Default Browser App";

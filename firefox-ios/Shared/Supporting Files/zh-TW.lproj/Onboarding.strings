@@ -5,10 +5,10 @@
 "DefaultBrowserPopup.DescriptionFooter.v124" = "*%@ 已經是您的預設瀏覽器了嗎？* 可關閉此訊息並點擊「略過」。";
 
 /* The first label on the Default Browser Popup, which is a card with instructions telling the user how to set Firefox as their default browser. The *text inside asterisks* denotes part of the string to bold, please leave the text inside the '*' so that it is bolded correctly. */
-"DefaultBrowserPopup.FirstLabel.v114" = "1. 開啟*設定*";
+"DefaultBrowserPopup.FirstLabel.v114" = "1. 開啟 *設定*";
 
 /* The second label on the Default Browser Popup, which is a card with instructions telling the user how to set Firefox as their default browser. The *text inside asterisks* denotes part of the string to bold, please leave the text inside the '*' so that it is bolded correctly. */
-"DefaultBrowserPopup.SecondLabel.v114" = "2. 點擊*預設瀏覽器*";
+"DefaultBrowserPopup.SecondLabel.v114" = "2. 點擊 *預設瀏覽器*";
 
 /* The third label on the Default Browser Popup, which is a card with instructions telling the user how to set Firefox as their default browser. Placeholder is the app name. The *text inside asterisks* denotes part of the string to bold, please leave the text inside the '*' so that it is bolded correctly. */
 "DefaultBrowserPopup.ThirdLabel.v114" = "3. 選擇 *%@*";
