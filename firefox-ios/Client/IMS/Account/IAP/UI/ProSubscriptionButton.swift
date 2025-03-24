@@ -34,16 +34,14 @@ struct ProSubscriptionButton: View {
             LinearGradient(
                 stops: [
                     Gradient.Stop(
-                        color: Color(
-                            red: 0.13, green: 0.13, blue: 0.13),
+                        color: Color(uiColor: UIColor(hexString: "#222222").withDarkColor("#383838")),
                         location: 0.00),
                     Gradient.Stop(
-                        color: Color(
-                            red: 0.41, green: 0.41, blue: 0.41),
+                        color: Color(uiColor: UIColor(hexString: "#696969").withDarkColor("#838383")),
                         location: 1.00),
                 ],
-                startPoint: UnitPoint(x: 0.31, y: 1.08),
-                endPoint: UnitPoint(x: 0.92, y: 0)
+                startPoint: UnitPoint(x: 0.0, y: 0.0),
+                endPoint: UnitPoint(x: 1, y: 1)
             )
         )
         .cornerRadius(12)

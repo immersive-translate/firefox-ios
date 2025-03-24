@@ -113,8 +113,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 Spacer().frame(width: 24)
                                 Text("\(String.IMS.IAP.yearPro)")
                                     .font(.system(size: 24, weight: .bold))
-                                    .foregroundColor(
-                                        Color(red: 0.2, green: 0.2, blue: 0.2))
+                                    .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                                 
                                 Spacer().frame(width: 12)
                                 
@@ -150,7 +149,7 @@ struct YearProSubscriptionHeaderSwiftUIView: View {
                                 
                                 Text("\(getYearMonthPriceString)/\(String.IMS.IAP.month)")
                                     .font(Font.custom("PingFang SC", size: 16))
-                                    .foregroundColor(Color(red: 0.2, green: 0.2, blue: 0.2))
+                                    .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                                 
                                 Spacer()
                             }

@@ -36,8 +36,7 @@ struct MonthProSubscriptionHeaderSwiftUIView: View {
                                 
                                 Text("\(String.IMS.IAP.monthlyProMembership)")
                                     .font(.system(size: 24, weight: .bold))
-                                    .foregroundColor(
-                                        Color(red: 0.2, green: 0.2, blue: 0.2))
+                                    .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                                 
                                 Spacer().frame(width: 12)
                                 
