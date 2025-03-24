@@ -12,6 +12,7 @@ target 'Client' do
   pod 'KeychainAccess', "4.2.2"
 #  pod 'ZLPhotoBrowser', '4.5.7'
   pod 'Swime', '3.0.6'
+  pod 'IQKeyboardToolbar', '1.1.1'
 #  pod 'LookinServer', '1.0.4'
 end
 

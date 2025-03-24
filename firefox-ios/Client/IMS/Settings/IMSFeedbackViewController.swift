@@ -31,7 +31,7 @@ enum FeedType: CaseIterable {
     }
 }
 
-class IMSFeedbackViewController: UIViewController {
+class IMSFeedbackViewController: BaseViewController {
     var windowUUID: WindowUUID?
     
     private var arr: [FeedType] = FeedType.allCases
@@ -91,7 +91,7 @@ class IMSFeedbackViewController: UIViewController {
     }()
     
     private lazy var bugTextView: UITextView = {
-        let view = UITextView()
+        let view = ComponentFactory.shared.getTextView()
         view.layer.cornerRadius = 12.0
         view.clipsToBounds = true
         view.backgroundColor = UIColor(hexString: "#FAFBFC").withDarkColor("2B2D30")
@@ -112,7 +112,7 @@ class IMSFeedbackViewController: UIViewController {
     }()
     
     private lazy var emailTextField: UITextField = {
-        let view = UITextField()
+        let view = ComponentFactory.shared.getTextFiled()
         view.layer.cornerRadius = 12.0
         view.clipsToBounds = true
         view.backgroundColor = UIColor(hexString: "#FAFBFC").withDarkColor("2B2D30")

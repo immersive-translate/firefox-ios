@@ -4,6 +4,15 @@ PODS:
   - BetterCodable (0.4.0)
   - CSAPIService/Core (0.1.0):
     - Alamofire (= 5.8.1)
+  - IQKeyboardCore (1.0.7)
+  - IQKeyboardToolbar (1.1.1):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Core (= 1.1.1)
+  - IQKeyboardToolbar/Core (1.1.1):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Placeholderable
+  - IQKeyboardToolbar/Placeholderable (1.1.1):
+    - IQKeyboardCore
   - KeychainAccess (4.2.2)
   - LTXiOSUtils (0.0.3):
     - LTXiOSUtils/Component (= 0.0.3)
@@ -48,6 +57,7 @@ DEPENDENCIES:
   - AttributedString (= 3.3.5)
   - BetterCodable (= 0.4.0)
   - CSAPIService/Core (= 0.1.0)
+  - IQKeyboardToolbar (= 1.1.1)
   - KeychainAccess (= 4.2.2)
   - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
   - SwiftyJSON (= 4.0.0)
@@ -65,6 +75,9 @@ SPEC REPOS:
     - Swime
     - WCDB.swift
     - WCDBOptimizedSQLCipher
+  trunk:
+    - IQKeyboardCore
+    - IQKeyboardToolbar
 
 EXTERNAL SOURCES:
   LTXiOSUtils:
@@ -81,6 +94,8 @@ SPEC CHECKSUMS:
   AttributedString: 6d2d9d65310119556c3b5c6e4ea8d1ca339b703c
   BetterCodable: 3f2a765c9f4089b19debd2a7b904a69fca0a5fda
   CSAPIService: 210402f9f70b990865fade5c17542b18261a3067
+  IQKeyboardCore: cb7f0a9a17dd32599569f2f478c1418dc28bcebb
+  IQKeyboardToolbar: d4bdccfb78324aec2f3920659c77bb89acd33312
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   LTXiOSUtils: b2f2a0ab25a055b8327016c7f3f60e65e2e1c218
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
@@ -88,6 +103,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: c290968979286329f349309bab27261047bc63a8
+PODFILE CHECKSUM: 1de83890c9241c4af2babbccd537f479cc6f7fa5
 
 COCOAPODS: 1.16.2
