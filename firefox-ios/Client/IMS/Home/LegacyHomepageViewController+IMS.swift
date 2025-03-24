@@ -13,7 +13,7 @@ extension LegacyHomepageViewController {
                 self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
             }
         }
-        if let viewModel = self.viewModel.childViewModels[3] as? IMSHomeLoginCellViewModel {
+        if let viewModel = self.viewModel.childViewModels[4] as? IMSHomeLoginCellViewModel {
             viewModel.loginHandler = { [weak self] in
                 guard let self = self else { return }
                 guard let url = URL(string: IMSAppUrlConfig.login) else { return }
