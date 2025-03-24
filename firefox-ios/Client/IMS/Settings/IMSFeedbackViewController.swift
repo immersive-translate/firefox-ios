@@ -272,7 +272,6 @@ class IMSFeedbackViewController: BaseViewController {
                 label.removeFromSuperview()
             }
         }
-        bugTextView.text = ""
         switch type {
         case .bug:
             bugLabel.text = "Imt.Setting.feedback.bug.title".i18nImt()
