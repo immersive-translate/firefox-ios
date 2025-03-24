@@ -46,6 +46,7 @@ PODS:
   - LTXiOSUtils/Util/Log (0.0.3)
   - SwiftyJSON (4.0.0)
   - Swime (3.0.6)
+  - TPKeyboardAvoiding (1.3.5)
   - WCDB.swift (2.0.4):
     - WCDB.swift/no-arc (= 2.0.4)
     - WCDBOptimizedSQLCipher (~> 1.4.2)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - "LTXiOSUtils (from `git@github.com:Coder-Star/LTXiOSUtils.git`, branch `master`)"
   - SwiftyJSON (= 4.0.0)
   - Swime (= 3.0.6)
+  - TPKeyboardAvoiding (= 1.3.5)
   - WCDB.swift
 
 SPEC REPOS:
@@ -78,6 +80,7 @@ SPEC REPOS:
   trunk:
     - IQKeyboardCore
     - IQKeyboardToolbar
+    - TPKeyboardAvoiding
 
 EXTERNAL SOURCES:
   LTXiOSUtils:
@@ -100,9 +103,10 @@ SPEC CHECKSUMS:
   LTXiOSUtils: b2f2a0ab25a055b8327016c7f3f60e65e2e1c218
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Swime: d7b2c277503b6cea317774aedc2dce05613f8b0b
+  TPKeyboardAvoiding: d55b3ea7b362540af8fcf36aa3ed2e87bf210cc6
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: 1de83890c9241c4af2babbccd537f479cc6f7fa5
+PODFILE CHECKSUM: 8c9e160c12773c2717b20b4ee757f56480bfc583
 
 COCOAPODS: 1.16.2

@@ -7,6 +7,7 @@ import Shared
 import LTXiOSUtils
 import Photos
 import PhotosUI
+import TPKeyboardAvoiding
 
 enum FeedType: CaseIterable {
     case bug
@@ -159,7 +160,7 @@ class IMSFeedbackViewController: BaseViewController {
     }
     
     private func setupUI() {
-        let scrollView = UIScrollView()
+        let scrollView = TPKeyboardAvoidingScrollView()
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
