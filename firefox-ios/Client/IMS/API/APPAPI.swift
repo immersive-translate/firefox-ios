@@ -31,6 +31,9 @@ extension APPAPI {
 
         @DefaultEmptyString
         var localizedText: String = ""
+        
+        @DefaultEmptyString
+        var zhcnText: String = ""
     }
 
     
