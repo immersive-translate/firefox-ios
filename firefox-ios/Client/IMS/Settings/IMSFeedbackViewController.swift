@@ -130,7 +130,16 @@ class IMSFeedbackViewController: BaseViewController {
         view.font = UIFont.systemFont(ofSize: 14)
         view.leftViewMode = .always
         view.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 0))
+        view.delegate = self
         return view
+    }()
+    
+    private lazy var emailTipsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor(hexString: "#F53F3F")
+        label.text = "Imt.Setting.feedback.email.tips".i18nImt()
+        return label
     }()
     
     private lazy var imageLabel: UILabel = {
@@ -240,10 +249,16 @@ class IMSFeedbackViewController: BaseViewController {
             make.left.right.equalTo(contentLabel)
             make.height.equalTo(44)
         }
+        baseView.addSubview(emailTipsLabel)
+        emailTipsLabel.isHidden = true
+        emailTipsLabel.snp.makeConstraints { make in
+            make.left.right.equalTo(emailTextField)
+            make.top.equalTo(emailTextField.snp.bottom).offset(4)
+        }
         
         baseView.addSubview(submitButton)
         submitButton.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(24)
+            make.top.equalTo(emailTextField.snp.bottom).offset(40)
             make.bottom.equalToSuperview().offset(-20)
             make.height.equalTo(50)
             make.width.equalTo(335)
@@ -274,6 +289,10 @@ class IMSFeedbackViewController: BaseViewController {
             SVProgressHUD.toast(bugTextView.placeholder)
             return
         }
+        if let email = emailTextField.text, email.isNotEmpty, !email.tx.isEmail {
+            return
+        }
+        
         let request = FeedbackAPI.WebReportLogRequest(reason: reason, feedType: type, imageArr: pickImageView.imageList.compactMap({ $0.data }), contactInfo: emailTextField.text)
         SVProgressHUD.show()
         APIService.sendFormDataRequest(request) { response in
@@ -328,6 +347,21 @@ class IMSFeedbackViewController: BaseViewController {
             submitButton.backgroundColor = UIColor(colorString: "C7C7C7")
             submitButton.isEnabled = false
         }
+    }
+}
+
+extension IMSFeedbackViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
+            if updatedText.isNotEmpty, !updatedText.tx.isEmail {
+                emailTipsLabel.isHidden = false
+                emailTextField.layer.borderColor = UIColor(hexString: "#F53F3F").cgColor
+            } else {
+                emailTipsLabel.isHidden = true
+                emailTextField.layer.borderColor = UIColor(hexString: "#ECF0F7").withDarkColor("3E434B").cgColor
+            }
+        }
+        return true
     }
 }
 
