@@ -22,7 +22,7 @@ features:
           awesome-bar:
             search-highlights: false
             position:
-              is-position-feature-enabled: true
+              is-position-feature-enabled: false
               is-bottom: false
               is-toolbar-cfr-on: false
       - channel: beta
