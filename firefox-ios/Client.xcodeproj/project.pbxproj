@@ -3014,6 +3014,7 @@
 		2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCellViewModel.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B34A1E92D95158C00529AD0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/WidgetIntents.strings; sourceTree = "<group>"; };
+		2B34A2292D95182100529AD0 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/WidgetIntents.strings"; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
 		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -14210,6 +14211,7 @@
 				D5579957261FC9BC008A74F7 /* zh-TW */,
 				298775412D64D7120051FE58 /* en */,
 				2B34A1E92D95158C00529AD0 /* ko */,
+				2B34A2292D95182100529AD0 /* en-US */,
 			);
 			name = WidgetIntents.intentdefinition;
 			sourceTree = "<group>";
