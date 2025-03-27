@@ -93,7 +93,7 @@ extension HomepageMessageCardViewModel: HomepageViewModelProtocol {
     }
 
     var isEnabled: Bool {
-        return true
+        return false
     }
 
     var hasData: Bool {
