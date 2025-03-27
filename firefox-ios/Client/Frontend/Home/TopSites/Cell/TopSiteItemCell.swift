@@ -83,13 +83,13 @@ class TopSiteItemCell: UICollectionViewCell, ReusableCell {
 
     override var isSelected: Bool {
         didSet {
-            selectedOverlay.isHidden = !isSelected
+//            selectedOverlay.isHidden = !isSelected
         }
     }
 
     override var isHighlighted: Bool {
         didSet {
-            selectedOverlay.isHidden = !isHighlighted
+//            selectedOverlay.isHidden = !isHighlighted
         }
     }
 
@@ -120,7 +120,7 @@ class TopSiteItemCell: UICollectionViewCell, ReusableCell {
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        selectedOverlay.isHidden = true
+//        selectedOverlay.isHidden = true
     }
 
     override func layoutSubviews() {
@@ -196,18 +196,18 @@ class TopSiteItemCell: UICollectionViewCell, ReusableCell {
             rootContainer.heightAnchor.constraint(greaterThanOrEqualToConstant: UX.imageBackgroundSize.height),
 
             imageView.topAnchor.constraint(equalTo: rootContainer.topAnchor,
-                                           constant: UX.imageTopSpace),
+                                           constant: 7),
             imageView.leadingAnchor.constraint(equalTo: rootContainer.leadingAnchor,
-                                               constant: UX.imageLeadingTrailingSpace),
+                                               constant: 7),
             imageView.trailingAnchor.constraint(equalTo: rootContainer.trailingAnchor,
-                                                constant: -UX.imageLeadingTrailingSpace),
+                                                constant: -7),
             imageView.bottomAnchor.constraint(equalTo: rootContainer.bottomAnchor,
-                                              constant: -UX.imageBottomSpace),
+                                              constant: -7),
             imageView.widthAnchor.constraint(equalToConstant: UX.iconSize.width),
             imageView.heightAnchor.constraint(equalToConstant: UX.iconSize.height),
 
             descriptionWrapper.topAnchor.constraint(equalTo: rootContainer.bottomAnchor,
-                                                    constant: UX.textSafeSpace),
+                                                    constant: 1),
             descriptionWrapper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             descriptionWrapper.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             descriptionWrapper.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
@@ -274,7 +274,7 @@ extension TopSiteItemCell: Blurrable {
         } else {
             // If blur is disabled set background color
             rootContainer.removeVisualEffectView()
-            rootContainer.backgroundColor = theme.colors.layer5
+//            rootContainer.backgroundColor = theme.colors.layer5
             setupShadow(theme: theme)
         }
     }
