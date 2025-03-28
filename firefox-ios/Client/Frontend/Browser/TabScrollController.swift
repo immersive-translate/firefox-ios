@@ -68,7 +68,7 @@ class TabScrollingController: NSObject,
 
     private var toolbarsShowing: Bool {
         let bottomShowing = overKeyboardContainerOffset == 0 && bottomContainerOffset == 0
-        return isBottomSearchBar ? bottomShowing : headerTopOffset == 0
+        return bottomShowing
     }
 
     private var isZoomedOut = false
@@ -260,10 +260,10 @@ class TabScrollingController: NSObject,
         self.animateToolbarsWithOffsets(
             animated,
             duration: actualDuration,
-            headerOffset: -topScrollHeight,
+            headerOffset: 0,
             bottomContainerOffset: bottomContainerScrollHeight,
             overKeyboardOffset: overKeyboardScrollHeight,
-            alpha: 0,
+            alpha: 1,
             completion: nil)
     }
 
@@ -395,9 +395,10 @@ private extension TabScrollingController {
         let bottomContainerCollapsed = bottomContainerOffset == bottomContainerScrollHeight
         let overKeyboardContainerCollapsed = overKeyboardContainerOffset == overKeyboardScrollHeight
 
-        if headerTopOffset == -topScrollHeight && bottomContainerCollapsed && overKeyboardContainerCollapsed {
+        // Only consider bottom containers for collapsed state, header is always visible
+        if bottomContainerCollapsed && overKeyboardContainerCollapsed {
             setToolbarState(state: .collapsed)
-        } else if toolbarsShowing {
+        } else if bottomContainerOffset == 0 && overKeyboardContainerOffset == 0 {
             setToolbarState(state: .visible)
         } else {
             setToolbarState(state: .animating)
@@ -421,8 +422,9 @@ private extension TabScrollingController {
             return
         }
 
-        let updatedOffset = headerTopOffset - delta
-        headerTopOffset = clamp(updatedOffset, min: -topScrollHeight, max: 0)
+        // Keep header always visible by setting its offset to 0
+        headerTopOffset = 0
+        
         if isHeaderDisplayedForGivenOffset(headerTopOffset) {
             scrollView?.contentOffset = CGPoint(x: contentOffset.x, y: contentOffset.y - delta)
         }
@@ -433,7 +435,7 @@ private extension TabScrollingController {
         let overKeyboardUpdatedOffset = overKeyboardContainerOffset + delta
         overKeyboardContainerOffset = clamp(overKeyboardUpdatedOffset, min: 0, max: overKeyboardScrollHeight)
 
-        header?.updateAlphaForSubviews(scrollAlpha)
+        header?.updateAlphaForSubviews(1.0) // Keep header fully visible
         zoomPageBar?.updateAlphaForSubviews(scrollAlpha)
     }
 
@@ -463,7 +465,7 @@ private extension TabScrollingController {
         // If this function is used to fully animate the toolbar from hidden to shown, keep the page from scrolling
         // by adjusting contentOffset, otherwise when the toolbar is hidden and a link navigated, showing the toolbar
         // will scroll the page and produce a ~50px page jumping effect in response to tap navigations.
-        let isShownFromHidden = headerTopOffset == -topScrollHeight && headerOffset == 0
+        let isShownFromHidden = bottomContainerOffset == 0 && self.bottomContainerOffset == bottomContainerScrollHeight
 
         let animation: () -> Void = {
             if isShownFromHidden {
@@ -503,7 +505,7 @@ private extension TabScrollingController {
         if isBottomSearchBar {
             durationRatio = abs(overKeyboardContainerOffset / overKeyboardScrollHeight)
         } else {
-            durationRatio = abs(headerTopOffset / topScrollHeight)
+            durationRatio = abs(bottomContainerOffset / bottomContainerScrollHeight)
         }
         return durationRatio
     }
@@ -513,7 +515,7 @@ private extension TabScrollingController {
         if isBottomSearchBar {
             durationRatio = abs((overKeyboardScrollHeight + overKeyboardContainerOffset) / overKeyboardScrollHeight)
         } else {
-            durationRatio = abs((topScrollHeight + headerTopOffset) / topScrollHeight)
+            durationRatio = abs((bottomContainerScrollHeight + bottomContainerOffset) / bottomContainerScrollHeight)
         }
         return durationRatio
     }
@@ -555,7 +557,7 @@ extension TabScrollingController: UIScrollViewDelegate {
         tab.shouldScrollToTop = false
 
         if decelerate || (toolbarState == .animating && !decelerate) {
-            if scrollDirection == .up, !tab.isFindInPageMode {
+            if scrollDirection == .up {
                 showToolbars(animated: true)
             } else if scrollDirection == .down {
                 hideToolbars(animated: true, isFindInPageMode: tab.isFindInPageMode)
