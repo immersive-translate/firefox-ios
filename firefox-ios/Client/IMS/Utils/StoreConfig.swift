@@ -24,7 +24,4 @@ extension StoreConfig {
     
     @KeychainWrapper("NETWORK_ENV_STR", defaultValue: "")
     static var networkEnvStr: String
-
-    @KeychainWrapper("SHOW_DEBUG_LOG", defaultValue: false)
-    static var debugLog: Bool
 }

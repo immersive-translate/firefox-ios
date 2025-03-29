@@ -7,13 +7,10 @@ import LTXiOSUtils
 
 enum DebugToolMenu: CaseIterable {
     case networkEnv
-    case deugLog
     var title: String {
         switch self {
         case .networkEnv:
             return "网络环境"
-        case .deugLog:
-            return "显示Debug日志"
         }
     }
 }
@@ -74,8 +71,6 @@ extension DebugToolViewController: UITableViewDataSource {
         switch model {
         case .networkEnv:
             cell.detailTextLabel?.text = IMSAppManager.shared.currentEnv.name
-        case .deugLog:
-            cell.detailTextLabel?.text = "\(StoreConfig.debugLog)"
         }
         return cell
     }
@@ -91,9 +86,6 @@ extension DebugToolViewController: UITableViewDelegate {
             } else {
                 StoreConfig.networkEnvStr = IMSAppUrlConfig.IMSAppENV.product.rawValue
             }
-            tableView.reloadData()
-        case .deugLog:
-            StoreConfig.debugLog = !StoreConfig.debugLog
             tableView.reloadData()
         }
     }
