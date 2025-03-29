@@ -25,6 +25,8 @@ struct IMSAppUrlConfig {
     
     static let dash = "https://dash.immersivetranslate.com/"
     
+    static let analyticsURL = "https://analytics.immersivetranslate.com"
+    
     static let baseAPIURL = {
         switch IMSAppManager.shared.currentEnv {
         case .dev:
