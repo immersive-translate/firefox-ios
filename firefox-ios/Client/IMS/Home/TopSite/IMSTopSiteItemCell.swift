@@ -124,11 +124,11 @@ class IMSTopSiteItemCell: UICollectionViewCell, ReusableCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        rootContainer.setNeedsLayout()
-        rootContainer.layoutIfNeeded()
-
-        rootContainer.layer.shadowPath = UIBezierPath(roundedRect: rootContainer.bounds,
-                                                      cornerRadius: HomepageViewModel.UX.generalCornerRadius).cgPath
+//        rootContainer.setNeedsLayout()
+//        rootContainer.layoutIfNeeded()
+//
+//        rootContainer.layer.shadowPath = UIBezierPath(roundedRect: rootContainer.bounds,
+//                                                      cornerRadius: HomepageViewModel.UX.generalCornerRadius).cgPath
     }
 
     // MARK: - Public methods
@@ -249,7 +249,7 @@ extension IMSTopSiteItemCell: ThemeApplicable {
         sponsoredLabel.textColor = textColor ?? theme.colors.textSecondary
         selectedOverlay.backgroundColor = theme.colors.layer5Hover.withAlphaComponent(0.25)
 
-        adjustBlur(theme: theme)
+//        adjustBlur(theme: theme)
     }
 }
 
