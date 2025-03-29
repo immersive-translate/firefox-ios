@@ -82,3 +82,9 @@ To create a production build of the User Scripts run the following `npm` command
 ```shell
 npm run build
 ```
+
+## 后续调整
+
+项目中原本总共有Fennec、Fennec_Enterprise、Fennec_Testing、Firefox、FireFoxBeta等5个Configuration，其中Fennec、Fennec_Enterprise、Fennec_Testing为测试版本，Firefox、FireFoxBeta为正式版本。
+但是之前的同学使用了Fennec作为日常开发以及正式发版，并且进行了代码修改，很多配置文件都跟Configuration有关联，出于保险考虑，将Fennec作为正式版本不变，并以其为蓝本拷贝出来一个Fennec_Debug作为开发Configuration，对应增加了Swift宏-FENNEC_DEBUG。修改scheme，将Fennec_Debug作为run的Configuration。
+修改Fennec的Build Settings，将一些配置换成正式版本的配置，比如dSYM等。
