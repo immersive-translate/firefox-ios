@@ -5,7 +5,9 @@
 import APIService
 import SwiftyJSON
 import LTXiOSUtils
-
+#if FENNEC_DEBUG
+import LookinServer
+#endif
 extension AppDelegate {
     func willFinishLaunch() {
         reloadKeychain()
@@ -22,7 +24,6 @@ extension AppDelegate {
     /// 绕开之前app第一次启动会删除keychain的逻辑
     private func reloadKeychain() {
         StoreConfig.networkEnvStr = StoreConfig.networkEnvStr
-        StoreConfig.debugLog = StoreConfig.debugLog
         StoreConfig.showDebugTool = StoreConfig.showDebugTool
     }
 }
@@ -38,8 +39,9 @@ extension AppDelegate {
         SVProgressHUD.setForegroundColor(.white)
         SVProgressHUD.setErrorImage(UIImage(named: "toast_error")!)
         SVProgressHUD.setSuccessImage(UIImage(named: "toast_success")!)
-        if StoreConfig.debugLog {
+        #if FENNEC_DEBUG
             Log.enabled = true
-        }
+            LKS_ConnectionManager.sharedInstance()
+        #endif
     }
 }
