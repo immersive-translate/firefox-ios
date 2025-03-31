@@ -49,34 +49,16 @@ extension TrackManager {
             "os_name": UIDevice.current.systemName,
             "os_version": UIDevice.current.systemVersion,
             "os_version_name": UIDevice.current.systemVersion,
-            "page_type": "app",
-            "platform_type": getUserInterfaceIdiomName(),
+            "page_type": "ios",
+            "platform_type": DeviceInfo.specificModelName,
             "version": AppInfo.appVersion,
             "event_name": eventName,
             "device_id": Adjust.adid() as Any,
         ]
         if let params = params {
-            dict.merge(processParams(params)) { (_, new) in new }
+            dict["ex_char_arg1"] = JSON(params).rawString([:]) ?? ""
         }
         return JSON(dict).rawString([:]) ?? ""
-    }
-    
-    private func processParams(_ input: [String: Any]) -> [String: Any] {
-        var result: [String: Any] = [:]
-        var intIndex = 1
-        var charIndex = 1
-        
-        for value in input.values {
-            if let intValue = value as? Int {
-                result["ex_int_arg\(intIndex)"] = intValue
-                intIndex += 1
-            } else {
-                result["ex_char_arg\(charIndex)"] = "\(value)"
-                charIndex += 1
-            }
-        }
-        
-        return result
     }
     
     private func getUserInterfaceIdiomName() -> String {
