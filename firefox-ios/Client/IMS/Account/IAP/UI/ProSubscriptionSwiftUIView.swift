@@ -414,6 +414,7 @@ struct ProSubscriptionSwiftUIView: View {
                     Spacer().frame(height: 8)
                     
                     Button {
+                        TrackManager.shared.event("Onboarding_Step5_Subscribe_Skip_Click")
                         self.viewModel.coordinator?.handleNotNeedNow()
                     } label: {
                         Text("\(String.IMS.IAP.notNeedNow)")

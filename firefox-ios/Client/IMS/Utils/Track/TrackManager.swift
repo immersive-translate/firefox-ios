@@ -8,6 +8,7 @@ import SwiftyJSON
 import Adjust
 import Common
 import Shared
+import Foundation
 
 final class TrackManager {
     static let shared = TrackManager()
@@ -36,8 +37,10 @@ extension TrackManager {
                 switch response.result {
                 case .success(let data):
                     /// data是一个字符串，可以用string解析，是一个ok
-//                    Log.d("Response Data: \(data)")
-                    ()
+                    if let data = data {
+                        let str = String(data: data, encoding: .utf8)
+                        Log.d(str)
+                    }
                 case .failure(let error):
                     Log.d("Error: \(error)")
                 }

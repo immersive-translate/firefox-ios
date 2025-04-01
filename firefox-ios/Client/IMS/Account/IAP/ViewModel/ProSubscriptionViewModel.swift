@@ -146,6 +146,19 @@ class ProSubscriptionViewModel: ObservableObject {
     
     @MainActor
     func purchaseProduct() {
+        if fromSource == .onboarding {
+            if selectedConfiGoodType == .monthly {
+                TrackManager.shared.event("Onboarding_Step5_Subscribe_Monthly_Click")
+            } else if selectedConfiGoodType == .yearly {
+                TrackManager.shared.event("Onboarding_Step5_Subscribe_Yearly_Click")
+            }
+        } else if fromSource == .upgrade {
+            if selectedConfiGoodType == .monthly {
+                TrackManager.shared.event("Billing_Subscribe_Monthly_Click")
+            } else if selectedConfiGoodType == .yearly {
+                TrackManager.shared.event("Billing_Step5_Subscribe_Yearly_Click")
+            }
+        }
         guard let info = infos.first(where: { $0.serverProduct.goodType == self.selectedConfiGoodType }) else {
             self.messageType = .title("\(String.IMS.IAP.subscriptionFail)!")
             return
