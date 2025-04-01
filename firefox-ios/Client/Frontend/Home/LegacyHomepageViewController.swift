@@ -153,7 +153,7 @@ class LegacyHomepageViewController:
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        TrackManager.shared.event("Homepage_Show")
         // TODO: FXIOS-9428 - Need to fix issue where viewWillAppear is called twice so we can remove the throttle workaround
         // This can then be moved back inside the `viewModel.recordViewAppeared()`
         viewWillAppearEventThrottler.throttle {
