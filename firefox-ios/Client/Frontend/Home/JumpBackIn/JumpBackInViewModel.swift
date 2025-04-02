@@ -429,6 +429,7 @@ extension JumpBackInViewModel: HomepageSectionHandler {
             // SyncedTab cell
             // do nothing, will be handled in cell depending on area tapped
         }
+        TrackManager.shared.event("Homepage_Prior_Click")
     }
 
     func handleLongPress(with collectionView: UICollectionView, indexPath: IndexPath) {

@@ -71,6 +71,20 @@ open class Site: Identifiable {
         self.guid = guid
         self.faviconResource = faviconResource
     }
+    
+    public init(id: Int,
+                url: String,
+                title: String,
+                bookmarked: Bool?,
+                guid: String? = nil,
+                faviconResource: SiteResource? = nil) {
+        self.id = id
+        self.url = url
+        self.title = title
+        self.bookmarked = bookmarked
+        self.guid = guid
+        self.faviconResource = faviconResource
+    }
 
     open func setBookmarked(_ bookmarked: Bool) {
         self.bookmarked = bookmarked

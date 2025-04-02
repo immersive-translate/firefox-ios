@@ -110,6 +110,7 @@ struct ProSubscriptionButton: View {
     var upgrade: some View {
         Button {
             viewModel.showUpgradeAlert = true
+            TrackManager.shared.event("Billing_Upgrade")
         } label: {
             HStack {
                 Image("iap_upgrade_bt_icon")

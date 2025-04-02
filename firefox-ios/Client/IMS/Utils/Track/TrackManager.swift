@@ -18,6 +18,7 @@ final class TrackManager {
 
 extension TrackManager {
     func event(_ name: String, params: [String: Any]? = nil) {
+        Log.d("event:  \(name)")
         sendEvent(name: name, params: params)
     }
 }

@@ -682,6 +682,7 @@ extension LegacyHomepageViewController {
         viewModel.topSiteViewModel.tilePressedHandler = { [weak self] site, isGoogle in
             guard let url = site.url.asURL else { return }
             self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+            TrackManager.shared.event("Homepage_Recent_Click")
         }
 
         viewModel.topSiteViewModel.tileLongPressedHandler = { [weak self] (site, sourceView) in

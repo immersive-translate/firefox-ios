@@ -42,6 +42,33 @@ extension AddressToolbarContainer {
                                                     profile: profile,
                                                     windowUUID: windowUUID)
         if preModel != newModel {
+            let preLocationState = preModel?.addressToolbarState.locationViewState
+            let newLocationState = newModel.addressToolbarState.locationViewState
+            
+            // Track when search bar starts editing
+            if !(preLocationState?.isEditing ?? false) && newLocationState.isEditing {
+                TrackManager.shared.event("SearchBar_Show")
+            }
+            
+            // Track when private mode is enabled
+            if !(preModel?.isPrivateMode ?? false) && newModel.isPrivateMode {
+                TrackManager.shared.event("Private_On")
+            }
+            
+            // Track when user starts typing
+            if !(preLocationState?.didStartTyping ?? false) && newLocationState.didStartTyping {
+                TrackManager.shared.event("SearchBar_Input")
+            }
+            
+            // Track when search is submitted (user finished editing and there's a URL or search term)
+            if preLocationState?.isEditing == true && !newLocationState.isEditing {
+                if let url = newLocationState.url {
+                    TrackManager.shared.event("SearchBar_Navigate")
+                } else if let searchTerm = newLocationState.searchTerm {
+                    TrackManager.shared.event("SearchBar_Search")
+                }
+            }
+            
             let addressToolbarState = self.imsController?.getAddressToolbarState(model: newModel) ?? newModel.addressToolbarState
             compactToolbar.configure(state: addressToolbarState,
                                      toolbarDelegate: self,

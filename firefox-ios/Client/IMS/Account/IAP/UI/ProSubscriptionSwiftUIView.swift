@@ -208,6 +208,7 @@ struct ProSubscriptionSwiftUIView: View {
                             
                             Button {
                                 viewModel.purchaseProduct()
+                                TrackManager.shared.event("RetentionWindow_Upgrade")
                             } label: {
                                 HStack {
                                     Image("iap_upgrade_bt_icon")
@@ -249,6 +250,7 @@ struct ProSubscriptionSwiftUIView: View {
                             
                             Button {
                                 viewModel.showUpgradeAlert = false
+                                TrackManager.shared.event("RetentionWindow_Cancel")
                             } label: {
                                 HStack {
                                     Text("\(String.IMS.IAP.Cancel)")
@@ -275,6 +277,7 @@ struct ProSubscriptionSwiftUIView: View {
                         
                         Button {
                             viewModel.showUpgradeAlert = false
+                            TrackManager.shared.event("RetentionWindow_Close")
                         } label: {
                             HStack {
                                 Image("iap_upgrade_alert_close_icon")
@@ -294,6 +297,9 @@ struct ProSubscriptionSwiftUIView: View {
                     .frame(maxWidth: .infinity)
                     .frame(maxHeight: .infinity)
                     .background(.black.opacity(0.5))
+                    .onAppear {
+                        TrackManager.shared.event("RetentionWindow_Show")
+                    }
             )
         } else {
             AnyView(EmptyView())
