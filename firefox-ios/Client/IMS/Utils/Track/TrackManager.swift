@@ -9,6 +9,7 @@ import Adjust
 import Common
 import Shared
 import Foundation
+import KeychainAccess
 
 final class TrackManager {
     static let shared = TrackManager()
@@ -57,7 +58,7 @@ extension TrackManager {
             "platform_type": DeviceInfo.specificModelName,
             "version": AppInfo.appVersion,
             "event_name": eventName,
-            "device_id": Adjust.adid() as Any,
+            "device_id": deviceID,
         ]
         if let params = params {
             dict["ex_char_arg1"] = JSON(params).rawString(options: []) ?? ""
@@ -80,5 +81,40 @@ extension TrackManager {
         default:
             return "Unknown"
         }
+    }
+}
+
+extension TrackManager {
+    var deviceID: String {
+        if let id = Adjust.idfa() {
+            return id
+        } else if let id = Adjust.idfv() {
+            return id
+        } else if let id = Adjust.adid() {
+            return id
+        } else {
+            return uuid ?? ""
+        }
+    }
+    
+    var uuid: String? {
+        let KEYCHAIN_SERVICE = "com.immersivetranslate.Immersive-Translate.browser"
+        let IMEI_KEY = "IMEI"
+        let keychain = Keychain(service: KEYCHAIN_SERVICE)
+        var uuid: String?
+        do {
+            uuid = try keychain.get(IMEI_KEY)
+        } catch {
+            uuid = nil
+        }
+        if uuid?.isEmpty ?? true {
+            uuid = UUID().uuidString
+            do {
+                try keychain.set(uuid!, key: IMEI_KEY)
+            } catch {
+                uuid = nil
+            }
+        }
+        return uuid
     }
 }
