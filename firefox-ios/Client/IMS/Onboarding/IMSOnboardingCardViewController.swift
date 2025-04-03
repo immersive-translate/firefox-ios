@@ -201,6 +201,18 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         if viewModel.name == "translate-example" && translateExampleArrowLottieView.superview != nil {
             translateExampleArrowLottieView.play()
         }
+        
+        if (viewModel.name == "select-language") {
+            TrackManager.shared.event("Onboarding_Step1_Show")
+        } else if (viewModel.name == "translate-intro") {
+            TrackManager.shared.event("Onboarding_Step2_Show")
+        } else if (viewModel.name == "translate-example") {
+            TrackManager.shared.event("Onboarding_Step3_Show")
+        } else if (viewModel.name == "welcome-intro") {
+            TrackManager.shared.event("Onboarding_Step4_Show")
+        } else if (viewModel.name == "subscription") {
+            TrackManager.shared.event("Onboarding_Step5_Show")
+        }
     }
 
     // MARK: - View setup
@@ -413,6 +425,17 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     // MARK: - Button Actions
     @objc
     override func primaryAction() {
+        if (viewModel.name == "select-language") {
+            TrackManager.shared.event("Onboarding_Step1_Default_Click")
+        } else if (viewModel.name == "translate-intro") {
+            TrackManager.shared.event("Onboarding_Step2_Know_Click")
+        } else if (viewModel.name == "translate-example") {
+            TrackManager.shared.event("Onboarding_Step3_Continue_Click")
+        } else if (viewModel.name == "welcome-intro") {
+            TrackManager.shared.event("Onboarding_Step4_Continue_Click")
+        } else if (viewModel.name == "subscription") {
+        
+        }
         delegate?.handleBottomButtonActions(
             for: viewModel.buttons.primary.action,
             from: viewModel.name,
@@ -422,7 +445,11 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
     @objc
     override func secondaryAction() {
         guard let buttonAction = viewModel.buttons.secondary?.action else { return }
-
+        if (viewModel.name == "select-language") {
+            TrackManager.shared.event("Onboarding_Step1_Later_Click")
+        } else if (viewModel.name == "translate-example") {
+            TrackManager.shared.event("Onboarding_Step3_Skip_Click")
+        }
         delegate?.handleBottomButtonActions(
             for: buttonAction,
             from: viewModel.name,

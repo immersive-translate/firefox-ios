@@ -152,6 +152,7 @@ extension IMSOnboardingCardViewController {
     
     @objc
     private func translateButtonOnClick() {
+        TrackManager.shared.event("Onboarding_Step3_Translate_Click")
         translateExampleFireworksLottieView.isHidden = false
         if self.language == "en" {
             translateExampleTextView.text = self.translateModelArr.compactMap({ $0.zhcnText + "\n" + $0.localizedText }).joined(separator: "\n\n")

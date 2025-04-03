@@ -26,6 +26,7 @@ class IMSUpgradeCoordinator: BaseCoordinator, FeatureFlaggable, ProSubscriptionD
     }
 
     func start() {
+        TrackManager.shared.event("Billing_Show")
         router.setRootViewController(
             createUpgradeViewController(),
             hideBar: true

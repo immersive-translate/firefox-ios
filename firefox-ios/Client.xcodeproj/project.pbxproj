@@ -435,6 +435,7 @@
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
+		2B69AF032D97B9FB00204CE5 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69AF022D97B9F600204CE5 /* TrackManager.swift */; };
 		2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
 		2BAF046E2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */; };
@@ -3017,6 +3018,7 @@
 		2B34A2292D95182100529AD0 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/WidgetIntents.strings"; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
+		2B69AF022D97B9F600204CE5 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
 		2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IMSOnboardingCardViewController+TranslateExample.swift"; sourceTree = "<group>"; };
@@ -5529,6 +5531,7 @@
 		294666BB2D55BB2D00BB9196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2B69AF012D97B9EE00204CE5 /* Track */,
 				29909E8E2D37DAC0005C0328 /* Extensions */,
 				2BB8105F2D7F50CF009C4EA6 /* Network */,
 				2BB8105C2D7F3759009C4EA6 /* Router */,
@@ -5806,6 +5809,14 @@
 				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2B69AF012D97B9EE00204CE5 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				2B69AF022D97B9F600204CE5 /* TrackManager.swift */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		2BB810532D7F36D6009C4EA6 /* Debug */ = {
@@ -11950,6 +11961,7 @@
 				74BBDF472A17979000D3BEFE /* OnboardingDefaultBrowserModelProtocol.swift in Sources */,
 				8C1C2E452C32D1470087846C /* RemoveAddressButton.swift in Sources */,
 				8AD40FC727BADC3400672675 /* ToolbarTextField.swift in Sources */,
+				2B69AF032D97B9FB00204CE5 /* TrackManager.swift in Sources */,
 				8A720C5E2A4C85DA0003018A /* AccountSettingsDelegate.swift in Sources */,
 				CA90753824929B22005B794D /* NoLoginsView.swift in Sources */,
 				E4B423BE1AB9FE6A007E66C8 /* ReaderModeCache.swift in Sources */,

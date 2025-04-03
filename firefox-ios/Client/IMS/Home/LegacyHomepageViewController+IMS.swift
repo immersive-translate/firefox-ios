@@ -11,6 +11,22 @@ extension LegacyHomepageViewController {
             viewModel.tilePressedHandler = { [weak self] site, isGoogle in
                 guard let url = site.url.asURL else { return }
                 self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+                switch site.id {
+                case 1:
+                    TrackManager.shared.event("Homepage_Web_Click")
+                case 2:
+                    TrackManager.shared.event("Homepage_Video_Click")
+                case 3:
+                    TrackManager.shared.event("Homepage_Doc_Click")
+                case 4:
+                    TrackManager.shared.event("Homepage_Manga_Click")
+                case 6:
+                    TrackManager.shared.event("Homepage_Rednote_Click")
+                case 7:
+                    TrackManager.shared.event("Homepage_Bilin_Click")
+                default:
+                    ()
+                }
             }
         }
         if let viewModel = self.viewModel.childViewModels[4] as? IMSHomeLoginCellViewModel {
