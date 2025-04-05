@@ -167,3 +167,10 @@
 "apple_sign_in_error_cancelled" = "您取消了登录操作";
 "apple_sign_in_error_failed" = "认证失败";
 "apple_sign_in_error_unknown" = "发生未知错误";
+
+"Imt.imageContextMenu.unTranslate" = "显示原图";
+"Imt.imageContextMenu.translate" = "翻译图片";
+"Imt.imageContextMenu.save" = "保存到相册";
+"Imt.imageContextMenu.copy" = "复制图片";
+"Imt.imageContextMenu.share" = "分享图片";
+"Imt.imageContextMenu.feedback" = "问题反馈";

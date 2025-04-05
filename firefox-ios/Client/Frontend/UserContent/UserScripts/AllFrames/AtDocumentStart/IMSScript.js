@@ -2,9 +2,72 @@
 
 window.__firefox__.includeOnce("IMSScript", function () {
   function IMSScript() {
-    const documentMessageTypeIdentifierForThirdPartyTell = "immersiveTranslateDocumentMessageThirdPartyTell";
-    const documentMessageTypeIdentifierForTellThirdParty = "immersiveTranslateDocumentMessageTellThirdParty";
-    
+    const documentMessageTypeIdentifierForThirdPartyTell =
+      "immersiveTranslateDocumentMessageThirdPartyTell";
+    const documentMessageTypeIdentifierForTellThirdParty =
+      "immersiveTranslateDocumentMessageTellThirdParty";
+
+    /// 图片开始
+    imageLongPress();
+    function imageLongPress() {
+      /// 拦截
+      let touchStartTime = 0;
+      let touchTimeout;
+
+      document.addEventListener(
+        "touchstart",
+        function (event) {
+          if (event.target.tagName === "IMG") {
+            const imgUrl = event.target.src;
+            touchStartTime = Date.now();
+            touchTimeout = setTimeout(() => {
+              // 长按事件触发（超过750ms）
+              console.log("长按图片事件被触发");
+              webkit.messageHandlers.imsScriptMessageHandler.postMessage({
+                type: "imageLongPress",
+                value: imgUrl,
+              });
+              // 这里可以添加你的长按处理逻辑
+            }, 750);
+            event.preventDefault();
+            return false;
+          }
+        },
+        { passive: false }
+      );
+
+      document.addEventListener("touchend", function (event) {
+        if (event.target.tagName === "IMG") {
+          clearTimeout(touchTimeout);
+          const touchDuration = Date.now() - touchStartTime;
+          if (touchDuration < 750) {
+            // 短按事件处理
+            console.log("点击图片事件被触发");
+            // 这里可以添加你的点击处理逻辑
+          }
+        }
+      });
+    }
+
+    this.translateImage = function (imageUrl) {
+      console.log("进入");
+      console.log(imageUrl);
+      this.sendAsyncMessage("translateImage", {
+        imageUrl: imageUrl,
+      })
+        .then((ret) => {
+          console.log(ret);
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    };
+
+    this.openImageTranslationFeedback = function () {
+      this.sendMessage("openImageTranslationFeedback", {});
+    };
+    /// 图片结束
+
     this.translatePage = function () {
       this.sendMessage("translatePage", {});
     };
@@ -14,14 +77,16 @@ window.__firefox__.includeOnce("IMSScript", function () {
     };
 
     this.getPageStatusAsync = function () {
-      this.sendAsyncMessage("getPageStatusAsync", {}).then((ret) => {
-        webkit.messageHandlers.imsScriptMessageHandler.postMessage({
-          type: "getPageStatusAsync",
-          value: ret
-        });
-      }).catch((e) => {
+      this.sendAsyncMessage("getPageStatusAsync", {})
+        .then((ret) => {
+          webkit.messageHandlers.imsScriptMessageHandler.postMessage({
+            type: "getPageStatusAsync",
+            value: ret,
+          });
+        })
+        .catch((e) => {
           console.error(e);
-      })
+        });
     };
 
     this.setConfigLanguage = async function (targetLanguage) {
@@ -63,9 +128,9 @@ window.__firefox__.includeOnce("IMSScript", function () {
     };
     this.togglePopup = function (style, isSheet, overlayStyle) {
       this.sendMessage("togglePopup", {
-          style: style,
-          isSheet: isSheet,
-          overlayStyle: overlayStyle,
+        style: style,
+        isSheet: isSheet,
+        overlayStyle: overlayStyle,
       });
     };
     this.sendMessage = function (type, data) {

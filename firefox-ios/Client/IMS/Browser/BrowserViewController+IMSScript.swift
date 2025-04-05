@@ -15,6 +15,7 @@ import Common
 import ComponentLibrary
 import Redux
 import ToolbarKit
+import LTXiOSUtils
 
 extension BrowserViewController: IMSScriptDelegate {
     func onPageStatusAsync(status: String) {
@@ -36,6 +37,24 @@ extension BrowserViewController: IMSScriptDelegate {
         default:
             break
         }
+    }
+    
+    func feedbackImage(url: String) {
+        guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
+        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).openImageTranslationFeedback()") { object, error in
+   
+        }
+    }
+    
+    func translateImage(url: String) {
+        guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
+        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translateImage(\'\(url)\')") { object, error in
+            Log.d(object)
+            Log.d(error)
+        }
+    }
+    
+    func restoreImage(url: String) {
         
     }
 }

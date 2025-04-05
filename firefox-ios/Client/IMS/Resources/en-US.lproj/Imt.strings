@@ -152,3 +152,10 @@
 "apple_sign_in_error_cancelled" = "You cancelled the login";
 "apple_sign_in_error_failed" = "Authentication failed";
 "apple_sign_in_error_unknown" = "An unknown error occurred";
+
+"Imt.imageContextMenu.unTranslate" = "Show original image";
+"Imt.imageContextMenu.translate" = "Translate image";
+"Imt.imageContextMenu.save" = "Save to album";
+"Imt.imageContextMenu.copy" = "Copy image";
+"Imt.imageContextMenu.share" = "Share image";
+"Imt.imageContextMenu.feedback" = "Problem feedback";
