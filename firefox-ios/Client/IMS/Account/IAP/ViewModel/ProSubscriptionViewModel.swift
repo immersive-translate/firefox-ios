@@ -183,7 +183,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    self.trackPurchaseEvent(info: info)
+                    self.trackPurchaseEvent(info: info, imtSessionId: ret.data.imtSessionId)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {
@@ -200,13 +200,13 @@ class ProSubscriptionViewModel: ObservableObject {
         }
     }
     
-    func trackPurchaseEvent(info: ProSubscriptionInfo) {
-        let totalEvent = ADJEvent(eventToken: "8ae2y6")
+    func trackPurchaseEvent(info: ProSubscriptionInfo, imtSessionId: Int) {
+//        let totalEvent = ADJEvent(eventToken: "8ae2y6")
         let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
         let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
-        totalEvent?.setRevenue(amount, currency: currencyCode)
-        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
-        Adjust.trackEvent(totalEvent)
+//        totalEvent?.setRevenue(amount, currency: currencyCode)
+//        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+//        Adjust.trackEvent(totalEvent)
         
         var eventToken = ""
         if userInfo?.iosPlanTier == "trial" {
@@ -245,9 +245,12 @@ class ProSubscriptionViewModel: ObservableObject {
         if eventToken.isEmpty {
             return
         }
-        let event = ADJEvent(eventToken: eventToken)
-        event?.setRevenue(amount, currency: currencyCode)
-        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
-        Adjust.trackEvent(event)
+        
+        //        let event = ADJEvent(eventToken: eventToken)
+        //        event?.setRevenue(amount, currency: currencyCode)
+        //        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+        //        Adjust.trackEvent(event)
+        
+        AdjustTrackManager.shared.event(eventToken, revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 1)"])
     }
 }

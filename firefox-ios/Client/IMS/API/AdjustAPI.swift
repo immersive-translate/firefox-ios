@@ -5,29 +5,13 @@
 enum AdjustAPI {
     struct EventRequest: IMSAPIRequest {
         typealias DataResponse = PlaceholderResponseModel
-        
+        var param: [String: Any] = [:]
         var path: String {
             return "/adjust/event"
         }
         
         var parameters: [String: Any]? {
-            return nil
-        }
-        
-        var method: APIRequestMethod {
-            return .post
-        }
-    }
-    
-    struct SessionRequest: IMSAPIRequest {
-        typealias DataResponse = PlaceholderResponseModel
-        
-        var path: String {
-            return "/adjust/session"
-        }
-        
-        var parameters: [String: Any]? {
-            return nil
+            return param
         }
         
         var method: APIRequestMethod {
