@@ -111,7 +111,7 @@ extension BrowserViewController {
         guard let webView = tab.webView else { return }
         if let url = webView.url {
             if (!InternalURL.isValid(url: url)) && !url.isFileURL {
-                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()")
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatus()")
             }
         }
     }
@@ -175,7 +175,7 @@ extension BrowserViewController {
             StoreConfig.translateNum += 1
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
             webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translatePage()") { object, error in
-                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()") {_,_ in
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatus()") {_,_ in
                     
                 }
             }
@@ -184,7 +184,7 @@ extension BrowserViewController {
         func restorePageAction() {
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
             webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).restorePage()") { object, error in
-                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatusAsync()") {_,_ in
+                webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).getPageStatus()") {_,_ in
                     
                 }
             }

@@ -17,7 +17,7 @@ protocol IMSScriptDelegate: AnyObject {
     func restoreImage(url: String)
 }
 
-let IMSScriptNamespace = "window.__firefox__.IMSScript"
+let IMSScriptNamespace = "window.__firefox__.imtBridge"
 
 class IMSScript: TabContentScript {
     weak var delegate: IMSScriptDelegate?
