@@ -40,7 +40,7 @@ extension AdjustTrackManager {
             "idfa": Adjust.idfa() ?? "",
             "idfv": Adjust.idfv() ?? "",
             "eventToken": name,
-            "callbackParams": callbackParams != nil ? (JSON(callbackParams ?? [:]).rawString([:]) ?? "") : "",
+            "callbackParams": callbackParams != nil ? (JSON(callbackParams ?? [:]).rawString(options: []) ?? "") : "",
             "revenue": revenue?.0 ?? 0.0,
             "currency": revenue?.1 ?? "",
         ]
