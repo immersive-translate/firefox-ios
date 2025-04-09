@@ -64,7 +64,7 @@ final class AdjustHelper: NSObject, FeatureFlaggable {
             return nil
         }
 
-        let isProd = featureFlags.isCoreFeatureEnabled(.adjustEnvironmentProd)
+        let isProd = IMSAppManager.shared.currentEnv == .product
         let environment = isProd ? ADJEnvironmentProduction : ADJEnvironmentSandbox
         let config = ADJConfig(appToken: appToken, environment: environment)
         config?.logLevel = isProd ? ADJLogLevelSuppress : ADJLogLevelVerbose
@@ -107,6 +107,19 @@ extension AdjustHelper: AdjustDelegate {
     ///
     /// We also disable Adjust based on the Send Anonymous Usage Data setting.
     func adjustAttributionChanged(_ attribution: ADJAttribution?) {
+        StoreConfig.adjustAttribution = [
+            "network": attribution?.network ?? "",
+            "campaign": attribution?.campaign ?? "",
+            "adgroup": attribution?.adgroup ?? "",
+            "creative": attribution?.creative ?? "",
+            "trackerToken": attribution?.trackerToken ?? "",
+            "trackerName": attribution?.trackerName ?? "",
+            "clickLabel": attribution?.clickLabel ?? "",
+            "adid": attribution?.adid ?? "",
+            "costType": attribution?.costType ?? "",
+            "costAmount": "\(attribution?.costAmount ?? 0)",
+            "costCurrency": attribution?.costCurrency ?? ""
+        ]
         hasAttribution = true
         if !shouldEnable {
             AdjustHelper.setEnabled(false)

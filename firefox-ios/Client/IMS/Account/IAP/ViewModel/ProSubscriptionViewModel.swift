@@ -177,7 +177,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 let currencyCode = formatter.currencyCode.lowercased()
                 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
                 
-                let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "")
+                let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "", trackerCampaign: JSON(StoreConfig.adjustAttribution).rawString([:]) ?? "")
                 let ret: IMSHttpResponse<IMSResponseOrder> = try await IMSIAPHttpService.getOrder(token: token, data: req)
                 let outTradeNo = ret.data.imtSession.outTradeNo
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
@@ -251,6 +251,6 @@ class ProSubscriptionViewModel: ObservableObject {
         //        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
         //        Adjust.trackEvent(event)
         
-        AdjustTrackManager.shared.event(eventToken, revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 1)"])
+        AdjustTrackManager.shared.event(eventToken, revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 0)"])
     }
 }

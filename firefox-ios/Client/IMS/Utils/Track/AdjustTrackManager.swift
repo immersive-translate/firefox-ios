@@ -13,14 +13,17 @@ final class AdjustTrackManager {
 }
 
 extension AdjustTrackManager {
-    func event(_ eventToken: String, revenue: (Double, String), extraParams: [String: Any]? = nil, callbackParams: [String: Any]? = nil) {
+    func event(_ eventToken: String, revenue: (Double, String)? = nil, extraParams: [String: Any]? = nil, callbackParams: [String: Any]? = nil) {
+        if eventToken.isEmpty {
+            return
+        }
         // imtSessionId 下单返回的
         sendEvent(name: eventToken, revenue: revenue, extraParams: extraParams, callbackParams: callbackParams)
     }
 }
 
 extension AdjustTrackManager {
-    private func sendEvent(name: String, revenue: (Double, String), extraParams: [String: Any]? = nil, callbackParams: [String: Any]? = nil) {
+    private func sendEvent(name: String, revenue: (Double, String)?, extraParams: [String: Any]? = nil, callbackParams: [String: Any]? = nil) {
         var parameters: [String: Any] = [
             "attribution_deeplink": 1,
             "environment": IMSAppManager.shared.currentEnv == .dev ? "sandbox" : "production",
@@ -38,8 +41,8 @@ extension AdjustTrackManager {
             "idfv": Adjust.idfv() ?? "",
             "eventToken": name,
             "callbackParams": callbackParams != nil ? (JSON(callbackParams ?? [:]).rawString([:]) ?? "") : "",
-            "currency": "",
-            "revenue": "",
+            "revenue": revenue?.0 ?? 0.0,
+            "currency": revenue?.1 ?? "",
         ]
         if let extraParams = extraParams {
             parameters.merge(extraParams) { old, _ in

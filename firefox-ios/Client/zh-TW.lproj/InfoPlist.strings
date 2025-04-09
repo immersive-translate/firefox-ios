@@ -23,3 +23,5 @@
 "Scan QR Code" = "掃描 QR Code";
 
 "CFBundleDisplayName" = "沉浸式翻譯";
+
+"NSUserTrackingUsageDescription" = "這將幫助我們優化內容，並為您打造更好的體驗。";

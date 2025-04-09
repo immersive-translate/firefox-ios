@@ -7,3 +7,4 @@ NSMicrophoneUsageDescription = "Firefox uses your microphone to record and uploa
 "New Private Tab" = "New Private Tab";
 "Scan QR Code" = "Scan QR Code";
 "CFBundleDisplayName" = "Immersive Translate";
+"NSUserTrackingUsageDescription" = "This will help us optimize our content and create a better experience for you.";

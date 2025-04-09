@@ -16,6 +16,9 @@ enum StoreConfig {
     
     @UserDefaultsWrapper("ALREADY_SHOW_FEEDBACK_TIP", defaultValue: false)
     static var alreadyShowFeedbackTip: Bool
+    
+    @UserDefaultsWrapper("ADJUST_ATTRIBUTION", defaultValue: [:])
+    static var adjustAttribution: [String: String]
 }
 
 extension StoreConfig {
