@@ -60,9 +60,9 @@ extension TrackManager {
             "device_id": Adjust.adid() as Any,
         ]
         if let params = params {
-            dict["ex_char_arg1"] = JSON(params).rawString([:]) ?? ""
+            dict["ex_char_arg1"] = JSON(params).rawString(options: []) ?? ""
         }
-        return JSON(dict).rawString([:]) ?? ""
+        return JSON(dict).rawString(options: []) ?? ""
     }
     
     private func getUserInterfaceIdiomName() -> String {
