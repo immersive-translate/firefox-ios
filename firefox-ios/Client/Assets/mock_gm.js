@@ -40,23 +40,71 @@ function GM_xmlhttpRequest(details) {
     (response) => {
         // 假设原生端返回的响应是一个 JSON 对象，包含状态码和数据
         if (response) {
-            const parsedResponse = JSON.parse(response);
-            const options = {
-                 status: parsedResponse.statusCode,
-                 statusText: parsedResponse.statusText,
-                 responseHeaders: parsedResponse.headers,
-                 responseURL: parsedResponse.responseURL,
-                 responseText: typeof parsedResponse.data=="object"? JSON.stringify(parsedResponse.data): parsedResponse.data
-               };
-            if (details.onload) {
-                details.onload(options);
-            }
-        } else if (details.onerror) {
-            // 没有响应，可能是网络错误或其他问题
-            details.onerror('No response received');
-        }
+          try {
+              const parsedResponse = JSON.parse(response);
+              // 从响应头中获取Content-Type
+              const contentType = parsedResponse.headers && 
+                                  (parsedResponse.headers['Content-Type'] || 
+                                   parsedResponse.headers['content-type']) || 
+                                  'application/json';
+              const options = {
+                  status: parsedResponse.statusCode,
+                  statusText: parsedResponse.statusText,
+                  responseHeaders: parsedResponse.headers,
+                  responseURL: parsedResponse.responseURL,
+                  responseText: typeof parsedResponse.data=="object"? 
+                               JSON.stringify(parsedResponse.data): 
+                               parsedResponse.data
+              };
+              
+              // 处理不同类型的响应数据
+              if (parsedResponse.base64Data) {
+                  options.response = base64ToBlob(parsedResponse.base64Data, contentType);
+              }
+              
+              if (details.onload) {
+                  details.onload(options);
+              }
+          } catch (error) {
+              if (details.onerror) {
+                  details.onerror('Failed to parse response: ' + error.message);
+              }
+          }
+      } else if (details.onerror) {
+          // 没有响应，可能是网络错误或其他问题
+          details.onerror('No response received');
+      }
     }
   );
+}
+
+function base64ToBlob(base64Data, contentType = 'application/octet-stream') {
+  if (!base64Data) return null;
+  
+  try {
+    // 解码base64数据
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+    
+    // 将字符串数据分块并转换为Uint8Array
+    for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+      const slice = byteCharacters.slice(offset, offset + 512);
+      
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+      
+      const byteArray = new Uint8Array(byteNumbers);
+      byteArrays.push(byteArray);
+    }
+    
+    // 创建Blob对象，使用正确的MIME类型
+    return new Blob(byteArrays, { type: contentType });
+  } catch (error) {
+    console.error('Error converting base64 to blob:', error);
+    return null;
+  }
 }
 
 function GM_registerMenuCommand(name, func, accessKey) {

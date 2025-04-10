@@ -48,11 +48,18 @@ class HttpClientJSObject {
     }
     
     func deal(forResponse response:AFDataResponse<String>, handler: @escaping (String, Bool)->Void) {
+        // 添加base64编码的response字段
+        var base64Data = ""
+        if let responseData = response.data {
+            base64Data = responseData.base64EncodedString()
+        }
+        
         let dic:[String: Any] = [
             "statusCode" : response.response?.statusCode ?? "",
             "data": self.convertToDictionary(text: response.value ?? "") ?? response.value ?? "",
             "headers": response.response?.headers.dictionary ?? [String:String](),
-            "statusText": HTTPURLResponse.localizedString(forStatusCode: response.response?.statusCode ?? 0)
+            "statusText": HTTPURLResponse.localizedString(forStatusCode: response.response?.statusCode ?? 0),
+            "base64Data": base64Data
         ]
         handler(self.convertToJsonString(obj: dic)!, true)
     }

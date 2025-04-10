@@ -192,7 +192,8 @@ extension BrowserViewController {
         
         func togglePopupAction() {
             guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
-            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).togglePopup(\"right: unset; bottom: unset; left: 50%; top: 0; transform: translateX(-50%);\", false)") { object, error in
+            // "right: unset; bottom: unset; left: 50%; top: 0; transform: translateX(-50%);\", false
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).togglePopup({ style: \"right: unset; bottom: unset; left: 50%; top: 0; transform: translateX(-50%);\", isShow: false })") { object, error in
                 
             }
         }

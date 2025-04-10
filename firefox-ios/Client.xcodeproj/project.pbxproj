@@ -319,7 +319,6 @@
 		2911B7592D6DA8E500872A58 /* IMSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B7582D6DA8E000872A58 /* IMSScript.swift */; };
 		2911B75B2D6DAA4500872A58 /* BrowserViewController+IMSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B75A2D6DAA3A00872A58 /* BrowserViewController+IMSScript.swift */; };
 		2911B75D2D6DAA8C00872A58 /* IMSBrowserViewControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2911B75C2D6DAA8900872A58 /* IMSBrowserViewControllerState.swift */; };
-		2911B75F2D6DB73200872A58 /* IMSScript.js in Resources */ = {isa = PBXBuildFile; fileRef = 2911B75E2D6DB73200872A58 /* IMSScript.js */; };
 		29163DFD2D3FE3F3003FCF30 /* UIView+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */; };
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
 		291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */; };
@@ -1769,6 +1768,8 @@
 		D8BA1791206D47A80023AC00 /* DeferredTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BA1783206D3FB70023AC00 /* DeferredTestUtils.swift */; };
 		D8FDEB57220CFE970069A582 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FDEB55220CFE970069A582 /* UIImage+ImageEffects.m */; };
 		D980063D26D8308700321BC1 /* RustPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D980063C26D8308700321BC1 /* RustPlacesTests.swift */; };
+		D9CEA9882DA81A3F002911AB /* ImgLongPressHelper.js in Resources */ = {isa = PBXBuildFile; fileRef = D9CEA9872DA81A3F002911AB /* ImgLongPressHelper.js */; };
+		D9CEA9892DA81A3F002911AB /* ExtensionBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = D9CEA9862DA81A3F002911AB /* ExtensionBridge.js */; };
 		DA27EEDB28BADF4700DD6F5D /* MenuBuilderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA27EEDA28BADF4700DD6F5D /* MenuBuilderHelper.swift */; };
 		DA4F826729AD221600189590 /* ZoomPageBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F826629AD221600189590 /* ZoomPageBar.swift */; };
 		DA9FD88424E213B500168D1E /* SmallQuickLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FD88224E213B400168D1E /* SmallQuickLink.swift */; };
@@ -2679,7 +2680,6 @@
 		2911B7582D6DA8E000872A58 /* IMSScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSScript.swift; sourceTree = "<group>"; };
 		2911B75A2D6DAA3A00872A58 /* BrowserViewController+IMSScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserViewController+IMSScript.swift"; sourceTree = "<group>"; };
 		2911B75C2D6DAA8900872A58 /* IMSBrowserViewControllerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSBrowserViewControllerState.swift; sourceTree = "<group>"; };
-		2911B75E2D6DB73200872A58 /* IMSScript.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = IMSScript.js; path = AllFrames/AtDocumentStart/IMSScript.js; sourceTree = "<group>"; };
 		29163DFC2D3FE3EC003FCF30 /* UIView+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+IMS.swift"; sourceTree = "<group>"; };
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeLogoHeaderCell+IMS.swift"; sourceTree = "<group>"; };
@@ -4394,6 +4394,8 @@
 		D8FDEB54220CFE970069A582 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "ThirdParty/Apple/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		D8FDEB55220CFE970069A582 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "ThirdParty/Apple/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		D980063C26D8308700321BC1 /* RustPlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustPlacesTests.swift; sourceTree = "<group>"; };
+		D9CEA9862DA81A3F002911AB /* ExtensionBridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ExtensionBridge.js; path = AllFrames/AtDocumentStart/ExtensionBridge.js; sourceTree = "<group>"; };
+		D9CEA9872DA81A3F002911AB /* ImgLongPressHelper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ImgLongPressHelper.js; path = AllFrames/AtDocumentStart/ImgLongPressHelper.js; sourceTree = "<group>"; };
 		DA27EEDA28BADF4700DD6F5D /* MenuBuilderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuBuilderHelper.swift; path = Helpers/MenuBuilderHelper.swift; sourceTree = "<group>"; };
 		DA4F826629AD221600189590 /* ZoomPageBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomPageBar.swift; sourceTree = "<group>"; };
 		DA9FD88224E213B400168D1E /* SmallQuickLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallQuickLink.swift; sourceTree = "<group>"; };
@@ -8722,9 +8724,10 @@
 				D0FCF7E81FE44D8F004A7995 /* AllFrames */,
 				8AEE62C82756BA34003207D1 /* DownloadHelper.js */,
 				8AEE62C62756BA34003207D1 /* LoginsHelper.js */,
-				2911B75E2D6DB73200872A58 /* IMSScript.js */,
 				D0FCF7E91FE44DA2004A7995 /* MainFrame */,
 				8AEE62C72756BA34003207D1 /* TrackingProtectionStats.js */,
+				D9CEA9862DA81A3F002911AB /* ExtensionBridge.js */,
+				D9CEA9872DA81A3F002911AB /* ImgLongPressHelper.js */,
 			);
 			path = UserScripts;
 			sourceTree = "<group>";
@@ -10948,7 +10951,6 @@
 				23BEA767251A99ED00A014BF /* NewYorkMedium-Bold.otf in Resources */,
 				E4CD9F541A71506400318571 /* Reader.html in Resources */,
 				E1BDAC832B9F65780063E6BF /* reportSiteIssueOff.json in Resources */,
-				2911B75F2D6DB73200872A58 /* IMSScript.js in Resources */,
 				1D91C17F2CF11EA500B24960 /* disconnect-block-cookies-content.json in Resources */,
 				E1AF3563286DE5F800960045 /* FullFunctionalTestPlan.xctestplan in Resources */,
 				29D52D4D2D5DABBC00728FB2 /* en.json in Resources */,
@@ -10971,6 +10973,8 @@
 				8A1A93592B757C7C0069C190 /* landscape.json in Resources */,
 				E4CD9F5B1A71506C00318571 /* Reader.css in Resources */,
 				D0FCF8061FE4772D004A7995 /* AllFramesAtDocumentEnd.js in Resources */,
+				D9CEA9882DA81A3F002911AB /* ImgLongPressHelper.js in Resources */,
+				D9CEA9892DA81A3F002911AB /* ExtensionBridge.js in Resources */,
 				D37524871C6E8B5A00A5F6C2 /* topdomains.txt in Resources */,
 				8ABE9F1E2CB462CA0080E1DF /* RemoteSettingsFetchConfig.json in Resources */,
 				1D91C1872CF11EA500B24960 /* disconnect-block-cookies-advertising.json in Resources */,

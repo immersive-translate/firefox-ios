@@ -48,7 +48,7 @@ extension BrowserViewController: IMSScriptDelegate {
     
     func translateImage(url: String) {
         guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
-        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translateImage(\'\(url)\')") { object, error in
+        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translateImage({ imageUrl: \'\(url)\' })") { object, error in
             Log.d(object)
             Log.d(error)
         }

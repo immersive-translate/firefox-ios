@@ -17,7 +17,7 @@ protocol IMSScriptDelegate: AnyObject {
     func restoreImage(url: String)
 }
 
-let IMSScriptNamespace = "window.__firefox__.imtBridge"
+let IMSScriptNamespace = "window.imtExtensionBridge"
 
 class IMSScript: TabContentScript {
     weak var delegate: IMSScriptDelegate?
@@ -52,10 +52,11 @@ class IMSScript: TabContentScript {
               let type = res["type"] as? String
         else { return }
         switch type {
-        case "getPageStatusAsync":
-            if let value = res["value"] as? String {
-                pageStatus = value
-                self.delegate?.onPageStatusAsync(status: value)
+        case "getPageStatus":
+            if let data = res["data"] as? [String: Any], 
+               let status = data["status"] as? String {
+                pageStatus = status
+                self.delegate?.onPageStatusAsync(status: status)
             }
         case "imageLongPress":
             func getImage(content: String, completion: @escaping (UIImage?) -> Void) {
@@ -81,7 +82,7 @@ class IMSScript: TabContentScript {
                     completion(image)
                 }
             }
-            if let value = res["value"] as? String {
+            if let value = res["data"] as? String {
                 Log.d(value)
                 let view = ImageContextMenuView()
                 if value.hasPrefix("http") && !value.hasPrefix("https://store1.immersivetranslate.com") {
