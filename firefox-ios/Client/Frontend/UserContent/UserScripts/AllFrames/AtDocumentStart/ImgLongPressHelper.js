@@ -43,7 +43,6 @@
 
     // Function to reset touch state variables
     function resetTouchState() {
-      debugger;
       clearTimeout(touchTimeout);
       touchTimeout = null;
       startX = 0;
