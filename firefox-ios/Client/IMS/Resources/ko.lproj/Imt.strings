@@ -45,6 +45,7 @@
 "Imt.Toolbar.Tip.ihadKnown" = "확인";
 "Imt.Toolbar.Tip.clickTranslateCurrentPage" = "여기를 클릭하여\n현재 웹페이지 즉시 번역";
 "Imt.Toolbar.Tip.clickTranslateCurrentPanel" = "여기를 클릭하여\n번역 기능 패널 열기";
+"Imt.Toolbar.Tip.clickTranslateCurrentPanel.try" = "해봐";
 "Imt.Common.Error.Message" = "오류 발생";
 "Imt.Home.login.action" = "지금 로그인하여";
 "Imt.Home.login.desc" = "최상의 경험을 누리세요";

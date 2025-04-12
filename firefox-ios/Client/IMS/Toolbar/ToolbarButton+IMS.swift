@@ -31,14 +31,22 @@ extension ToolbarKit.ToolbarButton {
             NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateTip, object: nil, queue: .main) {[weak self] ntf in
                 self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPage, btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        NotificationCenter.default.post(name: .imsShowToolbarTranslateSettingTip, object: nil)
+                        NotificationCenter.default.post(name: .imsShowToolbarTranslateSettingTip, object: ntf.object)
                     }
                 })
             }
         } else if element.iconName == "toolbar_tranlate_setting" {
             NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateSettingTip, object: nil, queue: .main) {[weak self] ntf in
-                self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPanel, btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
-                    print("关闭了")
+                self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPanel, btnTitle: "Imt.Toolbar.Tip.clickTranslateCurrentPanel.try".i18nImt(), onClose: {
+                    if let object = ntf.object as? [String: Any], let url = object["url"] as? URL, let uuid = object["uuid"] as? WindowUUID {
+                        imsStore.dispatch(
+                            IMSTranslatePageBrowserAction(
+                                selectedTabURL: url,
+                                windowUUID: uuid,
+                                actionType: IMSTranslatePageBrowserActionType.togglePopup
+                            )
+                        )
+                    }
                 })
             }
         }

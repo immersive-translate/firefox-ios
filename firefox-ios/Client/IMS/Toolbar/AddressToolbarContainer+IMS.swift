@@ -81,12 +81,12 @@ extension AddressToolbarContainer {
                                      trailingSpace: calculateToolbarSpace(),
                                      isUnifiedSearchEnabled: isUnifiedSearchEnabled)
             
-            checkShowTipIfNeed(addressToolbarState: addressToolbarState)
+            checkShowTipIfNeed(addressToolbarState: addressToolbarState, model: newModel)
         }
     }
     
     
-    func checkShowTipIfNeed(addressToolbarState: AddressToolbarState) {
+    func checkShowTipIfNeed(addressToolbarState: AddressToolbarState, model: AddressToolbarContainerModel) {
         guard addressToolbarState.pageActions.count == 3 else { return }
         guard let host = addressToolbarState.locationViewState.url?.host,
               !host.contains("immersivetranslate.com")
@@ -94,14 +94,16 @@ extension AddressToolbarContainer {
             return
         }
         guard !UserDefaults.standard.bool(forKey: Self.haveShowToolbarTranslateTipStoreKey) else { return }
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showToolbarTipIfNeed), object: nil)
-        self.perform(#selector(showToolbarTipIfNeed), with: nil, afterDelay: 1)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(showToolbarTipIfNeed(_:)), object: nil)
+        self.perform(#selector(showToolbarTipIfNeed), with: [
+            "url": addressToolbarState.locationViewState.url, "uuid": model.windowUUID
+        ], afterDelay: 1)
     }
     
     @objc
-    func showToolbarTipIfNeed() {
+    func showToolbarTipIfNeed(_ info: NSDictionary) {
         UserDefaults.standard.set(true, forKey: Self.haveShowToolbarTranslateTipStoreKey)
-        NotificationCenter.default.post(name: .imsShowToolbarTranslateTip, object: nil)
+        NotificationCenter.default.post(name: .imsShowToolbarTranslateTip, object: info)
     }
     
     
