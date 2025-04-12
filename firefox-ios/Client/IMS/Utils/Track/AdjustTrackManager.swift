@@ -5,6 +5,7 @@
 import Adjust
 import Common
 import SwiftyJSON
+import LTXiOSUtils
 
 final class AdjustTrackManager {
     static let shared = AdjustTrackManager()
@@ -52,12 +53,8 @@ extension AdjustTrackManager {
 
         let request = AdjustAPI.EventRequest(param: parameters)
         APIService.sendRequest(request) { response in
-            switch response.result.validateResult {
-            case .success:
-                ()
-            case let .failure(message, _):
-                ()
-            }
+            /// 会返回 { "status" : "OK"}
+            Log.d(JSON(response.data))
         }
     }
 
