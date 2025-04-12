@@ -133,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pinnedSiteFetcher: profile.pinnedSites,
             prefs: profile.prefs
         )
-
+        profile.prefs.setBool(false, forKey: PrefsKeys.UserFeatureFlagPrefs.SponsoredShortcuts)
         widgetManager = TopSitesWidgetManager(topSitesProvider: topSitesProvider)
 
         addObservers()

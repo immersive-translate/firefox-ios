@@ -39,13 +39,13 @@ class TopSitesSettingsViewController: SettingsTableViewController, FeatureFlagga
                     defaultValue: true,
                     titleText: .Settings.Homepage.Shortcuts.ShortcutsToggle
                 ),
-                BoolSetting(
-                    prefs: profile.prefs,
-                    theme: themeManager.getCurrentTheme(for: windowUUID),
-                    prefKey: PrefsKeys.UserFeatureFlagPrefs.SponsoredShortcuts,
-                    defaultValue: true,
-                    titleText: .Settings.Homepage.Shortcuts.SponsoredShortcutsToggle
-                )
+//                BoolSetting(
+//                    prefs: profile.prefs,
+//                    theme: themeManager.getCurrentTheme(for: windowUUID),
+//                    prefKey: PrefsKeys.UserFeatureFlagPrefs.SponsoredShortcuts,
+//                    defaultValue: true,
+//                    titleText: .Settings.Homepage.Shortcuts.SponsoredShortcutsToggle
+//                )
             ]
             let toggleSection = SettingSection(title: nil, children: toggleSettings)
             sections.append(toggleSection)
