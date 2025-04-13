@@ -50,3 +50,7 @@
 "Settings.IMSAccount.IAP.Terms of Service" = "Terms of Service";
 "Settings.IMSAccount.IAP.Privacy Policy" = "Privacy Policy";
 "Settings.IMSAccount.IAP.Restore Purchases" = "Restore Purchases";
+"Settings.IMSAccount.IAP.deepseek Translation" = "Deepseek";
+"Settings.IMSAccount.IAP.zhipu Translation" = "Zhipu 4 Plus";
+"Settings.IMSAccount.IAP.BabelDOC Translation" = "BabelDOC retains layout PDF translation";
+"Settings.IMSAccount.IAP.BabelDOC tip" = "10,000 pages per month of AI-driven PDF document translation preserving layout, supporting complex formula recognition, currently does not support scanned versions";

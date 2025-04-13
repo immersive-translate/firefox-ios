@@ -50,3 +50,7 @@
 "Settings.IMSAccount.IAP.Terms of Service" = "서비스 약관";
 "Settings.IMSAccount.IAP.Privacy Policy" = "개인정보 처리방침";
 "Settings.IMSAccount.IAP.Restore Purchases" = "구매 복원";
+"Settings.IMSAccount.IAP.deepseek Translation" = "Deepseek 번역";
+"Settings.IMSAccount.IAP.zhipu Translation" = "Zhipu 4 Plus 번역";
+"Settings.IMSAccount.IAP.BabelDOC Translation" = "BabelDOC은 PDF 번역 시 서식을 유지합니다";
+"Settings.IMSAccount.IAP.BabelDOC tip" = "매월 10,000페이지 AI 구동 PDF 문서의 타이포그래피 번역을 지원하며, 복잡한 공식 인식이 가능하나 스캔된 버전은 지원하지 않습니다";

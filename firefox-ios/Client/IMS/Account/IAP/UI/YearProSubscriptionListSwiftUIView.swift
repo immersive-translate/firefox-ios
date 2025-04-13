@@ -7,7 +7,7 @@ import SwiftUI
 struct YearProSubscriptionListSwiftUIView: View {
     var body: some View {
         VStack {
-            ScrollView(.vertical, showsIndicators: false){
+            ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 0) {
                     HStack {
                         Text("\(String.IMS.IAP.proExclusiveAITranslation)")
@@ -17,12 +17,10 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .frame(width: 16, height: 16)
                         
                         Spacer()
-                        
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -34,8 +32,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -45,10 +42,23 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                         Spacer()
                     }
+                    
                     Spacer()
                         .frame(height: 16)
-                    HStack{
+                    HStack {
+                        Image("iap_year_info_icongou")
+                            .resizable()
+                            .frame(width: 18, height: 18)
                         
+                        Text("Settings.IMSAccount.IAP.deepseek Translation".i18nIMSAccount())
+                            .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                            .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                        .frame(height: 16)
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -60,8 +70,7 @@ struct YearProSubscriptionListSwiftUIView: View {
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -71,6 +80,20 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                         Spacer()
                     }
+                    
+                    Spacer()
+                        .frame(height: 16)
+                    HStack {
+                        Image("iap_year_info_icongou")
+                            .resizable()
+                            .frame(width: 18, height: 18)
+                        
+                        Text("Settings.IMSAccount.IAP.zhipu Translation".i18nIMSAccount())
+                            .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                            .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
+                        Spacer()
+                    }
+                    
                     Spacer()
                         .frame(height: 24)
                     HStack {
@@ -78,12 +101,10 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 16))
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                         Spacer()
-                        
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -92,17 +113,30 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                     
-                           
                         ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.pdfProtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
-                        
                     }
                     
                     Spacer()
                         .frame(height: 16)
-                    HStack{
+                    HStack {
+                        Image("iap_year_info_icongou")
+                            .resizable()
+                            .frame(width: 18, height: 18)
                         
+                        Text("Settings.IMSAccount.IAP.BabelDOC Translation".i18nIMSAccount())
+                            .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
+                            .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
+                    
+                        ProSubscriptionPopverTipIcon(tipMessage: "Settings.IMSAccount.IAP.BabelDOC tip".i18nIMSAccount())
+                            .frame(width: 16, height: 16)
+                        Spacer()
+                    }
+                    
+                    Spacer()
+                        .frame(height: 16)
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -114,12 +148,10 @@ struct YearProSubscriptionListSwiftUIView: View {
                         ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.mangaTranslationtip)")
                             .frame(width: 16, height: 16)
                         Spacer()
-                        
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -129,12 +161,10 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                         
                         Spacer()
-                        
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -144,12 +174,10 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                         
                         Spacer()
-                        
                     }
                     Spacer()
                         .frame(height: 16)
-                    HStack{
-                        
+                    HStack {
                         Image("iap_year_info_icongou")
                             .resizable()
                             .frame(width: 18, height: 18)
@@ -158,16 +186,13 @@ struct YearProSubscriptionListSwiftUIView: View {
                             .font(Font.custom("Alibaba PuHuiTi 3.0", size: 14))
                             .foregroundColor(Color(uiColor: UIColor(hexString: "#333333").withDarkColor("#D8D8D8")))
                      
-                          
                         ProSubscriptionPopverTipIcon(tipMessage: "\(String.IMS.IAP.priorityEmailSupporttip)")
                             .frame(width: 16, height: 16)
                         Spacer()
-                        
                     }
                     
                     Spacer()
                         .frame(height: 16)
-                    
                 }
                 .padding(.top, 30)
                 .padding(.leading, 24)
