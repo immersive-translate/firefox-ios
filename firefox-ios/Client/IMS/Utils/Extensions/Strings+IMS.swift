@@ -38,7 +38,7 @@ extension String {
     /// - Parameter value: 默认值
     /// - Returns: 国际化语言
     func i18nIMSAccount(value: String = "") -> String {
-        MZLocalizedString(
+        let value = MZLocalizedString(
             key: self,
             tableName: "IMSAccount",
             value: value,
