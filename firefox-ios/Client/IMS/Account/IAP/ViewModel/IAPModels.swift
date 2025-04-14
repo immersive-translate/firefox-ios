@@ -34,6 +34,7 @@ struct IMSHttpOrderRequest: Codable {
     let returnUrl: String
     let actName: String
     let payTips: String
+    let trackerCampaign: String
 }
 
 // 响应模型

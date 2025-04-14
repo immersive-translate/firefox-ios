@@ -2,10 +2,10 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
+import Adjust
 import Foundation
 import StoreKit
 import SVProgressHUD
-import Adjust
 
 struct ProSubscriptionInfo: Identifiable {
     let id = UUID()
@@ -26,14 +26,12 @@ protocol ProSubscriptionDelegate: AnyObject {
     func showPrivacy()
 }
 
-
 enum ProSubscriptionFromSource {
     case upgrade
     case onboarding
 }
 
 class ProSubscriptionViewModel: ObservableObject {
-    
     weak var coordinator: ProSubscriptionDelegate?
     
     let fromSource: ProSubscriptionFromSource
@@ -77,7 +75,7 @@ class ProSubscriptionViewModel: ObservableObject {
                 guard let channel = config.data.data.first else {
                     throw SKError(.clientInvalid)
                 }
-                let products = try await IMSAccountManager.shard.iap.getProducts(channel.goods.map{$0.appStoreId})
+                let products = try await IMSAccountManager.shard.iap.getProducts(channel.goods.map { $0.appStoreId })
                 guard !products.isEmpty, products.count == channel.goods.count else {
                     throw SKError(.clientInvalid)
                 }
@@ -86,7 +84,7 @@ class ProSubscriptionViewModel: ObservableObject {
                         return ProSubscriptionInfo(serverProduct: good, appleProduct: product)
                     }
                     return nil
-                }.sorted { item1, item2 in
+                }.sorted { item1, _ in
                     if item1.serverProduct.goodType == .yearly {
                         return true
                     }
@@ -96,12 +94,10 @@ class ProSubscriptionViewModel: ObservableObject {
                     SVProgressHUD.dismiss()
                     self.infos = infos
                     if let userInfo = userInfo, let token = localUserInfo?.token {
-                        
                         self.userInfo = IMSAccountInfo.from(token: token, resp: userInfo.data)
                     } else {
                         self.userInfo = nil
                     }
-                    
                 }
             } catch {
                 print("fetchProductInfo: \(error)")
@@ -143,7 +139,6 @@ class ProSubscriptionViewModel: ObservableObject {
         }
     }
     
-    
     @MainActor
     func purchaseProduct() {
         if fromSource == .onboarding {
@@ -160,7 +155,7 @@ class ProSubscriptionViewModel: ObservableObject {
             }
         }
         guard let info = infos.first(where: { $0.serverProduct.goodType == self.selectedConfiGoodType }) else {
-            self.messageType = .title("\(String.IMS.IAP.subscriptionFail)!")
+            messageType = .title("\(String.IMS.IAP.subscriptionFail)!")
             return
         }
         guard let token = userInfo?.token else {
@@ -177,13 +172,13 @@ class ProSubscriptionViewModel: ObservableObject {
                 let currencyCode = formatter.currencyCode.lowercased()
                 let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
                 
-                let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "")
+                let req = IMSHttpOrderRequest(priceId: priceId, currency: currencyCode, startTrial: false, successUrl: "", cancelUrl: "", locale: "", coupon: "", referral: "", quantity: 1, targetLanguage: "", deviceId: "", platform: "", abField: "", appVersion: appVersion, browser: "", browserUserAgent: "", utmCampaign: "", utmMedium: "", utmSource: "", installTime: "2024-12-24T12:42:45.021Z", installChannel: "", interfaceLang: "", lastLoginTime: "2024-12-24T12:42:45.021Z", lastLoginIP: "", userCreateTime: "2024-12-24T12:42:45.021Z", extendData: "", returnUrl: "", actName: "", payTips: "", trackerCampaign: JSON(StoreConfig.adjustAttribution).rawString(options: []) ?? "")
                 let ret: IMSHttpResponse<IMSResponseOrder> = try await IMSIAPHttpService.getOrder(token: token, data: req)
                 let outTradeNo = ret.data.imtSession.outTradeNo
                 try await IMSAccountManager.shard.iap.purchase(productId: priceId, orderNo: outTradeNo)
                 await MainActor.run {
                     SVProgressHUD.dismiss()
-                    self.trackPurchaseEvent(info: info)
+                    self.trackPurchaseEvent(info: info, imtSessionId: ret.data.imtSessionId)
                     self.coordinator?.showPurchaseSuccess()
                 }
             } catch {
@@ -200,54 +195,58 @@ class ProSubscriptionViewModel: ObservableObject {
         }
     }
     
-    func trackPurchaseEvent(info: ProSubscriptionInfo) {
-        let totalEvent = ADJEvent(eventToken: "8ae2y6")
+    func trackPurchaseEvent(info: ProSubscriptionInfo, imtSessionId: Int) {
         let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
         let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
-        totalEvent?.setRevenue(amount, currency: currencyCode)
-        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
-        Adjust.trackEvent(totalEvent)
+        AdjustTrackManager.shared.event("lk8rlx", revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 0)"])
         
-        var eventToken = ""
-        if userInfo?.iosPlanTier == "trial" {
-            /// 还未试用过
-            switch info.serverProduct.goodType {
-            case .monthly:
-                eventToken = "rl8x74"
-            case .yearly:
-                eventToken = "xntvd0"
-            }
-        } else {
-            // 试用过
-            switch info.serverProduct.goodType {
-            case .monthly:
-                if userInfo?.subscription?.isTrial ?? false {
-                    ///  试用 -> 月费会员
-                    eventToken = "5jiyt7"
-                } else {
-                    eventToken = "lfiher"
-                }
-            case .yearly:
-                if userInfo?.subscription?.subscriptionType == .monthly {
-                    ///  月度 -> 年会员
-                    eventToken = "or0t5r"
-                } else {
-                    if userInfo?.subscription?.isTrial ?? false {
-                        ///  试用 -> 年会员
-                        eventToken = "9ytnyf"
-                    } else {
-                        /// 年会员
-                        eventToken = "rtqx61"
-                    }
-                }
-            }
-        }
-        if eventToken.isEmpty {
-            return
-        }
-        let event = ADJEvent(eventToken: eventToken)
-        event?.setRevenue(amount, currency: currencyCode)
-        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
-        Adjust.trackEvent(event)
+//        totalEvent?.setRevenue(amount, currency: currencyCode)
+//        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+//        Adjust.trackEvent(totalEvent)
+        
+//        var eventToken = ""
+//        if userInfo?.iosPlanTier == "trial" {
+//            /// 还未试用过
+//            switch info.serverProduct.goodType {
+//            case .monthly:
+//                eventToken = "rl8x74"
+//            case .yearly:
+//                eventToken = "xntvd0"
+//            }
+//        } else {
+//            // 试用过
+//            switch info.serverProduct.goodType {
+//            case .monthly:
+//                if userInfo?.subscription?.isTrial ?? false {
+//                    ///  试用 -> 月费会员
+//                    eventToken = "5jiyt7"
+//                } else {
+//                    eventToken = "lfiher"
+//                }
+//            case .yearly:
+//                if userInfo?.subscription?.subscriptionType == .monthly {
+//                    ///  月度 -> 年会员
+//                    eventToken = "or0t5r"
+//                } else {
+//                    if userInfo?.subscription?.isTrial ?? false {
+//                        ///  试用 -> 年会员
+//                        eventToken = "9ytnyf"
+//                    } else {
+//                        /// 年会员
+//                        eventToken = "rtqx61"
+//                    }
+//                }
+//            }
+//        }
+//        if eventToken.isEmpty {
+//            return
+//        }
+        
+        //        let event = ADJEvent(eventToken: eventToken)
+        //        event?.setRevenue(amount, currency: currencyCode)
+        //        event?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
+        //        Adjust.trackEvent(event)
+        
+//        AdjustTrackManager.shared.event(eventToken, revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 0)"])
     }
 }
