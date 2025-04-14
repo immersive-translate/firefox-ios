@@ -130,6 +130,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Firefox uses your camera to scan QR codes and take photos and video.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This will help us optimize our content and create a better experience for you.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Firefox requires Face ID to access your saved passwords and payment methods.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
