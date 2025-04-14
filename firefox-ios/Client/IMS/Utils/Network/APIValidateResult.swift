@@ -4,11 +4,18 @@
 import Foundation
 import LTXiOSUtils
 import APIService
+import SwiftyJSON
 
 public enum APIValidateResult<T> {
     case success(T)
-    case failure(String?, APIError)
+    case failure(String?, Int?, APIError)
 }
+
+public enum APIAllowNullValidateResult<T> {
+    case success(T?)
+    case failure(String?, Int?, APIError)
+}
+
 
 public enum IMSDataError: Error {
     case invalidParseResponse
@@ -24,17 +31,63 @@ extension APIResult where T: APIModelWrapper {
                 if let data = response.data {
                     return .success(data)
                 } else {
-                    return .failure(response.error ?? response.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                    return .failure(response.error ?? response.message, response.code, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
                 }
             } else {
-                return .failure(response.error ?? response.message, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+                return .failure(response.error ?? response.message, response.code, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
             }
         case let .failure(apiError):
-//            if apiError == APIError.networkError {
-//                message = apiError.localizedDescription
-//            }
             Log.d(apiError.localizedDescription)
-            return .failure(nil, apiError)
+            return .failure(message, nil, apiError)
+        }
+    }
+    
+    var allowNullValidateResult: APIAllowNullValidateResult<T.DataType> {
+        let message = "Imt.Common.Error.Message".i18nImt()
+        switch self {
+        case let .success(response):
+            if response.code == IMSBaseResponseModelCode.success.rawValue {
+                return .success(response.data)
+            } else {
+                return .failure(response.error ?? response.message, response.code, APIError.responseError(APIResponseError.invalidParseResponse(IMSDataError.invalidParseResponse)))
+            }
+        case let .failure(apiError):
+            Log.d(apiError.localizedDescription)
+            return .failure(message, nil, apiError)
+        }
+    }
+}
+
+extension APIResponse where T: APIModelWrapper {
+    public var validateResult: APIValidateResult<T.DataType> {
+        switch result {
+        case let .failure(error):
+            if let data = data {
+                let json = JSON(data)
+                let errorStr = json["error"].string
+                let message = json["message"].string
+                let code = json["code"].int
+                return .failure(errorStr ?? message, code, error)
+            }
+            return result.validateResult
+        case .success:
+            return result.validateResult
+        }
+    }
+    
+    public var allowNullValidateResult: APIAllowNullValidateResult<T.DataType> {
+        switch result {
+        case let .failure(error):
+            if let data = data {
+                let json = JSON(data)
+                let errorStr = json["error"].string
+                let message = json["message"].string
+                let code = json["code"].int
+                return .failure(errorStr ?? message, code, error)
+            }
+            return result.allowNullValidateResult
+        case .success:
+            return result.allowNullValidateResult
         }
     }
 }

@@ -7,6 +7,11 @@ import Foundation
 enum IMSBaseResponseModelCode: Int {
     /// 成功
     case success = 0
+    
+    /// 未激活，需要重新发送验证码
+    case notActivated = 1001
+    /// 未注册
+    case notRegistered = 1009
 }
 
 public protocol APIModelWrapper {

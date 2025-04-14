@@ -33,6 +33,7 @@ extension AppDelegate {
         SVProgressHUD.setMinimumDismissTimeInterval(1)
         SVProgressHUD.setMaximumDismissTimeInterval(2.5)
         SVProgressHUD.setDefaultStyle(.custom)
+        SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setFont(UIFont.systemFont(ofSize: 14))
         SVProgressHUD.setBackgroundColor(.black.withAlphaComponent(0.5))
         SVProgressHUD.setInfoImage(UIColor.clear.tx.toImage(size: CGSize(width: 0.1, height: 0.1))!)

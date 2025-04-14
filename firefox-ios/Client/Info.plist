@@ -34,6 +34,8 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
 			<string>org.mozilla.Client</string>
 			<key>CFBundleURLSchemes</key>
@@ -42,7 +44,26 @@
 				<string>$(MOZ_INTERNAL_URL_SCHEME)</string>
 				<string>http</string>
 				<string>https</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>facebook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
 				<string>fb534301805718885</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>google</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.354257613972-4mv2m2c319sgqkmspjvgh1ealj4egf7b</string>
 			</array>
 		</dict>
 	</array>
@@ -56,6 +77,8 @@
 	<string>12f64b0848e953d71f94f6dca577fb36</string>
 	<key>FacebookDisplayName</key>
 	<string>$(MOZ_BUNDLE_DISPLAY_NAME)</string>
+	<key>GIDClientID</key>
+	<string>354257613972-4mv2m2c319sgqkmspjvgh1ealj4egf7b.apps.googleusercontent.com</string>
 	<key>INIntentsSupported</key>
 	<array>
 		<string>QuickActionIntent</string>

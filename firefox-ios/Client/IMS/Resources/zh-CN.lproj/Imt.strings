@@ -78,3 +78,88 @@
 "Imt.home.feedback.dissatisfied.title" = "😢对产品不满意？\n请给我们提供您宝贵的意见吧！";
 "Imt.home.feedback.satisfied.title" = "😄我们会再接再厉！\n请前往应用商店给个好评吧～";
 "Imt.home.feedback.goto" = "立即前往";
+"Imt.login.title" = "注册并登录";
+"Imt.login.desc" = "登录后立即享有沉浸式翻译全部免费功能～";
+"Imt.login.btn_google" = "使用 Google 登录";
+"Imt.login.or" = "或";
+"Imt.login.btn_email" = "使用电子邮箱登录";
+"Imt.login.btn_apple" = "使用苹果账号登录";
+"Imt.login.btn_fb" = "使用 Facebook 登录";
+"Imt.login.btn_wx" = "使用微信登录";
+"Imt.login.hw_agreement" = "注册即表示您同意";
+"Imt.login.hw_condition" = "条件和条款";
+"Imt.login.hw_privacy" = "隐私政策";
+"Imt.email_login.account_title" = "账号：";
+"Imt.email_login.pwd_title" = "密码：";
+"Imt.email_login.pwd_hint" = "请输入您的密码";
+"Imt.email_login.forget_pwd" = "忘记密码？";
+"Imt.email_login.auto_register" = "首次登录将会自动注册";
+"Imt.email_login.login_btn_text" = "登录/注册";
+"Imt.email_login.reset_title" = "重置密码";
+"Imt.email_login.reset_verify_code" = "验证码：";
+"Imt.email_login.reset_verify_code_hint" = "请输入您的验证码";
+"Imt.email_login.reset_verify_code_btn" = "获取验证码";
+"Imt.email_login.reset_pwd" = "新密码：";
+"Imt.email_login.reset_pwd_confirm" = "确认新密码：";
+"Imt.email_login.reset_ok" = "密码重置成功";
+"Imt.email_login.reset_goto_login" = "去登录";
+"Imt.email_verify.email_hint" = "请输入邮箱收到的验证码";
+"Imt.email_verify.btn_verify" = "验证邮箱";
+"Imt.email_verify.account_desc" = "已经有账户了？";
+"Imt.email_verify.account_login" = "登录";
+"Imt.password.must_match" = "请两次密码输入保持一致";
+"Imt.password.must_match" = "请两次密码输入保持一致";
+"Imt.login.success" = "登录成功";
+
+/// "/v1/user-account/web-login"
+"Imt.error.account_login_1000" = "邮箱或密码不正确，请重新输入";
+"Imt.error.account_login_1001" = "邮箱未激活，请登录邮箱账户";
+"Imt.error.account_login_1002" = "邮箱已激活，请登录邮箱账户";
+"Imt.error.account_login_1003" = "账户已禁用，请联系 support@immersivetranslate.com";
+"Imt.error.account_login_1004" = "账户已注销，请联系 support@immersivetranslate.com";
+"Imt.error.account_login_1005" = "用户名已存在";
+"Imt.error.account_login_1006" = "密码长度最大为 72 个字符";
+"Imt.error.account_login_1007" = "登录失败，请稍后再试";
+"Imt.error.account_login_1008" = "用户名最长为 50 个字符";
+"Imt.error.account_login_1009" = "邮箱未注册";
+"Imt.error.account_login_1010" = "邮箱已存在";
+"Imt.error.account_login_1011" = "邮箱格式不正确";
+"Imt.error.account_login_1014" = "一次性升级邮箱最近 3 个月已发送";
+"Imt.error.account_login_1015" = "邮箱验证码发送过于频繁，请稍后再试";
+"Imt.error.account_login_1016" = "账户和密码不正确过于频繁，请稍后再试";
+
+/// "/v1/user-account/register"
+"Imt.error.register_1022" = "密码是必填项";
+"Imt.error.register_1023" = "密码长度最少 6 个字符，最多 72 个字符";
+"Imt.error.register_1024" = "密码必须包含至少一个字母和一个数字";
+"Imt.error.register_1003" = "此邮箱在禁止注册列表中，目前无法注册";
+"Imt.error.register_1004" = "账户受限";
+"Imt.error.register_1006" = "密码长度最大为 72 个字符";
+
+/// web-oauth-callback
+"Imt.error.auth_callback_1007" = "登录失败，请稍后再试";
+
+/// /v1/user-account/find-password-code
+"Imt.error.find_pwd_verify_1015" = "邮箱验证码发送过于频繁，请稍后再试";
+"Imt.error.find_pwd_verify_1011" = "无效的邮箱";
+"Imt.error.find_pwd_verify_1009" = "未找到邮箱";
+
+/// "/v1/user-account/reset-password"
+"Imt.error.reset_password_1002" = "密码是必填项";
+"Imt.error.reset_password_1023" = "密码长度最少 6 个字符，最多 72 个字符";
+"Imt.error.reset_password_1024" = "密码必须包含至少一个字母和一个数字";
+"Imt.error.reset_password_1025" = "重置密码过于频繁，请稍后再试";
+"Imt.error.reset_password_1026" = "验证码无效，请重试";
+"Imt.error.reset_password_1027" = "电子邮箱无效，请检查邮箱账户";
+"Imt.error.reset_password_1029" = "邮箱验证码发送过于频繁，请稍后再试";
+
+/// "/v1/user-account/activate"
+"Imt.error.account_activate_1030" = "通过邮箱验证码激活用户过于频繁，请稍后再试";
+"Imt.error.account_activate_1031" = "感谢注册，但您的激活码已过期。您可以重新获取验证码再次激活";
+"Imt.error.account_activate_1032" = "感谢注册，但您的激活码错误。您可以重新获取验证码再次激活";
+"Imt.error.account_activate_1028" = "邮箱无效";
+"Imt.error.account_activate_1033" = "感谢注册，您的账户已激活。祝您在 immersivetranslate.com 玩得愉快";
+
+/// "/v1/user-account/re-activate"
+"Imt.error.re_active_code_1029" = "邮箱验证码发送过于频繁，请稍后再试";
+"Imt.error.re_active_code_1028" = "邮箱无效";

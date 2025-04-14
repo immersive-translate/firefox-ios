@@ -324,9 +324,6 @@
 		291AADC62D5AEEC20046DB22 /* AppState+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */; };
 		291C6DBB2D5E2C96002274F6 /* HomeLogoHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */; };
 		291C6DBD2D5E302B002274F6 /* LegacyHomepageHeaderCell+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */; };
-		291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */; };
-		291C6DE42D5F5FB0002274F6 /* OnboardingLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */; };
-		291C6DE62D5F5FD9002274F6 /* OnboardingLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */; };
 		292E28C62D2C26A80096B370 /* PlugInUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */; };
 		292E28C92D2C39D40096B370 /* AbountAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */; };
 		292E28CB2D2C3A180096B370 /* TutorialsSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */; };
@@ -370,7 +367,6 @@
 		29B9C9AE2D3F3B2200365400 /* AdjustHelper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9AD2D3F3B2200365400 /* AdjustHelper+IMS.swift */; };
 		29B9C9B02D3F3B4F00365400 /* AdjustTelemetryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9AF2D3F3B4F00365400 /* AdjustTelemetryData.swift */; };
 		29B9C9B22D3F3CA800365400 /* AppLaunchUtil+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B12D3F3CA400365400 /* AppLaunchUtil+IMS.swift */; };
-		29B9C9B42D3F3D3300365400 /* SendAnonymousUsageDataSetting+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */; };
 		29B9C9B62D3F420000365400 /* AdjustWrapper+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */; };
 		29D52D4D2D5DABBC00728FB2 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = 29B605122D2D359D006585C7 /* en.json */; };
 		29D52D4F2D5DBB4F00728FB2 /* IMSAPPTopSiteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */; };
@@ -433,10 +429,25 @@
 		2B1FD77C2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */; };
 		2B1FD77D2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */; };
 		2B2083D52D8025EA00F4402F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2083D42D8025EA00F4402F /* Constants.swift */; };
+		2B305CC42D9F652800E82DB1 /* LoginTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305CC32D9F652000E82DB1 /* LoginTypeButton.swift */; };
+		2B305CC92D9F6AE300E82DB1 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305CC82D9F6AD900E82DB1 /* ThemeColor.swift */; };
+		2B305D692D9F8DB600E82DB1 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305D682D9F8DB500E82DB1 /* BaseNavigationController.swift */; };
+		2B305D6B2D9F93B800E82DB1 /* DeviceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305D6A2D9F93AC00E82DB1 /* DeviceUtils.swift */; };
+		2B305D8F2D9FBE0600E82DB1 /* IMSEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305D8E2D9FBE0600E82DB1 /* IMSEmailLoginViewController.swift */; };
+		2B305E2F2D9FE45000E82DB1 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305E2E2D9FE44F00E82DB1 /* PasswordTextField.swift */; };
+		2B305E312D9FE69200E82DB1 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305E302D9FE68800E82DB1 /* InputTextField.swift */; };
+		2B305E332D9FE87300E82DB1 /* VerificationCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B305E322D9FE87300E82DB1 /* VerificationCodeTextField.swift */; };
 		2B3146152D9EAFD000E311CB /* AdjustTrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3146142D9EAFC900E311CB /* AdjustTrackManager.swift */; };
 		2B3146172D9EB02100E311CB /* AdjustAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3146162D9EB01C00E311CB /* AdjustAPI.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
+		2B553F6B2D9B015700FC44EB /* IMSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F6A2D9B014A00FC44EB /* IMSLoginViewController.swift */; };
+		2B553F6F2D9B018200FC44EB /* IMSResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F6E2D9B017800FC44EB /* IMSResetPasswordViewController.swift */; };
+		2B5647B02DA6BD0B00919816 /* IMSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5647AF2DA6BD0B00919816 /* IMSUserManager.swift */; };
+		2B5647B22DA6D17600919816 /* IMSEmailVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5647B12DA6D17600919816 /* IMSEmailVerificationCodeViewController.swift */; };
+		2B56FD932DA4DFCC00919816 /* UserAccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */; };
+		2B56FE332DA4EB0900919816 /* BaseBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */; };
+		2B56FF1D2DA5275100919816 /* IMSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FF1C2DA5274700919816 /* IMSUser.swift */; };
 		2B69AF032D97B9FB00204CE5 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69AF022D97B9F600204CE5 /* TrackManager.swift */; };
 		2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
@@ -455,6 +466,7 @@
 		2BB88ECB2D91122A00310A94 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB88ECA2D91122300310A94 /* BaseViewController.swift */; };
 		2BB88ECD2D91147A00310A94 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB88ECC2D91147400310A94 /* ComponentFactory.swift */; };
 		2BD810692D7D82A200C648A4 /* IMSAPPConfigUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */; };
+		2BF21C922D9F64270079C794 /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF21C912D9F64200079C794 /* LoginType.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
 		2C2A91291FA2410D002E36BD /* HistoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A91281FA2410D002E36BD /* HistoryTests.swift */; };
 		2C31A7A91E8BFB2200DAC646 /* ReadingListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */; };
@@ -2669,9 +2681,6 @@
 		291AADC52D5AEEC20046DB22 /* AppState+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppState+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBA2D5E2C92002274F6 /* HomeLogoHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeLogoHeaderCell+IMS.swift"; sourceTree = "<group>"; };
 		291C6DBC2D5E3028002274F6 /* LegacyHomepageHeaderCell+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LegacyHomepageHeaderCell+IMS.swift"; sourceTree = "<group>"; };
-		291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginView.swift; sourceTree = "<group>"; };
-		291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewModel.swift; sourceTree = "<group>"; };
-		291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLoginViewController.swift; sourceTree = "<group>"; };
 		292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugInUpdateManager.swift; sourceTree = "<group>"; };
 		292E28C82D2C39CF0096B370 /* AbountAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbountAppViewController.swift; sourceTree = "<group>"; };
 		292E28CA2D2C3A170096B370 /* TutorialsSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialsSetting.swift; sourceTree = "<group>"; };
@@ -2962,7 +2971,6 @@
 		29B9C9AD2D3F3B2200365400 /* AdjustHelper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdjustHelper+IMS.swift"; sourceTree = "<group>"; };
 		29B9C9AF2D3F3B4F00365400 /* AdjustTelemetryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTelemetryData.swift; sourceTree = "<group>"; };
 		29B9C9B12D3F3CA400365400 /* AppLaunchUtil+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppLaunchUtil+IMS.swift"; sourceTree = "<group>"; };
-		29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SendAnonymousUsageDataSetting+IMS.swift"; sourceTree = "<group>"; };
 		29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdjustWrapper+IMS.swift"; sourceTree = "<group>"; };
 		29D52D4E2D5DBB3F00728FB2 /* IMSAPPTopSiteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPPTopSiteService.swift; sourceTree = "<group>"; };
 		29EF1DE32D37E3390066018B /* IMSImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IMSImages.xcassets; sourceTree = "<group>"; };
@@ -3016,12 +3024,27 @@
 		2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCell.swift; sourceTree = "<group>"; };
 		2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCellViewModel.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B305CC32D9F652000E82DB1 /* LoginTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeButton.swift; sourceTree = "<group>"; };
+		2B305CC82D9F6AD900E82DB1 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		2B305D682D9F8DB500E82DB1 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		2B305D6A2D9F93AC00E82DB1 /* DeviceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtils.swift; sourceTree = "<group>"; };
+		2B305D8E2D9FBE0600E82DB1 /* IMSEmailLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSEmailLoginViewController.swift; sourceTree = "<group>"; };
+		2B305E2E2D9FE44F00E82DB1 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		2B305E302D9FE68800E82DB1 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		2B305E322D9FE87300E82DB1 /* VerificationCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeTextField.swift; sourceTree = "<group>"; };
 		2B3146142D9EAFC900E311CB /* AdjustTrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustTrackManager.swift; sourceTree = "<group>"; };
 		2B3146162D9EB01C00E311CB /* AdjustAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustAPI.swift; sourceTree = "<group>"; };
 		2B34A1E92D95158C00529AD0 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/WidgetIntents.strings; sourceTree = "<group>"; };
 		2B34A2292D95182100529AD0 /* en-US */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-US"; path = "en-US.lproj/WidgetIntents.strings"; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
+		2B553F6A2D9B014A00FC44EB /* IMSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSLoginViewController.swift; sourceTree = "<group>"; };
+		2B553F6E2D9B017800FC44EB /* IMSResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSResetPasswordViewController.swift; sourceTree = "<group>"; };
+		2B5647AF2DA6BD0B00919816 /* IMSUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUserManager.swift; sourceTree = "<group>"; };
+		2B5647B12DA6D17600919816 /* IMSEmailVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSEmailVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountAPI.swift; sourceTree = "<group>"; };
+		2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBrowserViewController.swift; sourceTree = "<group>"; };
+		2B56FF1C2DA5274700919816 /* IMSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUser.swift; sourceTree = "<group>"; };
 		2B69AF022D97B9F600204CE5 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
@@ -3040,6 +3063,7 @@
 		2BB88ECA2D91122300310A94 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2BB88ECC2D91147400310A94 /* ComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
 		2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPPConfigUtils.swift; sourceTree = "<group>"; };
+		2BF21C912D9F64200079C794 /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
 		2C2A91281FA2410D002E36BD /* HistoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTests.swift; sourceTree = "<group>"; };
 		2C31A7A81E8BFB2200DAC646 /* ReadingListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingListTests.swift; sourceTree = "<group>"; };
@@ -5471,14 +5495,6 @@
 			path = RustFxA;
 			sourceTree = "<group>";
 		};
-		2911B7572D6DA8D900872A58 /* Script */ = {
-			isa = PBXGroup;
-			children = (
-				2911B7582D6DA8E000872A58 /* IMSScript.swift */,
-			);
-			path = Script;
-			sourceTree = "<group>";
-		};
 		291AADC42D5AED580046DB22 /* State */ = {
 			isa = PBXGroup;
 			children = (
@@ -5496,16 +5512,6 @@
 				29F044EE2D6F44B600C89C1C /* ToolBarTipSwiftUI.swift */,
 			);
 			path = Toolbar;
-			sourceTree = "<group>";
-		};
-		291C6DDD2D5E4F5D002274F6 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				291C6DE52D5F5FD2002274F6 /* OnboardingLoginViewController.swift */,
-				291C6DE32D5F5FAC002274F6 /* OnboardingLoginViewModel.swift */,
-				291C6DDE2D5E4F77002274F6 /* OnboardingLoginView.swift */,
-			);
-			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		294090F62D5B0D3000C23DD6 /* Browser */ = {
@@ -5536,6 +5542,7 @@
 			isa = PBXGroup;
 			children = (
 				2B69AF012D97B9EE00204CE5 /* Track */,
+				2B56FF1B2DA5273E00919816 /* UserInfoManager */,
 				29909E8E2D37DAC0005C0328 /* Extensions */,
 				2BB8105F2D7F50CF009C4EA6 /* Network */,
 				2BB8105C2D7F3759009C4EA6 /* Router */,
@@ -5543,6 +5550,7 @@
 				295166312D2C10A300CAD566 /* JSObject */,
 				2951662E2D2C10A300CAD566 /* dsbridge */,
 				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
+				2911B7582D6DA8E000872A58 /* IMSScript.swift */,
 				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				2BB8104F2D7F3642009C4EA6 /* LibExport.swift */,
 				2BB810512D7F367D009C4EA6 /* StoreConfig.swift */,
@@ -5551,6 +5559,7 @@
 				2B2083D42D8025EA00F4402F /* Constants.swift */,
 				2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */,
 				2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */,
+				2B305D6A2D9F93AC00E82DB1 /* DeviceUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5585,15 +5594,11 @@
 		29909E822D37D9A9005C0328 /* IMS */ = {
 			isa = PBXGroup;
 			children = (
-				2BB88ECA2D91122300310A94 /* BaseViewController.swift */,
 				2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */,
 				2B1FD23F2D84810B00B37B8F /* Component */,
 				2BB810532D7F36D6009C4EA6 /* Debug */,
-				29909E882D37D9D8005C0328 /* Account */,
 				2BB810682D7FB1E0009C4EA6 /* API */,
 				294666BB2D55BB2D00BB9196 /* Utils */,
-				2911B7572D6DA8D900872A58 /* Script */,
-				291C6DBE2D5E3827002274F6 /* Toolbar */,
 				294090F62D5B0D3000C23DD6 /* Browser */,
 				291AADC42D5AED580046DB22 /* State */,
 				290863CD2D5625A60080F05D /* RustFxA */,
@@ -5601,12 +5606,10 @@
 				290863C72D552E240080F05D /* Launch */,
 				290863C42D53DEF60080F05D /* Tab */,
 				29B9C9AC2D3F3B1B00365400 /* Helpers */,
-				29EF1DFF2D39407C0066018B /* Common */,
-				29EF1DF82D392E6C0066018B /* Onboarding */,
 				29909EA12D37E0E5005C0328 /* DynamicReplacement */,
-				29909E9C2D37DEA5005C0328 /* Settings */,
 				29909E952D37DCDC005C0328 /* Resources */,
-				29909E942D37DC98005C0328 /* Home */,
+				2B305CC72D9F6AC700E82DB1 /* Theme */,
+				2B553F692D9B013600FC44EB /* Page */,
 			);
 			path = IMS;
 			sourceTree = "<group>";
@@ -5699,7 +5702,6 @@
 			isa = PBXGroup;
 			children = (
 				29B9C9B52D3F420000365400 /* AdjustWrapper+IMS.swift */,
-				29B9C9B32D3F3D3100365400 /* SendAnonymousUsageDataSetting+IMS.swift */,
 				29B9C9B12D3F3CA400365400 /* AppLaunchUtil+IMS.swift */,
 				29B9C9AF2D3F3B4F00365400 /* AdjustTelemetryData.swift */,
 				29B9C9AD2D3F3B2200365400 /* AdjustHelper+IMS.swift */,
@@ -5719,21 +5721,12 @@
 		29EF1DF82D392E6C0066018B /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				291C6DDD2D5E4F5D002274F6 /* SwiftUI */,
 				29EF1DFD2D3939220066018B /* IntroViewController+IMS.swift */,
 				29EF1DFB2D392EBE0066018B /* IntroViewModel+IMS.swift */,
 				29EF1DF92D392E7D0066018B /* IMSOnboardingCardViewController.swift */,
 				2BAF046D2D81C4F900D86E21 /* IMSOnboardingCardViewController+TranslateExample.swift */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		29EF1DFF2D39407C0066018B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				29EF1E002D3940840066018B /* IMSGridView.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		29F044DE2D6E170A00C89C1C /* Popover */ = {
@@ -5799,11 +5792,32 @@
 		2B1FD23F2D84810B00B37B8F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2B305E302D9FE68800E82DB1 /* InputTextField.swift */,
+				2B305E2E2D9FE44F00E82DB1 /* PasswordTextField.swift */,
+				29EF1E002D3940840066018B /* IMSGridView.swift */,
 				2BB88ECC2D91147400310A94 /* ComponentFactory.swift */,
 				2B1FD2E42D853F8900B37B8F /* StarRateView.swift */,
 				2B1FD2402D84812600B37B8F /* IMSImagePickGridView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		2B305CC52D9F69EC00E82DB1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */,
+				2B305D682D9F8DB500E82DB1 /* BaseNavigationController.swift */,
+				2BB88ECA2D91122300310A94 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2B305CC72D9F6AC700E82DB1 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				2B305CC82D9F6AD900E82DB1 /* ThemeColor.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		2B42C8252D7B17F100B88246 /* Login */ = {
@@ -5813,6 +5827,42 @@
 				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2B553F692D9B013600FC44EB /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2B305CC52D9F69EC00E82DB1 /* Base */,
+				29909E942D37DC98005C0328 /* Home */,
+				291C6DBE2D5E3827002274F6 /* Toolbar */,
+				29909E882D37D9D8005C0328 /* Account */,
+				29909E9C2D37DEA5005C0328 /* Settings */,
+				29EF1DF82D392E6C0066018B /* Onboarding */,
+				2B553F922D9BA7A000FC44EB /* Login */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		2B553F922D9BA7A000FC44EB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2BF21C902D9F641C0079C794 /* Model */,
+				2BF21C8F2D9F64150079C794 /* View */,
+				2B553F6A2D9B014A00FC44EB /* IMSLoginViewController.swift */,
+				2B305D8E2D9FBE0600E82DB1 /* IMSEmailLoginViewController.swift */,
+				2B5647B12DA6D17600919816 /* IMSEmailVerificationCodeViewController.swift */,
+				2B553F6E2D9B017800FC44EB /* IMSResetPasswordViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2B56FF1B2DA5273E00919816 /* UserInfoManager */ = {
+			isa = PBXGroup;
+			children = (
+				2B5647AF2DA6BD0B00919816 /* IMSUserManager.swift */,
+				2B56FF1C2DA5274700919816 /* IMSUser.swift */,
+			);
+			path = UserInfoManager;
 			sourceTree = "<group>";
 		};
 		2B69AF012D97B9EE00204CE5 /* Track */ = {
@@ -5857,10 +5907,28 @@
 			isa = PBXGroup;
 			children = (
 				2B3146162D9EB01C00E311CB /* AdjustAPI.swift */,
+				2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */,
 				2B1FD19D2D84608D00B37B8F /* FeedbackAPI.swift */,
 				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2BF21C8F2D9F64150079C794 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B305E322D9FE87300E82DB1 /* VerificationCodeTextField.swift */,
+				2B305CC32D9F652000E82DB1 /* LoginTypeButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2BF21C902D9F641C0079C794 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BF21C912D9F64200079C794 /* LoginType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2F44FC551A9E83E200FD20CC /* Settings */ = {
@@ -10977,13 +11045,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/AppCheckCore/AppCheckCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AttributedString/AttributedString.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterCodable/BetterCodable.framework",
 				"${BUILT_PRODUCTS_DIR}/CSAPIService/APIService.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleSignIn/GoogleSignIn.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardCore/IQKeyboardCore.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardToolbar/IQKeyboardToolbar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/LTXiOSUtils/LTXiOSUtils.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Swime/Swime.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
@@ -10994,13 +11069,20 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppCheckCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AttributedString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterCodable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIService.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleSignIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardToolbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTXiOSUtils.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swime.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
@@ -11604,6 +11686,7 @@
 				C8B0F5ED283B7C9F007AE65D /* LegacyPocketStandardCell.swift in Sources */,
 				2BB810522D7F367E009C4EA6 /* StoreConfig.swift in Sources */,
 				D04CD74A216CF86B004FF5B0 /* SiriShortcuts.swift in Sources */,
+				2B305E332D9FE87300E82DB1 /* VerificationCodeTextField.swift in Sources */,
 				EB9A179F20E6C1A200B12184 /* ThemedTableViewController.swift in Sources */,
 				290863C02D53C9B20080F05D /* UserAgent+IMS.swift in Sources */,
 				E68E39BE1C46F42000B85F42 /* AppSettingsTableViewController.swift in Sources */,
@@ -11654,6 +11737,7 @@
 				8A19ACB02A329078001C2147 /* AutofillCreditCardSettings.swift in Sources */,
 				E1E5BE252A28F7BE00248F77 /* PasswordDetailViewControllerModel.swift in Sources */,
 				E1FE133129C22726002A65FF /* BackgroundFetchAndProcessingUtility.swift in Sources */,
+				2B305E312D9FE69200E82DB1 /* InputTextField.swift in Sources */,
 				8A4EA0D12C010BE700E4E4F1 /* MicrosurveySurfaceManager.swift in Sources */,
 				8AD40FD527BB1C1000672675 /* LockButton.swift in Sources */,
 				29EF1E052D39600B0066018B /* TabTrayViewController+IMS.swift in Sources */,
@@ -11704,6 +11788,7 @@
 				294090F52D5B0C5D00C23DD6 /* IMSUpgradeCoordinator.swift in Sources */,
 				435D660523D794B90046EFA2 /* UpdateViewModel.swift in Sources */,
 				9658143C29FAB610007339BD /* CreditCardInputFieldHelper.swift in Sources */,
+				2B305CC92D9F6AE300E82DB1 /* ThemeColor.swift in Sources */,
 				5A9F83442B2B8CE900272819 /* TabPeekModel.swift in Sources */,
 				810FF3542B178343009F062C /* FeltPrivacyMiddleware.swift in Sources */,
 				215B457F27D7FD4B00E5E800 /* LegacyTabGroupData.swift in Sources */,
@@ -11825,7 +11910,6 @@
 				C8610DAA2A0EBF7100B79FF1 /* OnboardingCardDelegate.swift in Sources */,
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
-				291C6DDF2D5E4F77002274F6 /* OnboardingLoginView.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
 				8A4593C72BF7BECA002758DE /* MicrosurveyTableViewCell.swift in Sources */,
@@ -11860,6 +11944,7 @@
 				C869912C28917688007ACC5C /* WallpaperNetworkModule.swift in Sources */,
 				E1442FD8294782D9003680B0 /* UIPasteboard+Extension.swift in Sources */,
 				AB4FB4D52C89FAFD005EF0CC /* BlockedTrackersTableController.swift in Sources */,
+				2B56FF1D2DA5275100919816 /* IMSUser.swift in Sources */,
 				29EF1DFA2D392E820066018B /* IMSOnboardingCardViewController.swift in Sources */,
 				C8A4137428BE58C900D8EFEA /* WallpaperMetadataCodableProtocol.swift in Sources */,
 				8A93080927BFE88F0052167D /* PhotonActionSheetContainerCell.swift in Sources */,
@@ -11901,6 +11986,7 @@
 				8A832A9429DC99BA0025D5DD /* LaunchScreenViewController.swift in Sources */,
 				21E77E4E2AA8BA5200FABA10 /* TabTrayViewController.swift in Sources */,
 				E60D03181D511398002FE3F6 /* SyncDisplayState.swift in Sources */,
+				2BF21C922D9F64270079C794 /* LoginType.swift in Sources */,
 				C4E3983D1D21F1E7004E89BA /* TopTabCell.swift in Sources */,
 				814B60F52C90C0A0000997BE /* MainMenuConfigurationUtility.swift in Sources */,
 				210E0EBA298D9D6400BB4F33 /* OpenSearchEngine.swift in Sources */,
@@ -11992,7 +12078,6 @@
 				AB52ED3B2A0E8873001067F5 /* UserConversionMetrics.swift in Sources */,
 				EDDF340A2CDD159F008BB6A4 /* SearchEngineModel.swift in Sources */,
 				219935EC2B07110900E5966F /* TabTrayModel.swift in Sources */,
-				29B9C9B42D3F3D3300365400 /* SendAnonymousUsageDataSetting+IMS.swift in Sources */,
 				8A3EF7F72A2FCF6D00796E3A /* ExportLogDataSetting.swift in Sources */,
 				43E69EC3254D081D00B591C2 /* SimpleTab.swift in Sources */,
 				0BDDB33D2CA6B1DA00D501DF /* EditFolderViewController.swift in Sources */,
@@ -12001,6 +12086,7 @@
 				8ADAE4202A33A0FD007BF926 /* SendFeedbackSetting.swift in Sources */,
 				C29B64812AD6959E00F3244B /* QRCodeCoordinator.swift in Sources */,
 				21A7C45028353D0E0071D996 /* OnboardingBasicCardViewController.swift in Sources */,
+				2B305E2F2D9FE45000E82DB1 /* PasswordTextField.swift in Sources */,
 				8C2937702BF79F0300146613 /* EditAddressLocalization.swift in Sources */,
 				742A56391D80B54A00BDB803 /* PhotonActionSheet.swift in Sources */,
 				C4EFEECF1CEBB6F2009762A4 /* BackForwardTableViewCell.swift in Sources */,
@@ -12053,6 +12139,7 @@
 				39A359E41BFCCE94006B9E87 /* UserActivityHandler.swift in Sources */,
 				4331A9BD271D267E005E8080 /* ContextualHintViewProvider.swift in Sources */,
 				8CAF29A02AA5E76B00DC3486 /* FakespotMessageCardView.swift in Sources */,
+				2B5647B02DA6BD0B00919816 /* IMSUserManager.swift in Sources */,
 				29EF1DEE2D37EA2C0066018B /* HomepageViewModel+IMS.swift in Sources */,
 				8A093D7F2A4B3E7D0099ABA5 /* GeneralSettingsDelegate.swift in Sources */,
 				D88FDAAF1F4E2BA000FD9709 /* PhotonActionSheetAnimator.swift in Sources */,
@@ -12073,7 +12160,6 @@
 				8AED23C527AC1F9500DE7E97 /* BaseAlphaStackView.swift in Sources */,
 				C8699131289176A5007ACC5C /* WallpaperNetworking.swift in Sources */,
 				5A271ABD2860B0D700471CE4 /* WebServerUtil.swift in Sources */,
-				291C6DE42D5F5FB0002274F6 /* OnboardingLoginViewModel.swift in Sources */,
 				964FA97528A1A8F20024BB3B /* ContextualHintEligibilityUtility.swift in Sources */,
 				439C489C29760575007C3DCD /* CreditCardValidator.swift in Sources */,
 				8ADC2A122A3375B900543DAA /* FxAEntryPoint.swift in Sources */,
@@ -12084,6 +12170,7 @@
 				8A46F5AE2C9E4389005B6422 /* RemoteSettingsUtils.swift in Sources */,
 				8A3EF8012A2FCFC900796E3A /* FasterInactiveTabs.swift in Sources */,
 				CA7FC7D324A6A9B70012F347 /* PasswordManagerDataSourceHelper.swift in Sources */,
+				2B305CC42D9F652800E82DB1 /* LoginTypeButton.swift in Sources */,
 				0E6C1E252C90B0E0001A43BB /* PasswordGeneratorMiddleware.swift in Sources */,
 				8A5BC1EB2C4AA13F009A40A4 /* FeatureFlagsBoolSetting.swift in Sources */,
 				43AB6FA425DC53D30016B015 /* LegacyLabelButtonHeaderView.swift in Sources */,
@@ -12281,6 +12368,7 @@
 				2BB8105B2D7F3714009C4EA6 /* DebugToolManager.swift in Sources */,
 				8A4EA0DB2C0117CD00E4E4F1 /* MobileMessageSurfaceProtocol.swift in Sources */,
 				63306D3921103EAE00F25400 /* LegacySavedTab.swift in Sources */,
+				2B553F6B2D9B015700FC44EB /* IMSLoginViewController.swift in Sources */,
 				2F44FCCB1A9E972E00FD20CC /* SearchEnginePicker.swift in Sources */,
 				21996BAB2AE95AFC00E0D55F /* TabTrayPanelType.swift in Sources */,
 				1DA3CE5F24EEE7C600422BB2 /* LegacyTabDataRetriever.swift in Sources */,
@@ -12290,6 +12378,7 @@
 				C2D71B952A384F11003DEC7A /* ThemedTableViewCell.swift in Sources */,
 				219A0FD72ACC8C03009A6D1A /* InactiveTabsHeaderView.swift in Sources */,
 				8A5D1CBF2A30DC75005AD35C /* SyncNowSetting.swift in Sources */,
+				2B305D8F2D9FBE0600E82DB1 /* IMSEmailLoginViewController.swift in Sources */,
 				294090FE2D5C46CA00C23DD6 /* ModalBrowserCoordinator.swift in Sources */,
 				8A5D1CAA2A30D6E2005AD35C /* TabsSetting.swift in Sources */,
 				210E0EB8298D9D4500BB4F33 /* DefaultSearchEngineProvider.swift in Sources */,
@@ -12404,6 +12493,7 @@
 				E18259DB29AEB34900E6BE76 /* OnboardingNotificationCardHelper.swift in Sources */,
 				29F044E22D6E18A300C89C1C /* TextPopoverViewController.swift in Sources */,
 				0B3F8C5E2CA4471C00DB5367 /* EditBookmarkViewModel.swift in Sources */,
+				2B56FD932DA4DFCC00919816 /* UserAccountAPI.swift in Sources */,
 				8AD0110D2CB42FE700368BF3 /* HeaderState.swift in Sources */,
 				968BD7EB27DFF0F8003148B3 /* ASGroup.swift in Sources */,
 				392ED7E41D0AEF56009D9B62 /* NewTabAccessors.swift in Sources */,
@@ -12521,10 +12611,10 @@
 				290863C92D552E300080F05D /* SplashScreenAnimation+IMS.swift in Sources */,
 				8A5D1CBB2A30DC0B005AD35C /* ConnectSetting.swift in Sources */,
 				E6CF28E71CB43B7900151AB3 /* SensitiveViewController.swift in Sources */,
+				2B553F6F2D9B018200FC44EB /* IMSResetPasswordViewController.swift in Sources */,
 				43AB6FA225DC53D30016B015 /* GoogleTopSiteManager.swift in Sources */,
 				8A5D1CB62A30DBB0005AD35C /* DefaultBrowserSetting.swift in Sources */,
 				4393932029AC6CE900DC5A85 /* EnvironmentValues+Extension.swift in Sources */,
-				291C6DE62D5F5FD9002274F6 /* OnboardingLoginViewController.swift in Sources */,
 				ABEF80D12A24D2BE003F52C4 /* CreditCardBottomSheetViewModel.swift in Sources */,
 				21AFCFF02AE80D370027E9CE /* RemoteTabsCoordinator.swift in Sources */,
 				7ADC1D192C27D35B003ED924 /* ActionProviderBuilder.swift in Sources */,
@@ -12543,6 +12633,7 @@
 				E633E2DA1C21EAF8001FFF6C /* PasswordDetailViewController.swift in Sources */,
 				8A9AC46B276D11280047F5B0 /* PocketViewModel.swift in Sources */,
 				8A7653BF28A2C92600924ABF /* PocketStandardCellViewModel.swift in Sources */,
+				2B56FE332DA4EB0900919816 /* BaseBrowserViewController.swift in Sources */,
 				0B8BF3752CA2EFC000E9812D /* EditBookmarkCell.swift in Sources */,
 				8A5D1CAE2A30D71A005AD35C /* ThemeSetting.swift in Sources */,
 				1BE7A4902C636AC800460798 /* URLSession+sharedMPTCP.swift in Sources */,
@@ -12596,6 +12687,7 @@
 				DFA51481275FFEE500266AA0 /* HistoryHighlightsManager.swift in Sources */,
 				81C3E6092C93261A00A19A5A /* MainMenuDetailsViewController.swift in Sources */,
 				8ADC2A182A33775F00543DAA /* FxASignInViewParameters.swift in Sources */,
+				2B305D692D9F8DB600E82DB1 /* BaseNavigationController.swift in Sources */,
 				EBA3B2D22268F57E00728BDB /* BadgeWithBackdrop.swift in Sources */,
 				8AB5958828413F6C0090F4AE /* BookmarksCell.swift in Sources */,
 				8A83B7482A264FB7002FF9AC /* LibraryCoordinator.swift in Sources */,
@@ -12658,6 +12750,7 @@
 				E1C437A32A96343A00D188CB /* FakespotFadeLabel.swift in Sources */,
 				8A3EF7FB2A2FCF9D00796E3A /* ForceCrashSetting.swift in Sources */,
 				2178A6A4291455F7002EC290 /* ReaderModeFontSizeButton.swift in Sources */,
+				2B5647B22DA6D17600919816 /* IMSEmailVerificationCodeViewController.swift in Sources */,
 				BCFF93F02AABA55A005B5B71 /* BackgroundFirefoxSuggestIngestUtility.swift in Sources */,
 				BCFF93F22AAF9688005B5B71 /* FirefoxSuggestSettings.swift in Sources */,
 				29909E892D37D9D8005C0328 /* IMSIAPAppleService.swift in Sources */,
@@ -12666,6 +12759,7 @@
 				2B1FD77D2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift in Sources */,
 				29909E8C2D37D9D8005C0328 /* IMSAccountManager.swift in Sources */,
 				29909E8D2D37D9D8005C0328 /* IMSAccountUpgradeViewController.swift in Sources */,
+				2B305D6B2D9F93B800E82DB1 /* DeviceUtils.swift in Sources */,
 				BCFF93F42AAF9879005B5B71 /* FirefoxSuggestSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -17085,7 +17179,7 @@
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
 			requirement = {
 				kind = exactVersion;
-				version = 17.1.0;
+				version = 16.3.1;
 			};
 		};
 		432BD0222790EBD000A0F3C3 /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
