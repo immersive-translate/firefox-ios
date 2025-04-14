@@ -23,5 +23,5 @@
 "Scan QR Code" = "QR 코드 스캔";
 
 "CFBundleDisplayName" = "몰입형번역";
-
+"CFBundleName" = "몰입형번역";
 "NSUserTrackingUsageDescription" = "이를 통해 콘텐츠를 최적화하고 더 나은 사용 경험을 제공할 수 있습니다.";
