@@ -83,7 +83,7 @@
 "Imt.login.btn_google" = "使用 Google 登录";
 "Imt.login.or" = "或";
 "Imt.login.btn_email" = "使用电子邮箱登录";
-"Imt.login.btn_apple" = "使用苹果账号登录";
+"Imt.login.btn_apple" = "使用 Apple 登录";
 "Imt.login.btn_fb" = "使用 Facebook 登录";
 "Imt.login.btn_wx" = "使用微信登录";
 "Imt.login.hw_agreement" = "注册即表示您同意";

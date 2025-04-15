@@ -81,7 +81,7 @@
 "Imt.login.btn_google" = "使用 Google 登錄";
 "Imt.login.or" = "或";
 "Imt.login.btn_email" = "使用電子郵件登入";
-"Imt.login.btn_apple" = "使用蘋果帳號登入";
+"Imt.login.btn_apple" = "使用 Apple 登入";
 "Imt.login.btn_fb" = "使用 Facebook 登錄";
 "Imt.login.btn_wx" = "使用微信登入";
 "Imt.login.hw_agreement" = "註冊即表示您同意";
