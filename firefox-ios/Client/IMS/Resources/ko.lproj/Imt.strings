@@ -148,3 +148,7 @@
 "Imt.error.account_activate_1033" = "등록해 주셔서 감사합니다. 계정이 이미 활성화되었습니다. immersivetranslate.com 에서 즐거운 시간 보내세요";
 "Imt.error.re_active_code_1029" = "이메일 인증 코드가 너무 자주 전송되었습니다. 나중에 다시 시도하세요";
 "Imt.error.re_active_code_1028" = "이메일이 유효하지 않습니다";
+
+"apple_sign_in_error_cancelled" = "로그인이 취소되었습니다";
+"apple_sign_in_error_failed" = "인증에 실패했습니다";
+"apple_sign_in_error_unknown" = "알 수 없는 오류가 발생했습니다";

@@ -354,8 +354,16 @@ extension IMSLoginViewController: ASAuthorizationControllerDelegate, ASAuthoriza
             SVProgressHUD.toast("Error")
         }
     }
-
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        SVProgressHUD.toast(error.localizedDescription)
+        let nsError = error as NSError
+        switch nsError.code {
+        case ASAuthorizationError.canceled.rawValue:
+            SVProgressHUD.toast("apple_sign_in_error_cancelled".i18nImt())
+        case ASAuthorizationError.failed.rawValue:
+            SVProgressHUD.toast("apple_sign_in_error_failed".i18nImt())
+        default:
+            SVProgressHUD.toast("apple_sign_in_error_unknown".i18nImt())
+        }
     }
 }

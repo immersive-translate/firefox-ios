@@ -148,3 +148,7 @@
 "Imt.error.account_activate_1033" = "Thank you for registration, and you have already activated your account. Have fun with immersivetranslate.com.";
 "Imt.error.re_active_code_1029" = "Email verification codes were sent too frequently. Please try again later.";
 "Imt.error.re_active_code_1028" = "email invalid.";
+
+"apple_sign_in_error_cancelled" = "You cancelled the login";
+"apple_sign_in_error_failed" = "Authentication failed";
+"apple_sign_in_error_unknown" = "An unknown error occurred";

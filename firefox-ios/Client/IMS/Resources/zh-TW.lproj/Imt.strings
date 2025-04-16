@@ -147,3 +147,7 @@
 "Imt.error.account_activate_1033" = "感謝註冊，您的帳戶已激活。祝您在 immersivetranslate.com 玩得愉快";
 "Imt.error.re_active_code_1029" = "郵箱驗證碼發送過於頻繁，請稍後再試";
 "Imt.error.re_active_code_1028" = "郵箱無效";
+
+"apple_sign_in_error_cancelled" = "您取消了登入操作";
+"apple_sign_in_error_failed" = "認證失敗";
+"apple_sign_in_error_unknown" = "發生未知錯誤";

@@ -163,3 +163,7 @@
 /// "/v1/user-account/re-activate"
 "Imt.error.re_active_code_1029" = "邮箱验证码发送过于频繁，请稍后再试";
 "Imt.error.re_active_code_1028" = "邮箱无效";
+
+"apple_sign_in_error_cancelled" = "您取消了登录操作";
+"apple_sign_in_error_failed" = "认证失败";
+"apple_sign_in_error_unknown" = "发生未知错误";
