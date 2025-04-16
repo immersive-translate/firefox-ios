@@ -624,7 +624,7 @@ extension BrowserViewController: WKNavigationDelegate {
                 }
             }
             // when open a new tab, the navigationAction.navigationType is not linkActivated
-            if (navigationAction.navigationType == .linkActivated || webView.url == nil), let shortDomain = url.shortDomain, !IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(shortDomain) && url != webView.url {
+            if (navigationAction.navigationType == .linkActivated || webView.url == nil), let shortDomain = url.shortDomain, IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(shortDomain) && url != webView.url {
                 if navigationAction.request.value(forHTTPHeaderField: "IMS-URL-INTERCEPTED") == "true" {
                     decisionHandler(.allow) // 避免死循环
                     return
