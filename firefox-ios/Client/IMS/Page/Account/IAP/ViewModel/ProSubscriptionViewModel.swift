@@ -198,7 +198,7 @@ class ProSubscriptionViewModel: ObservableObject {
     func trackPurchaseEvent(info: ProSubscriptionInfo, imtSessionId: Int) {
         let amount = (info.appleProduct.price as NSDecimalNumber).doubleValue
         let currencyCode = info.appleProduct.priceFormatStyle.currencyCode
-        AdjustTrackManager.shared.event("lk8rlx", revenue: (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 0)"])
+        AdjustTrackManager.shared.event("lk8rlx", revenue: userInfo?.iosPlanTier == "trial" ? nil : (amount, currencyCode), extraParams: ["imtSessionId": imtSessionId], callbackParams: ["user_id": "\(userInfo?.uid ?? 0)"])
         
 //        totalEvent?.setRevenue(amount, currency: currencyCode)
 //        totalEvent?.addPartnerParameter("user_id", value: "\(userInfo?.uid ?? 1)")
