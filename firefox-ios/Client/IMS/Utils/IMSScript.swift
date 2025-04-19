@@ -12,9 +12,7 @@ import LTXiOSUtils
 
 protocol IMSScriptDelegate: AnyObject {
     func onPageStatusAsync(status: String)
-    func feedbackImage(url: String)
-    func translateImage(url: String)
-    func restoreImage(url: String)
+    func callTosJS(name: String, data: [String: Any]?)
 }
 
 let IMSScriptNamespace = "window.imtExtensionBridge"
@@ -48,23 +46,27 @@ class IMSScript: TabContentScript {
         _ userContentController: WKUserContentController,
         didReceiveScriptMessage message: WKScriptMessage
     ) {
-        guard let res = message.body as? [String: Any],
-              let type = res["type"] as? String
-        else { return }
+        guard let res = message.body as? [String: Any] else { return }
+        Log.d("js请求: \(JSON(res))")
+        let json = JSON(res)
+        let type = json["type"].stringValue
+        let id = json["id"].stringValue
+        let dataJSON = json["data"]
         switch type {
         case "getPageStatus":
-            if let data = res["data"] as? [String: Any], 
-               let status = data["status"] as? String {
+            if let status = dataJSON["status"].string {
                 pageStatus = status
                 self.delegate?.onPageStatusAsync(status: status)
             }
         case "imageLongPress":
-            func getImage(content: String, completion: @escaping (UIImage?) -> Void) {
+            func getImage(content: String, hideToast: Bool = true, completion: @escaping (UIImage?) -> Void) {
                 if content.hasPrefix("http") {
                     SVProgressHUD.show()
                     KingfisherManager.shared.retrieveImage(with: URL(string: content)!) { result in
-                        DispatchQueue.main.async {
-                            SVProgressHUD.dismiss()
+                        if hideToast {
+                            DispatchQueue.main.async {
+                                SVProgressHUD.dismiss()
+                            }
                         }
                         switch result {
                         case .success(let value):
@@ -82,7 +84,7 @@ class IMSScript: TabContentScript {
                     completion(image)
                 }
             }
-            if let value = res["data"] as? String {
+            if let value = dataJSON.string {
                 Log.d(value)
                 let view = ImageContextMenuView()
                 if value.hasPrefix("http") && !value.hasPrefix("https://store1.immersivetranslate.com") {
@@ -95,21 +97,52 @@ class IMSScript: TabContentScript {
                 view.selectCallback = { type in
                     switch type {
                     case .unTranslate:
-                        self.delegate?.restoreImage(url: value)
+                        var url = ""
+                        var imageId = ""
+                        if value.hasPrefix("http") {
+                            url = value
+                        } else if let imtRange = value.range(of: "data:image/png;imt_") {
+                            let startIndex = imtRange.upperBound
+                            let remaining = value[startIndex...]
+                            if let endRange = remaining.firstIndex(of: ";") {
+                                let id = value[startIndex..<endRange]
+                                imageId = String(id)
+                            }
+                        }
+                        let dict: [String: Any] = [
+                            "imageUrl": url,
+                            "imageId": imageId,
+                        ]
+                        self.delegate?.callTosJS(name: "restoreImage", data: dict)
                     case .feedback:
-                        self.delegate?.feedbackImage(url: value)
+                        self.delegate?.callTosJS(name: "openImageTranslationFeedback", data:nil)
                     case .translate:
-                        self.delegate?.translateImage(url: value)
+                        self.delegate?.callTosJS(name: "translateImage", data: [
+                            "imageUrl": value
+                        ])
                     case .save:
-                        getImage(content: value) { image in
+                        getImage(content: value) { [weak self] image in
+                            guard let self = self else { return }
                             if let image = image {
-                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                                let saver = ImageSaver()
+                                saver.writeToPhotoAlbum(image: image) { error in
+                                    DispatchQueue.main.async {
+                                        if let error = error {
+                                            SVProgressHUD.toast("保存失败：\(error.localizedDescription)")
+                                        } else {
+                                            SVProgressHUD.toast("保存成功")
+                                        }
+                                    }
+                                }
                             }
                         }
                     case .copy:
-                        getImage(content: value) { image in
+                        getImage(content: value, hideToast: false) { image in
                             if let image = image {
                                 UIPasteboard.general.image = image
+                                DispatchQueue.main.async {
+                                    SVProgressHUD.toast("复制成功")
+                                }
                             }
                         }
                     case .share:
@@ -122,6 +155,41 @@ class IMSScript: TabContentScript {
                     }
                 }
                 view.show()
+            }
+        case "imageTextRecognition":
+            let imageId = dataJSON["imageId"].stringValue
+            let imageUrl = dataJSON["imageUrl"].string
+            if let imageData = dataJSON["imageData"].string, let image = VisionUtils.shared.base64ToUIImage(base64String: imageData)?.cgImage {
+                VisionUtils.shared.detectTextRegions(from: image) { [weak self] result in
+                    guard let self = self else { return }
+                    Log.d(result)
+                    let data: [String: Any] = [
+                        "id": id,
+                        "imageId": imageId,
+                        "boxes": result.result.compactMap({
+                            [
+                                "bounding": [$0.rect.minX, $0.rect.minY, $0.rect.width, $0.rect.height],
+                                "originalText": $0.text
+                            ]
+                        }),
+                        "result": result.error == nil,
+                        "errMsg": result.error?.localizedDescription ?? ""
+                    ]
+                    DispatchQueue.main.async {
+                        self.delegate?.callTosJS(name: "imageTextRecognition", data: data)
+                    }
+                }
+            } else {
+                let data: [String: Any] = [
+                    "id": id,
+                    "imageId": imageId,
+                    "boxes": [],
+                    "result": false,
+                    "errMsg": "image error"
+                ]
+                DispatchQueue.main.async {
+                    self.delegate?.callTosJS(name: "imageTextRecognition", data: data)
+                }
             }
         default:
             break

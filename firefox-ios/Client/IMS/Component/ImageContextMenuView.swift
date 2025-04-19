@@ -32,17 +32,17 @@ enum ImageContextMenuType: CaseIterable {
     var icon: UIImage? {
         switch self {
         case .translate:
-            return UIImage(named: "imageContextMenu_translate")
+            return UIImage(named: "toolbar_tranlate_normal")?.withRenderingMode(.alwaysTemplate)
         case .unTranslate:
-            return UIImage(named: "imageContextMenu_translate_cancel")
+            return UIImage(named: "toolbar_tranlate_active_all")?.withRenderingMode(.alwaysOriginal)
         case .save:
-            return UIImage(named: "imageContextMenu_save")
+            return UIImage(named: "imageContextMenu_save")?.withRenderingMode(.alwaysTemplate)
         case .copy:
-            return UIImage(named: "imageContextMenu_copy")
+            return UIImage(named: "imageContextMenu_copy")?.withRenderingMode(.alwaysTemplate)
         case .share:
-            return UIImage(named: "imageContextMenu_share")
+            return UIImage(named: "imageContextMenu_share")?.withRenderingMode(.alwaysTemplate)
         case .feedback:
-            return UIImage(named: "imageContextMenu_feedback")
+            return UIImage(named: "imageContextMenu_feedback")?.withRenderingMode(.alwaysTemplate)
         }
     }
 }
@@ -90,7 +90,7 @@ class ImageContextMenuViewCell: UITableViewCell {
     
     func setData(type: ImageContextMenuType) {
         titleLabel.text = type.title
-        iconImageView.image = type.icon?.withRenderingMode(.alwaysTemplate)
+        iconImageView.image = type.icon
     }
 }
 

@@ -449,6 +449,7 @@
 		2B56FD932DA4DFCC00919816 /* UserAccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */; };
 		2B56FE332DA4EB0900919816 /* BaseBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */; };
 		2B56FF1D2DA5275100919816 /* IMSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FF1C2DA5274700919816 /* IMSUser.swift */; };
+		2B60605A2DB0CDF700C906DF /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6060592DB0CDF200C906DF /* ImageSaver.swift */; };
 		2B69AF032D97B9FB00204CE5 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69AF022D97B9F600204CE5 /* TrackManager.swift */; };
 		2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
@@ -3026,6 +3027,11 @@
 		2B1FD77A2D88734800B37B8F /* IMSHomeFeedbackTipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCell.swift; sourceTree = "<group>"; };
 		2B1FD77B2D88734800B37B8F /* IMSHomeFeedbackTipCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeFeedbackTipCellViewModel.swift; sourceTree = "<group>"; };
 		2B2083D42D8025EA00F4402F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B21605A2DB1F3F80007BE98 /* DownloadHelper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = DownloadHelper.js; sourceTree = "<group>"; };
+		2B21605B2DB1F3F80007BE98 /* ExtensionBridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ExtensionBridge.js; sourceTree = "<group>"; };
+		2B21605C2DB1F3F80007BE98 /* ImgLongPressHelper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ImgLongPressHelper.js; sourceTree = "<group>"; };
+		2B21605D2DB1F3F80007BE98 /* LoginsHelper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = LoginsHelper.js; sourceTree = "<group>"; };
+		2B21605E2DB1F3F80007BE98 /* TrackingProtectionStats.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = TrackingProtectionStats.js; sourceTree = "<group>"; };
 		2B305CC32D9F652000E82DB1 /* LoginTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTypeButton.swift; sourceTree = "<group>"; };
 		2B305CC82D9F6AD900E82DB1 /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		2B305D682D9F8DB500E82DB1 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -3050,6 +3056,7 @@
 		2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountAPI.swift; sourceTree = "<group>"; };
 		2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBrowserViewController.swift; sourceTree = "<group>"; };
 		2B56FF1C2DA5274700919816 /* IMSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUser.swift; sourceTree = "<group>"; };
+		2B6060592DB0CDF200C906DF /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		2B69AF022D97B9F600204CE5 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
@@ -5568,6 +5575,7 @@
 				2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */,
 				2B305D6A2D9F93AC00E82DB1 /* DeviceUtils.swift */,
 				2B30627D2DA194CE00E82DB1 /* VisionUtils.swift */,
+				2B6060592DB0CDF200C906DF /* ImageSaver.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -8668,6 +8676,11 @@
 		D03F8F11200EAB8C003C2224 /* AtDocumentStart */ = {
 			isa = PBXGroup;
 			children = (
+				2B21605A2DB1F3F80007BE98 /* DownloadHelper.js */,
+				2B21605B2DB1F3F80007BE98 /* ExtensionBridge.js */,
+				2B21605C2DB1F3F80007BE98 /* ImgLongPressHelper.js */,
+				2B21605D2DB1F3F80007BE98 /* LoginsHelper.js */,
+				2B21605E2DB1F3F80007BE98 /* TrackingProtectionStats.js */,
 				D03F8F20200EABB0003C2224 /* __firefox__.js */,
 			);
 			path = AtDocumentStart;
@@ -12642,6 +12655,7 @@
 				7ADC1D192C27D35B003ED924 /* ActionProviderBuilder.swift in Sources */,
 				43162A2F2492DB7800F91658 /* EmptyPrivateTabsView.swift in Sources */,
 				2B1BC3812D825A31008297B7 /* IMSFeedbackViewController.swift in Sources */,
+				2B60605A2DB0CDF700C906DF /* ImageSaver.swift in Sources */,
 				E1380B8D2AEA897C00630AFA /* SidebarEnabledView.swift in Sources */,
 				D0625C98208E87F10081F3B2 /* DownloadQueue.swift in Sources */,
 				9636D92E27F9E5D900771F5E /* GleanPlumbMessage.swift in Sources */,

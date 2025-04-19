@@ -16,6 +16,7 @@ import ComponentLibrary
 import Redux
 import ToolbarKit
 import LTXiOSUtils
+import SwiftyJSON
 
 extension BrowserViewController: IMSScriptDelegate {
     func onPageStatusAsync(status: String) {
@@ -39,22 +40,16 @@ extension BrowserViewController: IMSScriptDelegate {
         }
     }
     
-    func feedbackImage(url: String) {
+    func callTosJS(name: String, data: [String: Any]?) {
         guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
-        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).openImageTranslationFeedback()") { object, error in
-   
+        var result = "\(IMSScriptNamespace).\(name)()"
+        if let data = data {
+            let dataStr = JSON(data).rawString(options: []) ?? ""
+            result = "\(IMSScriptNamespace).\(name)(\(dataStr))"
         }
-    }
-    
-    func translateImage(url: String) {
-        guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
-        webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).translateImage({ imageUrl: \'\(url)\' })") { object, error in
+        webView.evaluateJavascriptInDefaultContentWorld(result) { object, error in
             Log.d(object)
             Log.d(error)
         }
-    }
-    
-    func restoreImage(url: String) {
-        
     }
 }

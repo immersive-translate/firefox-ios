@@ -5,20 +5,33 @@
 import Vision
 import LTXiOSUtils
 
-struct VisionUtils {
-    /// 识别图像中的文字并返回文字与其在图像中的位置（像素坐标）
-    func detectTextRegions(from image: UIImage, completion: @escaping ([(text: String, rect: CGRect)]) -> Void) {
-        guard let cgImage = image.cgImage else {
-            completion([])
-            return
+final class VisionUtils {
+    
+    static let shared = VisionUtils()
+    
+    private init() {}
+    
+    func base64ToUIImage(base64String: String) -> UIImage? {
+        var base64 = base64String
+        if base64.hasPrefix("data:image/png;base64,") {
+            base64 = String(base64.dropFirst("data:image/png;base64,".count))
         }
-
+        if let data = Data(base64Encoded: base64, options: .ignoreUnknownCharacters) {
+            return UIImage(data: data)
+        } else {
+            return nil
+        }
+    }
+    
+    
+    /// 识别图像中的文字并返回文字与其在图像中的位置（像素坐标）
+    func detectTextRegions(from cgImage: CGImage, completion: @escaping ((result: [(text: String, rect: CGRect)], error: Error?)) -> Void) {
         let imageSize = CGSize(width: cgImage.width, height: cgImage.height)
         
         let request = VNRecognizeTextRequest { request, error in
             guard error == nil else {
                 Log.d("文字识别出错：\(error?.localizedDescription ?? "未知错误")")
-                completion([])
+                completion(([], error))
                 return
             }
 
@@ -30,7 +43,7 @@ struct VisionUtils {
                 let rect = self.convertBoundingBox(boundingBox, imageSize: imageSize)
                 results.append((candidate.string, rect))
             }
-            completion(results)
+            completion((results, nil))
         }
 
         request.recognitionLevel = .accurate
@@ -43,7 +56,7 @@ struct VisionUtils {
                 try handler.perform([request])
             } catch {
                 Log.d("执行识别请求失败：\(error.localizedDescription)")
-                completion([])
+                completion(([], error))
             }
         }
     }
