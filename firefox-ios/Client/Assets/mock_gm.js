@@ -107,12 +107,13 @@
   }
 
   async function GM_listValues() {
-    const length = await window.WebViewJavascriptBridge.doSend({
+    const data = await window.WebViewJavascriptBridge.doSend({
       type: "localStorage.length",
     });
+    const length = data.value;
     const keys = [];
     for (let i = 0; i < length; i++) {
-      const value = await window.WebViewJavascriptBridge.doSend({
+      const { value } = await window.WebViewJavascriptBridge.doSend({
         type: "localStorage.key",
         data: { index: i },
       });
