@@ -442,6 +442,7 @@
 		2B3146172D9EB02100E311CB /* AdjustAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3146162D9EB01C00E311CB /* AdjustAPI.swift */; };
 		2B42C8272D7B186100B88246 /* IMSHomeLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */; };
 		2B42C8292D7B192900B88246 /* IMSHomeLoginCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */; };
+		2B484F972DB4E8FA002F9B0F /* IMSScript+ImageTranslate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B484F962DB4E8F9002F9B0F /* IMSScript+ImageTranslate.swift */; };
 		2B553F6B2D9B015700FC44EB /* IMSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F6A2D9B014A00FC44EB /* IMSLoginViewController.swift */; };
 		2B553F6F2D9B018200FC44EB /* IMSResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B553F6E2D9B017800FC44EB /* IMSResetPasswordViewController.swift */; };
 		2B5647B02DA6BD0B00919816 /* IMSUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5647AF2DA6BD0B00919816 /* IMSUserManager.swift */; };
@@ -3049,6 +3050,7 @@
 		2B34A74F2D970C6600529AD0 /* IMSImageContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSImageContextMenu.swift; sourceTree = "<group>"; };
 		2B42C8262D7B185400B88246 /* IMSHomeLoginCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCell.swift; sourceTree = "<group>"; };
 		2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSHomeLoginCellViewModel.swift; sourceTree = "<group>"; };
+		2B484F962DB4E8F9002F9B0F /* IMSScript+ImageTranslate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IMSScript+ImageTranslate.swift"; sourceTree = "<group>"; };
 		2B553F6A2D9B014A00FC44EB /* IMSLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSLoginViewController.swift; sourceTree = "<group>"; };
 		2B553F6E2D9B017800FC44EB /* IMSResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSResetPasswordViewController.swift; sourceTree = "<group>"; };
 		2B5647AF2DA6BD0B00919816 /* IMSUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUserManager.swift; sourceTree = "<group>"; };
@@ -5555,16 +5557,14 @@
 		294666BB2D55BB2D00BB9196 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2B484F952DB4E601002F9B0F /* JSBridege */,
 				2B69AF012D97B9EE00204CE5 /* Track */,
 				2B56FF1B2DA5273E00919816 /* UserInfoManager */,
 				29909E8E2D37DAC0005C0328 /* Extensions */,
 				2BB8105F2D7F50CF009C4EA6 /* Network */,
 				2BB8105C2D7F3759009C4EA6 /* Router */,
 				29F044DE2D6E170A00C89C1C /* Popover */,
-				295166312D2C10A300CAD566 /* JSObject */,
-				2951662E2D2C10A300CAD566 /* dsbridge */,
 				2951663B2D2C139E00CAD566 /* LocalStorageManager.swift */,
-				2911B7582D6DA8E000872A58 /* IMSScript.swift */,
 				292E28C52D2C269D0096B370 /* PlugInUpdateManager.swift */,
 				2BB8104F2D7F3642009C4EA6 /* LibExport.swift */,
 				2BB810512D7F367D009C4EA6 /* StoreConfig.swift */,
@@ -5844,6 +5844,17 @@
 				2B42C8282D7B191B00B88246 /* IMSHomeLoginCellViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		2B484F952DB4E601002F9B0F /* JSBridege */ = {
+			isa = PBXGroup;
+			children = (
+				2951662E2D2C10A300CAD566 /* dsbridge */,
+				295166312D2C10A300CAD566 /* JSObject */,
+				2911B7582D6DA8E000872A58 /* IMSScript.swift */,
+				2B484F962DB4E8F9002F9B0F /* IMSScript+ImageTranslate.swift */,
+			);
+			path = JSBridege;
 			sourceTree = "<group>";
 		};
 		2B553F692D9B013600FC44EB /* Page */ = {
@@ -12288,6 +12299,7 @@
 				D51EA5BA26406A0000334331 /* ExperimentsBranchesViewController.swift in Sources */,
 				C84655F728879EF100861B4A /* WallpaperManager.swift in Sources */,
 				6669B5E2211418A200CA117B /* WebsiteDataSearchResultsViewController.swift in Sources */,
+				2B484F972DB4E8FA002F9B0F /* IMSScript+ImageTranslate.swift in Sources */,
 				2B2083D52D8025EA00F4402F /* Constants.swift in Sources */,
 				D51EA5CF26406D8300334331 /* ExperimentsViewController.swift in Sources */,
 				ED7A08DB2CF674730035EC8F /* ShareMessage.swift in Sources */,
