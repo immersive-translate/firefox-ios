@@ -51,7 +51,7 @@
     handlers[name] = handler;
   }
 
-  globalThis.document.removeEventListener(
+  globalThis.document.addEventListener(
     "ImtNativeToExtension",
     (event) => {
       const { type, id, data } = event.detail;
@@ -78,15 +78,15 @@
 })();
 
 async function GM_getValue(name, defaultVal) {
+  let value = await window.WebViewJavascriptBridge.doSend({
+    type: "localStorage.getItem",
+    key: name,
+  });
   try {
-    let { value } = await window.WebViewJavascriptBridge.doSend({
-      type: "localStorage.getItem",
-      data: { key: name },
-    });
     value = value || defaultVal;
     return JSON.parse(value);
   } catch (error) {
-    return defaultVal;
+    return value || defaultVal;
   }
 }
 
@@ -94,27 +94,27 @@ function GM_setValue(name, value) {
   if (typeof value === "object") value = JSON.stringify(value);
   return window.WebViewJavascriptBridge.doSend({
     type: "localStorage.setItem",
-    data: { key: name, value: String(value) },
+    key: name,
+    value: String(value),
   });
 }
 
 function GM_deleteValue(name) {
   return window.WebViewJavascriptBridge.doSend({
     type: "localStorage.removeItem",
-    data: { key: name },
+    key: name,
   });
 }
 
 async function GM_listValues() {
-  const data = await window.WebViewJavascriptBridge.doSend({
+  const length = await window.WebViewJavascriptBridge.doSend({
     type: "localStorage.length",
   });
-  const length = data.value;
   const keys = [];
   for (let i = 0; i < length; i++) {
-    const { value } = await window.WebViewJavascriptBridge.doSend({
+    const value = await window.WebViewJavascriptBridge.doSend({
       type: "localStorage.key",
-      data: { index: i },
+      index: i,
     });
     keys.push(value);
   }
@@ -123,15 +123,12 @@ async function GM_listValues() {
 
 async function GM_xmlhttpRequest(details) {
   const { url, method, ...options } = details;
-  const data = await window.WebViewJavascriptBridge.doSend({
+  const response = await window.WebViewJavascriptBridge.doSend({
     type: "httpClient.request",
-    data: {
-      url: url,
-      method: method,
-      params: JSON.stringify(options),
-    },
+    url: url,
+    method: method,
+    params: JSON.stringify(options),
   });
-  const response = data.value;
   // 假设原生端返回的响应是一个 JSON 对象，包含状态码和数据
   if (!response) {
     if (details.onerror) {
@@ -219,14 +216,13 @@ function GM_addStyle(css) {
 async function GM_openInTab(url, openInBackground) {
   return window.WebViewJavascriptBridge.doSend({
     type: "window.open",
-    data: { url },
+    url,
   });
 }
 
 async function GM_getSelectedLanguage() {
   let value = await window.WebViewJavascriptBridge.doSend({
     type: "business.getSelectedLanguage",
-    data: {},
   });
   try {
     return JSON.parse(value);

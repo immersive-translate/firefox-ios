@@ -40,13 +40,28 @@ extension BrowserViewController: IMSScriptDelegate {
         }
     }
     
-    func callTosJS(name: String, data: [String: Any]?) {
+    func callTosJS(name: String, data: Any?, id: String?) {
         guard let tab = tabManager.selectedTab, let webView = tab.webView else { return }
+        
+        var payload: [String: Any] = [:]
+        
+        // Check the type of data and add it to the payload if it's a Dictionary or String
+        if let dataDict = data as? [String: Any] {
+            payload["data"] = dataDict
+        } else if let dataString = data as? String {
+            payload["data"] = dataString
+        }
+        
+        if let id = id {
+            payload["id"] = id
+        }
+
         var result = "\(IMSScriptNamespace).\(name)()"
-        if let data = data {
-            let dataStr = JSON(data).rawString(options: []) ?? ""
+        if !payload.isEmpty {
+            let dataStr = JSON(payload).rawString(options: []) ?? "{}"
             result = "\(IMSScriptNamespace).\(name)(\(dataStr))"
         }
+
         webView.evaluateJavascriptInDefaultContentWorld(result) { object, error in
             Log.d(object)
             Log.d(error)

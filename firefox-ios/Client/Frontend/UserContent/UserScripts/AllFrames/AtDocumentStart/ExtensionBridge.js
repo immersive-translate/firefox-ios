@@ -23,7 +23,7 @@
   window.imtExtensionBridge = new Proxy(imtExtensionBridge, {
     get: function (target, prop) {
       return (options) => {
-        const { id, ...data } = options || {};
+        const { id, data } = options || {};
         return target.sendMessages({
           type: prop,
           id,

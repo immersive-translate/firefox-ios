@@ -69,13 +69,13 @@ extension IMSScript {
                         "imageUrl": url,
                         "imageId": imageId
                     ]
-                    self.delegate?.callTosJS(name: "restoreImage", data: dict)
+                    self.delegate?.callTosJS(name: "restoreImage", data: dict, id: nil)
                 case .feedback:
-                    self.delegate?.callTosJS(name: "openImageTranslationFeedback", data: nil)
+                    self.delegate?.callTosJS(name: "openImageTranslationFeedback", data: nil, id: nil)
                 case .translate:
                     self.delegate?.callTosJS(name: "translateImage", data: [
                         "imageUrl": value
-                    ])
+                    ], id: nil)
                 case .save:
                     getImage(content: value) { [weak self] image in
                         guard let self = self else { return }
@@ -134,7 +134,7 @@ extension IMSScript {
                     "errMsg": result.error?.localizedDescription ?? ""
                 ]
                 DispatchQueue.main.async {
-                    self.delegate?.callTosJS(name: "imageTextRecognition", data: data)
+                    self.delegate?.callTosJS(name: "imageTextRecognition", data: data, id: id)
                 }
             }
         } else {
@@ -146,7 +146,7 @@ extension IMSScript {
                 "errMsg": "image error"
             ]
             DispatchQueue.main.async {
-                self.delegate?.callTosJS(name: "imageTextRecognition", data: data)
+                self.delegate?.callTosJS(name: "imageTextRecognition", data: data, id: id)
             }
         }
     }

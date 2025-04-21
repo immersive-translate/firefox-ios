@@ -13,7 +13,7 @@ import WebKit
 protocol IMSScriptDelegate: AnyObject {
     func onPageStatusAsync(status: String)
     func getCurTabWebView() -> TabWebView?
-    func callTosJS(name: String, data: [String: Any]?)
+    func callTosJS(name: String, data: Any?, id: String?)
 }
 
 let IMSScriptNamespace = "window.imtExtensionBridge"
@@ -56,23 +56,28 @@ class IMSScript: TabContentScript {
                 let dict = dataJSON.dictionaryValue.reduce(into: [String: String]()) { $0[$1.key] = $1.value.stringValue }
                 HttpClientJSObject().request(dict) { [weak self] result, complete in
                     guard let self = self else { return }
-                    let data: [String: Any] = [
-                        "id": id,
-                        "value": result as Any
-                    ]
-                    self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: data)
+                    self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: result, id: id)
                 }
             default:
                 let webview = delegate?.getCurTabWebView()
                 let argJSON = JSON(["data": dataJSON])
                 let argStr = argJSON.rawString(options: [])
                 let result = webview?.call(method: type, argStr: argStr)
-                Log.d(result)
-                let data: [String: Any] = [
-                    "id": id,
-                    "value": result as Any
-                ]
-                self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: data)
+                
+
+                var dataToPass: Any? = nil
+                if let resultString = result,
+                   let data = resultString.data(using: .utf8) {
+                    do {
+                        if let jsonDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            dataToPass = jsonDict["data"]
+                        }
+                    } catch {
+                        Log.e("Failed to parse result JSON: \(error)")
+                    }
+                }
+                Log.d(dataToPass)
+                self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: dataToPass, id: id)
             }
         } else {
             switch type {
