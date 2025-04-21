@@ -117,7 +117,7 @@ extension IMSScript {
     func imageTextRecognition(id: String, dataJSON: JSON) {
         let imageId = dataJSON["imageId"].stringValue
         let imageUrl = dataJSON["imageUrl"].string
-        if let imageData = dataJSON["imageData"].string, let image = VisionUtils.shared.base64ToUIImage(base64String: imageData)?.cgImage {
+        if let imageData = dataJSON["imageData"].string, let image = VisionUtils.shared.base64ToUIImage(base64String: imageData) {
             VisionUtils.shared.detectTextRegions(from: image) { [weak self] result in
                 guard let self = self else { return }
                 Log.d(result)

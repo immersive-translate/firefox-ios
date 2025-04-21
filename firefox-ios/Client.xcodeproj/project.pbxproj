@@ -772,7 +772,6 @@
 		5AF6254528A57B6700A90253 /* MockHistoryHighlightsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254428A57B6700A90253 /* MockHistoryHighlightsManager.swift */; };
 		5AF6254728A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254628A58AC100A90253 /* MockHistoryHighlightsDataAdaptor.swift */; };
 		5AF6254928A58BB400A90253 /* MockHistoryHighlightsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF6254828A58BB400A90253 /* MockHistoryHighlightsDelegate.swift */; };
-		5BCA3B616005528D04EE32CA /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		5F130D2E2483508E00B0F7D0 /* FxAWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F130D2D2483508E00B0F7D0 /* FxAWebViewModel.swift */; };
 		5FA2233C27F74071005B3D87 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 5FA2233B27F74071005B3D87 /* Glean */; };
 		5FC276552894AEFF00AF2721 /* LibraryPanelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30B101D1AA7F9C600C01CA3 /* LibraryPanelHelper.swift */; };
@@ -4846,7 +4845,6 @@
 				29909E7D2D36BB68005C0328 /* SVProgressHUD in Frameworks */,
 				7B8A47F61D01D3B400C07734 /* PassKit.framework in Frameworks */,
 				5A8FD0EC293A7D5E00333AA7 /* SnapKit in Frameworks */,
-				5BCA3B616005528D04EE32CA /* (null) in Frameworks */,
 				56580B41878993A988A29313 /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -10483,6 +10481,7 @@
 				E6B09CD31C74EEDB00C63FA1 /* Copy Frameworks */,
 				4368F81027955AE80013419B /* ShellScript */,
 				106E19C9F6062C574E11A2D2 /* [CP] Embed Pods Frameworks */,
+				EF7E788A131FF6F6F6780926 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -11096,7 +11095,9 @@
 				"${BUILT_PRODUCTS_DIR}/CSAPIService/APIService.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleSignIn/GoogleSignIn.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardCore/IQKeyboardCore.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardToolbar/IQKeyboardToolbar.framework",
@@ -11108,6 +11109,7 @@
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/LookinServer/LookinServer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -11120,7 +11122,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/APIService.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleSignIn.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardToolbar.framework",
@@ -11132,6 +11136,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LookinServer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11349,6 +11354,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${INCLUDE_SETTINGS_BUNDLE}\" = \"YES\" ]\nthen\n    cp -r \"${PROJECT_DIR}/${TARGET_NAME}/Application/Settings.bundle\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi\n";
+		};
+		EF7E788A131FF6F6F6780926 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MLKitTextRecognition/LatinOCRResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LatinOCRResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -14503,6 +14526,7 @@
 				MARKETING_VERSION = 1.1.8;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);
@@ -15335,6 +15359,7 @@
 				MOZ_BUNDLE_ID = zzer.web.ios.Fennec;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);
@@ -15771,6 +15796,7 @@
 				MOZ_BUNDLE_ID = zzer.web.ios.Firefox;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);
@@ -16062,6 +16088,7 @@
 				MOZ_BUNDLE_ID = zzer.web.ios.FennecEnterprise;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);
@@ -16353,6 +16380,7 @@
 				MOZ_BUNDLE_ID = zzer.web.ios.FirefoxBeta;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);
@@ -16887,6 +16915,7 @@
 				MARKETING_VERSION = 1.1.8;
 				MOZ_PUBLIC_URL_SCHEME = immersivetranslate;
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-ObjC",
 					"-ld_classic",
 				);

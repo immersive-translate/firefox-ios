@@ -4,9 +4,10 @@
 
 import Vision
 import LTXiOSUtils
+import MLKitVision
+import MLKitTextRecognition
 
 final class VisionUtils {
-    
     static let shared = VisionUtils()
     
     private init() {}
@@ -25,39 +26,24 @@ final class VisionUtils {
     
     
     /// 识别图像中的文字并返回文字与其在图像中的位置（像素坐标）
-    func detectTextRegions(from cgImage: CGImage, completion: @escaping ((result: [(text: String, rect: CGRect)], error: Error?)) -> Void) {
-        let imageSize = CGSize(width: cgImage.width, height: cgImage.height)
-        
-        let request = VNRecognizeTextRequest { request, error in
-            guard error == nil else {
-                Log.d("文字识别出错：\(error?.localizedDescription ?? "未知错误")")
+    func detectTextRegions(from image: UIImage, completion: @escaping ((result: [(text: String, rect: CGRect)], error: Error?)) -> Void) {
+        let visionImage = VisionImage(image: image)
+        visionImage.orientation = image.imageOrientation
+        let options = TextRecognizerOptions()
+        let textRecognizer = TextRecognizer.textRecognizer(options: options)
+        textRecognizer.process(visionImage) { result, error in
+            guard error == nil, let result = result else {
                 completion(([], error))
                 return
             }
-
             var results: [(String, CGRect)] = []
-
-            for observation in request.results as? [VNRecognizedTextObservation] ?? [] {
-                guard let candidate = observation.topCandidates(1).first else { continue }
-                let boundingBox = observation.boundingBox
-                let rect = self.convertBoundingBox(boundingBox, imageSize: imageSize)
-                results.append((candidate.string, rect))
+            for block in result.blocks {
+                let blockText = block.text.replacingOccurrences(of: "\n", with: " ")
+                let blockFrame = block.frame
+                results.append((blockText, blockFrame))
             }
+            Log.d("OCR识别结果: \(results)")
             completion((results, nil))
-        }
-
-        request.recognitionLevel = .accurate
-        request.recognitionLanguages = ["zh-Hans", "en-US"]
-        request.usesLanguageCorrection = true
-
-        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-        DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                try handler.perform([request])
-            } catch {
-                Log.d("执行识别请求失败：\(error.localizedDescription)")
-                completion(([], error))
-            }
         }
     }
 

@@ -14,11 +14,24 @@ PODS:
   - BetterCodable (0.4.0)
   - CSAPIService/Core (0.1.0):
     - Alamofire (= 5.8.1)
+  - GoogleDataTransport (10.1.0):
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - GoogleMLKit/MLKitCore (8.0.0):
+    - MLKitCommon (~> 13.0.0)
+  - GoogleMLKit/TextRecognition (8.0.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitTextRecognition (~> 6.0.0)
   - GoogleSignIn (8.0.0):
     - AppAuth (< 2.0, >= 1.7.3)
     - AppCheckCore (~> 11.0)
     - GTMAppAuth (< 5.0, >= 4.1.1)
     - GTMSessionFetcher/Core (~> 3.3)
+  - GoogleToolboxForMac/Defines (4.2.1)
+  - GoogleToolboxForMac/Logger (4.2.1):
+    - GoogleToolboxForMac/Defines (= 4.2.1)
+  - "GoogleToolboxForMac/NSData+zlib (4.2.1)":
+    - GoogleToolboxForMac/Defines (= 4.2.1)
   - GoogleUtilities/Environment (8.0.2):
     - GoogleUtilities/Privacy
   - GoogleUtilities/Logger (8.0.2):
@@ -73,6 +86,32 @@ PODS:
   - LTXiOSUtils/Util (0.0.3):
     - LTXiOSUtils/Util/Log (= 0.0.3)
   - LTXiOSUtils/Util/Log (0.0.3)
+  - MLImage (1.0.0-beta7)
+  - MLKitCommon (13.0.0):
+    - GoogleDataTransport (~> 10.0)
+    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
+    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
+    - GoogleUtilities/Logger (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
+  - MLKitTextRecognition (6.0.0):
+    - MLKitCommon (~> 13.0)
+    - MLKitTextRecognitionCommon (= 5.0.0)
+    - MLKitVision (~> 9.0)
+  - MLKitTextRecognitionCommon (5.0.0):
+    - MLKitCommon (~> 13.0)
+    - MLKitVision (~> 9.0)
+  - MLKitVision (9.0.0):
+    - GoogleToolboxForMac/Logger (< 5.0, >= 4.2.1)
+    - "GoogleToolboxForMac/NSData+zlib (< 5.0, >= 4.2.1)"
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3.2)
+    - MLImage (= 1.0.0-beta7)
+    - MLKitCommon (~> 13.0)
+  - nanopb (3.30910.0):
+    - nanopb/decode (= 3.30910.0)
+    - nanopb/encode (= 3.30910.0)
+  - nanopb/decode (3.30910.0)
+  - nanopb/encode (3.30910.0)
   - PromisesObjC (2.4.0)
   - SwiftyJSON (4.0.0)
   - Swime (3.0.6)
@@ -88,6 +127,7 @@ DEPENDENCIES:
   - AttributedString (= 3.3.5)
   - BetterCodable (= 0.4.0)
   - CSAPIService/Core (= 0.1.0)
+  - GoogleMLKit/TextRecognition (= 8.0.0)
   - GoogleSignIn (= 8.0.0)
   - IQKeyboardToolbar (= 1.1.1)
   - KeychainAccess (= 4.2.2)
@@ -112,13 +152,22 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - AppCheckCore
+    - GoogleDataTransport
+    - GoogleMLKit
     - GoogleSignIn
+    - GoogleToolboxForMac
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardCore
     - IQKeyboardToolbar
     - LookinServer
+    - MLImage
+    - MLKitCommon
+    - MLKitTextRecognition
+    - MLKitTextRecognitionCommon
+    - MLKitVision
+    - nanopb
     - PromisesObjC
     - TPKeyboardAvoiding
 
@@ -139,7 +188,10 @@ SPEC CHECKSUMS:
   AttributedString: 6d2d9d65310119556c3b5c6e4ea8d1ca339b703c
   BetterCodable: 3f2a765c9f4089b19debd2a7b904a69fca0a5fda
   CSAPIService: 210402f9f70b990865fade5c17542b18261a3067
+  GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
+  GoogleMLKit: ddd51d7dff36ff28defa69afedd9cdce684fd857
   GoogleSignIn: ce8c89bb9b37fb624b92e7514cc67335d1e277e4
+  GoogleToolboxForMac: d1a2cbf009c453f4d6ded37c105e2f67a32206d8
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
@@ -148,6 +200,12 @@ SPEC CHECKSUMS:
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   LookinServer: 743c1681771d0a8dcc38825325a080c3186404a5
   LTXiOSUtils: b2f2a0ab25a055b8327016c7f3f60e65e2e1c218
+  MLImage: 2ab9c968e75f57911c16f4c9d9e8a8e9604a86a1
+  MLKitCommon: 26b779f072a182c1603d4c88a101c350cac837b1
+  MLKitTextRecognition: 072488cfd29f1726733378661881f88db74ba3dc
+  MLKitTextRecognitionCommon: 228502b9dc61ea9cfb6199ebafef3baa842e2043
+  MLKitVision: fa8dea9012ac59497c79ddbe9ebf32051047ac4c
+  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   Swime: d7b2c277503b6cea317774aedc2dce05613f8b0b
@@ -155,6 +213,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 28dd96180d913abadb3ea9cf99bd6e942262379a
   WCDBOptimizedSQLCipher: ef2be79fed278289a309ad0d4d707c55bf166d6d
 
-PODFILE CHECKSUM: 4e7204dc9a71b03fa456953bd05e9a64934bc378
+PODFILE CHECKSUM: 12b8345816548c2c1d9641ce8d252c0f2e0572e2
 
 COCOAPODS: 1.16.2
