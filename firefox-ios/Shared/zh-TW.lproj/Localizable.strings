@@ -1588,13 +1588,13 @@
 "ShareExtension.LoadInBackgroundAction.Title" = "在背景載入";
 
 /* Share extension label shown after user has performed 'Load in Background' action. */
-"ShareExtension.LoadInBackgroundActionDone.Title" = "正在 Firefox 載入";
+"ShareExtension.LoadInBackgroundActionDone.Title" = "正在沉浸式翻譯載入";
 
 /* Action label on share extension to immediately open page in Firefox. */
-"ShareExtension.OpenInFirefoxAction.Title" = "於 Firefox 開啟";
+"ShareExtension.OpenInFirefoxAction.Title" = "於沉浸式翻譯開啟";
 
 /* Action label on share extension to search for the selected text in Firefox. */
-"ShareExtension.SeachInFirefoxAction.Title" = "在 Firefox 中搜尋";
+"ShareExtension.SeachInFirefoxAction.Title" = "在沉浸式翻譯中搜尋";
 
 /* Button in share sheet to copy the url of the current tab. */
 "ShareSheet.Copy.Title.v108" = "複製";
