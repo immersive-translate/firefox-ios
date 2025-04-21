@@ -12,6 +12,7 @@ import WebKit
 
 protocol IMSScriptDelegate: AnyObject {
     func onPageStatusAsync(status: String)
+    func getCurTabWebView() -> TabWebView?
     func callTosJS(name: String, data: [String: Any]?)
 }
 
@@ -49,18 +50,44 @@ class IMSScript: TabContentScript {
         let type = json["type"].stringValue
         let id = json["id"].stringValue
         let dataJSON = json["data"]
-        switch type {
-        case "getPageStatus":
-            if let status = dataJSON["status"].string {
-                pageStatus = status
-                delegate?.onPageStatusAsync(status: status)
+        if type.contains("."), type.components(separatedBy: ".").count == 2 {
+            switch type {
+            case "httpClient.request":
+                let dict = dataJSON.dictionaryValue.reduce(into: [String: String]()) { $0[$1.key] = $1.value.stringValue }
+                HttpClientJSObject().request(dict) { [weak self] result, complete in
+                    guard let self = self else { return }
+                    let data: [String: Any] = [
+                        "id": id,
+                        "value": result as Any
+                    ]
+                    self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: data)
+                }
+            default:
+                let webview = delegate?.getCurTabWebView()
+                let argJSON = JSON(["data": dataJSON])
+                let argStr = argJSON.rawString(options: [])
+                let result = webview?.call(method: type, argStr: argStr)
+                Log.d(result)
+                let data: [String: Any] = [
+                    "id": id,
+                    "value": result as Any
+                ]
+                self.delegate?.callTosJS(name: type.replaceFirstOccurrence(of: ".", with: "_"), data: data)
             }
-        case "imageLongPress":
-            imageLongPress(dataJSON: dataJSON)
-        case "imageTextRecognition":
-            imageTextRecognition(id: id, dataJSON: dataJSON)
-        default:
-            break
+        } else {
+            switch type {
+            case "getPageStatus":
+                if let status = dataJSON["status"].string {
+                    pageStatus = status
+                    delegate?.onPageStatusAsync(status: status)
+                }
+            case "imageLongPress":
+                imageLongPress(dataJSON: dataJSON)
+            case "imageTextRecognition":
+                imageTextRecognition(id: id, dataJSON: dataJSON)
+            default:
+                break
+            }
         }
     }
 }

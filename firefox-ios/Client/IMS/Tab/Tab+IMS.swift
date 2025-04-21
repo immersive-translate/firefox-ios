@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
 import ObjectiveC.runtime
+import LTXiOSUtils
 
 protocol LegacyTabIMSDelegate: AnyObject {
 
@@ -376,7 +377,7 @@ extension TabWebView: WKUIDelegate {
                 defaultText: String?,
                 initiatedByFrame frame: WKFrameInfo,
                 completionHandler: @escaping (String?) -> Void) {
-        
+        Log.d("runJavaScriptTextInputPanelWithPrompt: \(prompt)")
         let prefix = "_dsbridge="
         if prompt.hasPrefix(prefix) {
             let method = String(prompt.dropFirst(prefix.count))

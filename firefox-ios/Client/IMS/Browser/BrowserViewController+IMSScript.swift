@@ -52,4 +52,9 @@ extension BrowserViewController: IMSScriptDelegate {
             Log.d(error)
         }
     }
+    
+    func getCurTabWebView() -> TabWebView? {
+        guard let tab = tabManager.selectedTab else { return nil}
+        return tab.webView
+    }
 }
