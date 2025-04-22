@@ -174,3 +174,5 @@
 "Imt.imageContextMenu.copy" = "复制图片";
 "Imt.imageContextMenu.share" = "分享图片";
 "Imt.imageContextMenu.feedback" = "问题反馈";
+
+"Imt.Toolbar.Tip.clickFeedbackPanel" = "如遇到问题，\n请点击这里反馈";

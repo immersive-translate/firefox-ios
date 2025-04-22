@@ -9,6 +9,7 @@ import LTXiOSUtils
 import Shared
 import Storage
 import WebKit
+import APIService
 
 protocol IMSScriptDelegate: AnyObject {
     func onPageStatusAsync(status: String)
@@ -86,6 +87,15 @@ class IMSScript: TabContentScript {
                     pageStatus = status
                     delegate?.onPageStatusAsync(status: status)
                 }
+            case "getBaseInfo":
+                let data: [String: Any] = [
+                    "appVersion": AppInfo.appVersion,
+                    "osVersion": UIDevice.current.systemVersion,
+                    "deviceModel": DeviceInfo.specificModelName,
+                    "deviceType": AdjustTrackManager.shared.getCurrentDeviceTypeName(),
+                    "network": Reach().connectionStatus().description
+                ]
+                self.delegate?.callTosJS(name: "getBaseInfo", data: data, id: id)
             case "imageLongPress":
                 imageLongPress(dataJSON: dataJSON)
             case "imageTextRecognition":
