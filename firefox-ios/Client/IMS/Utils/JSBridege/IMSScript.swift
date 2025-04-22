@@ -86,6 +86,12 @@ class IMSScript: TabContentScript {
                     pageStatus = status
                     delegate?.onPageStatusAsync(status: status)
                 }
+            case "updatePageStatus":
+                if let status = dataJSON["status"].string {
+                    pageStatus = status
+                    delegate?.onPageStatusAsync(status: status)
+                }
+                self.delegate?.callTosJS(name: "updatePageStatus", data: nil, id: id)
             case "imageLongPress":
                 imageLongPress(dataJSON: dataJSON)
             case "imageTextRecognition":
