@@ -211,6 +211,10 @@ class TabScrollingController: NSObject,
         guard !tabIsLoading() else { return }
 
         tab?.shouldScrollToTop = false
+        if DeviceUtils.isIpad {
+            showToolbars(animated: false)
+            return
+        }
 
         if let containerView = scrollView?.superview {
             let translation = gesture.translation(in: containerView)
@@ -253,9 +257,12 @@ class TabScrollingController: NSObject,
     }
 
     func hideToolbars(animated: Bool, isFindInPageMode: Bool = false) {
+        if DeviceUtils.isIpad {
+            showToolbars(animated: false)
+            return
+        }
         guard toolbarState != .collapsed || isFindInPageMode else { return }
         toolbarState = .collapsed
-
         let actualDuration = TimeInterval(ToolbarBaseAnimationDuration * hideDurationRation)
         self.animateToolbarsWithOffsets(
             animated,
@@ -418,6 +425,9 @@ private extension TabScrollingController {
     }
 
     func scrollWithDelta(_ delta: CGFloat) {
+        if DeviceUtils.isIpad {
+            return
+        }
         if scrollViewHeight >= contentSize.height {
             return
         }
