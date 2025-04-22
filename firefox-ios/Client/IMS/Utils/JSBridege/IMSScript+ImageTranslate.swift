@@ -57,7 +57,7 @@ extension IMSScript {
                     var imageId = ""
                     if value.hasPrefix("http") {
                         url = value
-                    } else if let imtRange = value.range(of: "data:image/png;imt_") {
+                    } else if let imtRange = value.range(of: "data:image/(png|jpeg|jpg|gif|webp);imt_", options: .regularExpression) {
                         let startIndex = imtRange.upperBound
                         let remaining = value[startIndex...]
                         if let endRange = remaining.firstIndex(of: ";") {
