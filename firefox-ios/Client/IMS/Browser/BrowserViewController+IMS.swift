@@ -168,6 +168,14 @@ extension BrowserViewController {
                 restorePageAction()
             case .togglePopup:
                 togglePopupAction()
+            case .feedback:
+                feedbackAction()
+            }
+        }
+        
+        func feedbackAction() {
+            guard let tab = parent?.tabManager.selectedTab, let webView = tab.webView else { return }
+            webView.evaluateJavascriptInDefaultContentWorld("\(IMSScriptNamespace).openWebTranslationFeedback()") { object, error in
             }
         }
         
