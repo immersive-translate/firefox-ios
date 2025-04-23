@@ -29,6 +29,7 @@ extension ThemeColor {
 extension ThemeColor {
     /// 填充颜色
     struct TC {
+        static let F3F5F6 = UIColor(hexString: "F3F5F6").withDarkColor("252626")
         static let FAFBFC = UIColor(hexString: "FAFBFC").withDarkColor("2B2D30")
         static let ECF0F7 = UIColor(hexString: "ECF0F7").withDarkColor("3E434B")
     }
@@ -50,3 +51,11 @@ extension ThemeColor {
         static let A0C0F8 = UIColor(hexString: "A0C0F8").withDarkColor("204078")
     }
 }
+
+extension ThemeColor {
+    /// 投影
+    struct TY {
+        static let c00000008 = UIColor(hexString: "000000").withAlphaComponent(0.08).withDarkColor("FFFFFF")
+    }
+}
+

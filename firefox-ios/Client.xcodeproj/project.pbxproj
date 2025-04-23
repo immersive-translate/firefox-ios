@@ -448,6 +448,8 @@
 		2B56FD932DA4DFCC00919816 /* UserAccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */; };
 		2B56FE332DA4EB0900919816 /* BaseBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */; };
 		2B56FF1D2DA5275100919816 /* IMSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B56FF1C2DA5274700919816 /* IMSUser.swift */; };
+		2B58D6272DB7699700696B76 /* IMSWebExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58D6252DB7699700696B76 /* IMSWebExampleViewController.swift */; };
+		2B58D62B2DB76ABB00696B76 /* IMSVideoExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58D62A2DB76ABB00696B76 /* IMSVideoExampleViewController.swift */; };
 		2B69AF032D97B9FB00204CE5 /* TrackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B69AF022D97B9F600204CE5 /* TrackManager.swift */; };
 		2B6D1CFB2D82ED72005E9B07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */; };
 		2B814BB02D7FB47300375710 /* AppDelegate+IMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */; };
@@ -3045,6 +3047,8 @@
 		2B56FD922DA4DFC200919816 /* UserAccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountAPI.swift; sourceTree = "<group>"; };
 		2B56FE322DA4EB0900919816 /* BaseBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBrowserViewController.swift; sourceTree = "<group>"; };
 		2B56FF1C2DA5274700919816 /* IMSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSUser.swift; sourceTree = "<group>"; };
+		2B58D6252DB7699700696B76 /* IMSWebExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSWebExampleViewController.swift; sourceTree = "<group>"; };
+		2B58D62A2DB76ABB00696B76 /* IMSVideoExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSVideoExampleViewController.swift; sourceTree = "<group>"; };
 		2B69AF022D97B9F600204CE5 /* TrackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackManager.swift; sourceTree = "<group>"; };
 		2B6D1CFA2D82ED72005E9B07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		2B814BAF2D7FB46B00375710 /* AppDelegate+IMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+IMS.swift"; sourceTree = "<group>"; };
@@ -5659,6 +5663,8 @@
 				29EF1DE82D37E75B0066018B /* TopSite */,
 				2B42C8252D7B17F100B88246 /* Login */,
 				2B1BC6D42D829E07008297B7 /* Feedback */,
+				2B58D6262DB7699700696B76 /* Web */,
+				2B58D6292DB769B800696B76 /* Video */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -5863,6 +5869,22 @@
 				2B56FF1C2DA5274700919816 /* IMSUser.swift */,
 			);
 			path = UserInfoManager;
+			sourceTree = "<group>";
+		};
+		2B58D6262DB7699700696B76 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				2B58D6252DB7699700696B76 /* IMSWebExampleViewController.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		2B58D6292DB769B800696B76 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				2B58D62A2DB76ABB00696B76 /* IMSVideoExampleViewController.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		2B69AF012D97B9EE00204CE5 /* Track */ = {
@@ -11912,6 +11934,7 @@
 				C7CDBEFD2CE6926900826A92 /* BookmarksFolderEmptyStateView.swift in Sources */,
 				819656192C80ECFE00E62323 /* MainMenuMiddleware.swift in Sources */,
 				E127313D28B6AD99006F39D2 /* WallpaperSettingsViewModel.swift in Sources */,
+				2B58D6272DB7699700696B76 /* IMSWebExampleViewController.swift in Sources */,
 				8A4593C72BF7BECA002758DE /* MicrosurveyTableViewCell.swift in Sources */,
 				8A07910F278F62F2005529CB /* AdjustHelper.swift in Sources */,
 				967A028E28FA026F003C35E3 /* SceneDelegate.swift in Sources */,
@@ -12746,6 +12769,7 @@
 				8A93F87229D3A5AD004159D9 /* BrowserCoordinator.swift in Sources */,
 				8A3233FE28627446003E1C33 /* LocalDesktopFolder.swift in Sources */,
 				BA7A14842C2CCEB3008DF1D9 /* EditAddressWebViewManager.swift in Sources */,
+				2B58D62B2DB76ABB00696B76 /* IMSVideoExampleViewController.swift in Sources */,
 				8AD40FCA27BADC4B00672675 /* ReaderModeButton.swift in Sources */,
 				E1C437A32A96343A00D188CB /* FakespotFadeLabel.swift in Sources */,
 				8A3EF7FB2A2FCF9D00796E3A /* ForceCrashSetting.swift in Sources */,

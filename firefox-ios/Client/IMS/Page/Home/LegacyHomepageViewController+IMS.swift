@@ -10,7 +10,12 @@ extension LegacyHomepageViewController {
         if let viewModel =  self.viewModel.childViewModels[2] as? IMSTopSitesViewModel {
             viewModel.tilePressedHandler = { [weak self] site, isGoogle in
                 guard let url = site.url.asURL else { return }
-                self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+                if site.id == 1 {
+                    let viewController = IMSWebExampleViewController()
+                    RouterManager.shared.pushViewController(viewController, animated: true)
+                } else {
+                    self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+                }
                 switch site.id {
                 case 1:
                     TrackManager.shared.event("Homepage_Web_Click")
