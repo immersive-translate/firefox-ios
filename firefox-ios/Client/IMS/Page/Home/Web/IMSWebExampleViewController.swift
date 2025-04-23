@@ -9,13 +9,9 @@ struct SelectedWebModel {
 }
 
 struct IMSSelectedWebModel {
-    var image: UIImage?
+    var image: String
     var title: String
     var url: String
-    
-    var name: String
-    var icon: UIImage?
-    var time: String
 }
 
 class IMSWebExampleViewController: BaseViewController {
@@ -105,8 +101,12 @@ class IMSWebExampleViewController: BaseViewController {
     private lazy var viewMoreButton: UIButton = {
         let button = UIButton()
         button.setTitle("查看更多", for: .normal)
+        button.setTitle("点击收起", for: .selected)
+        button.setImage(UIImage(named: "example_arrow_bottom"), for: .normal)
+        button.setImage(UIImage(named: "example_arrow_up"), for: .selected)
         button.setTitleColor(ThemeColor.Other.c4181F0, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.semanticContentAttribute = .forceRightToLeft
         button.addTarget(self, action: #selector(viewMoreButtonOnClick), for: .touchUpInside)
         return button
     }()
@@ -127,6 +127,7 @@ class IMSWebExampleViewController: BaseViewController {
         stackView.alignment = .top
         stackView.spacing = 20
         stackView.isHidden = true
+        stackView.clipsToBounds = true
         return stackView
     }()
     
@@ -141,7 +142,7 @@ class IMSWebExampleViewController: BaseViewController {
     private lazy var examplesStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 15
+        stackView.spacing = 22
         return stackView
     }()
     
@@ -160,9 +161,12 @@ class IMSWebExampleViewController: BaseViewController {
     ]
     
     private let imsPopularSites: [IMSSelectedWebModel] = [
-        IMSSelectedWebModel(image: UIImage(named: "ic_site_youtube"), title: "YouTube", url: "https://www.youtube.com", name: "YouTube", icon: UIImage(named: "ic_site_youtube"), time: "YouTube"),
-        IMSSelectedWebModel(image: UIImage(named: "ic_site_youtube"), title: "YouTube", url: "https://www.youtube.com", name: "YouTube", icon: UIImage(named: "ic_site_youtube"), time: "YouTube"),
-        IMSSelectedWebModel(image: UIImage(named: "ic_site_youtube"), title: "YouTube", url: "https://www.youtube.com", name: "YouTube", icon: UIImage(named: "ic_site_youtube"), time: "YouTube"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215417-OgDd2g.jpeg", title: "Far From Ordinary - 2024 Year in Pictures", url: "https://www.nytimes.com/interactive/2024/world/year-in-pictures.html"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215434-n42iPa.jpeg", title: "Powell's Message Brings Gloom to Stock Bulls' Party", url: "https://www.bloomberg.com/news/newsletters/2024-12-19/powell-s-message-brings-gloom-to-stock-bulls-party"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215441-D6nnHj.jpeg", title: "China's central bank steps up currency support after Fed move", url: "https://asia.nikkei.com/Business/Markets/Currencies/China-s-central-bank-steps-up-currency-support-after-Fed-move"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215445-Yb3bHv.jpeg", title: "The Outrage Over 100 Men Only Goes So Far", url: "https://www.theatlantic.com/ideas/archive/2024/12/lily-phillips-outrage-porn-100-men/681032/"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215449-a1jHnX.jpeg", title: "How to get a free meal in China", url: "https://www.economist.com/china/2024/12/19/how-to-get-a-free-meal-in-china"),
+        IMSSelectedWebModel(image: "https://s.immersivetranslate.com/assets/uploads/20241221-215558-uXAHrW.png", title: "A Gathering of Ancient Stars", url: "https://www.theatlantic.com/science/archive/2024/12/day-17-2024-space-telescope-advent-calendar-gathering-ancient-stars/681027/"),
     ]
     
     override func viewDidLoad() {
@@ -181,7 +185,6 @@ class IMSWebExampleViewController: BaseViewController {
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
         view.addSubview(mainScrollView)
-        mainScrollView.backgroundColor = view.backgroundColor
         mainScrollView.addSubview(contentContainerView)
         contentContainerView.addSubview(tutorialContainerView)
         tutorialContainerView.addSubview(tutorialBannerView)
@@ -195,7 +198,7 @@ class IMSWebExampleViewController: BaseViewController {
         bgView.layer.cornerRadius = 20
         bgView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         bgView.layer.shadowColor = UIColor.black.cgColor
-        bgView.layer.shadowOpacity = 0.04
+        bgView.layer.shadowOpacity = 0.1
         bgView.layer.shadowOffset = CGSize(width: 0, height: 2)
         bgView.layer.shadowRadius = 6
         contentContainerView.addSubview(bgView)
@@ -282,12 +285,13 @@ class IMSWebExampleViewController: BaseViewController {
         
         popularSitesStackView.snp.makeConstraints { make in
             make.top.equalTo(popularSitesLabel.snp.bottom).offset(16)
-            make.height.equalTo(75)
+            make.height.equalTo(99)
             make.left.equalToSuperview().offset(24)
             make.right.equalToSuperview().offset(-24)
         }
+        morePopularSitesStackView.backgroundColor = view.backgroundColor
         morePopularSitesStackView.snp.makeConstraints { make in
-            make.top.equalTo(popularSitesStackView.snp.bottom).offset(24)
+            make.top.equalTo(popularSitesStackView.snp.bottom)
             make.left.right.equalTo(popularSitesStackView)
             make.height.equalTo(0)
         }
@@ -306,24 +310,24 @@ class IMSWebExampleViewController: BaseViewController {
     
     private func setupData() {
         for (index, item) in imsPopularSites.enumerated() {
-            let exampleView = createExampleView(image: item.icon, index: index)
+            let exampleView = createExampleView(model: item, index: index + 1000)
             examplesStackView.addArrangedSubview(exampleView)
         }
         
-        for site in popularSites {
-            let siteView = createSiteView(site: site)
+        for (index, site) in popularSites.enumerated() {
+            let siteView = createSiteView(site: site, index: index)
             popularSitesStackView.addArrangedSubview(siteView)
         }
         
-        for site in morePopularSites {
-            let siteView = createSiteView(site: site)
+        for (index, site) in morePopularSites.enumerated() {
+            let siteView = createSiteView(site: site, index: index + 100)
             morePopularSitesStackView.addArrangedSubview(siteView)
         }
     }
 }
 
 extension IMSWebExampleViewController {
-    private func createSiteView(site: SelectedWebModel) -> UIView {
+    private func createSiteView(site: SelectedWebModel, index: Int) -> UIView {
         let containerView = UIView()
         containerView.snp.makeConstraints { make in
             make.width.equalTo(60)
@@ -332,13 +336,15 @@ extension IMSWebExampleViewController {
         let iconImageView = UIImageView()
         iconImageView.image = site.icon
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.layer.cornerRadius = 12
+        iconImageView.layer.cornerRadius = 25
         iconImageView.clipsToBounds = true
+        iconImageView.layer.borderColor = ThemeColor.TY.c00000008.cgColor
+        iconImageView.layer.borderWidth = 1
         
         let nameLabel = UILabel()
         nameLabel.text = site.name
-        nameLabel.font = UIFont.systemFont(ofSize: 12)
-        nameLabel.textColor = ThemeColor.ZX.c666666
+        nameLabel.font = UIFont.systemFont(ofSize: 14)
+        nameLabel.textColor = ThemeColor.ZX.c333333
         nameLabel.textAlignment = .center
         
         containerView.addSubview(iconImageView)
@@ -358,76 +364,47 @@ extension IMSWebExampleViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(siteTapped(_:)))
         containerView.addGestureRecognizer(tapGesture)
-        if let index = popularSites.firstIndex(where: { $0.name == site.name }) {
-            containerView.tag = index
-        }
-        
+        containerView.tag = index
         containerView.isUserInteractionEnabled = true
         
         return containerView
     }
 
-    private func createExampleView(image: UIImage?, index: Int) -> UIView {
+    private func createExampleView(model: IMSSelectedWebModel, index: Int) -> UIView {
         let containerView = UIView()
-        containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 12
-        containerView.clipsToBounds = true
-        
-        containerView.snp.makeConstraints { make in
-            make.height.equalTo(170)
-        }
-        
+
         let exampleImageView = UIImageView()
-        exampleImageView.image = image
+        exampleImageView.layer.cornerRadius = 14
+        exampleImageView.clipsToBounds = true
+        exampleImageView.kf.setImage(with: URL(string: model.image))
         exampleImageView.contentMode = .scaleAspectFill
         exampleImageView.clipsToBounds = true
         
         let textLabel = UILabel()
-        textLabel.text = "sam altman: 我早就应该知道的事!"
-        textLabel.font = UIFont.systemFont(ofSize: 14)
+        textLabel.text = model.title
+        textLabel.lineBreakMode = .byWordWrapping
+        textLabel.numberOfLines = 0
+        textLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         textLabel.textColor = ThemeColor.ZX.c222222
-        
-        let avatarImageView = UIImageView()
-        avatarImageView.image = UIImage(named: "avatar_example")
-        avatarImageView.clipsToBounds = true
-        avatarImageView.layer.cornerRadius = 10
-        
-        let sourceLabel = UILabel()
-        sourceLabel.text = "沉浸式翻译小助手 2天前"
-        sourceLabel.font = UIFont.systemFont(ofSize: 12)
-        sourceLabel.textColor = ThemeColor.ZX.c999999
         
         containerView.addSubview(exampleImageView)
         containerView.addSubview(textLabel)
-        containerView.addSubview(avatarImageView)
-        containerView.addSubview(sourceLabel)
         
         exampleImageView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.height.equalTo(120)
+            make.height.equalTo(164)
         }
         
         textLabel.snp.makeConstraints { make in
             make.top.equalTo(exampleImageView.snp.bottom).offset(8)
-            make.left.equalToSuperview().offset(10)
-            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
         }
         
-        avatarImageView.snp.makeConstraints { make in
-            make.top.equalTo(textLabel.snp.bottom).offset(4)
-            make.left.equalToSuperview().offset(10)
-            make.width.height.equalTo(20)
-        }
-        
-        sourceLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(avatarImageView)
-            make.left.equalTo(avatarImageView.snp.right).offset(4)
-        }
-        
-        // Add tap gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(exampleTapped(_:)))
         containerView.addGestureRecognizer(tapGesture)
-        containerView.tag = 1000 + index
+        containerView.tag = index
         containerView.isUserInteractionEnabled = true
         
         return containerView
@@ -441,45 +418,39 @@ extension IMSWebExampleViewController {
     }
     
     @objc
-    private func searchTextButtonOnClick() {
-        // Handle search text button click
-    }
-    
-    @objc
-    private func settingsButtonOnClick() {
-        // Handle settings button click
-    }
-    
-    @objc
     private func viewMoreButtonOnClick() {
         UIView.animate(withDuration: 0.3, animations: { [weak self] in
             guard let self = self else { return }
             self.morePopularSitesStackView.snp.updateConstraints { make in
-                make.height.equalTo(self.morePopularSitesStackView.isHidden ? 75 : 0)
+                make.height.equalTo(self.morePopularSitesStackView.isHidden ? 99 : 0)
             }
             self.view.layoutIfNeeded()
         }, completion: { [weak self]  _ in
             guard let self = self else { return }
             morePopularSitesStackView.isHidden.toggle()
-            viewMoreButton.setTitle(morePopularSitesStackView.isHidden ? "查看更多" : "收起", for: .normal)
+            viewMoreButton.isSelected.toggle()
         })
     }
     
     @objc
     private func siteTapped(_ gesture: UITapGestureRecognizer) {
         guard let tag = gesture.view?.tag else { return }
-        
-        guard tag < popularSites.count else { return }
-        let site = popularSites[tag]
-        print("Popular site tapped: \(site.name)")
+        if tag >= 100 {
+            guard tag - 100 < morePopularSites.count else { return }
+            let site = popularSites[tag - 100]
+        } else {
+            guard tag < popularSites.count else { return }
+            let site = popularSites[tag]
+        }
     }
     
     @objc
     private func exampleTapped(_ gesture: UITapGestureRecognizer) {
         guard let index = gesture.view?.tag else { return }
         let resultIndex = index - 1000
-        if resultIndex < imsPopularSites.count {}
-        // Handle example tap
-        print("Example tapped: \(resultIndex)")
+        if resultIndex < imsPopularSites.count {
+            let model =  imsPopularSites[resultIndex]
+            
+        }
     }
 }
