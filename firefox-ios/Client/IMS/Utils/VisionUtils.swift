@@ -16,7 +16,7 @@ final class VisionUtils {
         var base64 = base64String
         
         // 使用正则表达式匹配任何图像格式的data URL
-        if let regex = try? NSRegularExpression(pattern: "^data:image/[a-zA-Z0-9\\-\\.]+;base64,", options: []),
+        if let regex = try? NSRegularExpression(pattern: #"^data:image/[a-zA-Z0-9\-\.]+(?:;[a-zA-Z0-9_\-=]+)*;base64,"#, options: []),
            let match = regex.firstMatch(in: base64, options: [], range: NSRange(location: 0, length: base64.utf16.count)) {
             // 提取前缀长度
             let prefixRange = match.range

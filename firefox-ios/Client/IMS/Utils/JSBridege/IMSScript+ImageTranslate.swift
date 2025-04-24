@@ -31,9 +31,7 @@ extension IMSScript {
                     }
                 }
             } else {
-                guard let data = Data(base64Encoded: content),
-                      let image = UIImage(data: data)
-                else {
+                guard let image = VisionUtils.shared.base64ToUIImage(base64String: content) else {
                     completion(nil)
                     return
                 }
