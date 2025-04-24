@@ -167,3 +167,9 @@
 "apple_sign_in_error_cancelled" = "您取消了登录操作";
 "apple_sign_in_error_failed" = "认证失败";
 "apple_sign_in_error_unknown" = "发生未知错误";
+
+"Imt.web.hotSitesTitle" = "🔥 全球精选网站";
+"Imt.web.selectedTitle" = "沉浸式翻译精选";
+"Imt.web.selectedSubtitle" = "任何网页中点击地址栏中的\"翻译图标\"\n即可一键翻译";
+"Imt.web.showMore" = "查看更多";
+"Imt.web.hideMore" = "点击收起";

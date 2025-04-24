@@ -29,7 +29,7 @@ class IMSWebExampleViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.textColor = ThemeColor.ZX.c222222
-        label.text = "网页翻译"
+        label.text = "Imt.Localizable.Web.Translation".i18nImt()
         return label
     }()
     
@@ -83,7 +83,7 @@ class IMSWebExampleViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = ThemeColor.ZX.c666666
-        label.text = "任何网页中点击地址栏中的\"翻译图标\"\n即可一键翻译"
+        label.text = "Imt.web.selectedSubtitle".i18nImt()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
@@ -94,14 +94,14 @@ class IMSWebExampleViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textColor = ThemeColor.ZX.c222222
-        label.text = "🔥 全球精选网站"
+        label.text = "Imt.web.hotSitesTitle".i18nImt()
         return label
     }()
     
     private lazy var viewMoreButton: UIButton = {
         let button = UIButton()
-        button.setTitle("查看更多", for: .normal)
-        button.setTitle("点击收起", for: .selected)
+        button.setTitle("Imt.web.showMore".i18nImt(), for: .normal)
+        button.setTitle("Imt.web.hideMore".i18nImt(), for: .selected)
         button.setImage(UIImage(named: "example_arrow_bottom"), for: .normal)
         button.setImage(UIImage(named: "example_arrow_up"), for: .selected)
         button.setTitleColor(ThemeColor.Other.c4181F0, for: .normal)
@@ -135,7 +135,7 @@ class IMSWebExampleViewController: BaseViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         label.textColor = ThemeColor.ZX.c222222
-        label.text = "沉浸式翻译精选"
+        label.text = "Imt.web.selectedTitle".i18nImt()
         return label
     }()
     
