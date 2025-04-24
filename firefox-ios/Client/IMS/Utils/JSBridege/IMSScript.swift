@@ -101,7 +101,7 @@ class IMSScript: TabContentScript {
                     "deviceType": AdjustTrackManager.shared.getCurrentDeviceTypeName(),
                     "network": Reach().connectionStatus().description
                 ]
-                self.delegate?.callTosJS(name: "getBaseInfo", data: data, id: id)
+                self.delegate?.callTosJS(name: "getBaseInfo", data: ["data": data], id: id)
             case "imageLongPress":
                 imageLongPress(dataJSON: dataJSON)
             case "imageTextRecognition":
