@@ -15,6 +15,8 @@ struct IMSSelectedWebModel {
 }
 
 class IMSWebExampleViewController: BaseViewController {
+    var callback: ((String) -> Void)?
+    
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "example_close"), for: .normal)
@@ -116,6 +118,7 @@ class IMSWebExampleViewController: BaseViewController {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .top
+        stackView.spacing = 20
         stackView.spacing = 20
         return stackView
     }()
@@ -360,9 +363,10 @@ extension IMSWebExampleViewController {
             make.top.equalTo(iconImageView.snp.bottom).offset(8)
             make.centerX.equalToSuperview()
             make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(siteTapped(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(siteTapped(_ :)))
         containerView.addGestureRecognizer(tapGesture)
         containerView.tag = index
         containerView.isUserInteractionEnabled = true
@@ -437,10 +441,14 @@ extension IMSWebExampleViewController {
         guard let tag = gesture.view?.tag else { return }
         if tag >= 100 {
             guard tag - 100 < morePopularSites.count else { return }
-            let site = popularSites[tag - 100]
+            let site = morePopularSites[tag - 100]
+            navigationController?.popViewController(animated: false)
+            callback?(site.url)
         } else {
             guard tag < popularSites.count else { return }
             let site = popularSites[tag]
+            navigationController?.popViewController(animated: false)
+            callback?(site.url)
         }
     }
     
@@ -450,7 +458,8 @@ extension IMSWebExampleViewController {
         let resultIndex = index - 1000
         if resultIndex < imsPopularSites.count {
             let model =  imsPopularSites[resultIndex]
-            
+            navigationController?.popViewController(animated: false)
+            callback?(model.url)
         }
     }
 }

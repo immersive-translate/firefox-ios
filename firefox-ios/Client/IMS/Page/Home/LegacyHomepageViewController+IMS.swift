@@ -12,6 +12,11 @@ extension LegacyHomepageViewController {
                 guard let url = site.url.asURL else { return }
                 if site.id == 1 {
                     let viewController = IMSWebExampleViewController()
+                    viewController.callback = { urlStr in
+                        if let url = URL(string: urlStr) {
+                            self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+                        }
+                    }
                     RouterManager.shared.pushViewController(viewController, animated: true)
                 } else {
                     self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
