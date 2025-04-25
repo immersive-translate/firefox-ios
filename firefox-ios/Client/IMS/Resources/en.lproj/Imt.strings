@@ -158,6 +158,8 @@
 "Imt.web.selectedSubtitle" = "Click on the 'translation icon' in the address bar of any webpage to easily translate with just one click";
 "Imt.web.showMore" = "More";
 "Imt.web.hideMore" = "Retract";
+"Imt.web.wikipedia" = "Wikipedia";
+"Imt.web.amazon" = "Amazon";
 
 "Imt.video.hotSitesTitle" = "Bilingual subtitle sites";
 "Imt.video.selectedTitle" = "🔥 Featured Videos";

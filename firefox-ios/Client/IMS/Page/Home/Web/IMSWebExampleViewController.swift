@@ -161,8 +161,8 @@ class IMSWebExampleViewController: BaseViewController {
     private let morePopularSites: [SelectedWebModel] = [
         SelectedWebModel(name: "Reddit", icon: UIImage(named: "example_web_reddit"), url: "https://www.reddit.com"),
         SelectedWebModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://twitter.com"),
-        SelectedWebModel(name: "维基百科", icon: UIImage(named: "example_web_wikipedia"), url: "https://www.wikipedia.org"),
-        SelectedWebModel(name: "亚马逊", icon: UIImage(named: "example_web_amazon"), url: "https://www.amazon.com"),
+        SelectedWebModel(name: "Imt.web.wikipedia".i18nImt(), icon: UIImage(named: "example_web_wikipedia"), url: "https://www.wikipedia.org"),
+        SelectedWebModel(name: "Imt.web.amazon".i18nImt(), icon: UIImage(named: "example_web_amazon"), url: "https://www.amazon.com"),
     ]
     
     private let imsPopularSites: [IMSSelectedWebModel] = [

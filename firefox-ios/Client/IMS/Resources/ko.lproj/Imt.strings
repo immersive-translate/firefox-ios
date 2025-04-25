@@ -158,6 +158,8 @@
 "Imt.web.selectedSubtitle" = "모든 웹 페이지에서 주소 표시줄의 \"번역 아이콘\" 을 클릭하면 클릭 한 번으로 번역할 수 있습니다.";
 "Imt.web.showMore" = "자세히 보기";
 "Imt.web.hideMore" = "클릭하여 닫기";
+"Imt.web.wikipedia" = "위키피디아";
+"Imt.web.amazon" = "아마존";
 
 "Imt.video.hotSitesTitle" = "이중 언어 자막이 지원되는 비디오 사이트";
 "Imt.video.selectedTitle" = "🔥 비디오 선택";

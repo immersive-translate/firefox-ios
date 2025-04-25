@@ -8,6 +8,12 @@ struct IMSSelectedVideoModel {
     var url: String
 }
 
+struct SelectedVideoModel {
+    var name: String
+    var icon: UIImage?
+    var url: String
+}
+
 class IMSVideoExampleViewController: BaseViewController {
     var callback: ((String) -> Void)?
     
@@ -106,16 +112,6 @@ class IMSVideoExampleViewController: BaseViewController {
         return stackView
     }()
     
-    private lazy var morePopularSitesStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .top
-        stackView.spacing = 20
-        stackView.clipsToBounds = true
-        return stackView
-    }()
-    
     private lazy var examplesLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -154,18 +150,11 @@ class IMSVideoExampleViewController: BaseViewController {
         return label
     }()
     
-    private let popularSites: [SelectedWebModel] = [
-        SelectedWebModel(name: "YouTube", icon: UIImage(named: "example_web_youtube"), url: "https://www.youtube.com"),
-        SelectedWebModel(name: "Google", icon: UIImage(named: "example_web_google"), url: "https://www.google.com"),
-        SelectedWebModel(name: "ChatGPT", icon: UIImage(named: "example_web_chatgpt"), url: "https://chat.openai.com"),
-        SelectedWebModel(name: "Bilin", icon: UIImage(named: "example_web_bilin"), url: "https://www.bilibili.com"),
-    ]
-    
-    private let morePopularSites: [SelectedWebModel] = [
-        SelectedWebModel(name: "Reddit", icon: UIImage(named: "example_web_reddit"), url: "https://www.reddit.com"),
-        SelectedWebModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://twitter.com"),
-        SelectedWebModel(name: "维基百科", icon: UIImage(named: "example_web_wikipedia"), url: "https://www.wikipedia.org"),
-        SelectedWebModel(name: "亚马逊", icon: UIImage(named: "example_web_amazon"), url: "https://www.amazon.com"),
+    private let popularSites: [SelectedVideoModel] = [
+        SelectedVideoModel(name: "YouTube", icon: UIImage(named: "example_web_youtube"), url: "https://www.youtube.com"),
+        SelectedVideoModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://twitter.com"),
+        SelectedVideoModel(name: "Udemy", icon: UIImage(named: "example_video_udemy"), url: "https://www.udemy.com"),
+        SelectedVideoModel(name: "NEBULA", icon: UIImage(named: "example_video_nebula"), url: "https://nebula.tv/featured"),
     ]
     
     private let imsPopularSites: [IMSSelectedWebModel] = [
@@ -223,7 +212,6 @@ class IMSVideoExampleViewController: BaseViewController {
         
         bgView.addSubview(popularSitesLabel)
         bgView.addSubview(popularSitesStackView)
-        bgView.addSubview(morePopularSitesStackView)
         bgView.addSubview(examplesLabel)
         bgView.addSubview(examplesStackView)
         
@@ -321,14 +309,8 @@ class IMSVideoExampleViewController: BaseViewController {
             make.right.equalToSuperview().offset(-24)
         }
         
-        morePopularSitesStackView.snp.makeConstraints { make in
-            make.top.equalTo(popularSitesStackView.snp.bottom)
-            make.left.right.equalTo(popularSitesStackView)
-            make.height.equalTo(99)
-        }
-        
         examplesLabel.snp.makeConstraints { make in
-            make.top.equalTo(morePopularSitesStackView.snp.bottom).offset(8)
+            make.top.equalTo(popularSitesStackView.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(24)
         }
         
@@ -349,16 +331,11 @@ class IMSVideoExampleViewController: BaseViewController {
             let siteView = createSiteView(site: site, index: index)
             popularSitesStackView.addArrangedSubview(siteView)
         }
-        
-        for (index, site) in morePopularSites.enumerated() {
-            let siteView = createSiteView(site: site, index: index + 100)
-            morePopularSitesStackView.addArrangedSubview(siteView)
-        }
     }
 }
 
 extension IMSVideoExampleViewController {
-    private func createSiteView(site: SelectedWebModel, index: Int) -> UIView {
+    private func createSiteView(site: SelectedVideoModel, index: Int) -> UIView {
         let containerView = UIView()
         containerView.snp.makeConstraints { make in
             make.width.equalTo(60)
@@ -452,17 +429,10 @@ extension IMSVideoExampleViewController {
     @objc
     private func siteTapped(_ gesture: UITapGestureRecognizer) {
         guard let tag = gesture.view?.tag else { return }
-        if tag >= 100 {
-            guard tag - 100 < morePopularSites.count else { return }
-            let site = morePopularSites[tag - 100]
-            navigationController?.popViewController(animated: false)
-            callback?(site.url)
-        } else {
-            guard tag < popularSites.count else { return }
-            let site = popularSites[tag]
-            navigationController?.popViewController(animated: false)
-            callback?(site.url)
-        }
+        guard tag < popularSites.count else { return }
+        let site = popularSites[tag]
+        navigationController?.popViewController(animated: false)
+        callback?(site.url)
     }
     
     @objc

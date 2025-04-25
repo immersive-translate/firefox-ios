@@ -173,6 +173,8 @@
 "Imt.web.selectedSubtitle" = "任何网页中点击地址栏中的\"翻译图标\"\n即可一键翻译";
 "Imt.web.showMore" = "查看更多";
 "Imt.web.hideMore" = "点击收起";
+"Imt.web.wikipedia" = "维基百科";
+"Imt.web.amazon" = "亚马逊";
 
 "Imt.video.hotSitesTitle" = "已支持双语字幕的视频网站";
 "Imt.video.selectedTitle" = "🔥 精选视频";

@@ -56,7 +56,7 @@ extension ThemeColor {
 extension ThemeColor {
     /// 投影
     struct TY {
-        static let c00000008 = UIColor(hexString: "000000").withAlphaComponent(0.08).withDarkColor("FFFFFF")
+        static let c00000008 = UIColor(hexString: "000000").withDarkColor("FFFFFF").withAlphaComponent(0.08)
     }
 }
 

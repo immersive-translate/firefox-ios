@@ -157,6 +157,8 @@
 "Imt.web.selectedSubtitle" = "任何網頁中點擊地址欄中的\“翻譯圖標\”\n即可一鍵翻譯";
 "Imt.web.showMore" = "查看更多";
 "Imt.web.hideMore" = "點擊收起";
+"Imt.web.wikipedia" = "維琪百科";
+"Imt.web.amazon" = "亞馬遜";
 
 "Imt.video.hotSitesTitle" = "已支持雙語字幕的視頻網站";
 "Imt.video.selectedTitle" = "🔥 精選視頻";
