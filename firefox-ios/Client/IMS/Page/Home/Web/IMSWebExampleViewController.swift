@@ -65,19 +65,21 @@ class IMSWebExampleViewController: BaseViewController {
     
     private lazy var fingerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "example_finger")
+        imageView.image = UIImage(named: "example_web_finger")
         return imageView
     }()
     
     private lazy var languageIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "toolbar_tranlate_normal")
+        imageView.image = UIImage(named: "toolbar_tranlate_normal")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor(hexString: "#222222").withDarkColor("D8D8D8")
         return imageView
     }()
     
     private lazy var settingsImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "toolbar_tranlate_setting")
+        imageView.image = UIImage(named: "toolbar_tranlate_setting")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor(hexString: "#222222").withDarkColor("D8D8D8")
         return imageView
     }()
     
@@ -273,7 +275,7 @@ class IMSWebExampleViewController: BaseViewController {
             make.top.equalTo(tutorialBannerView.snp.bottom).offset(30)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(31)
-            make.right.equalToSuperview().offset(-32)
+            make.right.equalToSuperview().offset(-31)
         }
         
         popularSitesLabel.snp.makeConstraints { make in

@@ -173,3 +173,10 @@
 "Imt.web.selectedSubtitle" = "任何网页中点击地址栏中的\"翻译图标\"\n即可一键翻译";
 "Imt.web.showMore" = "查看更多";
 "Imt.web.hideMore" = "点击收起";
+
+"Imt.video.hotSitesTitle" = "已支持双语字幕的视频网站";
+"Imt.video.selectedTitle" = "🔥 精选视频";
+"Imt.video.selectedSubtitle" = "在视频网站中点击地址栏中的\"设置图标\"在沉浸式翻译控制板中开启双语字幕";
+"Imt.video.auto" = "自动开启双语字幕";
+
+

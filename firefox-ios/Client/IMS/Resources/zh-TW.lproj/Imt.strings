@@ -151,3 +151,14 @@
 "apple_sign_in_error_cancelled" = "您取消了登入操作";
 "apple_sign_in_error_failed" = "認證失敗";
 "apple_sign_in_error_unknown" = "發生未知錯誤";
+
+"Imt.web.hotSitesTitle" = "🔥 全球精選網站";
+"Imt.web.selectedTitle" = "沉浸式翻譯精選";
+"Imt.web.selectedSubtitle" = "任何網頁中點擊地址欄中的\“翻譯圖標\”\n即可一鍵翻譯";
+"Imt.web.showMore" = "查看更多";
+"Imt.web.hideMore" = "點擊收起";
+
+"Imt.video.hotSitesTitle" = "已支持雙語字幕的視頻網站";
+"Imt.video.selectedTitle" = "🔥 精選視頻";
+"Imt.video.selectedSubtitle" = "在視頻網站中點擊地址欄中的\“設定圖標\”在沉浸式翻譯控制板中開啟雙語字幕";
+"Imt.video.auto" = "自動開啟雙語字幕";

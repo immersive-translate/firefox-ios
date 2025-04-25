@@ -23,6 +23,7 @@ extension ThemeColor {
     struct PP {
         static let EA4C89 = UIColor(hexString: "EA4C89").withDarkColor("E23C7C")
         static let F4A5C4 = UIColor(hexString: "F4A5C4").withDarkColor("7E2F4D")
+        static let FDEDF3 = UIColor(hexString: "FDEDF3").withDarkColor("26171D")
     }
 }
 

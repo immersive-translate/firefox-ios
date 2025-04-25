@@ -18,6 +18,14 @@ extension LegacyHomepageViewController {
                         }
                     }
                     RouterManager.shared.pushViewController(viewController, animated: true)
+                } else if site.id == 2 {
+                    let viewController = IMSVideoExampleViewController()
+                    viewController.callback = { urlStr in
+                        if let url = URL(string: urlStr) {
+                            self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
+                        }
+                    }
+                    RouterManager.shared.pushViewController(viewController, animated: true)
                 } else {
                     self?.showSiteWithURLHandler(url, isGoogleTopSite: isGoogle)
                 }

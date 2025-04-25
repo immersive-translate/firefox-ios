@@ -152,3 +152,14 @@
 "apple_sign_in_error_cancelled" = "You cancelled the login";
 "apple_sign_in_error_failed" = "Authentication failed";
 "apple_sign_in_error_unknown" = "An unknown error occurred";
+
+"Imt.web.hotSitesTitle" = "🔥 Globally selected websites";
+"Imt.web.selectedTitle" = "Immersive Translation Selections";
+"Imt.web.selectedSubtitle" = "Click on the 'translation icon' in the address bar of any webpage to easily translate with just one click";
+"Imt.web.showMore" = "More";
+"Imt.web.hideMore" = "Retract";
+
+"Imt.video.hotSitesTitle" = "Bilingual subtitle sites";
+"Imt.video.selectedTitle" = "🔥 Featured Videos";
+"Imt.video.selectedSubtitle" = "Click on the 'Settings icon' in the address bar of the video website to enable bilingual subtitles in the immersive translation control panel";
+"Imt.video.auto" = "Auto bilingual subtitles";
