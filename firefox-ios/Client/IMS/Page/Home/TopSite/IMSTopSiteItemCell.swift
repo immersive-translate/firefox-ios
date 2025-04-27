@@ -65,6 +65,8 @@ class IMSTopSiteItemCell: UICollectionViewCell, ReusableCell {
         titleLabel.preferredMaxLayoutWidth = UX.imageBackgroundSize.width + HomepageViewModel.UX.shadowRadius
         titleLabel.backgroundColor = .clear
         titleLabel.setContentHuggingPriority(UILayoutPriority(1000), for: .vertical)
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
     }
 
     private lazy var sponsoredLabel: UILabel = .build { sponsoredLabel in
