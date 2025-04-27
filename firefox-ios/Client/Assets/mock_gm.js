@@ -123,6 +123,22 @@ async function GM_listValues() {
 
 async function GM_xmlhttpRequest(details) {
   const { url, method, ...options } = details;
+
+  // options.body 是blob 将 body 转换为 base64
+  if (typeof options.data === "object" && options.data instanceof Blob) {
+    options.base64Data = await blobToBase64(options.data);
+    delete options.data;
+  }
+
+  if (typeof options.data === "object" && options.data instanceof FormData) {
+    const formDataObj = {};
+    for (const [key, value] of options.data.entries()) {
+      formDataObj[key] = value;
+    }
+    options.formData = JSON.stringify(formDataObj);
+    delete options.data;
+  }
+
   const response = await window.WebViewJavascriptBridge.doSend({
     type: "httpClient.request",
     url: url,
@@ -170,6 +186,25 @@ async function GM_xmlhttpRequest(details) {
       details.onerror("Failed to parse response: " + error.message);
     }
   }
+}
+
+function blobToBase64(data) {
+  const reader = new FileReader();
+  const p = new Promise((resolve, reject) => {
+    reader.onload = function () {
+      const dataUrl = reader.result;
+      if (dataUrl.includes("base64,")) {
+        resolve(dataUrl.split("base64,")[1]);
+      } else {
+        resolve(dataUrl);
+      }
+    };
+    reader.onerror = function () {
+      reject(reader.error);
+    };
+  });
+  reader.readAsDataURL(data);
+  return p;
 }
 
 function base64ToBlob(base64Data, contentType = "application/octet-stream") {
