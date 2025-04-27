@@ -152,7 +152,7 @@ class IMSVideoExampleViewController: BaseViewController {
     
     private let popularSites: [SelectedVideoModel] = [
         SelectedVideoModel(name: "YouTube", icon: UIImage(named: "example_web_youtube"), url: "https://www.youtube.com"),
-        SelectedVideoModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://twitter.com"),
+        SelectedVideoModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://x.com"),
         SelectedVideoModel(name: "Udemy", icon: UIImage(named: "example_video_udemy"), url: "https://www.udemy.com"),
         SelectedVideoModel(name: "NEBULA", icon: UIImage(named: "example_video_nebula"), url: "https://nebula.tv/featured"),
     ]

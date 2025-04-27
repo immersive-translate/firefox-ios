@@ -154,13 +154,13 @@ class IMSWebExampleViewController: BaseViewController {
     private let popularSites: [SelectedWebModel] = [
         SelectedWebModel(name: "YouTube", icon: UIImage(named: "example_web_youtube"), url: "https://www.youtube.com"),
         SelectedWebModel(name: "Google", icon: UIImage(named: "example_web_google"), url: "https://www.google.com"),
-        SelectedWebModel(name: "ChatGPT", icon: UIImage(named: "example_web_chatgpt"), url: "https://chat.openai.com"),
-        SelectedWebModel(name: "Bilin", icon: UIImage(named: "example_web_bilin"), url: "https://www.bilibili.com"),
+        SelectedWebModel(name: "ChatGPT", icon: UIImage(named: "example_web_chatgpt"), url: "https://chatgpt.com"),
+        SelectedWebModel(name: "Bilin", icon: UIImage(named: "example_web_bilin"), url: "https://bilin.ai"),
     ]
     
     private let morePopularSites: [SelectedWebModel] = [
         SelectedWebModel(name: "Reddit", icon: UIImage(named: "example_web_reddit"), url: "https://www.reddit.com"),
-        SelectedWebModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://twitter.com"),
+        SelectedWebModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://x.com"),
         SelectedWebModel(name: "Imt.web.wikipedia".i18nImt(), icon: UIImage(named: "example_web_wikipedia"), url: "https://www.wikipedia.org"),
         SelectedWebModel(name: "Imt.web.amazon".i18nImt(), icon: UIImage(named: "example_web_amazon"), url: "https://www.amazon.com"),
     ]
