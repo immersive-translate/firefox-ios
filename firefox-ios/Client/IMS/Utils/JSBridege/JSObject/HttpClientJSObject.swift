@@ -35,7 +35,13 @@ class HttpClientJSObject {
                 let formData = convertToDictionary(text: data!["formData"] as! String)!
                 AF.upload(multipartFormData: { multipartFormData in
                     for (key, value) in formData {
-                        if let stringValue = value as? String {
+                        if (key.hasPrefix("base64_")) {
+                            let base64DataURI = value as! String
+                            let mimeType = self.getMimeType(base64DataURI: base64DataURI)
+                            let base64Data = self.getBase64Data(base64DataURI: base64DataURI)
+                            let data = Data(base64Encoded: base64Data, options: .ignoreUnknownCharacters)!
+                            multipartFormData.append(data, withName: key.replacingOccurrences(of: "base64_", with: ""), fileName: "file", mimeType: mimeType)
+                        } else if let stringValue = value as? String {
                             multipartFormData.append(stringValue.data(using: .utf8)!, withName: key)
                         } else if let numberValue = value as? NSNumber {
                             multipartFormData.append(numberValue.stringValue.data(using: .utf8)!, withName: key)
@@ -51,7 +57,8 @@ class HttpClientJSObject {
                     urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
                 } else if (data != nil && data!["base64Data"] != nil) {
                     // 将base64Data转换为Data
-                    let base64Data = data!["base64Data"] as! String;
+                    let base64DataURI = data!["base64Data"] as! String;
+                    let base64Data = getBase64Data(base64DataURI: base64DataURI)
                     let data = Data(base64Encoded: base64Data, options: .ignoreUnknownCharacters)!
                     urlRequest.httpBody = data
                 }
@@ -125,6 +132,24 @@ class HttpClientJSObject {
         } catch {
             return ""
         }
+    }
+
+    func getMimeType(base64DataURI: String) -> String {
+        // 提取 MIME 类型
+        if let mimeTypeRange = base64DataURI.range(of: "data:(.*?);base64,", options: .regularExpression) {
+            let mimeType = String(base64DataURI[mimeTypeRange].dropFirst(5).dropLast(8))
+            return mimeType
+        }
+        return "application/octet-stream"
+    }
+
+    func getBase64Data(base64DataURI: String) -> String {
+        // 使用修正后的正则表达式匹配标准的 Base64 Data URI 前缀
+        if let base64DataRange = base64DataURI.range(of: "^data:.*?;base64,", options: .regularExpression) {
+            let base64Data = String(base64DataURI[base64DataRange.upperBound...])
+            return base64Data
+        }
+        return ""
     }
 }
 
