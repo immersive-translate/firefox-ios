@@ -7,6 +7,7 @@ import ToolbarKit
 
 extension Notification.Name {
     static let imsShowToolbarTranslateTip: Notification.Name = .init("imsShowToolbarTranslateTip")
+    static let imsShowToolbarTranslateFeedbackTip: Notification.Name = .init("imsShowToolbarFeedbackTip")
     static let imsShowToolbarTranslateSettingTip: Notification.Name = .init("imsShowToolbarTranslateSettingTip")
 }
 
@@ -31,7 +32,7 @@ extension ToolbarKit.ToolbarButton {
             NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateTip, object: nil, queue: .main) {[weak self] ntf in
                 self?.showToolBarPopover(title: String.IMS.ToolbarTip.clickTranslateCurrentPage, btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        NotificationCenter.default.post(name: .imsShowToolbarTranslateSettingTip, object: ntf.object)
+                        NotificationCenter.default.post(name: .imsShowToolbarTranslateFeedbackTip, object: ntf.object)
                     }
                 })
             }
@@ -46,6 +47,14 @@ extension ToolbarKit.ToolbarButton {
                                 actionType: IMSTranslatePageBrowserActionType.togglePopup
                             )
                         )
+                    }
+                })
+            }
+        } else if element.iconName == "toolbar_feedback" {
+            NotificationCenter.default.addObserver(forName: .imsShowToolbarTranslateFeedbackTip, object: nil, queue: .main) {[weak self] ntf in
+                self?.showToolBarPopover(title: "Imt.Toolbar.Tip.clickFeedbackPanel".i18nImt(), btnTitle: String.IMS.ToolbarTip.ihadKnown, onClose: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        NotificationCenter.default.post(name: .imsShowToolbarTranslateSettingTip, object: ntf.object)
                     }
                 })
             }

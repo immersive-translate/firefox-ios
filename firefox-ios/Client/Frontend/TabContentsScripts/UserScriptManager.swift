@@ -105,18 +105,18 @@ class UserScriptManager: FeatureFlaggable {
             compiledUserScripts[setLanguageName] = userScript
         }
         
-        let dsBridgeScript = WKUserScript.createInPageContentWorld(source: "window._dswk=true;", injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: true)
-        compiledUserScripts["dsbridge"] = dsBridgeScript
-        
-        let dsbridgeName = "dsbridgeOrigin"
-        if let dsbridgeOriginCompatPath = Bundle.main.path(
-            forResource: "dsbridge", ofType: "js"),
-            let source = try? NSString(
-                contentsOfFile: dsbridgeOriginCompatPath,
-                encoding: String.Encoding.utf8.rawValue) as String {
-            let userScript = WKUserScript.createInPageContentWorld(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
-            compiledUserScripts[dsbridgeName] = userScript
-        }
+//        let dsBridgeScript = WKUserScript.createInPageContentWorld(source: "window._dswk=true;", injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: true)
+//        compiledUserScripts["dsbridge"] = dsBridgeScript
+//        
+//        let dsbridgeName = "dsbridgeOrigin"
+//        if let dsbridgeOriginCompatPath = Bundle.main.path(
+//            forResource: "dsbridge", ofType: "js"),
+//            let source = try? NSString(
+//                contentsOfFile: dsbridgeOriginCompatPath,
+//                encoding: String.Encoding.utf8.rawValue) as String {
+//            let userScript = WKUserScript.createInPageContentWorld(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
+//            compiledUserScripts[dsbridgeName] = userScript
+//        }
 
         self.compiledUserScripts = compiledUserScripts
     }
@@ -150,15 +150,15 @@ class UserScriptManager: FeatureFlaggable {
             }
         }
         
-        let dsbridgeOriginName = "dsbridgeOrigin"
-        if let dsbridgeOriginUserScript = compiledUserScripts[dsbridgeOriginName] {
-            webView?.configuration.userContentController.addUserScript(dsbridgeOriginUserScript)
-        }
-        
-        let dsbridgeName = "dsbridge"
-        if let dsbridgeUserScript = compiledUserScripts[dsbridgeName] {
-            webView?.configuration.userContentController.addUserScript(dsbridgeUserScript)
-        }
+//        let dsbridgeOriginName = "dsbridgeOrigin"
+//        if let dsbridgeOriginUserScript = compiledUserScripts[dsbridgeOriginName] {
+//            webView?.configuration.userContentController.addUserScript(dsbridgeOriginUserScript)
+//        }
+//        
+//        let dsbridgeName = "dsbridge"
+//        if let dsbridgeUserScript = compiledUserScripts[dsbridgeName] {
+//            webView?.configuration.userContentController.addUserScript(dsbridgeUserScript)
+//        }
         
         let mockGmName = "mock_gm"
         if let mockGmUserScript = compiledUserScripts[mockGmName] {

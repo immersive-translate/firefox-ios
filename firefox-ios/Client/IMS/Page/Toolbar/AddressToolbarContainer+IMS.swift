@@ -215,6 +215,15 @@ extension AddressToolbarContainer {
                             )
                         )
                     }))
+                    pageActions.append(ToolbarElement(iconName: "toolbar_feedback", isEnabled: true, a11yLabel: .TabTrayToggleAccessibilityLabel, a11yHint: nil, a11yId: "toolbar_feedback", hasLongPressAction: false, onSelected: { btn in
+                        imsStore.dispatch(
+                            IMSTranslatePageBrowserAction(
+                                selectedTabURL: currentState.locationViewState.url,
+                                windowUUID: model.windowUUID,
+                                actionType: IMSTranslatePageBrowserActionType.feedback
+                            )
+                        )
+                    }))
                     if let reloadAction = currentState.pageActions.first(where: {
                         $0.iconName == StandardImageIdentifiers.Large.cross ||
                         $0.iconName == StandardImageIdentifiers.Large.arrowClockwise

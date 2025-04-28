@@ -10,21 +10,16 @@ class HttpClientJSObject {
         let url = params["url"]!;
         let method = params["method"]!;
         let data = convertToDictionary(text: params["params"] ?? "");
-        var paramDic: [String: Any]?;
-        if (data != nil && data!["data"] != nil) {
-            paramDic = convertToDictionary(text: data!["data"] as! String);
-        }
+
         var headers: HTTPHeaders?
         if (data != nil && data!["headers"] != nil) {
             headers = HTTPHeaders.init(data!["headers"] as! [String: String])
         }
         
-        if (method == "POST") {
+        if (method == "POST" || method == "PUT") {
             var urlRequest = URLRequest(url: URL(string: url)!)
-            urlRequest.method = .post
-            if (data != nil && data!["data"] != nil) {
-                urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
-            }
+            urlRequest.method = method == "POST" ? .post : .put
+
             // 用于标记是否已设置Content-Type
             var contentTypeSet = false
             headers?.forEach({ header in
@@ -36,10 +31,40 @@ class HttpClientJSObject {
             if !contentTypeSet {
                 urlRequest.headers.add(.contentType("application/json"))
             }
-            AF.request(urlRequest).responseString(encoding: .utf8) { response in
-                self.deal(forResponse: response, handler:handler)
+            if (data != nil && data!["formData"] != nil) {
+                let formData = convertToDictionary(text: data!["formData"] as! String)!
+                AF.upload(multipartFormData: { multipartFormData in
+                    for (key, value) in formData {
+                        if let stringValue = value as? String {
+                            multipartFormData.append(stringValue.data(using: .utf8)!, withName: key)
+                        } else if let numberValue = value as? NSNumber {
+                            multipartFormData.append(numberValue.stringValue.data(using: .utf8)!, withName: key)
+                        }
+                    }
+                }, to: url, method: HTTPMethod(rawValue: method), headers: headers)
+                .responseString(encoding: .utf8) { response in
+                    self.deal(forResponse: response, handler:handler)
+                }
+                return
+            } else {
+                if (data != nil && data!["data"] != nil) {
+                    urlRequest.httpBody = (data!["data"] as! String).data(using: .utf8)
+                } else if (data != nil && data!["base64Data"] != nil) {
+                    // 将base64Data转换为Data
+                    let base64Data = data!["base64Data"] as! String;
+                    let data = Data(base64Encoded: base64Data, options: .ignoreUnknownCharacters)!
+                    urlRequest.httpBody = data
+                }
+                AF.request(urlRequest).responseString(encoding: .utf8) { response in
+                    self.deal(forResponse: response, handler:handler)
+                }
+                return
             }
-            return
+        }
+        
+        var paramDic: [String: Any]?;
+        if (data != nil && data!["data"] != nil) {
+            paramDic = convertToDictionary(text: data!["data"] as! String);
         }
        
         AF.request(url, method: HTTPMethod(rawValue: method), parameters: paramDic, headers: headers).responseString(encoding: .utf8) { response in
@@ -48,11 +73,18 @@ class HttpClientJSObject {
     }
     
     func deal(forResponse response:AFDataResponse<String>, handler: @escaping (String, Bool)->Void) {
+        // 添加base64编码的response字段
+        var base64Data = ""
+        if let responseData = response.data {
+            base64Data = responseData.base64EncodedString()
+        }
+        
         let dic:[String: Any] = [
             "statusCode" : response.response?.statusCode ?? "",
             "data": self.convertToDictionary(text: response.value ?? "") ?? response.value ?? "",
             "headers": response.response?.headers.dictionary ?? [String:String](),
-            "statusText": HTTPURLResponse.localizedString(forStatusCode: response.response?.statusCode ?? 0)
+            "statusText": HTTPURLResponse.localizedString(forStatusCode: response.response?.statusCode ?? 0),
+            "base64Data": base64Data
         ]
         handler(self.convertToJsonString(obj: dic)!, true)
     }

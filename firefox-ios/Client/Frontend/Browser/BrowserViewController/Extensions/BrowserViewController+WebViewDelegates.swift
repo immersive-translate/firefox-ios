@@ -227,6 +227,9 @@ extension BrowserViewController: WKUIDelegate {
                                         image: elements.image,
                                         currentTab: currentTab,
                                         webView: webView)
+            if elements.image != nil {
+                return nil
+            }
             return UIMenu(title: url.absoluteString, children: actions)
         }
     }
@@ -245,6 +248,15 @@ extension BrowserViewController: WKUIDelegate {
             clonedWebView.load(URLRequest(url: url))
 
             return previewViewController
+        }
+        guard let currentTab = tabManager.selectedTab,
+              let contextHelper = currentTab.getContentScript(
+                name: ContextMenuHelper.name()
+              ) as? ContextMenuHelper,
+              let elements = contextHelper.elements
+        else { return provider }
+        if elements.image != nil {
+            return nil
         }
         return provider
     }

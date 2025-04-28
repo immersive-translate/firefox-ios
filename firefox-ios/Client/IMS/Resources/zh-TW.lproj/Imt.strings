@@ -34,6 +34,7 @@
 "Imt.Localizable.Intro.Bigger.World" = "消除語言障礙\n看見更大的世界";
 "Imt.Localizable.Intro.Break.Barriers" = "開啟無語言障礙的世界！";
 "Imt.Localizable.Web.Translation" = "網頁翻譯";
+"Imt.Localizable.Image.Translation" = "圖片翻譯";
 "Imt.Localizable.Video.Translation" = "影片翻譯";
 "Imt.Localizable.Doc.Translation" = "文件翻譯";
 "Imt.Localizable.Comic.Translation" = "漫畫翻譯";
@@ -164,3 +165,12 @@
 "Imt.video.selectedTitle" = "🔥 精選視頻";
 "Imt.video.selectedSubtitle" = "在視頻網站中點擊地址欄中的\“設定圖標\”在沉浸式翻譯控制板中開啟雙語字幕";
 "Imt.video.auto" = "自動開啟雙語字幕";
+
+"Imt.imageContextMenu.unTranslate" = "顯示原圖";
+"Imt.imageContextMenu.translate" = "翻譯圖片";
+"Imt.imageContextMenu.save" = "儲存到相簿";
+"Imt.imageContextMenu.copy" = "複製圖片網址";
+"Imt.imageContextMenu.share" = "分享圖片";
+"Imt.imageContextMenu.feedback" = "問題回饋";
+
+"Imt.Toolbar.Tip.clickFeedbackPanel" = "如遇到问题，\n请点击这里反馈";

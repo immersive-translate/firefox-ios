@@ -13,6 +13,7 @@ enum IMSTranslatePageBrowserActionType: ActionType {
     case translatePage
     case restorePage
     case togglePopup
+    case feedback
 }
 
 class IMSTranslatePageBrowserAction: Action {

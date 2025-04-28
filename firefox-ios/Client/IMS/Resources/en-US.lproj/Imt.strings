@@ -34,6 +34,7 @@
 "Imt.Localizable.Intro.Bigger.World" = "Eliminate language barriers\nSee a bigger world";
 "Imt.Localizable.Intro.Break.Barriers" = "Break language barriers!";
 "Imt.Localizable.Web.Translation" = "Web translation";
+"Imt.Localizable.Image.Translation" = "Picture translation";
 "Imt.Localizable.Video.Translation" = "Video translation";
 "Imt.Localizable.Doc.Translation" = "Doc translation";
 "Imt.Localizable.Comic.Translation" = "Comic translation";
@@ -165,3 +166,10 @@
 "Imt.video.selectedTitle" = "🔥 Featured Videos";
 "Imt.video.selectedSubtitle" = "Click on the 'Settings icon' in the address bar of the video website to enable bilingual subtitles in the immersive translation control panel";
 "Imt.video.auto" = "Auto bilingual subtitles";
+
+"Imt.imageContextMenu.unTranslate" = "Show original image";
+"Imt.imageContextMenu.translate" = "Translate image";
+"Imt.imageContextMenu.save" = "Save to album";
+"Imt.imageContextMenu.copy" = "Copy image";
+"Imt.imageContextMenu.share" = "Share image";
+"Imt.imageContextMenu.feedback" = "Problem feedback";
