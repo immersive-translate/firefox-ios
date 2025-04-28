@@ -173,3 +173,5 @@
 "Imt.imageContextMenu.copy" = "이미지 복사";
 "Imt.imageContextMenu.share" = "이미지 공유";
 "Imt.imageContextMenu.feedback" = "문제 피드백";
+
+"Imt.Toolbar.Tip.clickFeedbackPanel" = "문제 발생 시, 여기를 눌러 피드백하세요";

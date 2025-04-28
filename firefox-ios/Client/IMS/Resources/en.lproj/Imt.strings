@@ -173,3 +173,5 @@
 "Imt.imageContextMenu.copy" = "Copy image";
 "Imt.imageContextMenu.share" = "Share image";
 "Imt.imageContextMenu.feedback" = "Problem feedback";
+
+"Imt.Toolbar.Tip.clickFeedbackPanel" = "Problem? Tap here to feedback";
