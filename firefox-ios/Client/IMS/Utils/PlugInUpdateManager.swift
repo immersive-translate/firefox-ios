@@ -22,12 +22,12 @@ class PlugInUpdateManager {
     private var isFetching = false;
     
     var currentResourceLocation: String {
-//        if let currentResourceName = UserDefaults.standard.string(forKey: PlugInUpdateManager.resouceNameCacheKey)  {
-//            let currentResourceLocation = self.cacheDirectory.appendingPathComponent(currentResourceName).path;
-//            if  FileManager.default.fileExists(atPath:currentResourceLocation) {
-//                return currentResourceLocation;
-//            }
-//        }
+        if let currentResourceName = UserDefaults.standard.string(forKey: PlugInUpdateManager.resouceNameCacheKey)  {
+            let currentResourceLocation = self.cacheDirectory.appendingPathComponent(currentResourceName).path;
+            if  FileManager.default.fileExists(atPath:currentResourceLocation) {
+                return currentResourceLocation;
+            }
+        }
         return jsBundleUrlString;
     }
         
