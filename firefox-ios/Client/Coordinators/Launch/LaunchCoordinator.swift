@@ -37,7 +37,14 @@ class LaunchCoordinator: BaseCoordinator,
         case .termsOfService(let manager):
             presentTermsOfService(with: manager, isFullScreen: isFullScreen)
         case .intro(let manager):
-            presentIntroOnboarding(with: manager, isFullScreen: isFullScreen)
+            if IMSAPPConfigUtils.shared.config.showDialog.isEmpty {
+                IMSAPPConfigUtils.shared.refresh { [weak self] _ in
+                    guard let self = self else { return }
+                    presentIntroOnboarding(with: manager, isFullScreen: isFullScreen)
+                }
+            } else {
+                presentIntroOnboarding(with: manager, isFullScreen: isFullScreen)
+            }
         case .update(let viewModel):
             presentUpdateOnboarding(with: viewModel, isFullScreen: isFullScreen)
         case .defaultBrowser:

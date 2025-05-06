@@ -7,6 +7,9 @@
 struct IMSAPPConfig: Codable {
     @DefaultEmptyArray
     var appHostWhiteList: [String] = []
+    
+    @DefaultEmptyString
+    var showDialog: String  = ""
 }
 
 
@@ -38,15 +41,23 @@ final class IMSAPPConfigUtils {
 
 
 extension IMSAPPConfigUtils {
-    func refresh() {
+    func refresh(showLoad: Bool = false, handler: ((Bool) -> Void)? = nil) {
+        if showLoad {
+            SVProgressHUD.show()
+        }
         APIService.sendRequest(APPAPI.GlobalConfigRequest()) { response in
+            if showLoad {
+                SVProgressHUD.dismiss()
+            }
             switch response.result.validateResult {
             case let .success(info):
                 self._config = info
                 if let data = try? JSONEncoder().encode(info), let jsonString = String(data: data, encoding: .utf8) {
                     StoreConfig.appConfig = jsonString
                 }
+                handler?(true)
             case .failure:
+                handler?(false)
                 ()
             }
         }

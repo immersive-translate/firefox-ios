@@ -5,6 +5,7 @@
 import APIService
 import SwiftyJSON
 import LTXiOSUtils
+import Alamofire
 #if FENNEC_DEBUG
 import LookinServer
 #endif
@@ -14,6 +15,14 @@ extension AppDelegate {
     }
     
     func didFinishLaunch() {
+        reachabilityManager?.startListening { status in
+            switch status {
+            case .reachable:
+                IMSAPPConfigUtils.shared.refresh()
+            default:
+                ()
+            }
+        }
         reloadKeychain()
         IMSAccountManager.shard.setup()
         DebugToolManager.shared.reload()

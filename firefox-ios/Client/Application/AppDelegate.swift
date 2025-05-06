@@ -10,6 +10,7 @@ import Glean
 import TabDataStore
 //import CocoaDebug
 import FacebookCore
+import Alamofire
 
 import class MozillaAppServices.Viaduct
 
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let logger = DefaultLogger.shared
     var notificationCenter: NotificationProtocol = NotificationCenter.default
     var orientationLock = UIInterfaceOrientationMask.all
+    let reachabilityManager = NetworkReachabilityManager()
 
     private let creditCardAutofillStatus = FxNimbus.shared
         .features

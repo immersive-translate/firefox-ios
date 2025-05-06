@@ -26,11 +26,13 @@ class NimbusOnboardingFeatureLayer: NimbusOnboardingFeatureLayerProtocol {
     ) -> OnboardingViewModel {
         let framework = nimbus.features.onboardingFrameworkFeature.value()
 
-        let cards = getOrderedOnboardingCards(
+        var cards = getOrderedOnboardingCards(
             for: onboardingType,
             from: framework.cards,
             withConditions: framework.conditions)
-
+        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion {
+            cards = cards.filter({ $0.name != "subscription" })
+        }
         return OnboardingViewModel(
             cards: cards,
             isDismissable: framework.dismissable)
