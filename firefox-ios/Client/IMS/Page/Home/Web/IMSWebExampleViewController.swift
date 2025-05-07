@@ -155,14 +155,15 @@ class IMSWebExampleViewController: BaseViewController {
         SelectedWebModel(name: "YouTube", icon: UIImage(named: "example_web_youtube"), url: "https://www.youtube.com"),
         SelectedWebModel(name: "Google", icon: UIImage(named: "example_web_google"), url: "https://www.google.com"),
         SelectedWebModel(name: "ChatGPT", icon: UIImage(named: "example_web_chatgpt"), url: "https://chatgpt.com"),
-        SelectedWebModel(name: "Bilin", icon: UIImage(named: "example_web_bilin"), url: "https://bilin.ai"),
+        SelectedWebModel(name: "Reddit", icon: UIImage(named: "example_web_reddit"), url: "https://www.reddit.com"),
+
     ]
     
     private let morePopularSites: [SelectedWebModel] = [
-        SelectedWebModel(name: "Reddit", icon: UIImage(named: "example_web_reddit"), url: "https://www.reddit.com"),
         SelectedWebModel(name: "X", icon: UIImage(named: "example_web_x"), url: "https://x.com"),
         SelectedWebModel(name: "Imt.web.wikipedia".i18nImt(), icon: UIImage(named: "example_web_wikipedia"), url: "https://www.wikipedia.org"),
         SelectedWebModel(name: "Imt.web.amazon".i18nImt(), icon: UIImage(named: "example_web_amazon"), url: "https://www.amazon.com"),
+        SelectedWebModel(name: "Bilin", icon: UIImage(named: "example_web_bilin"), url: "https://bilin.ai"),
     ]
     
     private let imsPopularSites: [IMSSelectedWebModel] = [
@@ -326,6 +327,9 @@ class IMSWebExampleViewController: BaseViewController {
         
         for (index, site) in morePopularSites.enumerated() {
             let siteView = createSiteView(site: site, index: index + 100)
+            if site.name == "Bilin" {
+                siteView.alpha = 0
+            }
             morePopularSitesStackView.addArrangedSubview(siteView)
         }
     }

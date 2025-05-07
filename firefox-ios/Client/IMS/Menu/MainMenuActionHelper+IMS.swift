@@ -92,10 +92,15 @@ extension MainMenuConfigurationUtility {
             }
         )
         
-        let imsMenuSection = MenuSection(options: [
+        var imsMenuSection = MenuSection(options: [
             imtSettingAction,
             imsUpgradeSettingAction,
         ])
+        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion, IMSAccountManager.shard.current() == nil {
+            imsMenuSection = MenuSection(options: [
+                imtSettingAction
+            ])
+        }
         if menuSections.count > 1 {
             menuSections.insert(imsMenuSection, at: 1)
         } else {
