@@ -10495,6 +10495,7 @@
 				C874A4E327F62C5B006F54E5 /* Swiftlint */,
 				5FA2232B27F6FA00005B3D87 /* Glean SDK Generator Script */,
 				5FA2232C27F6FA69005B3D87 /* Nimbus Feature Manifest Generator Script */,
+				2BB0A6F22DCC52C7009C132C /* MLKitTextRecognitionCommon */,
 				F84B21BA1A090F8100AAB793 /* Sources */,
 				F84B21BC1A090F8100AAB793 /* Resources */,
 				28CE83DE1A1D1E7C00576538 /* Frameworks */,
@@ -11165,6 +11166,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Client/Pods-Client-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2BB0A6F22DCC52C7009C132C /* MLKitTextRecognitionCommon */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = MLKitTextRecognitionCommon;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "binary_path=\"Pods/MLKitTextRecognitionCommon/Frameworks/MLKitTextRecognitionCommon.framework/MLKitTextRecognitionCommon\"\n\necho \"Searching for \\.ir in $binary_path...\"\n\ngrep -aob '\\.ir' \"$binary_path\" | while IFS=: read -r offset match; do\n  echo \"Found '.ir' at offset $offset — replacing with \\\\x00\\\\x00\\\\x00\"\n  python3 -c \"with open('$binary_path', 'r+b') as f: f.seek($offset); f.write(b'\\x00\\x00\\x00')\"\ndone\n\necho \"Done patching all occurrences of '.ir'\"\n";
 		};
 		43338D07278F722700A23914 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
