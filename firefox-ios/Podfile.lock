@@ -139,19 +139,13 @@ DEPENDENCIES:
   - WCDB.swift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
+    - AppAuth
+    - AppCheckCore
     - AttributedString
     - BetterCodable
     - CSAPIService
-    - KeychainAccess
-    - SwiftyJSON
-    - Swime
-    - WCDB.swift
-    - WCDBOptimizedSQLCipher
-  trunk:
-    - AppAuth
-    - AppCheckCore
     - GoogleDataTransport
     - GoogleMLKit
     - GoogleSignIn
@@ -161,6 +155,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - IQKeyboardCore
     - IQKeyboardToolbar
+    - KeychainAccess
     - LookinServer
     - MLImage
     - MLKitCommon
@@ -169,7 +164,11 @@ SPEC REPOS:
     - MLKitVision
     - nanopb
     - PromisesObjC
+    - SwiftyJSON
+    - Swime
     - TPKeyboardAvoiding
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
 
 EXTERNAL SOURCES:
   LTXiOSUtils:
