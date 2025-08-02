@@ -68,6 +68,18 @@ extension LegacyHomepageViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handleShowHomepageNotification(_:)), name: .ShowHomepage, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleUserInfoChangeNotification(_:)), name: NotificationName.userInfoChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleHomeFeedbackChangeNotification(_:)), name: NotificationName.homeFeedbackChange, object: nil)
+        
+        if !StoreConfig.alreadyShowNewAppAlert {
+            let alertController = UIAlertController(title: "Imt.newapp.title".i18nImt(), message: "Imt.newapp.message".i18nImt(), preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Imt.newapp.button".i18nImt(), style: .default) { _ in
+                UIApplication.shared.open(Constants.newAppStoreURL, options: [:], completionHandler: nil)
+            }
+            let cancelAction = UIAlertAction(title: "Settings.IMSAccount.IAP.Cancel".i18nIMSAccount(), style: .cancel, handler: nil)
+            alertController.addAction(confirmAction)
+            alertController.addAction(cancelAction)
+            parent?.present(alertController, animated: true)
+            StoreConfig.alreadyShowNewAppAlert = true
+        }
     }
     
     @objc
@@ -82,18 +94,6 @@ extension LegacyHomepageViewController {
     
     @objc
     private func handleShowHomepageNotification(_ notification: Notification) {
-        if !StoreConfig.alreadyShowNewAppAlert {
-            let alertController = UIAlertController(title: "Imt.newapp.title".i18nImt(), message: "Imt.newapp.message".i18nImt(), preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Imt.newapp.button".i18nImt(), style: .default) { _ in
-                UIApplication.shared.open(Constants.newAppStoreURL, options: [:], completionHandler: nil)
-            }
-            let cancelAction = UIAlertAction(title: "Settings.IMSAccount.IAP.Cancel".i18nIMSAccount(), style: .cancel, handler: nil)
-            alertController.addAction(confirmAction)
-            alertController.addAction(cancelAction)
-            UIViewController.tx.topViewController()?.present(alertController, animated: true)
-            StoreConfig.alreadyShowNewAppAlert = true
-        }
-        
         Task {
             let localUserInfo = IMSAccountManager.shard.current()
             if let token = localUserInfo?.token {
