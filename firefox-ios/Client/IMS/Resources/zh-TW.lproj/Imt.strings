@@ -174,3 +174,9 @@
 "Imt.imageContextMenu.feedback" = "問題回饋";
 
 "Imt.Toolbar.Tip.clickFeedbackPanel" = "如遇到问题，\n请点击这里反馈";
+"Imt.newapp.title" = "邀你體驗新版 App";
+"Imt.newapp.message" = "目前的 App 是以 Firefox 瀏覽器為基礎開發的，但在迭代過程中，我們發現基於瀏覽器新增翻譯功能，很難維持良好的使用體驗。因此，我們重新打造了一款全新的「沉浸式翻譯」App。未來將陸續推出原生的文本翻譯、文件翻譯等功能。\n目前這款 App 將停止維護。App 中訂閱的會員仍可繼續享有權益。";
+"Imt.newapp.button" = "下載新版本";
+
+"Imt.newapp.iap.title" = "請前往新 App 升級會員";
+"Imt.newapp.iap.message" = "我們已推出全新版本的 App，帶來更完善的功能與體驗。本 App 不再支援會員購買。\n已購買的會員權益不受影響，仍可繼續使用。歡迎前往新 App 了解並升級會員服務";

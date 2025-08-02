@@ -92,15 +92,29 @@ extension MainMenuConfigurationUtility {
             }
         )
         
+        let newAppSettingAction = MenuElement(
+            title: "Imt.newapp.title".i18nImt(),
+            iconName: "newapp-menu-icon",
+            isEnabled: true,
+            isActive: false,
+            a11yLabel: "",
+            a11yHint: "",
+            a11yId: "",
+            action: {
+                UIApplication.shared.open(Constants.newAppStoreURL, options: [:], completionHandler: nil)
+            }
+        )
+        
         var imsMenuSection = MenuSection(options: [
             imtSettingAction,
             imsUpgradeSettingAction,
+            newAppSettingAction
         ])
-        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion, IMSAccountManager.shard.current() == nil {
-            imsMenuSection = MenuSection(options: [
-                imtSettingAction
-            ])
-        }
+//        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion, IMSAccountManager.shard.current() == nil {
+//            imsMenuSection = MenuSection(options: [
+//                imtSettingAction
+//            ])
+//        }
         if menuSections.count > 1 {
             menuSections.insert(imsMenuSection, at: 1)
         } else {

@@ -175,3 +175,9 @@
 "Imt.imageContextMenu.feedback" = "Problem feedback";
 
 "Imt.Toolbar.Tip.clickFeedbackPanel" = "Problem? Tap here to feedback";
+"Imt.newapp.title" = "Try the new app";
+"Imt.newapp.message" = "The current app is built on the Firefox browser. However, during development iterations, we found it difficult to maintain a good user experience when adding new translation features within a browser-based environment. Therefore, we’ve created a brand-new version of Immersive Translate. In the future, native features such as text translation and document translation will be gradually introduced.\nThe current app will no longer be maintained.Members who subscribed within the app will continue to enjoy their benefits.";
+"Imt.newapp.button" = "Download";
+
+"Imt.newapp.iap.title" = "Try the new app";
+"Imt.newapp.iap.message" = "We’ve released a brand new version of the app with improved features and a better experience.\nThis app no longer supports membership purchases.\nYour existing membership benefits will remain valid and usable.\nFeel free to check out the new app and upgrade your membership there!";

@@ -30,9 +30,7 @@ class NimbusOnboardingFeatureLayer: NimbusOnboardingFeatureLayerProtocol {
             for: onboardingType,
             from: framework.cards,
             withConditions: framework.conditions)
-        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion {
-            cards = cards.filter({ $0.name != "subscription" })
-        }
+        cards = cards.filter({ $0.name != "subscription" })
         return OnboardingViewModel(
             cards: cards,
             isDismissable: framework.dismissable)

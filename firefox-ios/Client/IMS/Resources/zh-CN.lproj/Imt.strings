@@ -191,3 +191,10 @@
 "Imt.imageContextMenu.feedback" = "问题反馈";
 
 "Imt.Toolbar.Tip.clickFeedbackPanel" = "如遇到问题，\n请点击这里反馈";
+
+"Imt.newapp.title" = "邀你体验新版 App";
+"Imt.newapp.message" = "当前的 App 基于 Firefox 浏览器打造，在迭代过程中我们发现基于浏览器增加新的翻译特性很难维持好的体验。因此我们打造了一个新的「沉浸式翻译」。未来在新的 App 中会陆续上线文本翻译、文档翻译等原生特性。\n当前的 App 将停止维护。App 中订阅的会员依然继续享有权益。";
+"Imt.newapp.button" = "下载新版本";
+
+"Imt.newapp.iap.title" = "请前往新 App 升级会员";
+"Imt.newapp.iap.message" = "我们已推出全新版本的 App，带来更完善的功能与体验。本 App 不再支持会员购买。\n已购买的会员权益不会受到影响，仍可继续使用。欢迎前往新 App 了解并升级会员服务！";

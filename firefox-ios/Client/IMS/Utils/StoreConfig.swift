@@ -19,6 +19,9 @@ enum StoreConfig {
     
     @UserDefaultsWrapper("ADJUST_ATTRIBUTION", defaultValue: [:])
     static var adjustAttribution: [String: String]
+    
+    @UserDefaultsWrapper("ALREADY_SHOW_NEWAPP_ALERT", defaultValue: false)
+    static var alreadyShowNewAppAlert: Bool
 }
 
 extension StoreConfig {

@@ -9,3 +9,8 @@ struct NotificationName {
     
     public static let homeFeedbackChange = Notification.Name("HOME_FEEDBACK_CHANGE")
 }
+
+
+enum Constants {
+    static let newAppStoreURL = URL(string: "https://apps.apple.com/app/id6447957425")!
+}
