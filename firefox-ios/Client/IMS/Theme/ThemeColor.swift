@@ -2,8 +2,19 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/
 
-struct ThemeColor {
+struct ThemeSize {
+    static var screenWidth: CGFloat {
+        return UIScreen.main.bounds.size.width
+    }
     
+    static var screenHeight: CGFloat {
+        return UIScreen.main.bounds.size.height
+    }
+}
+
+struct ThemeColor {
+    static let c333333 = UIColor(hexString: "c333333").withDarkColor("c333333")
+    static let EA4C89 = UIColor(hexString: "EA4C89").withDarkColor("EA4C89")
 }
 
 extension ThemeColor {

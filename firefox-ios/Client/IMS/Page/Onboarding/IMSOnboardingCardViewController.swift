@@ -166,10 +166,11 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
 
     // MARK: - View setup
     func setupFirstIntroView() {
-        imstitleLabel.text = .ImtLocalizableIntroDefaultBrowser
+        imstitleLabel.text = "select_language".i18nImt()
         view.addSubview(imstitleLabel)
         
-        imsdescriptionLabel.text = .ImtLocalizableIntroAutoTranslated
+        imsdescriptionLabel.text = nil // .ImtLocalizableIntroAutoTranslated
+        imsdescriptionLabel.isHidden = true
         view.addSubview(imsdescriptionLabel)
         
         let primaryAttribute = [
@@ -178,7 +179,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             NSAttributedString.Key.underlineStyle: 0
                 
         ] as [NSAttributedString.Key : Any]
-        let primaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetDefaultBrowser, attributes: primaryAttribute)
+        let primaryAttributeTitle = NSAttributedString(string: "next_step".i18nImt(), attributes: primaryAttribute)
         imsprimaryButton.setAttributedTitle(primaryAttributeTitle, for: .normal)
         view.addSubview(imsprimaryButton);
         
@@ -187,6 +188,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
         let secondaryAttributeTitle = NSAttributedString(string: .ImtLocalizableIntroSetLater, attributes: secondaryAttribute)
         imssecondaryButton.setAttributedTitle(secondaryAttributeTitle, for: .normal)
         view.addSubview(imssecondaryButton);
+        imssecondaryButton.isHidden = true
         
         let selectLanguageView = SelectLanguageView();
         selectLanguageView.translatesAutoresizingMaskIntoConstraints = false
@@ -199,7 +201,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             imsdescriptionLabel.topAnchor.constraint(equalTo: imstitleLabel.bottomAnchor, constant: 16),
             imsdescriptionLabel.leftAnchor.constraint(equalTo: imstitleLabel.leftAnchor),
             imsdescriptionLabel.centerXAnchor.constraint(equalTo: imstitleLabel.centerXAnchor),
-            selectLanguageView.topAnchor.constraint(equalTo: imsdescriptionLabel.bottomAnchor, constant: 40),
+            selectLanguageView.topAnchor.constraint(equalTo: imsdescriptionLabel.bottomAnchor, constant: 10),
             selectLanguageView.leftAnchor.constraint(equalTo: imstitleLabel.leftAnchor),
             selectLanguageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             selectLanguageView.bottomAnchor.constraint(equalTo: imsprimaryButton.topAnchor, constant: -60),
@@ -207,7 +209,7 @@ class IMSOnboardingCardViewController: OnboardingCardViewController {
             imssecondaryButton.leftAnchor.constraint(equalTo: imstitleLabel.leftAnchor),
             imssecondaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imssecondaryButton.heightAnchor.constraint(equalToConstant: UX.secondaryButtonHeight),
-            imsprimaryButton.bottomAnchor.constraint(equalTo: imssecondaryButton.topAnchor, constant: -UX.buttonBottomMargin),
+            imsprimaryButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -UX.buttonBottomMargin),
             imsprimaryButton.leftAnchor.constraint(equalTo: imstitleLabel.leftAnchor),
             imsprimaryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imsprimaryButton.heightAnchor.constraint(equalToConstant: UX.primaryButtonHeight),

@@ -470,6 +470,12 @@
 		2BB8106A2D7FB202009C4EA6 /* APPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */; };
 		2BB88ECB2D91122A00310A94 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB88ECA2D91122300310A94 /* BaseViewController.swift */; };
 		2BB88ECD2D91147A00310A94 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB88ECC2D91147400310A94 /* ComponentFactory.swift */; };
+		2BBAD5C22E40E1DB00870CAC /* NCAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5BD2E40E1DB00870CAC /* NCAlertController.swift */; };
+		2BBAD5C32E40E1DB00870CAC /* NCAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5BF2E40E1DB00870CAC /* NCAlertView.swift */; };
+		2BBAD5C42E40E1DB00870CAC /* NCAlertQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5BE2E40E1DB00870CAC /* NCAlertQueue.swift */; };
+		2BBAD5C52E40E1DB00870CAC /* UIView+dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5C02E40E1DB00870CAC /* UIView+dialog.swift */; };
+		2BBAD5C62E40E1DB00870CAC /* NCAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5BC2E40E1DB00870CAC /* NCAlertAction.swift */; };
+		2BBAD5C72E40E1DB00870CAC /* DialogResourceUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBAD5BB2E40E1DB00870CAC /* DialogResourceUtils.swift */; };
 		2BD810692D7D82A200C648A4 /* IMSAPPConfigUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */; };
 		2BF21C922D9F64270079C794 /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF21C912D9F64200079C794 /* LoginType.swift */; };
 		2C2A5EF41E68469500F02659 /* PrivateBrowsingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */; };
@@ -3079,6 +3085,12 @@
 		2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPAPI.swift; sourceTree = "<group>"; };
 		2BB88ECA2D91122300310A94 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2BB88ECC2D91147400310A94 /* ComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
+		2BBAD5BB2E40E1DB00870CAC /* DialogResourceUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogResourceUtils.swift; sourceTree = "<group>"; };
+		2BBAD5BC2E40E1DB00870CAC /* NCAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCAlertAction.swift; sourceTree = "<group>"; };
+		2BBAD5BD2E40E1DB00870CAC /* NCAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCAlertController.swift; sourceTree = "<group>"; };
+		2BBAD5BE2E40E1DB00870CAC /* NCAlertQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCAlertQueue.swift; sourceTree = "<group>"; };
+		2BBAD5BF2E40E1DB00870CAC /* NCAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NCAlertView.swift; sourceTree = "<group>"; };
+		2BBAD5C02E40E1DB00870CAC /* UIView+dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+dialog.swift"; sourceTree = "<group>"; };
 		2BD810682D7D827500C648A4 /* IMSAPPConfigUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSAPPConfigUtils.swift; sourceTree = "<group>"; };
 		2BF21C912D9F64200079C794 /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		2C2A5EF31E68469500F02659 /* PrivateBrowsingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateBrowsingTest.swift; sourceTree = "<group>"; };
@@ -5812,6 +5824,7 @@
 		2B1FD23F2D84810B00B37B8F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				2BBAD5C12E40E1DB00870CAC /* Dialog */,
 				2B305E302D9FE68800E82DB1 /* InputTextField.swift */,
 				2B305E2E2D9FE44F00E82DB1 /* PasswordTextField.swift */,
 				29EF1E002D3940840066018B /* IMSGridView.swift */,
@@ -5968,6 +5981,19 @@
 				2BB810692D7FB1FF009C4EA6 /* APPAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		2BBAD5C12E40E1DB00870CAC /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				2BBAD5BB2E40E1DB00870CAC /* DialogResourceUtils.swift */,
+				2BBAD5BC2E40E1DB00870CAC /* NCAlertAction.swift */,
+				2BBAD5BD2E40E1DB00870CAC /* NCAlertController.swift */,
+				2BBAD5BE2E40E1DB00870CAC /* NCAlertQueue.swift */,
+				2BBAD5BF2E40E1DB00870CAC /* NCAlertView.swift */,
+				2BBAD5C02E40E1DB00870CAC /* UIView+dialog.swift */,
+			);
+			path = Dialog;
 			sourceTree = "<group>";
 		};
 		2BF21C8F2D9F64150079C794 /* View */ = {
@@ -12014,6 +12040,12 @@
 				219A0FD52ACC8506009A6D1A /* InactiveTabsCell.swift in Sources */,
 				8A1CBB992BE01839008BE4D4 /* MicrosurveyPromptState.swift in Sources */,
 				23D57E6E25ED6F2700883FAD /* SearchViewController.swift in Sources */,
+				2BBAD5C22E40E1DB00870CAC /* NCAlertController.swift in Sources */,
+				2BBAD5C32E40E1DB00870CAC /* NCAlertView.swift in Sources */,
+				2BBAD5C42E40E1DB00870CAC /* NCAlertQueue.swift in Sources */,
+				2BBAD5C52E40E1DB00870CAC /* UIView+dialog.swift in Sources */,
+				2BBAD5C62E40E1DB00870CAC /* NCAlertAction.swift in Sources */,
+				2BBAD5C72E40E1DB00870CAC /* DialogResourceUtils.swift in Sources */,
 				C82A94F2269F68ED00624AA7 /* LegacyFeatureFlagsManager.swift in Sources */,
 				C8610DAA2A0EBF7100B79FF1 /* OnboardingCardDelegate.swift in Sources */,
 				3BB50E111D6274CD004B33DF /* TopSiteItemCell.swift in Sources */,

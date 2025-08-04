@@ -227,7 +227,7 @@ features:
               buttons:
                 primary:
                   title: Onboarding/Onboarding.Notification.TurnOnNotifications.Action.v114
-                  action: open-instructions-popup
+                  action: forward-one-card
                 secondary:
                   title: Onboarding/Onboarding.Notification.Skip.Action.v115
                   action: forward-one-card

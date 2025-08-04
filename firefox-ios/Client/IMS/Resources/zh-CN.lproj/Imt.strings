@@ -198,3 +198,5 @@
 
 "Imt.newapp.iap.title" = "请前往新 App 升级会员";
 "Imt.newapp.iap.message" = "我们已推出全新版本的 App，带来更完善的功能与体验。本 App 不再支持会员购买。\n已购买的会员权益不会受到影响，仍可继续使用。欢迎前往新 App 了解并升级会员服务！";
+"select_language" = "请选择您的母语";
+"next_step" = "下一步";
