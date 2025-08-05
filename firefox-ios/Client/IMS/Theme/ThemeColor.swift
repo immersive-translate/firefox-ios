@@ -13,7 +13,7 @@ struct ThemeSize {
 }
 
 struct ThemeColor {
-    static let c333333 = UIColor(hexString: "c333333").withDarkColor("c333333")
+    static let c333333 = UIColor(hexString: "333333").withDarkColor("D8D8D8")
     static let EA4C89 = UIColor(hexString: "EA4C89").withDarkColor("EA4C89")
 }
 
