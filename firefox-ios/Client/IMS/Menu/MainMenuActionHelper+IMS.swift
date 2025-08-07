@@ -107,7 +107,7 @@ extension MainMenuConfigurationUtility {
         
         var imsMenuSection = MenuSection(options: [
             imtSettingAction,
-            imsUpgradeSettingAction,
+//            imsUpgradeSettingAction,
             newAppSettingAction
         ])
 //        if IMSAPPConfigUtils.shared.config.showDialog == AppInfo.appVersion, IMSAccountManager.shard.current() == nil {
