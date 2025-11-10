@@ -72,4 +72,20 @@ extension BrowserViewController: IMSScriptDelegate {
         guard let tab = tabManager.selectedTab else { return nil}
         return tab.webView
     }
+    
+    func openVIPPage() {
+        let navigationController = DismissableNavigationViewController()
+        let coordinator = IMSUpgradeCoordinator(
+            router: DefaultRouter(navigationController: navigationController),
+            windowUUID: windowUUID,
+            profile: profile
+        )
+        
+        navigationController.onViewDismissed = { [weak coordinator] in
+            // Clean up when dismissed
+        }
+        coordinator.start()
+        
+        RouterManager.shared.present(navigationController, animated: true)
+    }
 }

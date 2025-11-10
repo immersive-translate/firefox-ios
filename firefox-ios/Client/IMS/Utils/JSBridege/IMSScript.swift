@@ -15,6 +15,7 @@ protocol IMSScriptDelegate: AnyObject {
     func onPageStatusAsync(status: String)
     func getCurTabWebView() -> TabWebView?
     func callTosJS(name: String, data: Any?, id: String?)
+    func openVIPPage()
 }
 
 let IMSScriptNamespace = "window.imtExtensionBridge"
@@ -106,6 +107,15 @@ class IMSScript: TabContentScript {
                 imageLongPress(dataJSON: dataJSON)
             case "imageTextRecognition":
                 imageTextRecognition(id: id, dataJSON: dataJSON)
+            case "openPage":
+                let path = dataJSON["path"].stringValue
+                let param = dataJSON["param"].dictionaryObject
+                switch path {
+                case "vip":
+                    delegate?.openVIPPage()
+                default:
+                    ()
+                }
             default:
                 break
             }
