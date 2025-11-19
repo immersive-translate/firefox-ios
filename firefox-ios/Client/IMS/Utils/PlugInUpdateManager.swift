@@ -17,7 +17,7 @@ class PlugInUpdateManager {
     private let cacheDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0];
     private let jsBundleUrlString = Bundle.main.path(
         forResource: "immersive-translate.user", ofType: "js")!
-    private let jsBundleEtag = ##"W/"cc8b0c070bd052cdd52dcd98a3e703c6""##
+    private let jsBundleEtag = ##"W/"c03f9a37d150d2fb210a7cac42fc1115""##
     
     private var isFetching = false;
     
