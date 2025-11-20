@@ -38,6 +38,15 @@ extension BrowserViewController: WKUIDelegate {
 
         let navigationUrl = navigationAction.request.url
         let navigationUrlString = navigationUrl?.absoluteString ?? ""
+        
+        // Intercept immersivetranslate pricing pages and redirect to purchase page
+        if let url = navigationUrl, shouldInterceptImmersiveTranslatePricing(url: url) {
+            openVIPPage()
+            logger.log("Intercepted ImmersiveTranslate pricing page in createWebViewWith, opening VIP purchase page",
+                       level: .info,
+                       category: .webview)
+            return nil
+        }
 
         // Check for "data" scheme using WebViewNavigationHandlerImplementation
         let navigationHandler = WebViewNavigationHandlerImplementation { _ in }
@@ -635,6 +644,13 @@ extension BrowserViewController: WKNavigationDelegate {
                     return
                 }
             }
+            
+            // Intercept immersivetranslate pricing pages and redirect to purchase page
+            if shouldInterceptImmersiveTranslatePricing(url: url) {
+                redirectToImmersiveTranslatePurchasePage(tab: tab, decisionHandler: decisionHandler)
+                return
+            }
+            
             // when open a new tab, the navigationAction.navigationType is not linkActivated
             if (navigationAction.navigationType == .linkActivated || webView.url == nil), let shortDomain = url.shortDomain, IMSAPPConfigUtils.shared.config.appHostWhiteList.contains(shortDomain) && url != webView.url {
                 if navigationAction.request.value(forHTTPHeaderField: "IMS-URL-INTERCEPTED") == "true" {
@@ -1174,6 +1190,47 @@ private extension BrowserViewController {
             state: .tabNavigatedToDifferentUrl,
             searchData: searchData,
             isPrivate: isPrivate)
+    }
+    
+    // MARK: - ImmersiveTranslate Pricing Interception
+    
+    /// Check if the URL matches immersivetranslate pricing pages pattern
+    /// Matches: immersivetranslate.com/pricing, immersivetranslate.cn/pricing,
+    ///          immersivetranslate.com/xx/pricing, immersivetranslate.cn/xx/pricing
+    private func shouldInterceptImmersiveTranslatePricing(url: URL) -> Bool {
+        guard let host = url.host?.lowercased() else { return false }
+        
+        // Check if host is immersivetranslate.com or immersivetranslate.cn
+        let validHosts = ["immersivetranslate.com", "www.immersivetranslate.com",
+                          "immersivetranslate.cn", "www.immersivetranslate.cn"]
+        guard validHosts.contains(host) else { return false }
+        
+        let path = url.path.lowercased()
+        
+        // Match /pricing or /xx/pricing pattern (where xx is a language code)
+        if path == "/pricing" {
+            return true
+        }
+        
+        // Match /xx/pricing pattern
+        let pathComponents = path.components(separatedBy: "/").filter { !$0.isEmpty }
+        if pathComponents.count == 2 && pathComponents[1] == "pricing" {
+            return true
+        }
+        
+        return false
+    }
+    
+    /// Redirect to ImmersiveTranslate purchase page by opening VIP page
+    private func redirectToImmersiveTranslatePurchasePage(tab: Tab, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(.cancel)
+        
+        // Open VIP page modal
+        openVIPPage()
+        
+        logger.log("Intercepted ImmersiveTranslate pricing page, opening VIP purchase page",
+                   level: .info,
+                   category: .webview)
     }
 }
 
