@@ -182,3 +182,4 @@
 "Imt.newapp.iap.message" = "我們已推出全新版本的 App，帶來更完善的功能與體驗。本 App 不再支援會員購買。\n已購買的會員權益不受影響，仍可繼續使用。歡迎前往新 App 了解並升級會員服務";
 "select_language" = "請選擇您的母語";
 "next_step" = "下一步";
+"Imt.newapp.iap.buy" = "繼續購買";

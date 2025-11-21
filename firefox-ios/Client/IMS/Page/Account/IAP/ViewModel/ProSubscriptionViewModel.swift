@@ -147,10 +147,16 @@ class ProSubscriptionViewModel: ObservableObject {
         alertView.addAction(title: "Imt.newapp.button".i18nImt(), style: .destructive) { _ in
             UIApplication.shared.open(Constants.newAppStoreURL, options: [:], completionHandler: nil)
         }
-        alertView.addAction(title: "Settings.IMSAccount.IAP.Cancel".i18nIMSAccount(), style: .cancel)
+        alertView.addAction(title: "Imt.newapp.iap.buy".i18nImt(), style: .cancel) { [weak self] _ in
+            guard let self = self else { return }
+            buyProduct()
+        }
         alertView.show()
         return;
-        
+    }
+    
+    @MainActor
+    func buyProduct() {
         if fromSource == .onboarding {
             if selectedConfiGoodType == .monthly {
                 TrackManager.shared.event("Onboarding_Step5_Subscribe_Monthly_Click")

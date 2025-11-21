@@ -183,3 +183,4 @@
 "Imt.newapp.iap.message" = "We’ve released a brand new version of the app with improved features and a better experience.\nThis app no longer supports membership purchases.\nYour existing membership benefits will remain valid and usable.\nFeel free to check out the new app and upgrade your membership there!";
 "select_language" = "Please select your native language";
 "next_step" = "Next";
+"Imt.newapp.iap.buy" = "Continue buying";
