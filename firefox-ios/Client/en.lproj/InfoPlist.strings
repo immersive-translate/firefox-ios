@@ -8,4 +8,4 @@ NSMicrophoneUsageDescription = "Firefox uses your microphone to record and uploa
 "Scan QR Code" = "Scan QR Code";
 "CFBundleDisplayName" = "Babel Browser";
 "CFBundleName" = "Babel Browser";
-"NSUserTrackingUsageDescription" = "This will help us optimize our content and create a better experience for you.";
+"NSUserTrackingUsageDescription" = "We use your device identifier to measure how you use features in this app (for example, to analyze usage statistics and diagnose crashes) so we can improve the product experience. We do not use this information to track your activities in other apps or websites.";

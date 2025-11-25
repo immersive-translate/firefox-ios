@@ -25,4 +25,4 @@
 "CFBundleDisplayName" = "Babel瀏覽器";
 "CFBundleName" = "Babel瀏覽器";
 
-"NSUserTrackingUsageDescription" = "這將幫助我們優化內容，並為您打造更好的體驗。";
+"NSUserTrackingUsageDescription" = "我們將使用裝置識別碼來統計您在本應用中的使用情況（如功能使用頻率、崩潰問題排查等），以分析產品表現並改進功能與體驗。我們不會使用這些資訊追蹤您在其他應用程式或網站中的行為。";
